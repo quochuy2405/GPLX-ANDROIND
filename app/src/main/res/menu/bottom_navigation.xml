@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/page_home"
+        android:enabled="true"
+        android:icon="@drawable/iconhome"
+        android:title=""
+        />
+    <item
+        android:id="@+id/page_nofication"
+        android:enabled="true"
+        android:icon="@drawable/category"
+        android:title=""
+        />
+
+    <item
+        android:id="@+id/page_nofication1"
+        android:enabled="true"
+        android:icon="@drawable/iconnofication"
+        android:title=""
+        />
+
+
+    <item
+        android:id="@+id/page_profile"
+        android:enabled="true"
+        android:icon="@drawable/iconprofile"
+        android:title=""/>
+</menu>

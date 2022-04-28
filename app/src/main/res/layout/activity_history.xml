@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    tools:context=".History">
+
+    <RelativeLayout
+        android:id="@+id/header_activity"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/title_activity"
+                    style="@style/TitleActivityName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Activity" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/count"
+                style="@style/TitleActivityName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="(03)"
+                android:textColor="@color/purple" />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+
+            android:background="@drawable/icon_setting" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lvItems"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header_activity"
+        android:divider="@null"
+        android:scrollbars="none"
+        tools:listitem="@layout/listview_item">
+
+
+    </ListView>
+
+    <include layout="@layout/activity_navigation" />
+
+</RelativeLayout>
