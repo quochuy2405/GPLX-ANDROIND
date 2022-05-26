@@ -13,4 +13,10 @@
     <string name="text_verify">VERIFY</string>
     <string name="text_send">SEND</string>
     <string name="text_notice_verify">A message with verification code was sent to your mobile phone</string>
+    <string name="list_guide_line">
+         <h2>HƯỠNG DẪN THI</h2>\n
+         <li>SỐ LƯỢNG CÂU HỎI: 25 CÂU</li>\n
+          <li>YÊU CẦU LÀM ĐÚNG: 21/25 CÂU</li>\n
+             <li>THỜI GIAN:19 PHÚT</li>\n
+    </string>
 </resources>

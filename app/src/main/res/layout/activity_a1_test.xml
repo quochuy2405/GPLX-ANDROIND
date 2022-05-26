@@ -4,34 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SelectCategory">
+    tools:context=".A1_Test">
 
 
-    <ImageView
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:adjustViewBounds="false"
-        android:cropToPadding="false"
-        android:scaleType="centerInside"
-        android:src="@drawable/br_car2"></ImageView>
     <ImageView
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo"
-        android:layout_marginTop="10dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/logo"
 
-        />    <TextView
+        />
+
+    <TextView
         android:id="@+id/text_choice_category"
         style="@style/TextTitle"
-        android:padding="10dp"
-        android:layout_below="@+id/header"
+        android:layout_below="@+id/logo"
         android:layout_centerHorizontal="true"
-        android:text="CHỌN HẠNG MỤC"
+        android:layout_margin="20dp"
+        android:background="@drawable/button_radius_10"
+        android:backgroundTint="@color/green_main"
+        android:paddingLeft="30dp"
+        android:paddingTop="10dp"
+        android:paddingRight="30dp"
+        android:paddingBottom="10dp"
+        android:text="HẠNG A1"
+        android:textColor="@color/white"
         android:textSize="22sp">
+
+    </TextView>
+
+    <TextView
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_choice_category"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button_radius_10"
+        android:backgroundTint="@color/green_main"
+        android:paddingLeft="30dp"
+        android:paddingTop="10dp"
+        android:paddingRight="30dp"
+        android:text="@string/list_guide_line"
+        android:textColor="@color/white">
 
     </TextView>
 
@@ -39,7 +58,7 @@
         android:id="@+id/scroll_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_choice_category"
+        android:layout_below="@+id/guideline"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:overScrollMode="always">
@@ -50,10 +69,13 @@
 
             android:layout_height="wrap_content">
 
+
             <RelativeLayout
                 android:id="@+id/btn_a1"
                 style="@style/AroundButton"
-                android:background="@drawable/moto">
+                android:layout_height="140dp"
+                android:background="@drawable/button_radius_10"
+                android:backgroundTint="@color/green_main">
 
                 <TextView
                     android:id="@+id/title_a1"
@@ -62,6 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/tv_description_a1"
                     android:text="Bằng A1"
+
                     android:textColor="@color/white">
 
                 </TextView>
@@ -79,12 +102,13 @@
                 </TextView>
             </RelativeLayout>
 
-
             <RelativeLayout
                 android:id="@+id/btn_a2"
                 style="@style/AroundButton"
+                android:layout_height="140dp"
                 android:layout_toEndOf="@+id/btn_a1"
-                android:background="@drawable/motobike">
+                android:background="@drawable/button_radius_10"
+                android:backgroundTint="@color/green_main">
 
                 <TextView
                     android:id="@+id/title_a2"
@@ -114,8 +138,10 @@
             <RelativeLayout
                 android:id="@+id/btn_b1"
                 style="@style/AroundButton"
+                android:layout_height="140dp"
                 android:layout_below="@+id/btn_a1"
-                android:background="@drawable/_car">
+                android:background="@drawable/button_radius_10"
+                android:backgroundTint="@color/green_main">
 
                 <TextView
                     android:id="@+id/title_b1"
@@ -145,10 +171,12 @@
             <RelativeLayout
                 android:id="@+id/btn_b2"
                 style="@style/AroundButton"
+                android:layout_height="140dp"
                 android:layout_alignTop="@+id/btn_b1"
                 android:layout_toEndOf="@id/btn_b1"
 
-                android:background="@drawable/car_benz">
+                android:background="@drawable/button_radius_10"
+                android:backgroundTint="@color/green_main">
 
                 <TextView
                     android:id="@+id/title_b2"
@@ -157,6 +185,7 @@
                     android:layout_height="wrap_content"
                     android:layout_above="@+id/tv_description_b2"
                     android:text="Bằng B2"
+
                     android:textColor="@color/white">
 
                 </TextView>
@@ -177,19 +206,6 @@
         </RelativeLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/btn_send_new_pass"
-        style="@style/ButtonRouder"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/scroll_category"
 
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="50dp"
-        android:background="@drawable/br_button2"
-        android:text="@string/text_send"
-        android:textSize="17dp" />
-
-
-
+    <include layout="@layout/activity_navigation" />
 </RelativeLayout>

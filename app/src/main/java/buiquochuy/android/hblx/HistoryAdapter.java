@@ -17,20 +17,20 @@ import java.util.List;
 
 class HistoryItem {
 
-    private String fullName;
-    public HistoryItem( String fullName) {
-        this.fullName = fullName;
+    private String CategoryName;
+    public HistoryItem( String CategoryName) {
+        this.CategoryName = CategoryName;
 
     }
     public HistoryItem() {
-        this.fullName="No name";
+        this.CategoryName="No name";
     }
 
-    public String getFullName() {
-        return this.fullName;
+    public String getCategoryName() {
+        return this.CategoryName;
     }
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setCategoryName(String fullName) {
+        this.CategoryName = fullName;
     }
 }
 
@@ -52,7 +52,7 @@ public  class HistoryAdapter extends ArrayAdapter<HistoryItem> {
         HistoryItem historyItem = getItem(position);
         TextView tvFullName = (TextView)
                 convertView.findViewById(R.id.tv_person_name);
-        tvFullName.setText(historyItem.getFullName());
+        tvFullName.setText(historyItem.getCategoryName());
 // Get item
         return convertView;
     }

@@ -11,15 +11,25 @@
     android:id="@+id/layout_br"
     >
 
+
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="270sp"
         android:adjustViewBounds="false"
         android:cropToPadding="false"
-        android:scaleType="centerCrop"
-        android:src="@drawable/br_login">
+        android:scaleType="fitXY"
+        android:src="@drawable/br_car2" />
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
 
-    </ImageView>
+        />
+
 </RelativeLayout>
 
     <RelativeLayout
@@ -27,16 +37,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/layout_br"
-        android:layout_marginTop="-100px"
+        android:layout_marginTop="-25dp"
+        android:backgroundTint="@color/gray_milk"
         android:paddingLeft="30dp"
-        android:paddingTop="50dp"
         android:paddingRight="30dp"
-        android:paddingBottom="50dp">
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/title_login"
+            style="@style/TextTitle"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:text="SIGN IN"
+
+            />
 
         <EditText
             android:id="@+id/edit_email_login"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_below="@+id/title_login"
             android:background="@drawable/br_input"
             android:hint="Email"
             android:inputType="text"
@@ -65,44 +86,54 @@
             android:background="@drawable/br_button2"
             android:text="@string/text_login"
             android:textSize="17dp" />
+
         <TextView
-            android:layout_marginTop="15dp"
-            android:layout_below="@+id/btn_login"
             android:id="@+id/text_forgot_pass"
             android:layout_width="wrap_content"
-            android:text="@string/text_forgot_pass"
-            android:textColor="@color/purple"
-            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_login"
             android:layout_centerHorizontal="true"
-            android:layout_height="wrap_content">
+            android:layout_marginTop="15dp"
+            android:text="@string/text_forgot_pass"
+            android:textColor="@color/gray"
+            android:textStyle="bold" />
 
-        </TextView>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_below="@+id/text_forgot_pass"
             android:layout_centerHorizontal="true"
-            >
+            android:layout_marginTop="15dp">
 
             <TextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:text="Don't have account?"/>
+                android:text="Don't have account?"
+                android:textStyle="bold" />
 
             <TextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/purple"
                 android:layout_marginLeft="5dp"
-                android:text="@string/text_signup"/>
+                android:text="@string/text_signup"
+                android:textColor="@color/green_main"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/logo_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/logo"
 
+            />
     </RelativeLayout>
 
 </RelativeLayout>

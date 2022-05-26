@@ -57,5 +57,18 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,EditProfile.class);
         startActivity(intent);
     }
+    public void A1_Test(View view){
+        Intent intent = new Intent(this,A1_Test.class);
+        startActivity(intent);
+    }
+    public void Result(View view){
+        Intent intent = new Intent(this,Result.class);
+        startActivity(intent);
+    }
+    public void NoticeBoard(View view){
+        Intent intent = new Intent(this,NoticeBoard.class);
+        startActivity(intent);
+    }
+
 
 }

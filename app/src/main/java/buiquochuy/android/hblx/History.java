@@ -18,7 +18,7 @@ public class History extends AppCompatActivity {
         setContentView(R.layout.activity_history);
         ListView listView = (ListView) findViewById(R.id.lvItems);
         HistoryItem h = new HistoryItem();
-        h.setFullName("Huy");
+        h.setCategoryName("Hạng A1");
         for (int i = 0; i < 10; i++) {
             names.add(h);
         }

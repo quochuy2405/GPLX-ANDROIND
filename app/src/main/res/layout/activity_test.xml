@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash"
     tools:context=".Splash">
+
     <RelativeLayout
-        android:layout_width="match_parent"
         android:id="@+id/progress_bar"
-        android:padding="10dp"
-        android:layout_height="0.5in">
+        android:layout_width="match_parent"
+        android:layout_height="0.4in"
+        android:padding="10dp">
 
         <LinearLayout
             android:id="@+id/number_question"
@@ -20,56 +20,54 @@
             android:gravity="center">
 
             <TextView
-
+                android:id="@+id/tv_positionQuestion"
                 style="@style/TextQuestion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
                 android:text="10" />
 
             <TextView
-              android:textColor="@color/white"
                 style="@style/TextQuestion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="/" />
 
             <TextView
-                android:textColor="@color/white"
                 style="@style/TextQuestion"
+                android:id="@+id/tv_totalQuestion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="50" />
         </LinearLayout>
+
         <ProgressBar
-            android:layout_below="@+id/number_question"
             android:id="@+id/determinateBar"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="10dp"
+            android:layout_below="@+id/number_question"
+            android:progress="20"
             android:progressDrawable="@drawable/progress_custom"
-            android:progress="20"/>
+            app:trackCornerRadius="20dp" />
 
     </RelativeLayout>
 
- <TextView
-     android:layout_below="@+id/progress_bar"
-     android:id="@+id/question"
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:text="Câu 10. Bạn đẫ biết đi xe chưa"
-     android:padding="20dp"
-     android:minHeight="1in"
-     android:textColor="@color/white"
-     style="@style/TextQuestion"
-     >
+    <TextView
+        android:id="@+id/question"
+        style="@style/TextQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/progress_bar"
+        android:minHeight="1in"
+        android:padding="20dp"
+        android:text="Câu 10. Bạn đẫ biết đi xe chưa">
 
- </TextView>
+    </TextView>
+
     <RelativeLayout
-        android:layout_below="@+id/question"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/question"
         android:paddingLeft="20dp"
         android:paddingRight="20dp">
 
@@ -82,34 +80,37 @@
             android:background="@drawable/br_button2"
             android:text="A ..."
             android:textSize="17dp" />
+
         <Button
             android:id="@+id/btn_B"
             style="@style/ButtonRouder"
-            android:layout_below="@id/btn_A"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_below="@id/btn_A"
 
             android:layout_marginTop="20dp"
             android:background="@drawable/br_button2"
             android:text="B ..."
             android:textSize="17dp" />
+
         <Button
             android:id="@+id/btn_C"
-            android:layout_below="@id/btn_B"
             style="@style/ButtonRouder"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_below="@id/btn_B"
 
             android:layout_marginTop="20dp"
             android:background="@drawable/br_button2"
             android:text="C ..."
             android:textSize="17dp" />
+
         <Button
             android:id="@+id/btn_D"
             style="@style/ButtonRouder"
-            android:layout_below="@id/btn_C"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_below="@id/btn_C"
 
             android:layout_marginTop="20dp"
             android:background="@drawable/br_button2"

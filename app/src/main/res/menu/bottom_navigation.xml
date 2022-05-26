@@ -2,7 +2,7 @@
     <item
         android:id="@+id/page_home"
         android:enabled="true"
-        android:icon="@drawable/iconhome"
+        android:icon="@drawable/home"
         android:title=""
         />
     <item
@@ -11,11 +11,15 @@
         android:icon="@drawable/category"
         android:title=""
         />
-
+    <item
+        android:id="@+id/add"
+        android:enabled="false"
+        android:title=""
+        />
     <item
         android:id="@+id/page_nofication1"
         android:enabled="true"
-        android:icon="@drawable/iconnofication"
+        android:icon="@drawable/notice"
         android:title=""
         />
 
@@ -23,6 +27,6 @@
     <item
         android:id="@+id/page_profile"
         android:enabled="true"
-        android:icon="@drawable/iconprofile"
+        android:icon="@drawable/profile"
         android:title=""/>
 </menu>

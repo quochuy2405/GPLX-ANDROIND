@@ -13,13 +13,21 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="300sp"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
-            android:scaleType="centerCrop"
-            android:src="@drawable/br_login">
+            android:scaleType="fitXY"
+            android:src="@drawable/br_car2" />
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
 
-        </ImageView>
+            />
     </RelativeLayout>
 
     <RelativeLayout
@@ -28,44 +36,26 @@
         android:layout_height="match_parent"
         android:layout_below="@id/layout_br"
         android:layout_marginTop="-100px"
+        android:backgroundTint="@color/gray_milk"
         android:paddingLeft="30dp"
         android:paddingTop="50dp"
         android:paddingRight="30dp"
-        android:paddingBottom="50dp">
+        android:paddingBottom="20dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="@string/text_forgot_pass"
             android:id="@+id/title_forgot_pass"
-            android:textColor="@color/purple"
-            android:textSize="16dp"
-            android:textStyle="bold">
-
-        </TextView>
-
-        <TextView
-            android:layout_marginTop="10dp"
-            android:id="@+id/text_notice_verify"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/title_forgot_pass"
+            style="@style/TextTitle"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/br_textnotice"
-            android:text="@string/text_notice_verify"
-            android:textAlignment="center"
-            android:lineHeight="30dp"
-            android:padding="10dp"
-            android:textSize="16dp"
-            >
+            android:text="@string/text_forgot_pass">
 
         </TextView>
+
+
         <EditText
             android:id="@+id/edit_email_forgot_pass"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_below="@id/text_notice_verify"
+            android:layout_below="@id/title_forgot_pass"
             android:layout_marginTop="30dp"
             android:background="@drawable/br_input"
             android:hint="Email"
@@ -84,8 +74,16 @@
             android:text="@string/text_send"
             android:textSize="17dp" />
 
+        <ImageView
+            android:id="@+id/logo_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/logo"
 
-
+            />
     </RelativeLayout>
 
 </RelativeLayout>

@@ -5,7 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
@@ -30,12 +35,13 @@
         android:onClick="Login"
 
         android:text="Login" />
+
     <Button
         android:id="@+id/button4"
-        android:layout_below="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="Login"
+        android:layout_below="@+id/button3"
+        android:onClick="SignUp"
 
         android:text="Signup" />
     <Button
@@ -80,21 +86,57 @@
         android:layout_height="wrap_content"
         android:onClick="SelectCategory"
         android:text="Select Category" />
-    <Button
-        android:id="@+id/button10"
 
-        android:layout_below="@+id/button9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="Test"
-        android:text="Test" />
-    <Button
-        android:id="@+id/button11"
 
-        android:layout_below="@+id/button10"
+
+</RelativeLayout>
+
+
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="Profile"
-        android:text="Profile" />
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Test"
+            android:text="Test" />
+        <Button
+            android:id="@+id/button11"
+
+            android:layout_below="@+id/button10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Profile"
+            android:text="Profile" />
+        <Button
+            android:id="@+id/button12"
+
+            android:layout_below="@+id/button11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="A1_Test"
+            android:text="A1_Test" />
+        <Button
+            android:id="@+id/button13"
+
+            android:layout_below="@+id/button12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Result"
+            android:text="Result" />
+        <Button
+            android:id="@+id/button14"
+
+            android:layout_below="@+id/button13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="NoticeBoard"
+            android:text="NoticeBoard" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>
 
 </RelativeLayout>

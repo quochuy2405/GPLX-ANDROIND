@@ -7,62 +7,45 @@
     tools:context=".Splash">
 
     <ImageView
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:adjustViewBounds="false"
+        android:adjustViewBounds="true"
         android:cropToPadding="false"
-        android:scaleType="centerCrop"
-        android:src="@drawable/splash">
+        android:scaleType="fitXY"
+        android:src="@drawable/splash"
+
+        >
 
     </ImageView>
 
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/splash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
-        <TextView
-            android:id="@+id/text_app"
-            style="@style/TextAppName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:layout_marginBottom="10dp"
-            android:textAlignment="center">
+        android:layout_centerInParent="true"
+        android:src="@drawable/image_splash"
+       >
 
-        </TextView>
+    </ImageView>
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/splash"
+        android:layout_centerHorizontal="true"
+        >
+    </ImageView>
 
-        <ImageView
-            android:id="@+id/image_first"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/text_app"
-            android:layout_centerHorizontal="true"
-            android:scaleType="fitCenter"
-            android:src="@drawable/image_splash">
-
-        </ImageView>
-
-        <TextView
-            android:id="@+id/text_boarding"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/image_first"
-            android:layout_centerHorizontal="true"
-            android:text="@string/text_boarding"
-            android:textColor="@color/white"
-            android:textStyle="bold"></TextView>
-
-        <Button
-            android:id="@+id/btn_boarding"
-            style="@style/ButtonRouder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/text_boarding"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_br"
-            android:text="@string/text_get_started" />
-
-    </RelativeLayout>
-
+    <TextView
+        android:layout_marginTop="20dp"
+        style="@style/TextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/splash"
+        android:layout_centerHorizontal="true"
+        android:text="XIN CHÀO"
+        android:textColor="@color/gray"></TextView>
 </RelativeLayout>

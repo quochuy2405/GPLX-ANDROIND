@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SelectCategory">
-
+    <include layout="@layout/activity_navigation" />
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
 
-        android:background="@drawable/header_background">
+        android:background="@drawable/br_edit_profile">
 
         <TextView
             android:id="@+id/text_app"
@@ -108,7 +108,7 @@
             android:id="@+id/btn_signup"
             style="@style/ButtonRouder"
             android:background="@drawable/br_button2"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:layout_below="@+id/email_profile"
             android:layout_width="match_parent"
             android:text="Save Changes"
@@ -118,6 +118,6 @@
 
     </RelativeLayout>
 
-    <include layout="@layout/activity_navigation" />
+
 
 </RelativeLayout>
