@@ -31,8 +31,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="27dp"
         android:text="@string/Tutor_title"
-
-        android:textColor="@color/green_main"
+       android:background="@drawable/background_title"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:textAllCaps="true"
         android:textSize="25sp"></TextView>

@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,13 +21,21 @@ import team2.mobileapp.gplx.Volley.service.NoticeBoardService;
 public class NoticeBoardActivity extends AppCompatActivity {
     private NoticeBoardAdapter noticeBoardAdapter;
     private ArrayList<NoticeBoard> names = new ArrayList<>();
-    ListView listView;
+    private ListView listView;
+    private TextView titleActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_notice_board);
+        String title = getIntent().getStringExtra("TITLE");
+
         listView = findViewById(R.id.lvItems);
+        titleActivity = findViewById(R.id.tv_title_activity_app);
+
+        titleActivity.setText(title);
+
 
         final NoticeBoardService noticeBoardService = new NoticeBoardService(this);
         ShowBoard(noticeBoardService);
@@ -71,5 +80,43 @@ public class NoticeBoardActivity extends AppCompatActivity {
                 listView.setAdapter(noticeBoardAdapter);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+    }
+
+    @Override
+    public boolean moveTaskToBack(boolean nonRoot) {
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+        return super.moveTaskToBack(nonRoot);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
     }
 }

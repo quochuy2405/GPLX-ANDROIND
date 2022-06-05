@@ -8,41 +8,9 @@
    >
 
 
-    <RelativeLayout
+    <include
         android:id="@+id/header_activity"
-        android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:padding="10dp">
-
-
-<!--        <ImageView-->
-<!--            android:id="@+id/logo_top_board"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_alignParentTop="true"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:src="@drawable/logo"-->
-
-<!--            />-->
-
-        <TextView
-            android:id="@+id/tv_title_board"
-            style="@style/TextTitle"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/button_radius"
-            android:backgroundTint="@color/green_main"
-            android:paddingLeft="30dp"
-            android:paddingTop="10dp"
-            android:paddingRight="30dp"
-            android:paddingBottom="10dp"
-            android:text="TOÀN BỘ CÂU HỎI"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-
-            />
-    </RelativeLayout>
+        layout="@layout/header_activity_app" />
 
     <ListView
         android:layout_marginBottom="70dp"

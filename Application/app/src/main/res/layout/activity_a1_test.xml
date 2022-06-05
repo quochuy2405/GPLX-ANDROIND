@@ -36,23 +36,23 @@
 
     </TextView>
 
-<!--    <TextView-->
-<!--        android:id="@+id/guideline"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_below="@+id/text_choice_category"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:layout_marginEnd="20dp"-->
-<!--        android:layout_marginBottom="20dp"-->
-<!--        android:background="@drawable/button_radius_10"-->
-<!--        android:backgroundTint="@color/green_main"-->
-<!--        android:paddingLeft="30dp"-->
-<!--        android:paddingTop="10dp"-->
-<!--        android:paddingRight="30dp"-->
-<!--        android:text="@string/list_guide_line"-->
-<!--        android:textColor="@color/white">-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/guideline"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@+id/text_choice_category"-->
+    <!--        android:layout_centerHorizontal="true"-->
+    <!--        android:layout_marginEnd="20dp"-->
+    <!--        android:layout_marginBottom="20dp"-->
+    <!--        android:background="@drawable/button_radius_10"-->
+    <!--        android:backgroundTint="@color/green_main"-->
+    <!--        android:paddingLeft="30dp"-->
+    <!--        android:paddingTop="10dp"-->
+    <!--        android:paddingRight="30dp"-->
+    <!--        android:text="@string/list_guide_line"-->
+    <!--        android:textColor="@color/white">-->
 
-<!--    </TextView>-->
+    <!--    </TextView>-->
 
     <ScrollView
         android:id="@+id/scroll_category"
@@ -80,8 +80,9 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
                     android:src="@drawable/file_dock_fill"></ImageView>
-        ư
+                ư
 
                 <TextView
                     android:id="@+id/tv_description_a1"
@@ -89,10 +90,10 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:paddingBottom="10dp"
-                    android:textStyle="bold"
                     android:text="Đề ngẫu nhiên"
                     android:textAlignment="center"
-                    android:textColor="@color/white">
+                    android:textColor="@color/white"
+                    android:textStyle="bold">
 
                 </TextView>
             </RelativeLayout>
@@ -105,10 +106,11 @@
                 android:background="@drawable/button_radius_10"
                 android:backgroundTint="@color/green_main">
 
-               <ImageView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:src="@drawable/close_round_fill"></ImageView>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:src="@drawable/close_round_fill"></ImageView>
 
                 <TextView
                     android:id="@+id/tv_description_a2"
@@ -117,9 +119,9 @@
                     android:layout_alignParentBottom="true"
                     android:paddingBottom="10dp"
                     android:text="Thi theo bộ đề"
-                    android:textStyle="bold"
                     android:textAlignment="center"
-                    android:textColor="@color/white">
+                    android:textColor="@color/white"
+                    android:textStyle="bold">
 
                 </TextView>
 
@@ -133,10 +135,11 @@
                 android:background="@drawable/button_radius_10"
                 android:backgroundTint="@color/green_main">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/cancel_fill"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="10dp"
+                    android:src="@drawable/cancel_fill" />
 
 
                 <TextView
@@ -145,11 +148,10 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:paddingBottom="10dp"
-                    android:textStyle="bold"
                     android:text="Các loại biển báo"
                     android:textAlignment="center"
-                    android:textColor="@color/white" />
-
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
 
 
             </RelativeLayout>
@@ -165,10 +167,11 @@
                 android:backgroundTint="@color/green_main">
 
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/open_book"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="20dp"
+                    android:src="@drawable/open_book" />
 
 
                 <TextView
@@ -178,9 +181,9 @@
                     android:layout_alignParentBottom="true"
                     android:paddingBottom="10dp"
                     android:text="Ôn tập câu hỏi"
-                    android:textStyle="bold"
                     android:textAlignment="center"
-                    android:textColor="@color/white">
+                    android:textColor="@color/white"
+                    android:textStyle="bold">
 
                 </TextView>
 

@@ -4,60 +4,65 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import java.nio.file.Files;
 
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.models.License;
 
 
 public class A1_TestActivity extends AppCompatActivity {
-    TextView tv_license;
-    RelativeLayout btn_random, btn_set, btn_board, btn_review_question;
+    private TextView tvLicense;
+    private RelativeLayout btnRandom, btnSet, btnBoard, btnReviewQuestion;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_a1_test);
+
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+
         InitialVariable();
 
         License license = (License) getIntent().getSerializableExtra("License");
-        tv_license.setText("Hạng " + license.getName());
-
-        btn_random.setOnClickListener(new View.OnClickListener() {
+        tvLicense.setText("Hạng " + license.getName());
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+        btnRandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(A1_TestActivity.this, GroupTestActivity.class);
                 intent.putExtra("License", license);
+                intent.putExtra("TITLE", "Hướng dẫn");
                 startActivity(intent);
             }
         });
 
-        btn_set.setOnClickListener(new View.OnClickListener() {
+        btnSet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(A1_TestActivity.this, GroupTestActivity.class);
                 intent.putExtra("License", license);
+                intent.putExtra("TITLE", "Thi theo bộ đề");
                 startActivity(intent);
             }
         });
 
-        btn_board.setOnClickListener(new View.OnClickListener() {
+        btnBoard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(A1_TestActivity.this, NoticeBoardActivity.class);
+                intent.putExtra("TITLE", "Các loại biển báo");
                 startActivity(intent);
             }
         });
 
-        btn_review_question.setOnClickListener(new View.OnClickListener() {
+        btnReviewQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(A1_TestActivity.this, ReviewTestActivity.class);
                 intent.putExtra("License", license);
+                intent.putExtra("TITLE", "Ôn tập câu hỏi");
                 startActivity(intent);
             }
         });
@@ -65,11 +70,48 @@ public class A1_TestActivity extends AppCompatActivity {
     }
 
     private void InitialVariable() {
-        tv_license = findViewById(R.id.text_choice_category);
-        btn_random = findViewById(R.id.btn_radom);
-        btn_set = findViewById(R.id.btn_set);
-        btn_board = findViewById(R.id.btn_board);
-        btn_review_question = findViewById(R.id.btn_review_question);
+        tvLicense = findViewById(R.id.text_choice_category);
+        btnRandom = findViewById(R.id.btn_radom);
+        btnSet = findViewById(R.id.btn_set);
+        btnBoard = findViewById(R.id.btn_board);
+        btnReviewQuestion = findViewById(R.id.btn_review_question);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+    }
+
+    @Override
+    public boolean moveTaskToBack(boolean nonRoot) {
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+        return super.moveTaskToBack(nonRoot);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
 }

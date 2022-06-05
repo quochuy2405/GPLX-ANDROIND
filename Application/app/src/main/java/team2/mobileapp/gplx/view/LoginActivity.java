@@ -16,20 +16,21 @@ import team2.mobileapp.gplx.Volley.model.dto.LoginResponse;
 import team2.mobileapp.gplx.Volley.service.AuthenService;
 
 public class LoginActivity extends AppCompatActivity {
-    EditText et_username, et_password;
-    Button btn_login;
-    TextView tv_forgot_pass, tv_signup;
+    EditText etUsername, etPassword;
+    Button btnLogin;
+    TextView tvForgotPass, tvSignup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_login);
 
-        et_username = findViewById(R.id.et_username_login);
-        et_password = findViewById(R.id.et_password_login);
-        btn_login = findViewById(R.id.btn_login);
-        tv_forgot_pass = findViewById(R.id.tv_forgot_pass);
-        tv_signup = findViewById(R.id.tv_signup);
+        etUsername = findViewById(R.id.et_username_login);
+        etPassword = findViewById(R.id.et_password_login);
+        btnLogin = findViewById(R.id.btn_login);
+        tvForgotPass = findViewById(R.id.tv_forgot_pass);
+        tvSignup = findViewById(R.id.tv_signup);
 
         Intent tutorial = new Intent(this, TutorialActivity.class);
         Intent forgotPass = new Intent(this, ForgotPasswordActivity.class);
@@ -44,8 +45,9 @@ public class LoginActivity extends AppCompatActivity {
         Signup(signup);
 
     }
+
     private void Signup(Intent signup) {
-        tv_signup.setOnClickListener(new View.OnClickListener() {
+        tvSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //clear all stack and add activity new task
@@ -57,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void ForgotPass(Intent forgotPass) {
-        tv_forgot_pass.setOnClickListener(new View.OnClickListener() {
+        tvForgotPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -67,25 +69,25 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void ResetInput() {
-        et_username.setText("");
-        et_password.setText("");
+        etUsername.setText("");
+        etPassword.setText("");
     }
 
     private void Login(AuthenService authenService, Intent tutorial) {
-        btn_login.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("Username",et_username.getText().toString());
-                Log.d("Pass",et_password.getText().toString());
-                if (et_username.getText().toString().isEmpty() && et_password.getText().toString().isEmpty())
+                Log.d("Username", etUsername.getText().toString());
+                Log.d("Pass", etPassword.getText().toString());
+                if (etUsername.getText().toString().isEmpty() && etPassword.getText().toString().isEmpty())
                     Toast.makeText(LoginActivity.this, "Please enter username and password", Toast.LENGTH_LONG).show();
-                else if (et_username.getText().toString().isEmpty())
+                else if (etUsername.getText().toString().isEmpty())
                     Toast.makeText(LoginActivity.this, "Please enter username", Toast.LENGTH_LONG).show();
-                else if (et_password.getText().toString().isEmpty())
+                else if (etPassword.getText().toString().isEmpty())
                     Toast.makeText(LoginActivity.this, "Please enter password", Toast.LENGTH_LONG).show();
                 else {
-                    System.out.println(et_username.getText().toString() + " " + et_password.getText().toString());
-                    authenService.Login(et_username.getText().toString(), et_password.getText().toString(), new AuthenService.LoginCallBack() {
+                    System.out.println(etUsername.getText().toString() + " " + etPassword.getText().toString());
+                    authenService.Login(etUsername.getText().toString(), etPassword.getText().toString(), new AuthenService.LoginCallBack() {
                         @Override
                         public void onError(String message) {
                             Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
@@ -94,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(LoginResponse loginResponse) {
                             //Toast.makeText(SignInActivity.this, loginResponse.toString(), Toast.LENGTH_LONG).show();
-                            Log.i("Login response",loginResponse.toString());
+                            Log.i("Login response", loginResponse.toString());
 
                             //clear all stack and add activity new task
                             tutorial.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -104,5 +106,43 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+    }
+
+    @Override
+    public boolean moveTaskToBack(boolean nonRoot) {
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+        return super.moveTaskToBack(nonRoot);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
     }
 }

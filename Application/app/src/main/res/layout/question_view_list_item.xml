@@ -24,16 +24,16 @@
             android:layout_height="wrap_content"
             android:paddingBottom="10dp"
             android:text="Câu hỏi thứ "
+            android:textStyle="bold"
             android:textAlignment="textStart"
-            android:textColor="@color/white" />
+            android:textColor="#232323" />
 
         <ImageView
             android:id="@+id/iv_board"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_question_item_listview"
-            android:layout_centerHorizontal="true"
-           ></ImageView>
+            android:layout_centerHorizontal="true"></ImageView>
 
 
         <RelativeLayout
@@ -52,7 +52,6 @@
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
                 android:textColor="@color/white"
                 android:textSize="16dp"
-                android:lineHeight="27dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -71,11 +70,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_board_code"
-                android:text=""
                 android:layout_marginTop="10dp"
+                android:text=""
+                android:background="@drawable/button_radius_10"
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
-                android:textColor="@color/yellow"
+                android:textColor="#FF5607"
                 android:textSize="16dp"
+                android:padding="10dp"
                 android:textStyle="bold" />
         </RelativeLayout>
 

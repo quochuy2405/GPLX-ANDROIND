@@ -10,12 +10,16 @@ import android.widget.Button;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 
 import team2.mobileapp.gplx.R;
+
 import android.os.Bundle;
+
 public class EditProfileActivity extends AppCompatActivity {
-//    BottomNavigationItemView btn_home, btn_menu, btn_noti, btn_profile;
+    //    BottomNavigationItemView btn_home, btn_menu, btn_noti, btn_profile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+
         setContentView(R.layout.activity_edit_profile);
 
 //        btn_home = findViewById(R.id.page_home);
@@ -34,7 +38,7 @@ public class EditProfileActivity extends AppCompatActivity {
 //        Home(home);
     }
 
-//    private void Home(Intent home) {
+    //    private void Home(Intent home) {
 //        btn_home.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -60,4 +64,41 @@ public class EditProfileActivity extends AppCompatActivity {
 //            }
 //        });
 //    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+    }
+
+    @Override
+    public boolean moveTaskToBack(boolean nonRoot) {
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+        return super.moveTaskToBack(nonRoot);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
 }

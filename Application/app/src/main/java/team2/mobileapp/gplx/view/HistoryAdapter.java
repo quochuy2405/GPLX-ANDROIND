@@ -23,7 +23,7 @@ class HistoryAdapter extends ArrayAdapter<HistoryItem> {
     public View getView(final int position, View convertView, ViewGroup parent) {
 
         convertView =
-                LayoutInflater.from(context).inflate(R.layout.listview_item, null,
+                LayoutInflater.from(context).inflate(R.layout.listview_history_item, null,
                         false);
 
         HistoryItem historyItem = getItem(position);

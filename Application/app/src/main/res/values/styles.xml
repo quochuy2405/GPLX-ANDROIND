@@ -94,4 +94,9 @@
         <item name="android:layout_marginBottom">10dp</item>
         <item name="android:background">@drawable/text_radius</item>
     </style>
+    <style name="Theme.Design.Light.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+    </style>
+
+
 </resources>

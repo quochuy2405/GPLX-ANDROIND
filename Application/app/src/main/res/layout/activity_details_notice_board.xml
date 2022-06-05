@@ -32,8 +32,7 @@
             android:layout_below="@+id/logo_top_board"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:background="@drawable/button_radius"
-            android:backgroundTint="@color/green_main"
+            android:background="@drawable/background_title"
             android:paddingLeft="30dp"
             android:paddingTop="10dp"
             android:paddingRight="30dp"
@@ -74,16 +73,20 @@
                 />
 
             <TextView
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_radius_10"
+                android:backgroundTint="#75D0D3"
                 android:id="@+id/tv_description_board_details"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/iv_image_board_details"
-                android:padding="20dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="20dp"
+                android:textColor="@color/white"
                 android:layout_marginRight="20dp"
-                android:text="aaaaaaaaa
-                \n aaaaa\n aaaaa\n aaaaaaa \n \n\n\n\n\n\n\n\n\n\n\n\n\nn\n\n\n\n\n\n\ a"
+                android:padding="20dp"
+                android:textAlignment="center"
+                android:text="Chi tiết biển báo"
                 android:textSize="16dp"
                 android:textStyle="bold">
 
