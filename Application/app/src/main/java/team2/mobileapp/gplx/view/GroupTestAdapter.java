@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.Retrofit.dto.GroupTestItem;
 
 class GroupTestAdapter extends ArrayAdapter<GroupTestItem> {
 

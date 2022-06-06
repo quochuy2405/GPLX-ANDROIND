@@ -95,4 +95,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,GuideActivity.class);
         startActivity(intent);
     }
+    public void TrafficByType(View view){
+        Intent intent = new Intent(this, GroupBoardingActivity.class);
+        startActivity(intent);
+    }
 }

@@ -1,6 +1,8 @@
 package team2.mobileapp.gplx.Volley.model;
 
-public class Question {
+import java.io.Serializable;
+
+public class Question implements Serializable {
 
     private String id;
     private int index;

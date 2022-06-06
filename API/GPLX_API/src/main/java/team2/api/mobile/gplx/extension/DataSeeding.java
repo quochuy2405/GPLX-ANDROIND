@@ -56,53 +56,56 @@ public class DataSeeding implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// Khi nào cần seed data thì mở comments ra mà seed, không thì comment lại.
-		licenseTypeRepo.deleteAll();
-		licenseRepo.deleteAll();
-		roleRepo.deleteAll();
-		accountRepo.deleteAll();
-		trafficSignTypeRepo.deleteAll();
-		trafficSignRepo.deleteAll();
-		questionTypeRepo.deleteAll();
-		questionRepo.deleteAll();
-		questionSetRepo.deleteAll();
-		answerRepo.deleteAll();
-		LoadRole();
-		LoadAccount();
-		LoadLicenseType();
-		LoadLicense();
-		LoadTrafficSignType();
-		LoadTrafficSign();
-		LoadQuestionSet();
-		LoadQuestionType();
-		LoadQuestionA1();
-		LoadQuestionA2();
-		LoadQuestionB1();
-		LoadQuestionB2();
-		LoadAnswerA1();
-		LoadAnswerA2();
-		LoadAnswerB1();
-		LoadAnswerB2();
+//		licenseTypeRepo.deleteAll();
+//		licenseRepo.deleteAll();
+//		roleRepo.deleteAll();
+//		accountRepo.deleteAll();
+//		trafficSignTypeRepo.deleteAll();
+//		trafficSignRepo.deleteAll();
+//		questionTypeRepo.deleteAll();
+//		questionRepo.deleteAll();
+//		questionSetRepo.deleteAll();
+//		answerRepo.deleteAll();
+//		LoadRole();
+//		LoadAccount();
+//		LoadLicenseType();
+//		LoadLicense();
+//		LoadTrafficSignType();
+//		LoadTrafficSign();
+//		LoadQuestionSet();
+//		LoadQuestionType();
+//		LoadQuestionA1();
+//		LoadQuestionA2();
+//		LoadQuestionB1();
+//		LoadQuestionB2();
+//		LoadAnswerA1();
+//		LoadAnswerA2();
+//		LoadAnswerB1();
+//		LoadAnswerB2();
 	}
 
 	private void LoadRole() {
-		Role admin = new Role("Admin", "Administrator");
-		roleRepo.save(admin);
 		Role user = new Role("User", "User");
 		roleRepo.save(user);
 	}
 
 	private void LoadAccount() {
-
-		Role admin = roleRepo.findByRoleName("Admin");
 		Role user = roleRepo.findByRoleName("User");
-		Account account1 = new Account("admin", "admin123", "admin@gmail.com", "Nhật", "Võ", "", AccountStatus.ACTIVE,
-				admin.getId());
+		Account account1 = new Account("user1", "nhatvh123", "nhatvh@gmail.com", "Nhật", "Võ Hoàng", "",
+				AccountStatus.ACTIVE, user.getId());
 		accountRepo.save(account1);
-		Account account2 = new Account("user", "user123", "user@gmail.com", "Nhật", "Võ", "", AccountStatus.ACTIVE,
-				user.getId());
+		Account account2 = new Account("user2", "hubq123", "huybq@gmail.com", "Huy", "Bùi Quốc", "",
+				AccountStatus.ACTIVE, user.getId());
 		accountRepo.save(account2);
-
+		Account account3 = new Account("user3", "khoalta123", "khoalta@gmail.com", "Khoa", "Lưu Trần Anh", "",
+				AccountStatus.ACTIVE, user.getId());
+		accountRepo.save(account3);
+		Account account4 = new Account("user4", "huyhn123", "huyhn@gmail.com", "Huy", "Hồ Nhật", "",
+				AccountStatus.ACTIVE, user.getId());
+		accountRepo.save(account4);
+		Account account5 = new Account("user5", "hoangnb123", "hoangnb@gmail.com", "Hoàng", "Nguyễn Bá", "",
+				AccountStatus.ACTIVE, user.getId());
+		accountRepo.save(account5);
 	}
 
 	private void LoadLicenseType() {
@@ -991,607 +994,920 @@ public class DataSeeding implements CommandLineRunner {
 		QuestionSet set6 = questionSetRepo.findByName("Đề 6 - A1");
 		QuestionSet set7 = questionSetRepo.findByName("Đề 7 - A1");
 		QuestionSet set8 = questionSetRepo.findByName("Đề 8 - A1");
-	
-		Question questionA1_1 = new Question(1, "Người điều khiển phương tiện giao thông đường bộ mà trong cơ thể có chất ma túy có bị nghiêm cấm hay không?", true, "nan",a1.getId(), set1.getId(), kn.getId());
+
+		Question questionA1_1 = new Question(1,
+				"Người điều khiển phương tiện giao thông đường bộ mà trong cơ thể có chất ma túy có bị nghiêm cấm hay không?",
+				true, "nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_1);
 
-		Question questionA1_9 = new Question(2, "Người ngồi trên xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy khi tham gia giao thông có được sử dụng ô khi trười mưa hay không?", true, "nan",a1.getId(), set1.getId(), kn.getId());
+		Question questionA1_9 = new Question(2,
+				"Người ngồi trên xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy khi tham gia giao thông có được sử dụng ô khi trười mưa hay không?",
+				true, "nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_9);
 
-		Question questionA1_17 = new Question(3, "Đường mà trên đó phương tiện tham gia giao thông được các phương tiện giao thông đến từ hướng khác nhường đường khi qua nơi đường giao nhau, được cắm biển báo hiệu đường ưu tiên là loại đường gì?", true, "nan",a1.getId(), set1.getId(), kn.getId());
+		Question questionA1_17 = new Question(3,
+				"Đường mà trên đó phương tiện tham gia giao thông được các phương tiện giao thông đến từ hướng khác nhường đường khi qua nơi đường giao nhau, được cắm biển báo hiệu đường ưu tiên là loại đường gì?",
+				true, "nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_17);
 
-		Question questionA1_25 = new Question(4, "Khái niệm \"người điều khiển giao thông\" được hiểu như thế nào là đúng?", true, "nan",a1.getId(), set1.getId(), kn.getId());
+		Question questionA1_25 = new Question(4,
+				"Khái niệm \"người điều khiển giao thông\" được hiểu như thế nào là đúng?", true, "nan", a1.getId(),
+				set1.getId(), kn.getId());
 		questionRepo.save(questionA1_25);
 
-		Question questionA1_33 = new Question(5, "Trong trường hợp đặc biệt, để được lắp đặt, sử dụng còi, đèn không đúng với thiết kế của nhà sản xuất đối với từng loại xe cơ giới bạn phải đảm bảo yêu cầu nào dưới đây?", true, "nan",a1.getId(), set1.getId(), kn.getId());
+		Question questionA1_33 = new Question(5,
+				"Trong trường hợp đặc biệt, để được lắp đặt, sử dụng còi, đèn không đúng với thiết kế của nhà sản xuất đối với từng loại xe cơ giới bạn phải đảm bảo yêu cầu nào dưới đây?",
+				true, "nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_33);
 
-		Question questionA1_41 = new Question(6, "Khi gặp hiệu lệnh như dưới đây của cảnh sát giao thông thì người tham gia giao thông phải đi như thế nào là đúng quy tắc giao thông?", true, "a1_41.jpg",a1.getId(), set1.getId(), kn.getId());
+		Question questionA1_41 = new Question(6,
+				"Khi gặp hiệu lệnh như dưới đây của cảnh sát giao thông thì người tham gia giao thông phải đi như thế nào là đúng quy tắc giao thông?",
+				true, "a1_41.jpg", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_41);
 
-		Question questionA1_49 = new Question(7, "Trên đường có nhiều làn đường cho xe đi cùng chiều được phân biệt bằng vạch kẻ phân làn đường, người điều khiển phương tiện phải cho xe đi như thế nào?", true, "nan",a1.getId(), set1.getId(), kn.getId());
+		Question questionA1_49 = new Question(7,
+				"Trên đường có nhiều làn đường cho xe đi cùng chiều được phân biệt bằng vạch kẻ phân làn đường, người điều khiển phương tiện phải cho xe đi như thế nào?",
+				true, "nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_49);
 
-		Question questionA1_57 = new Question(8, "Tại nơi đường giao nhau không có báo hiệu đi theo vòng xuyến, người điều khiển phương tiện phải nhường đường như thế nào là đúng quy tắc giao thông?", true, "nan",a1.getId(), set1.getId(), kn.getId());
+		Question questionA1_57 = new Question(8,
+				"Tại nơi đường giao nhau không có báo hiệu đi theo vòng xuyến, người điều khiển phương tiện phải nhường đường như thế nào là đúng quy tắc giao thông?",
+				true, "nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_57);
 
-		Question questionA1_65 = new Question(9, "Người lái xe mô tô xử lý như thế nào khi cho xe mô tô phía sau vượt?", true, "nan",a1.getId(), set1.getId(), kn.getId());
+		Question questionA1_65 = new Question(9, "Người lái xe mô tô xử lý như thế nào khi cho xe mô tô phía sau vượt?",
+				true, "nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_65);
 
-		Question questionA1_73 = new Question(10, "Người lái xe phải giảm tốc độ thấp hơn tốc độ tối đa cho phép đến mức cần thiết, chú ý quan sát và chuẩn bị sẵn sàng những tình huống có thể xảy ra để phòng ngừa tai nạn trong các trường hợp nào dưới đây?", true, "nan",a1.getId(), set1.getId(), kn.getId());
+		Question questionA1_73 = new Question(10,
+				"Người lái xe phải giảm tốc độ thấp hơn tốc độ tối đa cho phép đến mức cần thiết, chú ý quan sát và chuẩn bị sẵn sàng những tình huống có thể xảy ra để phòng ngừa tai nạn trong các trường hợp nào dưới đây?",
+				true, "nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_73);
 
-		Question questionA1_81 = new Question(11, "Tại nơi đường bộ giao nhau cùng mức với đường sắt chỉ có đèn tín hiệu hoặc chuông báo hiệu, khi đèn tín hiệu màu đỏ đã bất sáng hoặc có tiếng chuông báo hiệu, người tham gia giao thông phải dừng ngay và giữ khoảng cách tối thiểu bao nhiêu mét tính từ ray gần nhất?", true, "nan",a1.getId(), set1.getId(), kn.getId());
+		Question questionA1_81 = new Question(11,
+				"Tại nơi đường bộ giao nhau cùng mức với đường sắt chỉ có đèn tín hiệu hoặc chuông báo hiệu, khi đèn tín hiệu màu đỏ đã bất sáng hoặc có tiếng chuông báo hiệu, người tham gia giao thông phải dừng ngay và giữ khoảng cách tối thiểu bao nhiêu mét tính từ ray gần nhất?",
+				true, "nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_81);
 
-		Question questionA1_89 = new Question(12, "Khi quay đầu xe, người lái xe cần phải quan sát và thực hiện các thao tác nào để đảm bảo an toàn giao thông?", true, "nan",a1.getId(), set1.getId(), kt.getId());
+		Question questionA1_89 = new Question(12,
+				"Khi quay đầu xe, người lái xe cần phải quan sát và thực hiện các thao tác nào để đảm bảo an toàn giao thông?",
+				true, "nan", a1.getId(), set1.getId(), kt.getId());
 		questionRepo.save(questionA1_89);
 
-		Question questionA1_97 = new Question(13, "Để đảm bảo an toàn khi tham gia giao thông, người lái xe lái xe mô tô hai bánh cần điều khiển tay ga như thế nào trong các trường hợp dưới đây?", true, "nan",a1.getId(), set1.getId(), kt.getId());
+		Question questionA1_97 = new Question(13,
+				"Để đảm bảo an toàn khi tham gia giao thông, người lái xe lái xe mô tô hai bánh cần điều khiển tay ga như thế nào trong các trường hợp dưới đây?",
+				true, "nan", a1.getId(), set1.getId(), kt.getId());
 		questionRepo.save(questionA1_97);
 
-		Question questionA1_105 = new Question(14, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?", true, "a1_105.jpg",a1.getId(), set1.getId(), bb.getId());
+		Question questionA1_105 = new Question(14, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?", true,
+				"a1_105.jpg", a1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA1_105);
 
-		Question questionA1_113 = new Question(15, "Biển nào báo hiệu \"Đường đôi\"?", true, "a1_113.jpg",a1.getId(), set1.getId(), bb.getId());
+		Question questionA1_113 = new Question(15, "Biển nào báo hiệu \"Đường đôi\"?", true, "a1_113.jpg", a1.getId(),
+				set1.getId(), bb.getId());
 		questionRepo.save(questionA1_113);
 
-		Question questionA1_121 = new Question(16, "Biển báo này có ý nghĩa gì?", true, "a1_121.jpg",a1.getId(), set1.getId(), bb.getId());
+		Question questionA1_121 = new Question(16, "Biển báo này có ý nghĩa gì?", true, "a1_121.jpg", a1.getId(),
+				set1.getId(), bb.getId());
 		questionRepo.save(questionA1_121);
 
-		Question questionA1_129 = new Question(17, "Biển nào cấm các phương tiện giao thông đường bộ rẽ trái?", true, "a1_129.jpg",a1.getId(), set1.getId(), bb.getId());
+		Question questionA1_129 = new Question(17, "Biển nào cấm các phương tiện giao thông đường bộ rẽ trái?", true,
+				"a1_129.jpg", a1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA1_129);
 
-		Question questionA1_137 = new Question(18, "Biển báo này có ý nghĩa như thế nào?", true, "a1_137.jpg",a1.getId(), set1.getId(), bb.getId());
+		Question questionA1_137 = new Question(18, "Biển báo này có ý nghĩa như thế nào?", true, "a1_137.jpg",
+				a1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA1_137);
 
-		Question questionA1_145 = new Question(19, "Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối đa cho phép\"?", true, "a1_145.jpg",a1.getId(), set1.getId(), bb.getId());
+		Question questionA1_145 = new Question(19,
+				"Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối đa cho phép\"?", true, "a1_145.jpg",
+				a1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA1_145);
 
-		Question questionA1_153 = new Question(20, "Biển báo nào báo hiệu bắt đầu đoạn đường vào phạm vi khu dân cư, các phương tiện tham gia giao thông phải tuân thủ các quy định đi đường được áp dụng ở khu đông dân cư?", true, "a1_153.jpg",a1.getId(), set1.getId(), bb.getId());
+		Question questionA1_153 = new Question(20,
+				"Biển báo nào báo hiệu bắt đầu đoạn đường vào phạm vi khu dân cư, các phương tiện tham gia giao thông phải tuân thủ các quy định đi đường được áp dụng ở khu đông dân cư?",
+				true, "a1_153.jpg", a1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA1_153);
 
-		Question questionA1_161 = new Question(21, "Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy ( vạch tim đường), xe không được lấn làn, không được đè lên vạch?", true, "a1_161.jpg",a1.getId(), set1.getId(), bb.getId());
+		Question questionA1_161 = new Question(21,
+				"Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy ( vạch tim đường), xe không được lấn làn, không được đè lên vạch?",
+				true, "a1_161.jpg", a1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA1_161);
 
-		Question questionA1_169 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?", true, "a1_169.jpg",a1.getId(), set1.getId(), sh.getId());
+		Question questionA1_169 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?", true,
+				"a1_169.jpg", a1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionA1_169);
 
-		Question questionA1_177 = new Question(23, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?", true, "a1_177.jpg",a1.getId(), set1.getId(), sh.getId());
+		Question questionA1_177 = new Question(23, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
+				true, "a1_177.jpg", a1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionA1_177);
 
-		Question questionA1_185 = new Question(24, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true, "a1_185.jpg",a1.getId(), set1.getId(), sh.getId());
+		Question questionA1_185 = new Question(24, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+				"a1_185.jpg", a1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionA1_185);
 
-		Question questionA1_193 = new Question(25, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?", true, "a1_193.jpg",a1.getId(), set1.getId(), sh.getId());
+		Question questionA1_193 = new Question(25, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?", true,
+				"a1_193.jpg", a1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionA1_193);
 
-		Question questionA1_2 = new Question(1, "Hành vi điều khiển xe cơ giới chạy quá tốc độ quy định, giành đường, vượt ẩu có bị nghiêm cấm hay không?", true, "nan",a1.getId(), set2.getId(), kn.getId());
+		Question questionA1_2 = new Question(1,
+				"Hành vi điều khiển xe cơ giới chạy quá tốc độ quy định, giành đường, vượt ẩu có bị nghiêm cấm hay không?",
+				true, "nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_2);
 
-		Question questionA1_10 = new Question(2, "Người điều khiển xe mô tô hai bánh, xe gắn máy có được đi xe dàn hàng ngang; đi xe vào phần đường dành cho người đi bộ và phương tiện khác; sử dụng ô, điện thoại di động, thiết bị âm thanh (trừ thiết bị trợ thính) hay không?", true, "nan",a1.getId(), set2.getId(), kn.getId());
+		Question questionA1_10 = new Question(2,
+				"Người điều khiển xe mô tô hai bánh, xe gắn máy có được đi xe dàn hàng ngang; đi xe vào phần đường dành cho người đi bộ và phương tiện khác; sử dụng ô, điện thoại di động, thiết bị âm thanh (trừ thiết bị trợ thính) hay không?",
+				true, "nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_10);
 
-		Question questionA1_18 = new Question(3, "Người lái xe được hiểu như thế nào trong các khái niệm dưới đây?", true, "nan",a1.getId(), set2.getId(), kn.getId());
+		Question questionA1_18 = new Question(3, "Người lái xe được hiểu như thế nào trong các khái niệm dưới đây?",
+				true, "nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_18);
 
-		Question questionA1_26 = new Question(4, "\"Người tham gia giao thông đường bộ\" gồm những đối tượng nào?", true, "nan",a1.getId(), set2.getId(), kn.getId());
+		Question questionA1_26 = new Question(4, "\"Người tham gia giao thông đường bộ\" gồm những đối tượng nào?",
+				true, "nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_26);
 
-		Question questionA1_34 = new Question(5, "Bạn đang lái xe phía trước có một xe cảnh sát giao thông không phát tín hiệu ưu tiên bạn có được phép vượt hay không?", true, "nan",a1.getId(), set2.getId(), kn.getId());
+		Question questionA1_34 = new Question(5,
+				"Bạn đang lái xe phía trước có một xe cảnh sát giao thông không phát tín hiệu ưu tiên bạn có được phép vượt hay không?",
+				true, "nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_34);
 
-		Question questionA1_42 = new Question(6, "Theo luật giao thông đường bộ, tín hiệu đèn giao thông gồm 3 màu nào dưới đây?", true, "a1_42.jpg",a1.getId(), set2.getId(), kn.getId());
+		Question questionA1_42 = new Question(6,
+				"Theo luật giao thông đường bộ, tín hiệu đèn giao thông gồm 3 màu nào dưới đây?", true, "a1_42.jpg",
+				a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_42);
 
-		Question questionA1_50 = new Question(7, "Trên đường một chiều có vạch kẻ phân làn đường xe thô sơ và xe cơ giới phải đi như thế nào là đúng quy tắc giao thông?", true, "nan",a1.getId(), set2.getId(), kn.getId());
+		Question questionA1_50 = new Question(7,
+				"Trên đường một chiều có vạch kẻ phân làn đường xe thô sơ và xe cơ giới phải đi như thế nào là đúng quy tắc giao thông?",
+				true, "nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_50);
 
-		Question questionA1_58 = new Question(8, "Người ngồi trên xe mô tô 2 bánh, xe gắn máy phải đội mũ bảo hiểm có cài quai đúng quy cách khi nào?", true, "nan",a1.getId(), set2.getId(), kn.getId());
+		Question questionA1_58 = new Question(8,
+				"Người ngồi trên xe mô tô 2 bánh, xe gắn máy phải đội mũ bảo hiểm có cài quai đúng quy cách khi nào?",
+				true, "nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_58);
 
-		Question questionA1_66 = new Question(9, "Trong các trường hợp dưới đây, để đảo bảo an toàn khi tham gia giao thông, người lái xe mô tô cần thực hiện như thế nào?", true, "nan",a1.getId(), set2.getId(), kn.getId());
+		Question questionA1_66 = new Question(9,
+				"Trong các trường hợp dưới đây, để đảo bảo an toàn khi tham gia giao thông, người lái xe mô tô cần thực hiện như thế nào?",
+				true, "nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_66);
 
-		Question questionA1_74 = new Question(10, "Tác dụng của mũ bảo hiểm đối với người ngồi trên xe mô tô hai bánh trong trường hợp xảy ra tai nạn giao thông là gì?", true, "nan",a1.getId(), set2.getId(), kn.getId());
+		Question questionA1_74 = new Question(10,
+				"Tác dụng của mũ bảo hiểm đối với người ngồi trên xe mô tô hai bánh trong trường hợp xảy ra tai nạn giao thông là gì?",
+				true, "nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_74);
 
-		Question questionA1_82 = new Question(11, "Người điều khiển phương tiện tham giao thông trong hầm đường bộ ngoài việc phải tuân thủ các quy tắc giao thông còn phải thực hiện những quy định nào dưới đây?", true, "nan",a1.getId(), set2.getId(), kn.getId());
+		Question questionA1_82 = new Question(11,
+				"Người điều khiển phương tiện tham giao thông trong hầm đường bộ ngoài việc phải tuân thủ các quy tắc giao thông còn phải thực hiện những quy định nào dưới đây?",
+				true, "nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_82);
 
-		Question questionA1_90 = new Question(12, "Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", true, "nan",a1.getId(), set2.getId(), kt.getId());
+		Question questionA1_90 = new Question(12,
+				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", true, "nan",
+				a1.getId(), set2.getId(), kt.getId());
 		questionRepo.save(questionA1_90);
 
-		Question questionA1_98 = new Question(13, "Kỹ thuật cơ bản để giữ thăng bằng khi điều khiển xe mô tô đi trên đường gồ ghề như thế nào trong các trường hợp dưới đây?", true, "nan",a1.getId(), set2.getId(), kt.getId());
+		Question questionA1_98 = new Question(13,
+				"Kỹ thuật cơ bản để giữ thăng bằng khi điều khiển xe mô tô đi trên đường gồ ghề như thế nào trong các trường hợp dưới đây?",
+				true, "nan", a1.getId(), set2.getId(), kt.getId());
 		questionRepo.save(questionA1_98);
 
-		Question questionA1_106 = new Question(14, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?", true, "a1_106.jpg",a1.getId(), set2.getId(), bb.getId());
+		Question questionA1_106 = new Question(14, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?", true,
+				"a1_106.jpg", a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_106);
 
-		Question questionA1_114 = new Question(15, "Biển nào báo hiệu \"Đường đôi\"?", true, "a1_114.jpg",a1.getId(), set2.getId(), bb.getId());
+		Question questionA1_114 = new Question(15, "Biển nào báo hiệu \"Đường đôi\"?", true, "a1_114.jpg", a1.getId(),
+				set2.getId(), bb.getId());
 		questionRepo.save(questionA1_114);
 
-		Question questionA1_122 = new Question(16, "Biển nào dưới đây xe gắn máy được phép đi vào?", true, "a1_122.jpg",a1.getId(), set2.getId(), bb.getId());
+		Question questionA1_122 = new Question(16, "Biển nào dưới đây xe gắn máy được phép đi vào?", true, "a1_122.jpg",
+				a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_122);
 
-		Question questionA1_130 = new Question(17, "Biển nào xe được phép quay đầu nhưng không được rẽ trái?", true, "a1_130.jpg",a1.getId(), set2.getId(), bb.getId());
+		Question questionA1_130 = new Question(17, "Biển nào xe được phép quay đầu nhưng không được rẽ trái?", true,
+				"a1_130.jpg", a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_130);
 
-		Question questionA1_138 = new Question(18, "Chiều dài đoạn đường 500 m từ nơi đặt biển này, người lái xe có được phép bấm còi không?", true, "a1_138.jpg",a1.getId(), set2.getId(), bb.getId());
+		Question questionA1_138 = new Question(18,
+				"Chiều dài đoạn đường 500 m từ nơi đặt biển này, người lái xe có được phép bấm còi không?", true,
+				"a1_138.jpg", a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_138);
 
-		Question questionA1_146 = new Question(19, "Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?", true, "a1_146.jpg",a1.getId(), set2.getId(), bb.getId());
+		Question questionA1_146 = new Question(19,
+				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?", true,
+				"a1_146.jpg", a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_146);
 
-		Question questionA1_154 = new Question(20, "Biển nào báo hiệu \"Hướng đi thẳng phải theo\"?", true, "a1_154.jpg",a1.getId(), set2.getId(), bb.getId());
+		Question questionA1_154 = new Question(20, "Biển nào báo hiệu \"Hướng đi thẳng phải theo\"?", true,
+				"a1_154.jpg", a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_154);
 
-		Question questionA1_162 = new Question(21, "Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy ( vạch tim đường)?", true, "a1_162.jpg",a1.getId(), set2.getId(), bb.getId());
+		Question questionA1_162 = new Question(21,
+				"Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy ( vạch tim đường)?", true, "a1_162.jpg",
+				a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_162);
 
-		Question questionA1_170 = new Question(22, "Theo tín hiệu đèn, xe nào được phép đi?", true, "a1_170.jpg",a1.getId(), set2.getId(), sh.getId());
+		Question questionA1_170 = new Question(22, "Theo tín hiệu đèn, xe nào được phép đi?", true, "a1_170.jpg",
+				a1.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionA1_170);
 
-		Question questionA1_178 = new Question(23, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true, "a1_178.jpg",a1.getId(), set2.getId(), sh.getId());
+		Question questionA1_178 = new Question(23, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+				"a1_178.jpg", a1.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionA1_178);
 
-		Question questionA1_186 = new Question(24, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true, "a1_186.jpg",a1.getId(), set2.getId(), sh.getId());
+		Question questionA1_186 = new Question(24, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+				"a1_186.jpg", a1.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionA1_186);
 
-		Question questionA1_194 = new Question(25, "Trong hình dưới những xe nào vi phạm quy tắc giao thông?", true, "a1_194.jpg",a1.getId(), set2.getId(), sh.getId());
+		Question questionA1_194 = new Question(25, "Trong hình dưới những xe nào vi phạm quy tắc giao thông?", true,
+				"a1_194.jpg", a1.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionA1_194);
 
-		Question questionA1_3 = new Question(1, "Bạn đang lái xe phía trước có một xe cứu thương đang phát tín hiệu ưu tiên bạn có được phép vượt hay không?", true, "nan",a1.getId(), set3.getId(), kn.getId());
+		Question questionA1_3 = new Question(1,
+				"Bạn đang lái xe phía trước có một xe cứu thương đang phát tín hiệu ưu tiên bạn có được phép vượt hay không?",
+				true, "nan", a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_3);
 
-		Question questionA1_11 = new Question(2, "Hành vi vận chuyển đồ vật cồng kềnh bằng xe mô tô, xe gắn máy khi tham gia giao thông có được phép hay không?", true, "nan",a1.getId(), set3.getId(), kn.getId());
+		Question questionA1_11 = new Question(2,
+				"Hành vi vận chuyển đồ vật cồng kềnh bằng xe mô tô, xe gắn máy khi tham gia giao thông có được phép hay không?",
+				true, "nan", a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_11);
 
-		Question questionA1_19 = new Question(3, "Trong các khái niệm dưới đây, \"dải phân cách\" được hiểu như thế nào là đúng?", true, "nan",a1.getId(), set3.getId(), kn.getId());
+		Question questionA1_19 = new Question(3,
+				"Trong các khái niệm dưới đây, \"dải phân cách\" được hiểu như thế nào là đúng?", true, "nan",
+				a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_19);
 
-		Question questionA1_27 = new Question(4, "Khái niệm \"đỗ xe\" được hiểu như thế nào là đúng?", true, "nan",a1.getId(), set3.getId(), kn.getId());
+		Question questionA1_27 = new Question(4, "Khái niệm \"đỗ xe\" được hiểu như thế nào là đúng?", true, "nan",
+				a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_27);
 
-		Question questionA1_35 = new Question(5, "Khi điều khiển xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy, những hành vi nào không được phép?", true, "nan",a1.getId(), set3.getId(), kn.getId());
+		Question questionA1_35 = new Question(5,
+				"Khi điều khiển xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy, những hành vi nào không được phép?",
+				true, "nan", a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_35);
 
-		Question questionA1_43 = new Question(6, "Biển báo hiệu có dạng hình tròn, viền đỏ, nền trắng, trên nền có hình vẽ hoặc chữ số, chữ viết màu đen là loại biển gì dưới đây?", true, "nan",a1.getId(), set3.getId(), kn.getId());
+		Question questionA1_43 = new Question(6,
+				"Biển báo hiệu có dạng hình tròn, viền đỏ, nền trắng, trên nền có hình vẽ hoặc chữ số, chữ viết màu đen là loại biển gì dưới đây?",
+				true, "nan", a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_43);
 
-		Question questionA1_51 = new Question(7, "Bạn đang lái xe trong khu vực đô thị từ 22 giờ đến 5 giờ sáng hôm sau và cần vượt một xe khác, bạn cần báo hiệu như thế nào để đảm bảo an toàn giao thông?", true, "nan",a1.getId(), set3.getId(), kn.getId());
+		Question questionA1_51 = new Question(7,
+				"Bạn đang lái xe trong khu vực đô thị từ 22 giờ đến 5 giờ sáng hôm sau và cần vượt một xe khác, bạn cần báo hiệu như thế nào để đảm bảo an toàn giao thông?",
+				true, "nan", a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_51);
 
-		Question questionA1_59 = new Question(8, "Người điều khiển xe mô tô hai bánh, xe gắn máy được phép chở tối đa 2 người trong những trường hợp nào?", true, "nan",a1.getId(), set3.getId(), kn.getId());
+		Question questionA1_59 = new Question(8,
+				"Người điều khiển xe mô tô hai bánh, xe gắn máy được phép chở tối đa 2 người trong những trường hợp nào?",
+				true, "nan", a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_59);
 
-		Question questionA1_67 = new Question(9, "Đường bộ trong khu vực đông dân cư gồm những đoạn đường nào dưới đây?", true, "nan",a1.getId(), set3.getId(), kn.getId());
+		Question questionA1_67 = new Question(9,
+				"Đường bộ trong khu vực đông dân cư gồm những đoạn đường nào dưới đây?", true, "nan", a1.getId(),
+				set3.getId(), kn.getId());
 		questionRepo.save(questionA1_67);
 
-		Question questionA1_75 = new Question(10, "Tại nơi đường giao nhau, người lái xe đang đi trên đường không ưu tiên phải xử lý như thế nào là đúng quy tắc giao thông?", true, "nan",a1.getId(), set3.getId(), kn.getId());
+		Question questionA1_75 = new Question(10,
+				"Tại nơi đường giao nhau, người lái xe đang đi trên đường không ưu tiên phải xử lý như thế nào là đúng quy tắc giao thông?",
+				true, "nan", a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_75);
 
-		Question questionA1_83 = new Question(11, "Khái niệm về văn hóa giao thông được hiểu như thế nào là đúng?", true, "nan",a1.getId(), set3.getId(), vh.getId());
+		Question questionA1_83 = new Question(11, "Khái niệm về văn hóa giao thông được hiểu như thế nào là đúng?",
+				true, "nan", a1.getId(), set3.getId(), vh.getId());
 		questionRepo.save(questionA1_83);
 
-		Question questionA1_91 = new Question(12, "Để đạt được hiệu quả phanh cao nhất, người lái xe mô tô phải sử dụng các kỹ năng như thế nào dưới đây?", true, "nan",a1.getId(), set3.getId(), kt.getId());
+		Question questionA1_91 = new Question(12,
+				"Để đạt được hiệu quả phanh cao nhất, người lái xe mô tô phải sử dụng các kỹ năng như thế nào dưới đây?",
+				true, "nan", a1.getId(), set3.getId(), kt.getId());
 		questionRepo.save(questionA1_91);
 
-		Question questionA1_99 = new Question(13, "Khi điều khiển xe mô tô tay ga xuống đường dốc dài, độ dốc cao, người lái xe cần thực hiện các thao tác nào dưới đây để đảm bảo an toàn?", true, "nan",a1.getId(), set3.getId(), kt.getId());
+		Question questionA1_99 = new Question(13,
+				"Khi điều khiển xe mô tô tay ga xuống đường dốc dài, độ dốc cao, người lái xe cần thực hiện các thao tác nào dưới đây để đảm bảo an toàn?",
+				true, "nan", a1.getId(), set3.getId(), kt.getId());
 		questionRepo.save(questionA1_99);
 
-		Question questionA1_107 = new Question(14, "Biển nào báo hiệu \"Giao nhau với đường sắt có rào chắn\"?", true, "a1_107.jpg",a1.getId(), set3.getId(), bb.getId());
+		Question questionA1_107 = new Question(14, "Biển nào báo hiệu \"Giao nhau với đường sắt có rào chắn\"?", true,
+				"a1_107.jpg", a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_107);
 
-		Question questionA1_115 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", true, "a1_115.jpg",a1.getId(), set3.getId(), bb.getId());
+		Question questionA1_115 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", true,
+				"a1_115.jpg", a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_115);
 
-		Question questionA1_123 = new Question(16, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?", true, "a1_123.jpg",a1.getId(), set3.getId(), bb.getId());
+		Question questionA1_123 = new Question(16, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?", true,
+				"a1_123.jpg", a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_123);
 
-		Question questionA1_131 = new Question(17, "Biển nào là biển \"Cấm đi ngược chiều\"?", true, "a1_131.jpg",a1.getId(), set3.getId(), bb.getId());
+		Question questionA1_131 = new Question(17, "Biển nào là biển \"Cấm đi ngược chiều\"?", true, "a1_131.jpg",
+				a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_131);
 
-		Question questionA1_139 = new Question(18, "Biển nào xe mô tô hai bánh không được đi vào?", true, "a1_139.jpg",a1.getId(), set3.getId(), bb.getId());
+		Question questionA1_139 = new Question(18, "Biển nào xe mô tô hai bánh không được đi vào?", true, "a1_139.jpg",
+				a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_139);
 
-		Question questionA1_147 = new Question(19, "Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối thiểu\"?", true, "a1_147.jpg",a1.getId(), set3.getId(), bb.getId());
+		Question questionA1_147 = new Question(19, "Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối thiểu\"?",
+				true, "a1_147.jpg", a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_147);
 
-		Question questionA1_155 = new Question(20, "Biển nào báo hiệu \"Đường một chiều\"?", true, "a1_155.jpg",a1.getId(), set3.getId(), bb.getId());
+		Question questionA1_155 = new Question(20, "Biển nào báo hiệu \"Đường một chiều\"?", true, "a1_155.jpg",
+				a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_155);
 
-		Question questionA1_163 = new Question(21, "Các vạch dưới đây có tác dụng gì?", true, "a1_163.jpg",a1.getId(), set3.getId(), bb.getId());
+		Question questionA1_163 = new Question(21, "Các vạch dưới đây có tác dụng gì?", true, "a1_163.jpg", a1.getId(),
+				set3.getId(), bb.getId());
 		questionRepo.save(questionA1_163);
 
-		Question questionA1_171 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?", true, "a1_171.jpg",a1.getId(), set3.getId(), sh.getId());
+		Question questionA1_171 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?", true,
+				"a1_171.jpg", a1.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionA1_171);
 
-		Question questionA1_179 = new Question(23, "Xe nào được quyền đi trước trong trường hợp này?", true, "a1_179.jpg",a1.getId(), set3.getId(), sh.getId());
+		Question questionA1_179 = new Question(23, "Xe nào được quyền đi trước trong trường hợp này?", true,
+				"a1_179.jpg", a1.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionA1_179);
 
-		Question questionA1_187 = new Question(24, "Theo hướng mũi tên, những hướng nào xe gắn máy đi được?", true, "a1_187.jpg",a1.getId(), set3.getId(), sh.getId());
+		Question questionA1_187 = new Question(24, "Theo hướng mũi tên, những hướng nào xe gắn máy đi được?", true,
+				"a1_187.jpg", a1.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionA1_187);
 
-		Question questionA1_195 = new Question(25, "Xe nào vi phạm quy tắc giao thông?", true, "a1_195.jpg",a1.getId(), set3.getId(), sh.getId());
+		Question questionA1_195 = new Question(25, "Xe nào vi phạm quy tắc giao thông?", true, "a1_195.jpg", a1.getId(),
+				set3.getId(), sh.getId());
 		questionRepo.save(questionA1_195);
 
-		Question questionA1_4 = new Question(1, "Ở phần đường dành cho người đi bộ qua đường, trên cầu, đầu cầu, đường cao tốc, đường hẹp, đường dốc, tại nơi đường bộ giao nhau cùng mức với đường sắt có được quay đầu xe hay không?", true, "nan",a1.getId(), set4.getId(), kn.getId());
+		Question questionA1_4 = new Question(1,
+				"Ở phần đường dành cho người đi bộ qua đường, trên cầu, đầu cầu, đường cao tốc, đường hẹp, đường dốc, tại nơi đường bộ giao nhau cùng mức với đường sắt có được quay đầu xe hay không?",
+				true, "nan", a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_4);
 
-		Question questionA1_12 = new Question(2, "Hành vi sử dụng xe mô tô để kéo, đẩy xe mô tô khác bị hết xăng đến trạm mua xăng có được phép hay không?", true, "nan",a1.getId(), set4.getId(), kn.getId());
+		Question questionA1_12 = new Question(2,
+				"Hành vi sử dụng xe mô tô để kéo, đẩy xe mô tô khác bị hết xăng đến trạm mua xăng có được phép hay không?",
+				true, "nan", a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_12);
 
-		Question questionA1_20 = new Question(3, "\"Dải phân cách\" trên đường bộ gồm những loại nào?", true, "nan",a1.getId(), set4.getId(), kn.getId());
+		Question questionA1_20 = new Question(3, "\"Dải phân cách\" trên đường bộ gồm những loại nào?", true, "nan",
+				a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_20);
 
-		Question questionA1_28 = new Question(4, "Trong các khái niệm dưới đây, khái niệm \"dừng xe\" được hiểu như thế nào là đúng?", true, "nan",a1.getId(), set4.getId(), kn.getId());
+		Question questionA1_28 = new Question(4,
+				"Trong các khái niệm dưới đây, khái niệm \"dừng xe\" được hiểu như thế nào là đúng?", true, "nan",
+				a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_28);
 
-		Question questionA1_36 = new Question(5, "Người đủ 16 tuổi được điều khiển các loại xe nào dưới đây?", true, "nan",a1.getId(), set4.getId(), kn.getId());
+		Question questionA1_36 = new Question(5, "Người đủ 16 tuổi được điều khiển các loại xe nào dưới đây?", true,
+				"nan", a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_36);
 
-		Question questionA1_44 = new Question(6, "Biển báo hiệu có dạng hình tam giác đều, viền đỏ, nền màu vàng, trên có hình vẽ màu đen là loại biển gì dưới đây?", true, "a1_44.jpg",a1.getId(), set4.getId(), kn.getId());
+		Question questionA1_44 = new Question(6,
+				"Biển báo hiệu có dạng hình tam giác đều, viền đỏ, nền màu vàng, trên có hình vẽ màu đen là loại biển gì dưới đây?",
+				true, "a1_44.jpg", a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_44);
 
-		Question questionA1_52 = new Question(7, "Khi điều khiển xe chạy trên đường biết có xe sau xin vượt nếu đủ điều kiện an toàn người lái xe phải làm gì?", true, "nan",a1.getId(), set4.getId(), kn.getId());
+		Question questionA1_52 = new Question(7,
+				"Khi điều khiển xe chạy trên đường biết có xe sau xin vượt nếu đủ điều kiện an toàn người lái xe phải làm gì?",
+				true, "nan", a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_52);
 
-		Question questionA1_60 = new Question(8, "Người điều khiển xe mô tô hai bánh, xe gắn máy không được thực hiện những hành vi nào dưới dây?", true, "nan",a1.getId(), set4.getId(), kn.getId());
+		Question questionA1_60 = new Question(8,
+				"Người điều khiển xe mô tô hai bánh, xe gắn máy không được thực hiện những hành vi nào dưới dây?", true,
+				"nan", a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_60);
 
-		Question questionA1_68 = new Question(9, "Tốc độ tối đa cho phép đối với xe máy chuyên dùng, xe gắn máy (kể cả xe máy điện) và các loại xe tương tự trên đường bộ (trừ đường cao tốc) không được vượt quá bao nhiêu km", true, "nan",a1.getId(), set4.getId(), kn.getId());
+		Question questionA1_68 = new Question(9,
+				"Tốc độ tối đa cho phép đối với xe máy chuyên dùng, xe gắn máy (kể cả xe máy điện) và các loại xe tương tự trên đường bộ (trừ đường cao tốc) không được vượt quá bao nhiêu km",
+				true, "nan", a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_68);
 
-		Question questionA1_76 = new Question(10, "Người lái xe phải xử lý như thế nào khi quan sát phía trước thấy người đi bộ đang sang đường tại nơi có vạch đường dành cho người đi bộ để đảm bảo an toàn?", true, "nan",a1.getId(), set4.getId(), kn.getId());
+		Question questionA1_76 = new Question(10,
+				"Người lái xe phải xử lý như thế nào khi quan sát phía trước thấy người đi bộ đang sang đường tại nơi có vạch đường dành cho người đi bộ để đảm bảo an toàn?",
+				true, "nan", a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_76);
 
-		Question questionA1_84 = new Question(11, "Trong các hành vi dưới đây, người lái xe ô tô, mô tô có văn hóa giao thông phải ứng xử như thế nào?", true, "nan",a1.getId(), set4.getId(), vh.getId());
+		Question questionA1_84 = new Question(11,
+				"Trong các hành vi dưới đây, người lái xe ô tô, mô tô có văn hóa giao thông phải ứng xử như thế nào?",
+				true, "nan", a1.getId(), set4.getId(), vh.getId());
 		questionRepo.save(questionA1_84);
 
-		Question questionA1_92 = new Question(12, "Khi đang lái xe mô tô và ô tô, nếu có nhu cầu sử dụng điện thoại để nhắn tin hoặc gọi điện, người lái xe phải thực hiện như thế nào trong các tình huống dưới đây?", true, "nan",a1.getId(), set4.getId(), kt.getId());
+		Question questionA1_92 = new Question(12,
+				"Khi đang lái xe mô tô và ô tô, nếu có nhu cầu sử dụng điện thoại để nhắn tin hoặc gọi điện, người lái xe phải thực hiện như thế nào trong các tình huống dưới đây?",
+				true, "nan", a1.getId(), set4.getId(), kt.getId());
 		questionRepo.save(questionA1_92);
 
-		Question questionA1_100 = new Question(13, "Các phương tiện tham gia giao thông đường bộ (kể cả những xe có quyền ưu tiên) đều phải dừng lại bên phải đường của mình và trước vạch \"dừng xe\" tại các điểm giao cắt giữa đường bộ và đường sắt khi có báo hiệu dừng nào dưới đây?", true, "nan",a1.getId(), set4.getId(), kt.getId());
+		Question questionA1_100 = new Question(13,
+				"Các phương tiện tham gia giao thông đường bộ (kể cả những xe có quyền ưu tiên) đều phải dừng lại bên phải đường của mình và trước vạch \"dừng xe\" tại các điểm giao cắt giữa đường bộ và đường sắt khi có báo hiệu dừng nào dưới đây?",
+				true, "nan", a1.getId(), set4.getId(), kt.getId());
 		questionRepo.save(questionA1_100);
 
-		Question questionA1_108 = new Question(14, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?", true, "a1_108.jpg",a1.getId(), set4.getId(), bb.getId());
+		Question questionA1_108 = new Question(14, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?", true,
+				"a1_108.jpg", a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_108);
 
-		Question questionA1_116 = new Question(15, "Biển nào báo hiệu \"Đường hai chiều\"?", true, "a1_116.jpg",a1.getId(), set4.getId(), bb.getId());
+		Question questionA1_116 = new Question(15, "Biển nào báo hiệu \"Đường hai chiều\"?", true, "a1_116.jpg",
+				a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_116);
 
-		Question questionA1_124 = new Question(16, "khi gặp biển nào thì xe mô tô hai bánh được đi vào?", true, "a1_124.jpg",a1.getId(), set4.getId(), bb.getId());
+		Question questionA1_124 = new Question(16, "khi gặp biển nào thì xe mô tô hai bánh được đi vào?", true,
+				"a1_124.jpg", a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_124);
 
-		Question questionA1_132 = new Question(17, "Biển nào dưới đây các phương tiện không được phép đi vào?", true, "a1_132.jpg",a1.getId(), set4.getId(), bb.getId());
+		Question questionA1_132 = new Question(17, "Biển nào dưới đây các phương tiện không được phép đi vào?", true,
+				"a1_132.jpg", a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_132);
 
-		Question questionA1_140 = new Question(18, "Biển nào xe mô tô hai bánh được đi vào?", true, "a1_140.jpg",a1.getId(), set4.getId(), bb.getId());
+		Question questionA1_140 = new Question(18, "Biển nào xe mô tô hai bánh được đi vào?", true, "a1_140.jpg",
+				a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_140);
 
-		Question questionA1_148 = new Question(19, "Biển nào dưới đây báo hiệu hết cấm vượt?", true, "a1_148.jpg",a1.getId(), set4.getId(), bb.getId());
+		Question questionA1_148 = new Question(19, "Biển nào dưới đây báo hiệu hết cấm vượt?", true, "a1_148.jpg",
+				a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_148);
 
-		Question questionA1_156 = new Question(20, "Biển nào chỉ dẫn cho người đi bộ sử dụng cầu vượt qua đường?", true, "a1_156.jpg",a1.getId(), set4.getId(), bb.getId());
+		Question questionA1_156 = new Question(20, "Biển nào chỉ dẫn cho người đi bộ sử dụng cầu vượt qua đường?", true,
+				"a1_156.jpg", a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_156);
 
-		Question questionA1_164 = new Question(21, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?", true, "a1_164.jpg",a1.getId(), set4.getId(), bb.getId());
+		Question questionA1_164 = new Question(21, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?", true,
+				"a1_164.jpg", a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_164);
 
-		Question questionA1_172 = new Question(22, "Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", true, "a1_172.jpg",a1.getId(), set4.getId(), sh.getId());
+		Question questionA1_172 = new Question(22,
+				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", true, "a1_172.jpg",
+				a1.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionA1_172);
 
-		Question questionA1_180 = new Question(23, "Các xe đi theo thứ tự nào là đúng quy tắc giao thông đường bộ?", true, "a1_180.jpg",a1.getId(), set4.getId(), sh.getId());
+		Question questionA1_180 = new Question(23, "Các xe đi theo thứ tự nào là đúng quy tắc giao thông đường bộ?",
+				true, "a1_180.jpg", a1.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionA1_180);
 
-		Question questionA1_188 = new Question(24, "Theo hướng mũi tên, những hướng nào xe mô tô được phép đi?", true, "a1_188.jpg",a1.getId(), set4.getId(), sh.getId());
+		Question questionA1_188 = new Question(24, "Theo hướng mũi tên, những hướng nào xe mô tô được phép đi?", true,
+				"a1_188.jpg", a1.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionA1_188);
 
-		Question questionA1_196 = new Question(25, "Các xe đi theo thứ nào là đúng quy tắc giao thông đường bộ?", true, "a1_196.jpg",a1.getId(), set4.getId(), sh.getId());
+		Question questionA1_196 = new Question(25, "Các xe đi theo thứ nào là đúng quy tắc giao thông đường bộ?", true,
+				"a1_196.jpg", a1.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionA1_196);
 
-		Question questionA1_5 = new Question(1, "Người điều khiển xe mô tô hai bánh, ba bánh, xe gắn máy có được phép sử dụng xe để kéo hoặc đẩy các phương tiện khác khi tham gia giao thông không?", true, "nan",a1.getId(), set5.getId(), kn.getId());
+		Question questionA1_5 = new Question(1,
+				"Người điều khiển xe mô tô hai bánh, ba bánh, xe gắn máy có được phép sử dụng xe để kéo hoặc đẩy các phương tiện khác khi tham gia giao thông không?",
+				true, "nan", a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_5);
 
-		Question questionA1_13 = new Question(2, "Khi đang lên dốc người ngồi trên xe mô tô có được kéo theo người đang điều khiển xe đạp hay không?", true, "nan",a1.getId(), set5.getId(), kn.getId());
+		Question questionA1_13 = new Question(2,
+				"Khi đang lên dốc người ngồi trên xe mô tô có được kéo theo người đang điều khiển xe đạp hay không?",
+				true, "nan", a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_13);
 
-		Question questionA1_21 = new Question(3, "Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", true, "nan",a1.getId(), set5.getId(), kn.getId());
+		Question questionA1_21 = new Question(3,
+				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", true, "nan",
+				a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_21);
 
-		Question questionA1_29 = new Question(4, "Cuộc đua xe chỉ được thực hiện khi nào?", true, "nan",a1.getId(), set5.getId(), kn.getId());
+		Question questionA1_29 = new Question(4, "Cuộc đua xe chỉ được thực hiện khi nào?", true, "nan", a1.getId(),
+				set5.getId(), kn.getId());
 		questionRepo.save(questionA1_29);
 
-		Question questionA1_37 = new Question(5, "Người đủ bao nhiêu tuổi trở lên thì được điều khiển xe mô tô hai bánh, xe mô tô ba bánh có dung tích xi lanh từ 50 cm3 trở lên và các loại xe có kết cấu tương tự; xe ô tô tải, máy kéo có trọng tải dưới 3500kg; xe ô tô chở người đến 9 chỗ ngồi?", true, "nan",a1.getId(), set5.getId(), kn.getId());
+		Question questionA1_37 = new Question(5,
+				"Người đủ bao nhiêu tuổi trở lên thì được điều khiển xe mô tô hai bánh, xe mô tô ba bánh có dung tích xi lanh từ 50 cm3 trở lên và các loại xe có kết cấu tương tự; xe ô tô tải, máy kéo có trọng tải dưới 3500kg; xe ô tô chở người đến 9 chỗ ngồi?",
+				true, "nan", a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_37);
 
-		Question questionA1_45 = new Question(6, "Biển báo hiệu hình tròn có nền xanh lam có hình vẽ màu trắng là loại gì dưới đây?", true, "a1_45.jpg",a1.getId(), set5.getId(), kn.getId());
+		Question questionA1_45 = new Question(6,
+				"Biển báo hiệu hình tròn có nền xanh lam có hình vẽ màu trắng là loại gì dưới đây?", true, "a1_45.jpg",
+				a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_45);
 
-		Question questionA1_53 = new Question(7, "Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?", true, "nan",a1.getId(), set5.getId(), kn.getId());
+		Question questionA1_53 = new Question(7,
+				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?", true,
+				"nan", a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_53);
 
-		Question questionA1_61 = new Question(8, "Người lái xe phải giảm tốc độ thấp hơn tốc độ tối đa cho phép (có thể dừng lại một cách an toàn) trong trường hợp nào dưới đây?", true, "nan",a1.getId(), set5.getId(), kn.getId());
+		Question questionA1_61 = new Question(8,
+				"Người lái xe phải giảm tốc độ thấp hơn tốc độ tối đa cho phép (có thể dừng lại một cách an toàn) trong trường hợp nào dưới đây?",
+				true, "nan", a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_61);
 
-		Question questionA1_69 = new Question(9, "Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường đôi có dải phân cách giữa, xe mô tô hai bánh, ô tô chở người đến 30 chỗ tham gia giao thông với tốc độ tối đa cho phép là bao nhiêu?", true, "nan",a1.getId(), set5.getId(), kn.getId());
+		Question questionA1_69 = new Question(9,
+				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường đôi có dải phân cách giữa, xe mô tô hai bánh, ô tô chở người đến 30 chỗ tham gia giao thông với tốc độ tối đa cho phép là bao nhiêu?",
+				true, "nan", a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_69);
 
-		Question questionA1_77 = new Question(10, "Tại nơi đường giao nhau, khi đèn điều khiển giao thông có tín hiệu màu vàng, người điều khiển giao thông phải chấp hành như thế nào là đúng quy tắc giao thông?", true, "nan",a1.getId(), set5.getId(), kn.getId());
+		Question questionA1_77 = new Question(10,
+				"Tại nơi đường giao nhau, khi đèn điều khiển giao thông có tín hiệu màu vàng, người điều khiển giao thông phải chấp hành như thế nào là đúng quy tắc giao thông?",
+				true, "nan", a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_77);
 
-		Question questionA1_85 = new Question(11, "Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?", true, "nan",a1.getId(), set5.getId(), vh.getId());
+		Question questionA1_85 = new Question(11,
+				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?", true,
+				"nan", a1.getId(), set5.getId(), vh.getId());
 		questionRepo.save(questionA1_85);
 
-		Question questionA1_93 = new Question(12, "Gương chiếu hậu của xe mô tô hai bánh, có tác dụng gì trong các trường hợp dưới đây?", true, "nan",a1.getId(), set5.getId(), kt.getId());
+		Question questionA1_93 = new Question(12,
+				"Gương chiếu hậu của xe mô tô hai bánh, có tác dụng gì trong các trường hợp dưới đây?", true, "nan",
+				a1.getId(), set5.getId(), kt.getId());
 		questionRepo.save(questionA1_93);
 
-		Question questionA1_101 = new Question(13, "Biển nào báo hiệu \"Đường giao nhau\" của các tuyến đường cùng cấp?", true, "a1_101.jpg",a1.getId(), set5.getId(), bb.getId());
+		Question questionA1_101 = new Question(13,
+				"Biển nào báo hiệu \"Đường giao nhau\" của các tuyến đường cùng cấp?", true, "a1_101.jpg", a1.getId(),
+				set5.getId(), bb.getId());
 		questionRepo.save(questionA1_101);
 
-		Question questionA1_109 = new Question(14, "Biển nào báo hiệu đường sắt giao nhau với đường bộ không có rào chắn?", true, "a1_109.jpg",a1.getId(), set5.getId(), bb.getId());
+		Question questionA1_109 = new Question(14,
+				"Biển nào báo hiệu đường sắt giao nhau với đường bộ không có rào chắn?", true, "a1_109.jpg", a1.getId(),
+				set5.getId(), bb.getId());
 		questionRepo.save(questionA1_109);
 
-		Question questionA1_117 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", true, "a1_117.jpg",a1.getId(), set5.getId(), bb.getId());
+		Question questionA1_117 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", true,
+				"a1_117.jpg", a1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA1_117);
 
-		Question questionA1_125 = new Question(16, "Biển nào cấm quay đầu xe?", true, "a1_125.jpg",a1.getId(), set5.getId(), bb.getId());
+		Question questionA1_125 = new Question(16, "Biển nào cấm quay đầu xe?", true, "a1_125.jpg", a1.getId(),
+				set5.getId(), bb.getId());
 		questionRepo.save(questionA1_125);
 
-		Question questionA1_133 = new Question(17, "Khi gặp biển nào xe ưu tiên theo luật định vẫn phải dừng lại?", true, "a1_133.jpg",a1.getId(), set5.getId(), bb.getId());
+		Question questionA1_133 = new Question(17, "Khi gặp biển nào xe ưu tiên theo luật định vẫn phải dừng lại?",
+				true, "a1_133.jpg", a1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA1_133);
 
-		Question questionA1_141 = new Question(18, "Gặp biển nào người lái xe phải nhường đường cho người đi bộ?", true, "a1_141.jpg",a1.getId(), set5.getId(), bb.getId());
+		Question questionA1_141 = new Question(18, "Gặp biển nào người lái xe phải nhường đường cho người đi bộ?", true,
+				"a1_141.jpg", a1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA1_141);
 
-		Question questionA1_149 = new Question(19, "Trong các biển dưới đây biển nào là biển \"Hết mọi lệnh cấm\"?", true, "a1_149.jpg",a1.getId(), set5.getId(), bb.getId());
+		Question questionA1_149 = new Question(19, "Trong các biển dưới đây biển nào là biển \"Hết mọi lệnh cấm\"?",
+				true, "a1_149.jpg", a1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA1_149);
 
-		Question questionA1_157 = new Question(20, "Biển nào chỉ dẫn cho người đi bộ sử dụng hầm chui qua đường?", true, "a1_157.jpg",a1.getId(), set5.getId(), bb.getId());
+		Question questionA1_157 = new Question(20, "Biển nào chỉ dẫn cho người đi bộ sử dụng hầm chui qua đường?", true,
+				"a1_157.jpg", a1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA1_157);
 
-		Question questionA1_165 = new Question(21, "Vạch dưới đây có ý nghĩa gì?", true, "a1_165.jpg",a1.getId(), set5.getId(), bb.getId());
+		Question questionA1_165 = new Question(21, "Vạch dưới đây có ý nghĩa gì?", true, "a1_165.jpg", a1.getId(),
+				set5.getId(), bb.getId());
 		questionRepo.save(questionA1_165);
 
-		Question questionA1_173 = new Question(22, "Trong hình dưới đây, xe nào chấp hành đúng quy tắc giao thông?", true, "a1_173.jpg",a1.getId(), set5.getId(), sh.getId());
+		Question questionA1_173 = new Question(22, "Trong hình dưới đây, xe nào chấp hành đúng quy tắc giao thông?",
+				true, "a1_173.jpg", a1.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionA1_173);
 
-		Question questionA1_181 = new Question(23, "Trong trường hợp này xe nào đỗ vi phạm quy tắc giao thông?", true, "a1_181.jpg",a1.getId(), set5.getId(), sh.getId());
+		Question questionA1_181 = new Question(23, "Trong trường hợp này xe nào đỗ vi phạm quy tắc giao thông?", true,
+				"a1_181.jpg", a1.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionA1_181);
 
-		Question questionA1_189 = new Question(24, "Trường hợp này xe nào được quyền đi trước?", true, "a1_189.jpg",a1.getId(), set5.getId(), sh.getId());
+		Question questionA1_189 = new Question(24, "Trường hợp này xe nào được quyền đi trước?", true, "a1_189.jpg",
+				a1.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionA1_189);
 
-		Question questionA1_197 = new Question(25, "Bạn xử lý như thế nào trong trường hợp này?", true, "a1_197.jpg",a1.getId(), set5.getId(), sh.getId());
+		Question questionA1_197 = new Question(25, "Bạn xử lý như thế nào trong trường hợp này?", true, "a1_197.jpg",
+				a1.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionA1_197);
 
-		Question questionA1_6 = new Question(1, "Khi điều khiển xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy, những hành vi buông cả hai tay; sử dụng xe để kéo, đẩy xe khác, vật khác; sử dụng chân chống của xe quệt xuống đường khi xe đang chạy có được phép không?", true, "nan",a1.getId(), set6.getId(), kn.getId());
+		Question questionA1_6 = new Question(1,
+				"Khi điều khiển xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy, những hành vi buông cả hai tay; sử dụng xe để kéo, đẩy xe khác, vật khác; sử dụng chân chống của xe quệt xuống đường khi xe đang chạy có được phép không?",
+				true, "nan", a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_6);
 
-		Question questionA1_14 = new Question(2, "Theo luật phòng chống tác hại của rượu, bia, đối tượng nào dưới đây bị cấm sử dụng rượu bia khi tham gia giao thông?", true, "nan",a1.getId(), set6.getId(), kn.getId());
+		Question questionA1_14 = new Question(2,
+				"Theo luật phòng chống tác hại của rượu, bia, đối tượng nào dưới đây bị cấm sử dụng rượu bia khi tham gia giao thông?",
+				true, "nan", a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_14);
 
-		Question questionA1_22 = new Question(3, "Khái niệm \"phương tiện giao thông thô sơ đường bộ\" được hiểu thế nào là đúng?", true, "nan",a1.getId(), set6.getId(), kn.getId());
+		Question questionA1_22 = new Question(3,
+				"Khái niệm \"phương tiện giao thông thô sơ đường bộ\" được hiểu thế nào là đúng?", true, "nan",
+				a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_22);
 
-		Question questionA1_30 = new Question(4, "Sử dụng rượu, bia khi lái xe, nếu bị phát hiện thì bị xử lý như thế nào?", true, "nan",a1.getId(), set6.getId(), kn.getId());
+		Question questionA1_30 = new Question(4,
+				"Sử dụng rượu, bia khi lái xe, nếu bị phát hiện thì bị xử lý như thế nào?", true, "nan", a1.getId(),
+				set6.getId(), kn.getId());
 		questionRepo.save(questionA1_30);
 
-		Question questionA1_38 = new Question(5, "Người có giấy phép lái xe mô tô hạng A1 không được phép điều khiển loại xe nào dưới đây?", true, "nan",a1.getId(), set6.getId(), kn.getId());
+		Question questionA1_38 = new Question(5,
+				"Người có giấy phép lái xe mô tô hạng A1 không được phép điều khiển loại xe nào dưới đây?", true, "nan",
+				a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_38);
 
-		Question questionA1_46 = new Question(6, "Biển báo hiệu hình chữ nhật hoặc hình vuông hoặc hình mũi tên nền xanh lam là loại biển gì dưới đây?", true, "a1_46.jpg",a1.getId(), set6.getId(), kn.getId());
+		Question questionA1_46 = new Question(6,
+				"Biển báo hiệu hình chữ nhật hoặc hình vuông hoặc hình mũi tên nền xanh lam là loại biển gì dưới đây?",
+				true, "a1_46.jpg", a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_46);
 
-		Question questionA1_54 = new Question(7, "Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?", true, "nan",a1.getId(), set6.getId(), kn.getId());
+		Question questionA1_54 = new Question(7,
+				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?", true,
+				"nan", a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_54);
 
-		Question questionA1_62 = new Question(8, "Khi điều khiển xe cơ giới, người lái xe phải bật đèn tín hiệu báo rẽ trong các trường hợp nào sau đây?", true, "nan",a1.getId(), set6.getId(), kn.getId());
+		Question questionA1_62 = new Question(8,
+				"Khi điều khiển xe cơ giới, người lái xe phải bật đèn tín hiệu báo rẽ trong các trường hợp nào sau đây?",
+				true, "nan", a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_62);
 
-		Question questionA1_70 = new Question(9, "Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường hai chiều không có dải phân cách giữa, xe mô tô hai bánh, ô tô chở người đến 30 chỗ tham gia giao thông với tốc độ tối đa cho phép là bao nhiêu?", true, "nan",a1.getId(), set6.getId(), kn.getId());
+		Question questionA1_70 = new Question(9,
+				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường hai chiều không có dải phân cách giữa, xe mô tô hai bánh, ô tô chở người đến 30 chỗ tham gia giao thông với tốc độ tối đa cho phép là bao nhiêu?",
+				true, "nan", a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_70);
 
-		Question questionA1_78 = new Question(10, "Để báo hiệu cho xe phía trước biết xe mô tô của bạn muốn vượt, bạn phải có tín hiệu như thế nào dưới đây?", true, "nan",a1.getId(), set6.getId(), kn.getId());
+		Question questionA1_78 = new Question(10,
+				"Để báo hiệu cho xe phía trước biết xe mô tô của bạn muốn vượt, bạn phải có tín hiệu như thế nào dưới đây?",
+				true, "nan", a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_78);
 
-		Question questionA1_86 = new Question(11, "Trên đường đang xảy ra ùn tắc những hành vi nào sau đây là thiếu văn hóa khi tham gia giao thông?", true, "nan",a1.getId(), set6.getId(), vh.getId());
+		Question questionA1_86 = new Question(11,
+				"Trên đường đang xảy ra ùn tắc những hành vi nào sau đây là thiếu văn hóa khi tham gia giao thông?",
+				true, "nan", a1.getId(), set6.getId(), vh.getId());
 		questionRepo.save(questionA1_86);
 
-		Question questionA1_94 = new Question(12, "Khi điều khiển xe mô tô quay đầu người lái xe cần thực hiện như thế nào để đảm bảo an toàn?", true, "nan",a1.getId(), set6.getId(), kt.getId());
+		Question questionA1_94 = new Question(12,
+				"Khi điều khiển xe mô tô quay đầu người lái xe cần thực hiện như thế nào để đảm bảo an toàn?", true,
+				"nan", a1.getId(), set6.getId(), kt.getId());
 		questionRepo.save(questionA1_94);
 
-		Question questionA1_102 = new Question(13, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?", true, "a1_102.jpg",a1.getId(), set6.getId(), bb.getId());
+		Question questionA1_102 = new Question(13, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?", true,
+				"a1_102.jpg", a1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA1_102);
 
-		Question questionA1_110 = new Question(14, "Biển nào báo hiệu sắp đến chỗ giao nhau giữa đường bộ và đường sắt?", true, "a1_110.jpg",a1.getId(), set6.getId(), bb.getId());
+		Question questionA1_110 = new Question(14,
+				"Biển nào báo hiệu sắp đến chỗ giao nhau giữa đường bộ và đường sắt?", true, "a1_110.jpg", a1.getId(),
+				set6.getId(), bb.getId());
 		questionRepo.save(questionA1_110);
 
-		Question questionA1_118 = new Question(15, "Biển nào báo hiệu \"Chú ý chướng ngại vật\"?", true, "a1_118.jpg",a1.getId(), set6.getId(), bb.getId());
+		Question questionA1_118 = new Question(15, "Biển nào báo hiệu \"Chú ý chướng ngại vật\"?", true, "a1_118.jpg",
+				a1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA1_118);
 
-		Question questionA1_126 = new Question(16, "Biển nào cấm xe rẽ trái?", true, "a1_126.jpg",a1.getId(), set6.getId(), bb.getId());
+		Question questionA1_126 = new Question(16, "Biển nào cấm xe rẽ trái?", true, "a1_126.jpg", a1.getId(),
+				set6.getId(), bb.getId());
 		questionRepo.save(questionA1_126);
 
-		Question questionA1_134 = new Question(17, "Biển nào cấm tất cả các loại xe cơ giới và thô sơ đi lại trên đường, trừ xe ưu tiên theo luật định (nếu đường vẫn cho xe chạy được)?", true, "a1_134.jpg",a1.getId(), set6.getId(), bb.getId());
+		Question questionA1_134 = new Question(17,
+				"Biển nào cấm tất cả các loại xe cơ giới và thô sơ đi lại trên đường, trừ xe ưu tiên theo luật định (nếu đường vẫn cho xe chạy được)?",
+				true, "a1_134.jpg", a1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA1_134);
 
-		Question questionA1_142 = new Question(18, "Biển nào chỉ đường dành cho người đi bộ, các loại xe không được đi vào khi gặp biển này?", true, "a1_142.jpg",a1.getId(), set6.getId(), bb.getId());
+		Question questionA1_142 = new Question(18,
+				"Biển nào chỉ đường dành cho người đi bộ, các loại xe không được đi vào khi gặp biển này?", true,
+				"a1_142.jpg", a1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA1_142);
 
-		Question questionA1_150 = new Question(19, "Biển nào báo hiệu \"Nơi đỗ xe cho người tàn tật\"?", true, "a1_150.jpg",a1.getId(), set6.getId(), bb.getId());
+		Question questionA1_150 = new Question(19, "Biển nào báo hiệu \"Nơi đỗ xe cho người tàn tật\"?", true,
+				"a1_150.jpg", a1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA1_150);
 
-		Question questionA1_158 = new Question(20, "Gặp biển báo này, người tham gia giao thông phải xử lý như thế nào?", true, "a1_158.jpg",a1.getId(), set6.getId(), bb.getId());
+		Question questionA1_158 = new Question(20,
+				"Gặp biển báo này, người tham gia giao thông phải xử lý như thế nào?", true, "a1_158.jpg", a1.getId(),
+				set6.getId(), bb.getId());
 		questionRepo.save(questionA1_158);
 
-		Question questionA1_166 = new Question(21, "Các xe đi như thế nào là đúng quy tắc giao thông?", true, "a1_166.jpg",a1.getId(), set6.getId(), sh.getId());
+		Question questionA1_166 = new Question(21, "Các xe đi như thế nào là đúng quy tắc giao thông?", true,
+				"a1_166.jpg", a1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA1_166);
 
-		Question questionA1_174 = new Question(22, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?", true, "a1_174.jpg",a1.getId(), set6.getId(), sh.getId());
+		Question questionA1_174 = new Question(22, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
+				true, "a1_174.jpg", a1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA1_174);
 
-		Question questionA1_182 = new Question(23, "Xe nào đỗ vi phạm quy tắc giao thông?", true, "a1_182.jpg",a1.getId(), set6.getId(), sh.getId());
+		Question questionA1_182 = new Question(23, "Xe nào đỗ vi phạm quy tắc giao thông?", true, "a1_182.jpg",
+				a1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA1_182);
 
-		Question questionA1_190 = new Question(24, "Bạn có được phép vượt xe mô tô phía trước không?", true, "a1_190.jpg",a1.getId(), set6.getId(), sh.getId());
+		Question questionA1_190 = new Question(24, "Bạn có được phép vượt xe mô tô phía trước không?", true,
+				"a1_190.jpg", a1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA1_190);
 
-		Question questionA1_198 = new Question(25, "Xe nào dừng đúng theo quy tắc giao thông?", true, "a1_198.jpg",a1.getId(), set6.getId(), sh.getId());
+		Question questionA1_198 = new Question(25, "Xe nào dừng đúng theo quy tắc giao thông?", true, "a1_198.jpg",
+				a1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA1_198);
 
-		Question questionA1_7 = new Question(1, "Người ngồi trên xe mô tô hai bánh, ba bánh, xe gắn máy khi tham gia giao thông có được mang, vác vật cồng kềnh hay không?", true, "nan",a1.getId(), set7.getId(), kn.getId());
+		Question questionA1_7 = new Question(1,
+				"Người ngồi trên xe mô tô hai bánh, ba bánh, xe gắn máy khi tham gia giao thông có được mang, vác vật cồng kềnh hay không?",
+				true, "nan", a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_7);
 
-		Question questionA1_15 = new Question(2, "Phần của đường bộ đươc sử dụng cho các phương tiện giao thông qua lại là gì?", true, "nan",a1.getId(), set7.getId(), kn.getId());
+		Question questionA1_15 = new Question(2,
+				"Phần của đường bộ đươc sử dụng cho các phương tiện giao thông qua lại là gì?", true, "nan", a1.getId(),
+				set7.getId(), kn.getId());
 		questionRepo.save(questionA1_15);
 
-		Question questionA1_23 = new Question(3, "\"Phương tiện tham gia giao thông đường bộ\" gồm những loại nào?", true, "nan",a1.getId(), set7.getId(), kn.getId());
+		Question questionA1_23 = new Question(3, "\"Phương tiện tham gia giao thông đường bộ\" gồm những loại nào?",
+				true, "nan", a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_23);
 
-		Question questionA1_31 = new Question(4, "Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?", true, "nan",a1.getId(), set7.getId(), kn.getId());
+		Question questionA1_31 = new Question(4,
+				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?", true,
+				"nan", a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_31);
 
-		Question questionA1_39 = new Question(5, "Người có giấy phép lái xe mô tô hạng A1 được phép điều khiển các loại xe nào dưới đây?", true, "nan",a1.getId(), set7.getId(), kn.getId());
+		Question questionA1_39 = new Question(5,
+				"Người có giấy phép lái xe mô tô hạng A1 được phép điều khiển các loại xe nào dưới đây?", true, "nan",
+				a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_39);
 
-		Question questionA1_47 = new Question(6, "Tại nơi có biển báo hiệu cố định lại có báo hiệu tạm thời thì người tham gia giao thông phải chấp hành hiệu lệnh của báo hiệu nào?", true, "nan",a1.getId(), set7.getId(), kn.getId());
+		Question questionA1_47 = new Question(6,
+				"Tại nơi có biển báo hiệu cố định lại có báo hiệu tạm thời thì người tham gia giao thông phải chấp hành hiệu lệnh của báo hiệu nào?",
+				true, "nan", a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_47);
 
-		Question questionA1_55 = new Question(7, "Bạn đang lái xe trên đường hẹp, xuống dốc và gặp một xe đang đi lên dốc, bạn cần làm gì?", true, "nan",a1.getId(), set7.getId(), kn.getId());
+		Question questionA1_55 = new Question(7,
+				"Bạn đang lái xe trên đường hẹp, xuống dốc và gặp một xe đang đi lên dốc, bạn cần làm gì?", true, "nan",
+				a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_55);
 
-		Question questionA1_63 = new Question(8, "Trên đoạn đường hai chiều không có giải phân cách giữa, người lái xe không được vượt xe khác trong các trường hợp nào dưới đây?", true, "nan",a1.getId(), set7.getId(), kn.getId());
+		Question questionA1_63 = new Question(8,
+				"Trên đoạn đường hai chiều không có giải phân cách giữa, người lái xe không được vượt xe khác trong các trường hợp nào dưới đây?",
+				true, "nan", a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_63);
 
-		Question questionA1_71 = new Question(9, "Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường hai chiều hoặc đường một chiều có một làn xe cơ giới, loại xe nào dưới đây được tham gia giao thông với tốc độ tối đa cho phép là 50 km", true, "nan",a1.getId(), set7.getId(), kn.getId());
+		Question questionA1_71 = new Question(9,
+				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường hai chiều hoặc đường một chiều có một làn xe cơ giới, loại xe nào dưới đây được tham gia giao thông với tốc độ tối đa cho phép là 50 km",
+				true, "nan", a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_71);
 
-		Question questionA1_79 = new Question(10, "Người điều khiển xe mô tô phải giảm tốc độ và hết sức thận trọng khi qua những đoạn đường nào dưới đây?", true, "nan",a1.getId(), set7.getId(), kn.getId());
+		Question questionA1_79 = new Question(10,
+				"Người điều khiển xe mô tô phải giảm tốc độ và hết sức thận trọng khi qua những đoạn đường nào dưới đây?",
+				true, "nan", a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_79);
 
-		Question questionA1_87 = new Question(11, "Khi xảy ra tai nạn giao thông, có người bị thương nghiêm trọng, người lái xe và người có mặt tại hiện trường vụ tai nạn phải thực hiện các công việc gì dưới đây?", true, "nan",a1.getId(), set7.getId(), vh.getId());
+		Question questionA1_87 = new Question(11,
+				"Khi xảy ra tai nạn giao thông, có người bị thương nghiêm trọng, người lái xe và người có mặt tại hiện trường vụ tai nạn phải thực hiện các công việc gì dưới đây?",
+				true, "nan", a1.getId(), set7.getId(), vh.getId());
 		questionRepo.save(questionA1_87);
 
-		Question questionA1_95 = new Question(12, "Tay ga trên xe mô tô hai bánh có tác dụng gì trong các trường hợp dưới đây?", true, "nan",a1.getId(), set7.getId(), kt.getId());
+		Question questionA1_95 = new Question(12,
+				"Tay ga trên xe mô tô hai bánh có tác dụng gì trong các trường hợp dưới đây?", true, "nan", a1.getId(),
+				set7.getId(), kt.getId());
 		questionRepo.save(questionA1_95);
 
-		Question questionA1_103 = new Question(13, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?", true, "a1_103.jpg",a1.getId(), set7.getId(), bb.getId());
+		Question questionA1_103 = new Question(13, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?", true,
+				"a1_103.jpg", a1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA1_103);
 
-		Question questionA1_111 = new Question(14, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", true, "a1_111.jpg",a1.getId(), set7.getId(), bb.getId());
+		Question questionA1_111 = new Question(14, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", true, "a1_111.jpg",
+				a1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA1_111);
 
-		Question questionA1_119 = new Question(15, "Gặp biển nào người tham gia giao thông phải đi chậm và thận trọng đề phòng khả năng xuất hiện và di chuyển bất ngờ của trẻ em trên mặt đường?", true, "a1_119.jpg",a1.getId(), set7.getId(), bb.getId());
+		Question questionA1_119 = new Question(15,
+				"Gặp biển nào người tham gia giao thông phải đi chậm và thận trọng đề phòng khả năng xuất hiện và di chuyển bất ngờ của trẻ em trên mặt đường?",
+				true, "a1_119.jpg", a1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA1_119);
 
-		Question questionA1_127 = new Question(16, "Khi gặp biển nào xe được rẽ trái?", true, "a1_127.jpg",a1.getId(), set7.getId(), bb.getId());
+		Question questionA1_127 = new Question(16, "Khi gặp biển nào xe được rẽ trái?", true, "a1_127.jpg", a1.getId(),
+				set7.getId(), bb.getId());
 		questionRepo.save(questionA1_127);
 
-		Question questionA1_135 = new Question(17, "Gặp biển nào xe xích lô được phép đi vào?", true, "a1_135.jpg",a1.getId(), set7.getId(), bb.getId());
+		Question questionA1_135 = new Question(17, "Gặp biển nào xe xích lô được phép đi vào?", true, "a1_135.jpg",
+				a1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA1_135);
 
-		Question questionA1_143 = new Question(18, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?", true, "a1_143.jpg",a1.getId(), set7.getId(), bb.getId());
+		Question questionA1_143 = new Question(18, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?", true,
+				"a1_143.jpg", a1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA1_143);
 
-		Question questionA1_151 = new Question(19, "Biển nào cho phép xe rẽ trái?", true, "a1_151.jpg",a1.getId(), set7.getId(), bb.getId());
+		Question questionA1_151 = new Question(19, "Biển nào cho phép xe rẽ trái?", true, "a1_151.jpg", a1.getId(),
+				set7.getId(), bb.getId());
 		questionRepo.save(questionA1_151);
 
-		Question questionA1_159 = new Question(20, "Biển số 1 có ý nghĩa gì?", true, "a1_159.jpg",a1.getId(), set7.getId(), bb.getId());
+		Question questionA1_159 = new Question(20, "Biển số 1 có ý nghĩa gì?", true, "a1_159.jpg", a1.getId(),
+				set7.getId(), bb.getId());
 		questionRepo.save(questionA1_159);
 
-		Question questionA1_167 = new Question(21, "Theo hướng mũi tên, xe nào được phép đi?", true, "a1_167.jpg",a1.getId(), set7.getId(), sh.getId());
+		Question questionA1_167 = new Question(21, "Theo hướng mũi tên, xe nào được phép đi?", true, "a1_167.jpg",
+				a1.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionA1_167);
 
-		Question questionA1_175 = new Question(22, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?", true, "a1_175.jpg",a1.getId(), set7.getId(), sh.getId());
+		Question questionA1_175 = new Question(22, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
+				true, "a1_175.jpg", a1.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionA1_175);
 
-		Question questionA1_183 = new Question(23, "Xe nào đỗ vi phạm quy tắc giao thông?", true, "a1_183.jpg",a1.getId(), set7.getId(), sh.getId());
+		Question questionA1_183 = new Question(23, "Xe nào đỗ vi phạm quy tắc giao thông?", true, "a1_183.jpg",
+				a1.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionA1_183);
 
-		Question questionA1_191 = new Question(24, "Theo tín hiệu đèn của xe cơ giới, xe nào vi phạm quy tắc giao thông?", true, "a1_191.jpg",a1.getId(), set7.getId(), sh.getId());
+		Question questionA1_191 = new Question(24,
+				"Theo tín hiệu đèn của xe cơ giới, xe nào vi phạm quy tắc giao thông?", true, "a1_191.jpg", a1.getId(),
+				set7.getId(), sh.getId());
 		questionRepo.save(questionA1_191);
 
-		Question questionA1_199 = new Question(25, "Xe của bạn đang di chuyển gần đến khu vực giao cắt với đường sắt, khi rào chắn đang dịch chuyển, bạn điều khiển xe như thế nào là đúng quy tắc giao thông?", true, "a1_199.jpg",a1.getId(), set7.getId(), sh.getId());
+		Question questionA1_199 = new Question(25,
+				"Xe của bạn đang di chuyển gần đến khu vực giao cắt với đường sắt, khi rào chắn đang dịch chuyển, bạn điều khiển xe như thế nào là đúng quy tắc giao thông?",
+				true, "a1_199.jpg", a1.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionA1_199);
 
-		Question questionA1_8 = new Question(1, "Người ngồi trên xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy khi tham gia giao thông có được bám, kéo hoặc đẩy các phương thiện khác không?", true, "nan",a1.getId(), set8.getId(), kn.getId());
+		Question questionA1_8 = new Question(1,
+				"Người ngồi trên xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy khi tham gia giao thông có được bám, kéo hoặc đẩy các phương thiện khác không?",
+				true, "nan", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_8);
 
-		Question questionA1_16 = new Question(2, "\"Làn đường\" là gì?", true, "nan",a1.getId(), set8.getId(), kn.getId());
+		Question questionA1_16 = new Question(2, "\"Làn đường\" là gì?", true, "nan", a1.getId(), set8.getId(),
+				kn.getId());
 		questionRepo.save(questionA1_16);
 
-		Question questionA1_24 = new Question(3, "\"Người điều khiển phương tiện tham gia giao thông đường bộ\" gồm những đối tượng nào dưới đây?", true, "nan",a1.getId(), set8.getId(), kn.getId());
+		Question questionA1_24 = new Question(3,
+				"\"Người điều khiển phương tiện tham gia giao thông đường bộ\" gồm những đối tượng nào dưới đây?", true,
+				"nan", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_24);
 
-		Question questionA1_32 = new Question(4, "Khi lái xe trong khu đô thị và đông dân cư trừ các khu vực có biển cấm sử dụng còi, người lái xe được sử dụng còi như thế nào trong các trường hợp dưới đây?", true, "nan",a1.getId(), set8.getId(), kn.getId());
+		Question questionA1_32 = new Question(4,
+				"Khi lái xe trong khu đô thị và đông dân cư trừ các khu vực có biển cấm sử dụng còi, người lái xe được sử dụng còi như thế nào trong các trường hợp dưới đây?",
+				true, "nan", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_32);
 
-		Question questionA1_40 = new Question(5, "Khi gặp hiệu lệnh như dưới đây của cảnh sát giao thông thì người tham gia giao thông phải đi như thế nào là đúng quy tắc giao thông?", true, "a1_40.jpg",a1.getId(), set8.getId(), kn.getId());
+		Question questionA1_40 = new Question(5,
+				"Khi gặp hiệu lệnh như dưới đây của cảnh sát giao thông thì người tham gia giao thông phải đi như thế nào là đúng quy tắc giao thông?",
+				true, "a1_40.jpg", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_40);
 
-		Question questionA1_48 = new Question(6, "Khi sử dụng giấy phép lái xe đã khai báo mất để điều khiển phương tiện cơ giới đường bộ, ngoài việc bị thu hồi giấy phép lái xe, chịu trách nhiệm trước pháp luật, người lái xe không được cấp giấy phép lái xe trong thời gian bao nhiêu năm?", true, "nan",a1.getId(), set8.getId(), kn.getId());
+		Question questionA1_48 = new Question(6,
+				"Khi sử dụng giấy phép lái xe đã khai báo mất để điều khiển phương tiện cơ giới đường bộ, ngoài việc bị thu hồi giấy phép lái xe, chịu trách nhiệm trước pháp luật, người lái xe không được cấp giấy phép lái xe trong thời gian bao nhiêu năm?",
+				true, "nan", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_48);
 
-		Question questionA1_56 = new Question(7, "Tại nơi đường giao nhau, người lái xe đang đi trên đường không ưu tiên phải nhường đường như thế nào là đúng quy tắc giao thông?", true, "nan",a1.getId(), set8.getId(), kn.getId());
+		Question questionA1_56 = new Question(7,
+				"Tại nơi đường giao nhau, người lái xe đang đi trên đường không ưu tiên phải nhường đường như thế nào là đúng quy tắc giao thông?",
+				true, "nan", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_56);
 
-		Question questionA1_64 = new Question(8, "Tại ngã ba hoặc ngã tư không có đảm bảo an toàn, người lái xe phải nhường đường như thế nào là đúng trong các trường hợp dưới đây?", true, "nan",a1.getId(), set8.getId(), kn.getId());
+		Question questionA1_64 = new Question(8,
+				"Tại ngã ba hoặc ngã tư không có đảm bảo an toàn, người lái xe phải nhường đường như thế nào là đúng trong các trường hợp dưới đây?",
+				true, "nan", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_64);
 
-		Question questionA1_72 = new Question(9, "Khi điều khiển xe chạy với tốc độ dưới 60km", true, "nan",a1.getId(), set8.getId(), kn.getId());
+		Question questionA1_72 = new Question(9, "Khi điều khiển xe chạy với tốc độ dưới 60km", true, "nan", a1.getId(),
+				set8.getId(), kn.getId());
 		questionRepo.save(questionA1_72);
 
-		Question questionA1_80 = new Question(10, "Khi gặp xe buýt đang dừng đón, trả khách, người điều khiển xe mô tô phải xử lý như thế nào dưới đây để đảm bảo an toàn giao thông?", true, "nan",a1.getId(), set8.getId(), kn.getId());
+		Question questionA1_80 = new Question(10,
+				"Khi gặp xe buýt đang dừng đón, trả khách, người điều khiển xe mô tô phải xử lý như thế nào dưới đây để đảm bảo an toàn giao thông?",
+				true, "nan", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_80);
 
-		Question questionA1_88 = new Question(11, "Khi tránh nhau trên đường hẹp, người lái xe cần phải chú ý những điểm nào để đảm bảo an toàn giao thông?", true, "nan",a1.getId(), set8.getId(), kt.getId());
+		Question questionA1_88 = new Question(11,
+				"Khi tránh nhau trên đường hẹp, người lái xe cần phải chú ý những điểm nào để đảm bảo an toàn giao thông?",
+				true, "nan", a1.getId(), set8.getId(), kt.getId());
 		questionRepo.save(questionA1_88);
 
-		Question questionA1_96 = new Question(12, "Những thói quen nào dưới đây khi điều khiển xe mô tô tay ga tham gia giao thông dễ gây tai nạn nguy hiểm?", true, "nan",a1.getId(), set8.getId(), kt.getId());
+		Question questionA1_96 = new Question(12,
+				"Những thói quen nào dưới đây khi điều khiển xe mô tô tay ga tham gia giao thông dễ gây tai nạn nguy hiểm?",
+				true, "nan", a1.getId(), set8.getId(), kt.getId());
 		questionRepo.save(questionA1_96);
 
-		Question questionA1_104 = new Question(13, "Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?", true, "a1_104.jpg",a1.getId(), set8.getId(), bb.getId());
+		Question questionA1_104 = new Question(13,
+				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?", true,
+				"a1_104.jpg", a1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA1_104);
 
-		Question questionA1_112 = new Question(14, "Khi gặp biển nào, người lái xe phải giảm tốc độ, chú ý xe đi ngược chiều, xe đi ở phía đường bị hẹp phải nhường đường cho xe đi ngược chiều?", true, "a1_112.jpg",a1.getId(), set8.getId(), bb.getId());
+		Question questionA1_112 = new Question(14,
+				"Khi gặp biển nào, người lái xe phải giảm tốc độ, chú ý xe đi ngược chiều, xe đi ở phía đường bị hẹp phải nhường đường cho xe đi ngược chiều?",
+				true, "a1_112.jpg", a1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA1_112);
 
-		Question questionA1_120 = new Question(15, "Biển nào chỉ dẫn nới bắt đầu đoạn đường dành cho người đi bộ?", true, "a1_120.jpg",a1.getId(), set8.getId(), bb.getId());
+		Question questionA1_120 = new Question(15, "Biển nào chỉ dẫn nới bắt đầu đoạn đường dành cho người đi bộ?",
+				true, "a1_120.jpg", a1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA1_120);
 
-		Question questionA1_128 = new Question(16, "Biển nào cấm các phương tiện giao thông đường bộ rẽ phải?", true, "a1_128.jpg",a1.getId(), set8.getId(), bb.getId());
+		Question questionA1_128 = new Question(16, "Biển nào cấm các phương tiện giao thông đường bộ rẽ phải?", true,
+				"a1_128.jpg", a1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA1_128);
 
-		Question questionA1_136 = new Question(17, "Gặp biển nào xe lam, xe xích lô máy được phép đi vào?", true, "a1_136.jpg",a1.getId(), set8.getId(), bb.getId());
+		Question questionA1_136 = new Question(17, "Gặp biển nào xe lam, xe xích lô máy được phép đi vào?", true,
+				"a1_136.jpg", a1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA1_136);
 
-		Question questionA1_144 = new Question(18, "Biển nào (đặt trước ngã ba, ngã tư) cho phép xe được rẽ sang hướng khác?", true, "a1_144.jpg",a1.getId(), set8.getId(), bb.getId());
+		Question questionA1_144 = new Question(18,
+				"Biển nào (đặt trước ngã ba, ngã tư) cho phép xe được rẽ sang hướng khác?", true, "a1_144.jpg",
+				a1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA1_144);
 
-		Question questionA1_152 = new Question(19, "Biển nào xe quay đầu không bị cấm?", true, "a1_152.jpg",a1.getId(), set8.getId(), bb.getId());
+		Question questionA1_152 = new Question(19, "Biển nào xe quay đầu không bị cấm?", true, "a1_152.jpg", a1.getId(),
+				set8.getId(), bb.getId());
 		questionRepo.save(questionA1_152);
 
-		Question questionA1_160 = new Question(20, "Vạch kẻ đường nào dưới đây là vạch phân chia các làn xe cùng chiều?", true, "a1_160.jpg",a1.getId(), set8.getId(), bb.getId());
+		Question questionA1_160 = new Question(20,
+				"Vạch kẻ đường nào dưới đây là vạch phân chia các làn xe cùng chiều?", true, "a1_160.jpg", a1.getId(),
+				set8.getId(), bb.getId());
 		questionRepo.save(questionA1_160);
 
-		Question questionA1_168 = new Question(21, "Trong trường hợp này, thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true, "a1_168.jpg",a1.getId(), set8.getId(), sh.getId());
+		Question questionA1_168 = new Question(21,
+				"Trong trường hợp này, thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true, "a1_168.jpg",
+				a1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionA1_168);
 
-		Question questionA1_176 = new Question(22, "Các xe đi theo hướng mũi tên xe nào vi phạm quy tắc giao thông?", true, "a1_176.jpg",a1.getId(), set8.getId(), sh.getId());
+		Question questionA1_176 = new Question(22, "Các xe đi theo hướng mũi tên xe nào vi phạm quy tắc giao thông?",
+				true, "a1_176.jpg", a1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionA1_176);
 
-		Question questionA1_184 = new Question(23, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true, "a1_184.jpg",a1.getId(), set8.getId(), sh.getId());
+		Question questionA1_184 = new Question(23, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+				"a1_184.jpg", a1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionA1_184);
 
-		Question questionA1_192 = new Question(24, "Xe tải kéo mô tô ba bánh như hình này có đúng quy tắc giao thông không?", true, "a1_192.jpg",a1.getId(), set8.getId(), sh.getId());
+		Question questionA1_192 = new Question(24,
+				"Xe tải kéo mô tô ba bánh như hình này có đúng quy tắc giao thông không?", true, "a1_192.jpg",
+				a1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionA1_192);
 
-		Question questionA1_200 = new Question(25, "Trong tình huống dưới đây, xe đầu kéo kéo rơ móoc (xe container) đang rẽ phải, xe con màu xanh và xe máy phía sau xe container đi như thế nào để đảm bảo an toàn?", true, "a1_200.jpg",a1.getId(), set8.getId(), sh.getId());
+		Question questionA1_200 = new Question(25,
+				"Trong tình huống dưới đây, xe đầu kéo kéo rơ móoc (xe container) đang rẽ phải, xe con màu xanh và xe máy phía sau xe container đi như thế nào để đảm bảo an toàn?",
+				true, "a1_200.jpg", a1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionA1_200);
 	}
+
 	private void LoadQuestionA2() {
 		License a2 = licenseRepo.findByName("A2");
 
@@ -9166,809 +9482,1010 @@ public class DataSeeding implements CommandLineRunner {
 		for (Question q : questionList) {
 			idList.add(q.getId());
 		}
-		String[] a1_answers_1_set1 = {"Bị nghiêm cấm", "Không bị nghiêm cấm", "Không bị nghiêm cấm, nếu có chất ma túy ở mức nhẹ, có thể điều khiển phương tiện tham gia giao thông."};
+		String[] a1_answers_1_set1 = { "Bị nghiêm cấm", "Không bị nghiêm cấm",
+				"Không bị nghiêm cấm, nếu có chất ma túy ở mức nhẹ, có thể điều khiển phương tiện tham gia giao thông." };
 
 		Answer a1_answer_1_set1 = new Answer(a1_answers_1_set1, 0, idList.get(0));
 		answerRepo.save(a1_answer_1_set1);
 
-		String[] a1_answers_2_set1 = {"Được sử dụng", "Chỉ người ngồi sau được sử dụng", "Không được sử dụng", "Được sử dụng nếu không có áo mưa."};
+		String[] a1_answers_2_set1 = { "Được sử dụng", "Chỉ người ngồi sau được sử dụng", "Không được sử dụng",
+				"Được sử dụng nếu không có áo mưa." };
 		Answer a1_answer_2_set1 = new Answer(a1_answers_2_set1, 2, idList.get(1));
 		answerRepo.save(a1_answer_2_set1);
 
-		String[] a1_answers_3_set1 = {"Đường không ưu tiên", "Đường tỉnh lộ", "Đường quốc lộ", "Đường ưu tiên."};
+		String[] a1_answers_3_set1 = { "Đường không ưu tiên", "Đường tỉnh lộ", "Đường quốc lộ", "Đường ưu tiên." };
 		Answer a1_answer_3_set1 = new Answer(a1_answers_3_set1, 3, idList.get(2));
 		answerRepo.save(a1_answer_3_set1);
 
-		String[] a1_answers_4_set1 = {"Là người điều khiển phương tiện tham gia giao thông tại nơi thi công, nơi ùn tắc giao thông, ở bến phà, tại cầu đường bộ đi chung với đường sắt.", "Là cảnh sát giao thông, người được giao nhiệm vụ hướng dẫn giao thông tại nơi thi công, nơi ùn tắc giao thông, ở bến phà, tại cầu đường bộ đi chung với đường sắt", "Là người tham gia giao thông tại nơi thi công, nơi ùn tắt giao thông, ở bến phà, tại cầu đường bộ đi chung với đường sắt."};
+		String[] a1_answers_4_set1 = {
+				"Là người điều khiển phương tiện tham gia giao thông tại nơi thi công, nơi ùn tắc giao thông, ở bến phà, tại cầu đường bộ đi chung với đường sắt.",
+				"Là cảnh sát giao thông, người được giao nhiệm vụ hướng dẫn giao thông tại nơi thi công, nơi ùn tắc giao thông, ở bến phà, tại cầu đường bộ đi chung với đường sắt",
+				"Là người tham gia giao thông tại nơi thi công, nơi ùn tắt giao thông, ở bến phà, tại cầu đường bộ đi chung với đường sắt." };
 		Answer a1_answer_4_set1 = new Answer(a1_answers_4_set1, 1, idList.get(3));
 		answerRepo.save(a1_answer_4_set1);
 
-		String[] a1_answers_5_set1 = {"Phải đảm bảo phụ tùng do đúng nhà sản xuất đó cung cấp", "Phải được chấp thuận của cơ quan có thẩm quyền", "Phải là xe đăng ký và hoạt động tại các khu vực có địa hình phức tạp."};
+		String[] a1_answers_5_set1 = { "Phải đảm bảo phụ tùng do đúng nhà sản xuất đó cung cấp",
+				"Phải được chấp thuận của cơ quan có thẩm quyền",
+				"Phải là xe đăng ký và hoạt động tại các khu vực có địa hình phức tạp." };
 		Answer a1_answer_5_set1 = new Answer(a1_answers_5_set1, 1, idList.get(4));
 		answerRepo.save(a1_answer_5_set1);
 
-		String[] a1_answers_6_set1 = {"Người tham gia giao thông ở hướng đối diện cảnh sát giao thông được đi, các hướng khác cần phải dừng lại", "Người tham gia giao thông được rẽ phải theo chiều mũi tên màu xanh ở bục cảnh sát giao thông", "Người tham gia giao thông ở các hướng đều phải dừng lại trừ các xe đã ở trong khu vực giao nhau", "Người ở hướng đối diện cảnh sát giao thông phải dừng lại, các hướng khác được đi trong đó có bạn."};
+		String[] a1_answers_6_set1 = {
+				"Người tham gia giao thông ở hướng đối diện cảnh sát giao thông được đi, các hướng khác cần phải dừng lại",
+				"Người tham gia giao thông được rẽ phải theo chiều mũi tên màu xanh ở bục cảnh sát giao thông",
+				"Người tham gia giao thông ở các hướng đều phải dừng lại trừ các xe đã ở trong khu vực giao nhau",
+				"Người ở hướng đối diện cảnh sát giao thông phải dừng lại, các hướng khác được đi trong đó có bạn." };
 		Answer a1_answer_6_set1 = new Answer(a1_answers_6_set1, 2, idList.get(5));
 		answerRepo.save(a1_answer_6_set1);
 
-		String[] a1_answers_7_set1 = {"Cho xe đi trên bất kỳ làn đường nào hoặc giữa 02 làn đường nếu không có xe phía trước; khi cần thiết phải chuyển làn đường, người lái xe phải quan sát xe phía trước để đảm bảo an toàn.", "Phải cho xe đi trong một làn đường và chỉ được chuyển làn đường ở những nơi cho phép; khi chuyển làn phải có tín hiệu báo trước và phải bảo đảm an toàn.", "Phải cho xe đi trong một làn đường, khi cần thiết phải chuyển làn đường, người lái xe phải quan sát xe phía trước để bảo đảm an toàn."};
+		String[] a1_answers_7_set1 = {
+				"Cho xe đi trên bất kỳ làn đường nào hoặc giữa 02 làn đường nếu không có xe phía trước; khi cần thiết phải chuyển làn đường, người lái xe phải quan sát xe phía trước để đảm bảo an toàn.",
+				"Phải cho xe đi trong một làn đường và chỉ được chuyển làn đường ở những nơi cho phép; khi chuyển làn phải có tín hiệu báo trước và phải bảo đảm an toàn.",
+				"Phải cho xe đi trong một làn đường, khi cần thiết phải chuyển làn đường, người lái xe phải quan sát xe phía trước để bảo đảm an toàn." };
 		Answer a1_answer_7_set1 = new Answer(a1_answers_7_set1, 1, idList.get(6));
 		answerRepo.save(a1_answer_7_set1);
 
-		String[] a1_answers_8_set1 = {"Phải nhường đường cho xe đi đến từ bên phải.", "Xe báo hiệu xin đường trước xe đó được đi trước", "Phải nhường đường cho xe đi đến từ bên trái."};
+		String[] a1_answers_8_set1 = { "Phải nhường đường cho xe đi đến từ bên phải.",
+				"Xe báo hiệu xin đường trước xe đó được đi trước", "Phải nhường đường cho xe đi đến từ bên trái." };
 		Answer a1_answer_8_set1 = new Answer(a1_answers_8_set1, 0, idList.get(7));
 		answerRepo.save(a1_answer_8_set1);
 
-		String[] a1_answers_9_set1 = {"Nếu đủ điều khiện an toàn, người lái xe phải giảm tốc độ, đi sát về bên phải của phần đường xe chạy cho đến khi xe sau đã vượt qua, không được gây trở ngại đối với xe xin vượt.", "Lái xe vào lề đường bên trái và giảm tốc độ để xe phía sau vượt qua, không được gây trở ngại đối với xe xin vượt", "Nếu đủ điều kiện an toàn, người lái xe phải tăng tốc độ, đi sát về bên phải của phần đường xe chạy cho đến khi xe sau đã vượt qua."};
+		String[] a1_answers_9_set1 = {
+				"Nếu đủ điều khiện an toàn, người lái xe phải giảm tốc độ, đi sát về bên phải của phần đường xe chạy cho đến khi xe sau đã vượt qua, không được gây trở ngại đối với xe xin vượt.",
+				"Lái xe vào lề đường bên trái và giảm tốc độ để xe phía sau vượt qua, không được gây trở ngại đối với xe xin vượt",
+				"Nếu đủ điều kiện an toàn, người lái xe phải tăng tốc độ, đi sát về bên phải của phần đường xe chạy cho đến khi xe sau đã vượt qua." };
 		Answer a1_answer_9_set1 = new Answer(a1_answers_9_set1, 0, idList.get(8));
 		answerRepo.save(a1_answer_9_set1);
 
-		String[] a1_answers_10_set1 = {"Gặp biển báo nguy hiển trên đường.", "Gặp biển chỉ dần trên đường", "Gặp biển báo hết mọi lệnh cấm", "Gặp biển báo hết hạn chế tốc độ tối đa cho phép."};
+		String[] a1_answers_10_set1 = { "Gặp biển báo nguy hiển trên đường.", "Gặp biển chỉ dần trên đường",
+				"Gặp biển báo hết mọi lệnh cấm", "Gặp biển báo hết hạn chế tốc độ tối đa cho phép." };
 		Answer a1_answer_10_set1 = new Answer(a1_answers_10_set1, 0, idList.get(9));
 		answerRepo.save(a1_answer_10_set1);
 
-		String[] a1_answers_11_set1 = {"5 mét", "3 mét", "4 mét"};
+		String[] a1_answers_11_set1 = { "5 mét", "3 mét", "4 mét" };
 		Answer a1_answer_11_set1 = new Answer(a1_answers_11_set1, 0, idList.get(10));
 		answerRepo.save(a1_answer_11_set1);
 
-		String[] a1_answers_12_set1 = {"Quan sát biển báo hiệu để biết nơi được phép quay đầu; quan sát kỹ địa hình nơi chọn để quay đầu; lựa chọn quỹ đạo quay đầu xe cho thích hợp;  quay đầu xe với tốc độ thấp; thường xuyên báo tín hiệu để người, các phương tiện xung quanh được biết; nếu quay đầu xe ở nơi nguy hiểm thì đưa đầu xe về phía nguy hiểm, đưa đuôi xe về phía an toàn.", "Quan sát biển báo để biết nơi được phép quay đầu; quan sát kỹ địa hình nơi chọn để quay đầu; lựa chọn quỹ đạo quay đầu xe cho thích hợp;  quay đầu xe với tốc độ tối đa; thường xuyên báo tín hiệu để người, các phương tiện xung quanh được biết; nếu quay đầu xe ở nơi nguy hiểm thì đưa đuôi xe về phía nguy hiểm và đầu xe về phía an toàn."};
+		String[] a1_answers_12_set1 = {
+				"Quan sát biển báo hiệu để biết nơi được phép quay đầu; quan sát kỹ địa hình nơi chọn để quay đầu; lựa chọn quỹ đạo quay đầu xe cho thích hợp;  quay đầu xe với tốc độ thấp; thường xuyên báo tín hiệu để người, các phương tiện xung quanh được biết; nếu quay đầu xe ở nơi nguy hiểm thì đưa đầu xe về phía nguy hiểm, đưa đuôi xe về phía an toàn.",
+				"Quan sát biển báo để biết nơi được phép quay đầu; quan sát kỹ địa hình nơi chọn để quay đầu; lựa chọn quỹ đạo quay đầu xe cho thích hợp;  quay đầu xe với tốc độ tối đa; thường xuyên báo tín hiệu để người, các phương tiện xung quanh được biết; nếu quay đầu xe ở nơi nguy hiểm thì đưa đuôi xe về phía nguy hiểm và đầu xe về phía an toàn." };
 		Answer a1_answer_12_set1 = new Answer(a1_answers_12_set1, 0, idList.get(11));
 		answerRepo.save(a1_answer_12_set1);
 
-		String[] a1_answers_13_set1 = {"Tăng ga thật nhanh, giảm ga từ từ.", "Tăng ga thật nhanh, giảm ga thật nhanh.", "Tăng ga từ từ, giảm ga thật nhanh.", "Tăng ga từ từ, giảm ga từ từ."};
+		String[] a1_answers_13_set1 = { "Tăng ga thật nhanh, giảm ga từ từ.", "Tăng ga thật nhanh, giảm ga thật nhanh.",
+				"Tăng ga từ từ, giảm ga thật nhanh.", "Tăng ga từ từ, giảm ga từ từ." };
 		Answer a1_answer_13_set1 = new Answer(a1_answers_13_set1, 2, idList.get(12));
 		answerRepo.save(a1_answer_13_set1);
 
-		String[] a1_answers_14_set1 = {"Biển 1.", "Biển 1 và 2.", "Biển 2 và 3.", "Cả ba biển."};
+		String[] a1_answers_14_set1 = { "Biển 1.", "Biển 1 và 2.", "Biển 2 và 3.", "Cả ba biển." };
 		Answer a1_answer_14_set1 = new Answer(a1_answers_14_set1, 3, idList.get(13));
 		answerRepo.save(a1_answer_14_set1);
 
-		String[] a1_answers_15_set1 = {"Biển 1.", "Biển 2.", "Biển 3."};
+		String[] a1_answers_15_set1 = { "Biển 1.", "Biển 2.", "Biển 3." };
 		Answer a1_answer_15_set1 = new Answer(a1_answers_15_set1, 1, idList.get(14));
 		answerRepo.save(a1_answer_15_set1);
 
-		String[] a1_answers_16_set1 = {"Báo hiệu đường có ổ gà, lồi lõm.", "Báo hiệu đường có gồ giảm tốc phía trước."};
+		String[] a1_answers_16_set1 = { "Báo hiệu đường có ổ gà, lồi lõm.",
+				"Báo hiệu đường có gồ giảm tốc phía trước." };
 		Answer a1_answer_16_set1 = new Answer(a1_answers_16_set1, 1, idList.get(15));
 		answerRepo.save(a1_answer_16_set1);
 
-		String[] a1_answers_17_set1 = {"Biển 1 và 2.", "Biển 1 và 3.", "Biển 2 và 3.", "Cả ba biển."};
+		String[] a1_answers_17_set1 = { "Biển 1 và 2.", "Biển 1 và 3.", "Biển 2 và 3.", "Cả ba biển." };
 		Answer a1_answer_17_set1 = new Answer(a1_answers_17_set1, 0, idList.get(16));
 		answerRepo.save(a1_answer_17_set1);
 
-		String[] a1_answers_18_set1 = {"Tốc độ tối đa cho phép về ban đêm cho các phương tiện là 70 km/h.", "Tốc độ tối thiểu cho phép về ban đêm cho các phương tiện là 70 km/h."};
-		Answer a1_answer_18_set1 = new Answer(a1_answers_18_set1, 3, idList.get(17));
+		String[] a1_answers_18_set1 = { "Tốc độ tối đa cho phép về ban đêm cho các phương tiện là 70 km/h.",
+				"Tốc độ tối thiểu cho phép về ban đêm cho các phương tiện là 70 km/h." };
+		Answer a1_answer_18_set1 = new Answer(a1_answers_18_set1, 0, idList.get(17));
 		answerRepo.save(a1_answer_18_set1);
 
-		String[] a1_answers_19_set1 = {"Biển 1", "Biển 2", "Biển 3", "Cả ba biển."};
+		String[] a1_answers_19_set1 = { "Biển 1", "Biển 2", "Biển 3", "Cả ba biển." };
 		Answer a1_answer_19_set1 = new Answer(a1_answers_19_set1, 0, idList.get(18));
 		answerRepo.save(a1_answer_19_set1);
 
-		String[] a1_answers_20_set1 = {"Biển 1.", "Biển 2."};
+		String[] a1_answers_20_set1 = { "Biển 1.", "Biển 2." };
 		Answer a1_answer_20_set1 = new Answer(a1_answers_20_set1, 0, idList.get(19));
 		answerRepo.save(a1_answer_20_set1);
 
-		String[] a1_answers_21_set1 = {"Vạch 1", "Vạch 2", "Vạch 3", "Cả 3 vạch."};
+		String[] a1_answers_21_set1 = { "Vạch 1", "Vạch 2", "Vạch 3", "Cả 3 vạch." };
 		Answer a1_answer_21_set1 = new Answer(a1_answers_21_set1, 1, idList.get(20));
 		answerRepo.save(a1_answer_21_set1);
 
-		String[] a1_answers_22_set1 = {"Xe mô tô", "Xe cứu thương."};
+		String[] a1_answers_22_set1 = { "Xe mô tô", "Xe cứu thương." };
 		Answer a1_answer_22_set1 = new Answer(a1_answers_22_set1, 1, idList.get(21));
 		answerRepo.save(a1_answer_22_set1);
 
-		String[] a1_answers_23_set1 = {"Xe tải, xe con", "Xe khách, xe con", "Xe khách, xe tải."};
+		String[] a1_answers_23_set1 = { "Xe tải, xe con", "Xe khách, xe con", "Xe khách, xe tải." };
 		Answer a1_answer_23_set1 = new Answer(a1_answers_23_set1, 2, idList.get(22));
 		answerRepo.save(a1_answer_23_set1);
 
-		String[] a1_answers_24_set1 = {"Xe con (A), mô tô, xe con (B), xe đạp", "Xe con (B), xe đạp, mô tô, xe con (A)", "Xe con (A), xe con (B), mô tô + xe đạp", "Mô tô + xe đạp, xe con (A), xe con (B)."};
+		String[] a1_answers_24_set1 = { "Xe con (A), mô tô, xe con (B), xe đạp",
+				"Xe con (B), xe đạp, mô tô, xe con (A)", "Xe con (A), xe con (B), mô tô + xe đạp",
+				"Mô tô + xe đạp, xe con (A), xe con (B)." };
 		Answer a1_answer_24_set1 = new Answer(a1_answers_24_set1, 3, idList.get(23));
 		answerRepo.save(a1_answer_24_set1);
 
-		String[] a1_answers_25_set1 = {"Xe con ( E ), mô tô ( C )", "Xe tải ( A ), mô tô ( D )", "Xe khách ( B ), mô tô ( C )", "Xe khách  ( B ), mô tô ( D )."};
+		String[] a1_answers_25_set1 = { "Xe con ( E ), mô tô ( C )", "Xe tải ( A ), mô tô ( D )",
+				"Xe khách ( B ), mô tô ( C )", "Xe khách  ( B ), mô tô ( D )." };
 		Answer a1_answer_25_set1 = new Answer(a1_answers_25_set1, 0, idList.get(24));
 		answerRepo.save(a1_answer_25_set1);
 
-		String[] a1_answers_1_set2 = {"Bị nghiêm cấm tùy từng trường hợp", "Không bị nghiêm cấm", "Bị nghiêm cấm."};
+		String[] a1_answers_1_set2 = { "Bị nghiêm cấm tùy từng trường hợp", "Không bị nghiêm cấm", "Bị nghiêm cấm." };
 		Answer a1_answer_1_set2 = new Answer(a1_answers_1_set2, 2, idList.get(25));
 		answerRepo.save(a1_answer_1_set2);
 
-		String[] a1_answers_2_set2 = {"Được phép nhưng phảo đảm bảo an toàn", "Không được phép", "Được phép tùy từng hoàn cảnh, điều kiện cụ thể."};
+		String[] a1_answers_2_set2 = { "Được phép nhưng phảo đảm bảo an toàn", "Không được phép",
+				"Được phép tùy từng hoàn cảnh, điều kiện cụ thể." };
 		Answer a1_answer_2_set2 = new Answer(a1_answers_2_set2, 1, idList.get(26));
 		answerRepo.save(a1_answer_2_set2);
 
-		String[] a1_answers_3_set2 = {"Là người điều khiển xe cơ giới", "Là người điều khiển xe thô sơ", "Là người điều khiển xe có súc vật kéo."};
+		String[] a1_answers_3_set2 = { "Là người điều khiển xe cơ giới", "Là người điều khiển xe thô sơ",
+				"Là người điều khiển xe có súc vật kéo." };
 		Answer a1_answer_3_set2 = new Answer(a1_answers_3_set2, 0, idList.get(27));
 		answerRepo.save(a1_answer_3_set2);
 
-		String[] a1_answers_4_set2 = {"Người điều khiển, người sử dụng phương tiện tham giao giao thông đường bộ", "Người điều khiển, dẫn dắt súc vật, người đi bộ trên đường", "Cả ý 1 và ý 2."};
+		String[] a1_answers_4_set2 = { "Người điều khiển, người sử dụng phương tiện tham giao giao thông đường bộ",
+				"Người điều khiển, dẫn dắt súc vật, người đi bộ trên đường", "Cả ý 1 và ý 2." };
 		Answer a1_answer_4_set2 = new Answer(a1_answers_4_set2, 2, idList.get(28));
 		answerRepo.save(a1_answer_4_set2);
 
-		String[] a1_answers_5_set2 = {"Không được vượt", "Được vượt khi đang đi trên cầu", "Được phép vượt khi qua nơi giao nhau có ít phương tiện cùng tham gia giao thông", "Được vượt khi đảm bảo an toàn."};
+		String[] a1_answers_5_set2 = { "Không được vượt", "Được vượt khi đang đi trên cầu",
+				"Được phép vượt khi qua nơi giao nhau có ít phương tiện cùng tham gia giao thông",
+				"Được vượt khi đảm bảo an toàn." };
 		Answer a1_answer_5_set2 = new Answer(a1_answers_5_set2, 3, idList.get(29));
 		answerRepo.save(a1_answer_5_set2);
 
-		String[] a1_answers_6_set2 = {"Đỏ – Vàng – Xanh", "Cam – Vàng – Xanh", "Vàng – Xanh dương – Xanh lá", "Đỏ – Cam – Xanh."};
+		String[] a1_answers_6_set2 = { "Đỏ – Vàng – Xanh", "Cam – Vàng – Xanh", "Vàng – Xanh dương – Xanh lá",
+				"Đỏ – Cam – Xanh." };
 		Answer a1_answer_6_set2 = new Answer(a1_answers_6_set2, -1, idList.get(30));
 		answerRepo.save(a1_answer_6_set2);
 
-		String[] a1_answers_7_set2 = {"Xe thô sơ phải đi trên làn đường bên trái ngoài cùng, xe cơ giới, xe máy chuyên dùng đi trên làn đường bên phải.", "Xe thô sơ phải đi trên làn đường bên phải trong cùng; xe cơ giới, xe máy chuyên dùng đi trên làn đường bên trái", "Xe thô sơ đi trên làn đường phù hợp không gây cản trở giao thông, xe cơ giới, xe máy chuyên dùng đi trên làn đường bên phải."};
+		String[] a1_answers_7_set2 = {
+				"Xe thô sơ phải đi trên làn đường bên trái ngoài cùng, xe cơ giới, xe máy chuyên dùng đi trên làn đường bên phải.",
+				"Xe thô sơ phải đi trên làn đường bên phải trong cùng; xe cơ giới, xe máy chuyên dùng đi trên làn đường bên trái",
+				"Xe thô sơ đi trên làn đường phù hợp không gây cản trở giao thông, xe cơ giới, xe máy chuyên dùng đi trên làn đường bên phải." };
 		Answer a1_answer_7_set2 = new Answer(a1_answers_7_set2, 1, idList.get(31));
 		answerRepo.save(a1_answer_7_set2);
 
-		String[] a1_answers_8_set2 = {"Khi tham gia giao thông đường bộ", "Chỉ khi đi trên đường chuyên dùng; đường cao tốc", "Khi tham gia giao thông trên đường tỉnh lộ hoặc quốc lộ."};
+		String[] a1_answers_8_set2 = { "Khi tham gia giao thông đường bộ",
+				"Chỉ khi đi trên đường chuyên dùng; đường cao tốc",
+				"Khi tham gia giao thông trên đường tỉnh lộ hoặc quốc lộ." };
 		Answer a1_answer_8_set2 = new Answer(a1_answers_8_set2, 0, idList.get(32));
 		answerRepo.save(a1_answer_8_set2);
 
-		String[] a1_answers_9_set2 = {"Phải đội mũ bảo hiểm đạt chuẩn, có cài quai đúng quy cách, mặc quần áo gọn gàng; không sử dụng ô, điện thoại di động, thiết bị âm thanh (trừ thiết bị trợ thính)", "Phải đội mũ bảo hiểm khi trời mưa gió hoặc trời quá nắng; có thể sử dụng ô, điện thoại di động thiết bị âm thanh nhưng đảm bảo an toàn.", "Phải đội mũ bảo hiểm khi cảm thấy mất an toàn giao thông hoặc khi chuẩn bị di chuyển quãng đường xa."};
+		String[] a1_answers_9_set2 = {
+				"Phải đội mũ bảo hiểm đạt chuẩn, có cài quai đúng quy cách, mặc quần áo gọn gàng; không sử dụng ô, điện thoại di động, thiết bị âm thanh (trừ thiết bị trợ thính)",
+				"Phải đội mũ bảo hiểm khi trời mưa gió hoặc trời quá nắng; có thể sử dụng ô, điện thoại di động thiết bị âm thanh nhưng đảm bảo an toàn.",
+				"Phải đội mũ bảo hiểm khi cảm thấy mất an toàn giao thông hoặc khi chuẩn bị di chuyển quãng đường xa." };
 		Answer a1_answer_9_set2 = new Answer(a1_answers_9_set2, 0, idList.get(33));
 		answerRepo.save(a1_answer_9_set2);
 
-		String[] a1_answers_10_set2 = {"Để làm đẹp", "Để tránh mưa nắng", "Để giảm thiểu chấn thương vùng đầu", "Để các loại phương tiện khác dễ quan sát."};
+		String[] a1_answers_10_set2 = { "Để làm đẹp", "Để tránh mưa nắng", "Để giảm thiểu chấn thương vùng đầu",
+				"Để các loại phương tiện khác dễ quan sát." };
 		Answer a1_answer_10_set2 = new Answer(a1_answers_10_set2, 2, idList.get(34));
 		answerRepo.save(a1_answer_10_set2);
 
-		String[] a1_answers_11_set2 = {"Xe cơ giới, xe máy chuyên dùng phải bật đèn; xe thô sơ phải bật đèn hoặc có vật phát sáng báo hiệu; chỉ được dừng xe, đỗ xe ở nơi quy định", "Xe cơ giới phải bật đèn ngay cả khi đường hầm sáng; phải cho xe chạy trên một làn đường và chỉ chuyển làn ở nơi được phép; được quay đầu xe, lùi xe khi cần thiết", "Xe máy chuyên dùng phải bật đèn ngay cả khi đường hầm sáng; phải cho xe chạy trên một làn đường và chỉ chuyển làn ở nơi được phép, được quay đầu xe, lui xe khi cần thiết."};
+		String[] a1_answers_11_set2 = {
+				"Xe cơ giới, xe máy chuyên dùng phải bật đèn; xe thô sơ phải bật đèn hoặc có vật phát sáng báo hiệu; chỉ được dừng xe, đỗ xe ở nơi quy định",
+				"Xe cơ giới phải bật đèn ngay cả khi đường hầm sáng; phải cho xe chạy trên một làn đường và chỉ chuyển làn ở nơi được phép; được quay đầu xe, lùi xe khi cần thiết",
+				"Xe máy chuyên dùng phải bật đèn ngay cả khi đường hầm sáng; phải cho xe chạy trên một làn đường và chỉ chuyển làn ở nơi được phép, được quay đầu xe, lui xe khi cần thiết." };
 		Answer a1_answer_11_set2 = new Answer(a1_answers_11_set2, 0, idList.get(35));
 		answerRepo.save(a1_answer_11_set2);
 
-		String[] a1_answers_12_set2 = {"Quan sát cẩn thận các chướng ngại vật và báo hiệu bằng còi, đèn; giảm tốc độ tới mức cần thiết, về số thấp và thực hiện quay vòng với tốc độ phù hợp với bán kính cong của đường vòng.", "Quan sát cẩn thận các chướng ngại vật và báo hiệu bằng còi, đèn; tăng tốc nhanh chóng qua đường vòng và giảm tốc độ sau khi qua đường vòng."};
+		String[] a1_answers_12_set2 = {
+				"Quan sát cẩn thận các chướng ngại vật và báo hiệu bằng còi, đèn; giảm tốc độ tới mức cần thiết, về số thấp và thực hiện quay vòng với tốc độ phù hợp với bán kính cong của đường vòng.",
+				"Quan sát cẩn thận các chướng ngại vật và báo hiệu bằng còi, đèn; tăng tốc nhanh chóng qua đường vòng và giảm tốc độ sau khi qua đường vòng." };
 		Answer a1_answer_12_set2 = new Answer(a1_answers_12_set2, 0, idList.get(36));
 		answerRepo.save(a1_answer_12_set2);
 
-		String[] a1_answers_13_set2 = {"Đứng thẳng trên giá gác chân lái sau đó hơi gập đầu gối và khuỷu tay, đi chậm để không nẩy quá mạnh.", "Ngồi lùi lại phía sau, tăng ga vượt nhanh qua đoạn đường xóc.", "Ngồi lệch sang bên trái hoặc bên phải để lấy thăng bằng qua đoạn đường gồ ghề."};
+		String[] a1_answers_13_set2 = {
+				"Đứng thẳng trên giá gác chân lái sau đó hơi gập đầu gối và khuỷu tay, đi chậm để không nẩy quá mạnh.",
+				"Ngồi lùi lại phía sau, tăng ga vượt nhanh qua đoạn đường xóc.",
+				"Ngồi lệch sang bên trái hoặc bên phải để lấy thăng bằng qua đoạn đường gồ ghề." };
 		Answer a1_answer_13_set2 = new Answer(a1_answers_13_set2, 0, idList.get(37));
 		answerRepo.save(a1_answer_13_set2);
 
-		String[] a1_answers_14_set2 = {"Biển 1.", "Biển 2.", "Biển 3.", "Cả ba biển."};
+		String[] a1_answers_14_set2 = { "Biển 1.", "Biển 2.", "Biển 3.", "Cả ba biển." };
 		Answer a1_answer_14_set2 = new Answer(a1_answers_14_set2, 2, idList.get(38));
 		answerRepo.save(a1_answer_14_set2);
 
-		String[] a1_answers_15_set2 = {"Biển 1.", "Biển 2.", "Biển 3."};
+		String[] a1_answers_15_set2 = { "Biển 1.", "Biển 2.", "Biển 3." };
 		Answer a1_answer_15_set2 = new Answer(a1_answers_15_set2, 2, idList.get(39));
 		answerRepo.save(a1_answer_15_set2);
 
-		String[] a1_answers_16_set2 = {"Biển 1.", "Biển 2.", "Cả hai biển."};
+		String[] a1_answers_16_set2 = { "Biển 1.", "Biển 2.", "Cả hai biển." };
 		Answer a1_answer_16_set2 = new Answer(a1_answers_16_set2, 2, idList.get(40));
 		answerRepo.save(a1_answer_16_set2);
 
-		String[] a1_answers_17_set2 = {"Biển 1.", "Biển 2.", "Cả 2 biển."};
+		String[] a1_answers_17_set2 = { "Biển 1.", "Biển 2.", "Cả 2 biển." };
 		Answer a1_answer_17_set2 = new Answer(a1_answers_17_set2, 0, idList.get(41));
 		answerRepo.save(a1_answer_17_set2);
 
-		String[] a1_answers_18_set2 = {"Được phép.", "Không được phép."};
+		String[] a1_answers_18_set2 = { "Được phép.", "Không được phép." };
 		Answer a1_answer_18_set2 = new Answer(a1_answers_18_set2, 1, idList.get(42));
 		answerRepo.save(a1_answer_18_set2);
 
-		String[] a1_answers_19_set2 = {"Biển 1", "Biển 2", "Biển 3", "Biển 1 và 2."};
+		String[] a1_answers_19_set2 = { "Biển 1", "Biển 2", "Biển 3", "Biển 1 và 2." };
 		Answer a1_answer_19_set2 = new Answer(a1_answers_19_set2, 3, idList.get(43));
 		answerRepo.save(a1_answer_19_set2);
 
-		String[] a1_answers_20_set2 = {"Biển 1", "Biển 2."};
+		String[] a1_answers_20_set2 = { "Biển 1", "Biển 2." };
 		Answer a1_answer_20_set2 = new Answer(a1_answers_20_set2, 0, idList.get(44));
 		answerRepo.save(a1_answer_20_set2);
 
-		String[] a1_answers_21_set2 = {"Vạch 1", "Vạch 2", "Vạch 3", "Vạch 1 và 3."};
+		String[] a1_answers_21_set2 = { "Vạch 1", "Vạch 2", "Vạch 3", "Vạch 1 và 3." };
 		Answer a1_answer_21_set2 = new Answer(a1_answers_21_set2, 3, idList.get(45));
 		answerRepo.save(a1_answer_21_set2);
 
-		String[] a1_answers_22_set2 = {"Xe con và xe khách", "Mô tô."};
+		String[] a1_answers_22_set2 = { "Xe con và xe khách", "Mô tô." };
 		Answer a1_answer_22_set2 = new Answer(a1_answers_22_set2, 0, idList.get(46));
 		answerRepo.save(a1_answer_22_set2);
 
-		String[] a1_answers_23_set2 = {"Xe tải, xe khách, xe con, mô tô.", "Xe tải, mô tô, xe khách, xe con.", "xe khách, xe tải, xe con, mô tô.", "Mô tô, xe khách, xe tải, xe con."};
+		String[] a1_answers_23_set2 = { "Xe tải, xe khách, xe con, mô tô.", "Xe tải, mô tô, xe khách, xe con.",
+				"xe khách, xe tải, xe con, mô tô.", "Mô tô, xe khách, xe tải, xe con." };
 		Answer a1_answer_23_set2 = new Answer(a1_answers_23_set2, 1, idList.get(47));
 		answerRepo.save(a1_answer_23_set2);
 
-		String[] a1_answers_24_set2 = {"Xe khách, xe tải, mô tô, xe con.", "Xe con, xe khách, xe tải, mô tô", "Mô tô, xe tải, xe khách, xe con.", "Mô tô, xe tải, xe con, xe khách."};
+		String[] a1_answers_24_set2 = { "Xe khách, xe tải, mô tô, xe con.", "Xe con, xe khách, xe tải, mô tô",
+				"Mô tô, xe tải, xe khách, xe con.", "Mô tô, xe tải, xe con, xe khách." };
 		Answer a1_answer_24_set2 = new Answer(a1_answers_24_set2, 2, idList.get(48));
 		answerRepo.save(a1_answer_24_set2);
 
-		String[] a1_answers_25_set2 = {"Xe con (B), mô tô (C)", "Xe con (A), mô tô (C)", "Xe con (E), mô tô (D)", "Tất cả các loại xe trên."};
+		String[] a1_answers_25_set2 = { "Xe con (B), mô tô (C)", "Xe con (A), mô tô (C)", "Xe con (E), mô tô (D)",
+				"Tất cả các loại xe trên." };
 		Answer a1_answer_25_set2 = new Answer(a1_answers_25_set2, 2, idList.get(49));
 		answerRepo.save(a1_answer_25_set2);
 
-		String[] a1_answers_1_set3 = {"Không được vượt", "Được vượt khi đang đi trên cầu", "Được phép vượt khi đi qua nơi giao nhau có ít phương tiện cùng tham gia giao thông", "Được vượt khi đảm bảo an toàn."};
+		String[] a1_answers_1_set3 = { "Không được vượt", "Được vượt khi đang đi trên cầu",
+				"Được phép vượt khi đi qua nơi giao nhau có ít phương tiện cùng tham gia giao thông",
+				"Được vượt khi đảm bảo an toàn." };
 		Answer a1_answer_1_set3 = new Answer(a1_answers_1_set3, 0, idList.get(50));
 		answerRepo.save(a1_answer_1_set3);
 
-		String[] a1_answers_2_set3 = {"Không được vận chuyển", "Chỉ được vận chuyển khi đã chằng buộc cẩn thận", "Chỉ được vận chuyển vật cồng kềnh trên xe máy nếu khoảng cách về nhà ngắn hơn 2 km."};
+		String[] a1_answers_2_set3 = { "Không được vận chuyển", "Chỉ được vận chuyển khi đã chằng buộc cẩn thận",
+				"Chỉ được vận chuyển vật cồng kềnh trên xe máy nếu khoảng cách về nhà ngắn hơn 2 km." };
 		Answer a1_answer_2_set3 = new Answer(a1_answers_2_set3, 0, idList.get(51));
 		answerRepo.save(a1_answer_2_set3);
 
-		String[] a1_answers_3_set3 = {"Là bộ phận của đường để ngăn cách không cho các loại xe vào những nơi không được phép", "Là bộ phận của đường để phân tách phần đường xe chạy và hành lang an toàn giao thông.", "Là bộ phận của đường để phân chia mặt đường thành hai chiều xe chạy riêng biệt hoặc để phân chia phần đường của xe cơ giới và xe thô sơ."};
+		String[] a1_answers_3_set3 = {
+				"Là bộ phận của đường để ngăn cách không cho các loại xe vào những nơi không được phép",
+				"Là bộ phận của đường để phân tách phần đường xe chạy và hành lang an toàn giao thông.",
+				"Là bộ phận của đường để phân chia mặt đường thành hai chiều xe chạy riêng biệt hoặc để phân chia phần đường của xe cơ giới và xe thô sơ." };
 		Answer a1_answer_3_set3 = new Answer(a1_answers_3_set3, 2, idList.get(52));
 		answerRepo.save(a1_answer_3_set3);
 
-		String[] a1_answers_4_set3 = {"Là trạng thái đứng yên của phương tiện giao thông có giới hạn trong một khoảng thời gian cần thiết đủ để cho người lên, xuống phương tiện đó, xếp dỡ hàng hóa hoặc thực hiện công việc khác", "Là trạng thái đứng yên của phương tiện giao thông không giới hạn thời gian."};
+		String[] a1_answers_4_set3 = {
+				"Là trạng thái đứng yên của phương tiện giao thông có giới hạn trong một khoảng thời gian cần thiết đủ để cho người lên, xuống phương tiện đó, xếp dỡ hàng hóa hoặc thực hiện công việc khác",
+				"Là trạng thái đứng yên của phương tiện giao thông không giới hạn thời gian." };
 		Answer a1_answer_4_set3 = new Answer(a1_answers_4_set3, 1, idList.get(53));
 		answerRepo.save(a1_answer_4_set3);
 
-		String[] a1_answers_5_set3 = {"Buông cả hai tay; sử dụng xe để kéo, đẩy xe khác, vật khác; sử dụng chân chống của xe quệt xuống đường khi xe đang chạy", "Buông một tay; sử dụng xe để chở người hoặc hàng hóa; để chân chạm xuống đất khi khởi hành", "Đội mũ bảo hiểm; chạy xe đúng tốc độ quy định và chấp hành đúng quy tắc giao thông đường bộ", "Chở người ngồi sau dưới 16 tuổi."};
+		String[] a1_answers_5_set3 = {
+				"Buông cả hai tay; sử dụng xe để kéo, đẩy xe khác, vật khác; sử dụng chân chống của xe quệt xuống đường khi xe đang chạy",
+				"Buông một tay; sử dụng xe để chở người hoặc hàng hóa; để chân chạm xuống đất khi khởi hành",
+				"Đội mũ bảo hiểm; chạy xe đúng tốc độ quy định và chấp hành đúng quy tắc giao thông đường bộ",
+				"Chở người ngồi sau dưới 16 tuổi." };
 		Answer a1_answer_5_set3 = new Answer(a1_answers_5_set3, 0, idList.get(54));
 		answerRepo.save(a1_answer_5_set3);
 
-		String[] a1_answers_6_set3 = {"Biển báo nguy hiểm", "Biển báo cấm", "Biển báo hiệu lệnh", "Biển báo chỉ dẫn."};
+		String[] a1_answers_6_set3 = { "Biển báo nguy hiểm", "Biển báo cấm", "Biển báo hiệu lệnh",
+				"Biển báo chỉ dẫn." };
 		Answer a1_answer_6_set3 = new Answer(a1_answers_6_set3, 1, idList.get(55));
 		answerRepo.save(a1_answer_6_set3);
 
-		String[] a1_answers_7_set3 = {"Phải báo hiệu bằng đèn hoặc còi", "Chỉ được báo hiệu bằng còi", "Phải báo hiệu bằng cả còi và đèn", "Chỉ được báo hiệu bằng đèn."};
+		String[] a1_answers_7_set3 = { "Phải báo hiệu bằng đèn hoặc còi", "Chỉ được báo hiệu bằng còi",
+				"Phải báo hiệu bằng cả còi và đèn", "Chỉ được báo hiệu bằng đèn." };
 		Answer a1_answer_7_set3 = new Answer(a1_answers_7_set3, 3, idList.get(56));
 		answerRepo.save(a1_answer_7_set3);
 
-		String[] a1_answers_8_set3 = {"Chở người bệnh đi cấp cứu; trẻ em dưới 14 tuổi", "Áp giải người có hành vi vi phạm pháp luật", "Cả ý 1 và ý 2."};
+		String[] a1_answers_8_set3 = { "Chở người bệnh đi cấp cứu; trẻ em dưới 14 tuổi",
+				"Áp giải người có hành vi vi phạm pháp luật", "Cả ý 1 và ý 2." };
 		Answer a1_answer_8_set3 = new Answer(a1_answers_8_set3, 2, idList.get(57));
 		answerRepo.save(a1_answer_8_set3);
 
-		String[] a1_answers_9_set3 = {"Là đoạn đường nằm trong khu công nghiệp có đông người và phương tiện tham gia giao thông và được xác định cụ thể bằng biển chỉ dẫn địa giới", "Là đoạn đường bộ nằm trong khu vực nội thành phố, nội thị xã, nội thị trấn và những đoạn đường có đông dân cư sinh sống sát dọc theo đường, có các hoạt động có thể ảnh hưởng đến an toàn giao thông; được xác định bằng biển báo hiệu là đường khu đông dân cư.", "Là đoạn đường nằm ngoài khu vực nội thành phố, nội thị xã có đông người và phương tiện tham gia giao thông và được xác định cụ thể bằng biển chỉ dẫn địa giới"};
+		String[] a1_answers_9_set3 = {
+				"Là đoạn đường nằm trong khu công nghiệp có đông người và phương tiện tham gia giao thông và được xác định cụ thể bằng biển chỉ dẫn địa giới",
+				"Là đoạn đường bộ nằm trong khu vực nội thành phố, nội thị xã, nội thị trấn và những đoạn đường có đông dân cư sinh sống sát dọc theo đường, có các hoạt động có thể ảnh hưởng đến an toàn giao thông; được xác định bằng biển báo hiệu là đường khu đông dân cư.",
+				"Là đoạn đường nằm ngoài khu vực nội thành phố, nội thị xã có đông người và phương tiện tham gia giao thông và được xác định cụ thể bằng biển chỉ dẫn địa giới" };
 		Answer a1_answer_9_set3 = new Answer(a1_answers_9_set3, 1, idList.get(58));
 		answerRepo.save(a1_answer_9_set3);
 
-		String[] a1_answers_10_set3 = {"Tăng tốc độ qua đường giao nhau để đi trước xe đi trên đường ưu tiên", "Giảm tốc độ qua đường giao nhau để đi trước xe đi trên đường ưu tiên", "Nhường đường cho xe đi trên đường ưu tiên hoặc từ bất kỳ hướng nào tới."};
+		String[] a1_answers_10_set3 = { "Tăng tốc độ qua đường giao nhau để đi trước xe đi trên đường ưu tiên",
+				"Giảm tốc độ qua đường giao nhau để đi trước xe đi trên đường ưu tiên",
+				"Nhường đường cho xe đi trên đường ưu tiên hoặc từ bất kỳ hướng nào tới." };
 		Answer a1_answer_10_set3 = new Answer(a1_answers_10_set3, 2, idList.get(59));
 		answerRepo.save(a1_answer_10_set3);
 
-		String[] a1_answers_11_set3 = {"Là sự hiểu biết và chấp hành nghiêm chỉnh pháp luật về giao thông; là ý thức trách nhiệm với cộng đồng khi tham gia giao thông", "Là ứng xử có văn hóa, có tình yêu thương con người trong  các tình huống không may xảy ra khi tham gia giao thông", "Cả ý 1 và ý 2"};
+		String[] a1_answers_11_set3 = {
+				"Là sự hiểu biết và chấp hành nghiêm chỉnh pháp luật về giao thông; là ý thức trách nhiệm với cộng đồng khi tham gia giao thông",
+				"Là ứng xử có văn hóa, có tình yêu thương con người trong  các tình huống không may xảy ra khi tham gia giao thông",
+				"Cả ý 1 và ý 2" };
 		Answer a1_answer_11_set3 = new Answer(a1_answers_11_set3, 2, idList.get(60));
 		answerRepo.save(a1_answer_11_set3);
 
-		String[] a1_answers_12_set3 = {"Sử dụng phanh trước.", "Sửu dụng phanh sau.", "Giảm hết ga; sử dụng đồng thời cả phanh sau và phanh trước."};
+		String[] a1_answers_12_set3 = { "Sử dụng phanh trước.", "Sửu dụng phanh sau.",
+				"Giảm hết ga; sử dụng đồng thời cả phanh sau và phanh trước." };
 		Answer a1_answer_12_set3 = new Answer(a1_answers_12_set3, 2, idList.get(61));
 		answerRepo.save(a1_answer_12_set3);
 
-		String[] a1_answers_13_set3 = {"Giữ tay ga ở mức độ phù hợp, sử dụng phanh trước và phanh sau để giảm tốc độ.", "Nhả hết tay ga, tắt động cơ, sử dụng phanh trước và phanh sau để giảm tốc độ.", "Sử dụng phanh trước để giảm tốc độ kết hợp với tắt chìa khóa điện của xe."};
+		String[] a1_answers_13_set3 = { "Giữ tay ga ở mức độ phù hợp, sử dụng phanh trước và phanh sau để giảm tốc độ.",
+				"Nhả hết tay ga, tắt động cơ, sử dụng phanh trước và phanh sau để giảm tốc độ.",
+				"Sử dụng phanh trước để giảm tốc độ kết hợp với tắt chìa khóa điện của xe." };
 		Answer a1_answer_13_set3 = new Answer(a1_answers_13_set3, 0, idList.get(62));
 		answerRepo.save(a1_answer_13_set3);
 
-		String[] a1_answers_14_set3 = {"Biển 1.", "Biển 2 và 3.", "Biển 3."};
+		String[] a1_answers_14_set3 = { "Biển 1.", "Biển 2 và 3.", "Biển 3." };
 		Answer a1_answer_14_set3 = new Answer(a1_answers_14_set3, 0, idList.get(63));
 		answerRepo.save(a1_answer_14_set3);
 
-		String[] a1_answers_15_set3 = {"Biển 1.", "Biển 2.", "Biển 3."};
+		String[] a1_answers_15_set3 = { "Biển 1.", "Biển 2.", "Biển 3." };
 		Answer a1_answer_15_set3 = new Answer(a1_answers_15_set3, 0, idList.get(64));
 		answerRepo.save(a1_answer_15_set3);
 
-		String[] a1_answers_16_set3 = {"Biển 1.", "Biển 2.", "Biển 3."};
+		String[] a1_answers_16_set3 = { "Biển 1.", "Biển 2.", "Biển 3." };
 		Answer a1_answer_16_set3 = new Answer(a1_answers_16_set3, 0, idList.get(65));
 		answerRepo.save(a1_answer_16_set3);
 
-		String[] a1_answers_17_set3 = {"Biển 1.", "Biển 2.", "Cả ba biển."};
+		String[] a1_answers_17_set3 = { "Biển 1.", "Biển 2.", "Cả ba biển." };
 		Answer a1_answer_17_set3 = new Answer(a1_answers_17_set3, 1, idList.get(66));
 		answerRepo.save(a1_answer_17_set3);
 
-		String[] a1_answers_18_set3 = {"Biển 1.", "Biển 2.", "Biển 3."};
+		String[] a1_answers_18_set3 = { "Biển 1.", "Biển 2.", "Biển 3." };
 		Answer a1_answer_18_set3 = new Answer(a1_answers_18_set3, 1, idList.get(67));
 		answerRepo.save(a1_answer_18_set3);
 
-		String[] a1_answers_19_set3 = {"Biển 1", "Biển 2", "Biển 3", "Cả ba biển."};
+		String[] a1_answers_19_set3 = { "Biển 1", "Biển 2", "Biển 3", "Cả ba biển." };
 		Answer a1_answer_19_set3 = new Answer(a1_answers_19_set3, 2, idList.get(68));
 		answerRepo.save(a1_answer_19_set3);
 
-		String[] a1_answers_20_set3 = {"Biển 1", "Biển 2", "Cả hai biển."};
+		String[] a1_answers_20_set3 = { "Biển 1", "Biển 2", "Cả hai biển." };
 		Answer a1_answer_20_set3 = new Answer(a1_answers_20_set3, 1, idList.get(69));
 		answerRepo.save(a1_answer_20_set3);
 
-		String[] a1_answers_21_set3 = {"Phân chia hai chiều xe chạy ngược nhiều nhau", "Phân chia các làn xe chạy cùng chiều nhau."};
+		String[] a1_answers_21_set3 = { "Phân chia hai chiều xe chạy ngược nhiều nhau",
+				"Phân chia các làn xe chạy cùng chiều nhau." };
 		Answer a1_answer_21_set3 = new Answer(a1_answers_21_set3, 0, idList.get(70));
 		answerRepo.save(a1_answer_21_set3);
 
-		String[] a1_answers_22_set3 = {"Xe con", "Xe mô tô"};
+		String[] a1_answers_22_set3 = { "Xe con", "Xe mô tô" };
 		Answer a1_answer_22_set3 = new Answer(a1_answers_22_set3, 1, idList.get(71));
 		answerRepo.save(a1_answer_22_set3);
 
-		String[] a1_answers_23_set3 = {"Xe mô tô", "Xe con"};
+		String[] a1_answers_23_set3 = { "Xe mô tô", "Xe con" };
 		Answer a1_answer_23_set3 = new Answer(a1_answers_23_set3, 0, idList.get(72));
 		answerRepo.save(a1_answer_23_set3);
 
-		String[] a1_answers_24_set3 = {"Cả ba hướng", "Chỉ hướng 1 và 3", "Chỉ hướng 1."};
+		String[] a1_answers_24_set3 = { "Cả ba hướng", "Chỉ hướng 1 và 3", "Chỉ hướng 1." };
 		Answer a1_answer_24_set3 = new Answer(a1_answers_24_set3, 0, idList.get(73));
 		answerRepo.save(a1_answer_24_set3);
 
-		String[] a1_answers_25_set3 = {"Xe khách", "Mô tô", "Xe con", "Xe con và mô tô."};
+		String[] a1_answers_25_set3 = { "Xe khách", "Mô tô", "Xe con", "Xe con và mô tô." };
 		Answer a1_answer_25_set3 = new Answer(a1_answers_25_set3, 2, idList.get(74));
 		answerRepo.save(a1_answer_25_set3);
 
-		String[] a1_answers_1_set4 = {"Được phép", "Không được phép", "Tùy từng trường hợp."};
+		String[] a1_answers_1_set4 = { "Được phép", "Không được phép", "Tùy từng trường hợp." };
 		Answer a1_answer_1_set4 = new Answer(a1_answers_1_set4, 1, idList.get(75));
 		answerRepo.save(a1_answer_1_set4);
 
-		String[] a1_answers_2_set4 = {"Chỉ được kéo nếu đã nhìn thấy trạm xăng", "Chỉ được thực hiện trên đường vắng phương tiện cùng tham gia giao thông.", "Không được phép."};
+		String[] a1_answers_2_set4 = { "Chỉ được kéo nếu đã nhìn thấy trạm xăng",
+				"Chỉ được thực hiện trên đường vắng phương tiện cùng tham gia giao thông.", "Không được phép." };
 		Answer a1_answer_2_set4 = new Answer(a1_answers_2_set4, 2, idList.get(76));
 		answerRepo.save(a1_answer_2_set4);
 
-		String[] a1_answers_3_set4 = {"Dải phân cách gồm loại cố định và loại di động", "Dải phân cách gồm tường chống ồn, hộ lan cứng và hộ lan mềm", "Dải phân cách gồm giá long môn và biển báo hiệu đường bộ."};
+		String[] a1_answers_3_set4 = { "Dải phân cách gồm loại cố định và loại di động",
+				"Dải phân cách gồm tường chống ồn, hộ lan cứng và hộ lan mềm",
+				"Dải phân cách gồm giá long môn và biển báo hiệu đường bộ." };
 		Answer a1_answer_3_set4 = new Answer(a1_answers_3_set4, 0, idList.get(77));
 		answerRepo.save(a1_answer_3_set4);
 
-		String[] a1_answers_4_set4 = {"Là trạng thái đứng yên của phương tiện giao thông không giới hạn thời gian để cho người lên, xuống phương tiện, xếp dỡ hàng hóa hoặc thực hiện công việc khác", "Là trạng thái đứng yên tạm thời của phương tiện giao thông trong một khoảng thời gian cần thiết đủ để cho người lên, xuống phương tiện, xếp dỡ hàng hóa hoặc thực hiện công việc khác", "Là trạng thái đứng yên của phương tiện giao thông không giới hạn thời gian giữa 02 lần vận chuyển hàng hóa hoặc hành khách."};
+		String[] a1_answers_4_set4 = {
+				"Là trạng thái đứng yên của phương tiện giao thông không giới hạn thời gian để cho người lên, xuống phương tiện, xếp dỡ hàng hóa hoặc thực hiện công việc khác",
+				"Là trạng thái đứng yên tạm thời của phương tiện giao thông trong một khoảng thời gian cần thiết đủ để cho người lên, xuống phương tiện, xếp dỡ hàng hóa hoặc thực hiện công việc khác",
+				"Là trạng thái đứng yên của phương tiện giao thông không giới hạn thời gian giữa 02 lần vận chuyển hàng hóa hoặc hành khách." };
 		Answer a1_answer_4_set4 = new Answer(a1_answers_4_set4, 1, idList.get(78));
 		answerRepo.save(a1_answer_4_set4);
 
-		String[] a1_answers_5_set4 = {"Xe mô tô 2 bánh có dung tích xi-lanh từ 50 cm3 trở lên", "Xe gắn máy có dung tích xi-lanh dưới 50cm3", "Xe ô tô tải dưới 3.5 tấn; xe chở người đến 9 chỗ ngồi", "Tất cả các ý nêu trên."};
+		String[] a1_answers_5_set4 = { "Xe mô tô 2 bánh có dung tích xi-lanh từ 50 cm3 trở lên",
+				"Xe gắn máy có dung tích xi-lanh dưới 50cm3", "Xe ô tô tải dưới 3.5 tấn; xe chở người đến 9 chỗ ngồi",
+				"Tất cả các ý nêu trên." };
 		Answer a1_answer_5_set4 = new Answer(a1_answers_5_set4, -1, idList.get(79));
 		answerRepo.save(a1_answer_5_set4);
 
-		String[] a1_answers_6_set4 = {"Biển báo nguy hiểm", "Biển báo cấm", "Biển báo hiệu lệnh", "Biển báo chỉ dẫn."};
+		String[] a1_answers_6_set4 = { "Biển báo nguy hiểm", "Biển báo cấm", "Biển báo hiệu lệnh",
+				"Biển báo chỉ dẫn." };
 		Answer a1_answer_6_set4 = new Answer(a1_answers_6_set4, 0, idList.get(80));
 		answerRepo.save(a1_answer_6_set4);
 
-		String[] a1_answers_7_set4 = {"Tăng tốc độ và ra hiệu cho xe sau vượt, không được gây trở ngại cho xe sau vượt.", "Người điều khiển phương tiện phía trước phải giảm tốc độ, đi sát về bên phải của phần đường xe chạy, cho đến khi xe sau đã vượt qua, không được gây trở ngại cho xe sau vượt.", "Cho xe tránh về bên trái mình và ra hiệu cho xe sau vượt; nếu có chướng ngại vật phía trước hoặc thiếu điều kiện an toàn chưa cho vượt được phải ra hiệu cho xe sau biết; cấm gây trở ngại cho xe xin vượt."};
+		String[] a1_answers_7_set4 = {
+				"Tăng tốc độ và ra hiệu cho xe sau vượt, không được gây trở ngại cho xe sau vượt.",
+				"Người điều khiển phương tiện phía trước phải giảm tốc độ, đi sát về bên phải của phần đường xe chạy, cho đến khi xe sau đã vượt qua, không được gây trở ngại cho xe sau vượt.",
+				"Cho xe tránh về bên trái mình và ra hiệu cho xe sau vượt; nếu có chướng ngại vật phía trước hoặc thiếu điều kiện an toàn chưa cho vượt được phải ra hiệu cho xe sau biết; cấm gây trở ngại cho xe xin vượt." };
 		Answer a1_answer_7_set4 = new Answer(a1_answers_7_set4, 1, idList.get(81));
 		answerRepo.save(a1_answer_7_set4);
 
-		String[] a1_answers_8_set4 = {"Đi vào phần đường dành cho người đi bộ và phương tiện khác; sử dụng ô, điện thoại di động, thiết bị âm thanh (trừ thiết bị trợ thính), đi xe dàn hàng ngang", "Chở 02 người; trong đó, có người bệnh đi cấp cứu hoặc trẻ em dưới 14 tuổi hoặc áp giải người có hành vi vi phạm pháp luật", "Điều khiển phương tiện tham gia giao thông trên đường tỉnh lộ hoặc quốc lộ."};
+		String[] a1_answers_8_set4 = {
+				"Đi vào phần đường dành cho người đi bộ và phương tiện khác; sử dụng ô, điện thoại di động, thiết bị âm thanh (trừ thiết bị trợ thính), đi xe dàn hàng ngang",
+				"Chở 02 người; trong đó, có người bệnh đi cấp cứu hoặc trẻ em dưới 14 tuổi hoặc áp giải người có hành vi vi phạm pháp luật",
+				"Điều khiển phương tiện tham gia giao thông trên đường tỉnh lộ hoặc quốc lộ." };
 		Answer a1_answer_8_set4 = new Answer(a1_answers_8_set4, 0, idList.get(82));
 		answerRepo.save(a1_answer_8_set4);
 
-		String[] a1_answers_9_set4 = {"50 km/h", "40 km/h", "60 km/h."};
+		String[] a1_answers_9_set4 = { "50 km/h", "40 km/h", "60 km/h." };
 		Answer a1_answer_9_set4 = new Answer(a1_answers_9_set4, 1, idList.get(83));
 		answerRepo.save(a1_answer_9_set4);
 
-		String[] a1_answers_10_set4 = {"Giảm tốc độ, đi từ từ để vượt qua trước người đi bộ", "Giảm tốc độ, có thể dừng lại nếu cần thiết trước vạch dừng xe để nhường đường cho người đi bộ qua đường", "Tăng tốc độ để vượt qua trước người đi bộ."};
+		String[] a1_answers_10_set4 = { "Giảm tốc độ, đi từ từ để vượt qua trước người đi bộ",
+				"Giảm tốc độ, có thể dừng lại nếu cần thiết trước vạch dừng xe để nhường đường cho người đi bộ qua đường",
+				"Tăng tốc độ để vượt qua trước người đi bộ." };
 		Answer a1_answer_10_set4 = new Answer(a1_answers_10_set4, 1, idList.get(84));
 		answerRepo.save(a1_answer_10_set4);
 
-		String[] a1_answers_11_set4 = {"Điều khiển xe đi bên phải theo chiều đi của mình; đi đúng phần đường, làn đường quy đinh; dừng, đỗ xe đúng nơi quy định; đã uống rượu, bia thì không lái xe.", "Điều khiển xe đi trên phần đường, làn đường có ít phương tiện giao thông; dừng xe, đỗ xe ở nơi thuận tiện hoặc theo yêu cầu của hành khách, của người thân.", "Dừng và đỗ xe ở nơi thuận tiện cho việc chuyên chở hành khách và giao nhận hàng hóa; sử dụng ít rượu, bia thì có thể lái xe."};
+		String[] a1_answers_11_set4 = {
+				"Điều khiển xe đi bên phải theo chiều đi của mình; đi đúng phần đường, làn đường quy đinh; dừng, đỗ xe đúng nơi quy định; đã uống rượu, bia thì không lái xe.",
+				"Điều khiển xe đi trên phần đường, làn đường có ít phương tiện giao thông; dừng xe, đỗ xe ở nơi thuận tiện hoặc theo yêu cầu của hành khách, của người thân.",
+				"Dừng và đỗ xe ở nơi thuận tiện cho việc chuyên chở hành khách và giao nhận hàng hóa; sử dụng ít rượu, bia thì có thể lái xe." };
 		Answer a1_answer_11_set4 = new Answer(a1_answers_11_set4, 0, idList.get(85));
 		answerRepo.save(a1_answer_11_set4);
 
-		String[] a1_answers_12_set4 = {"Giảm tốc độ để đảm bảo an toàn với xe phía trước và sử dụng điện để thoại để liên lạc.", "Giảm tốc độ để dừng xe ở nơi cho phép dừng xe sau đó sử dụng điện thoại để liên lạc.", "Tăng tốc độ để cách ra xe phía sau và sử dụng điện thoại để liên lạc."};
+		String[] a1_answers_12_set4 = {
+				"Giảm tốc độ để đảm bảo an toàn với xe phía trước và sử dụng điện để thoại để liên lạc.",
+				"Giảm tốc độ để dừng xe ở nơi cho phép dừng xe sau đó sử dụng điện thoại để liên lạc.",
+				"Tăng tốc độ để cách ra xe phía sau và sử dụng điện thoại để liên lạc." };
 		Answer a1_answer_12_set4 = new Answer(a1_answers_12_set4, 1, idList.get(86));
 		answerRepo.save(a1_answer_12_set4);
 
-		String[] a1_answers_13_set4 = {"Hiệu lệnh của nhân viên gác chắn", "Đèn đỏ sáng nháy, cờ đỏ, biển đỏ", "Còi, chuông kêu, chắn đã đóng", "Tất cả các ý trên."};
+		String[] a1_answers_13_set4 = { "Hiệu lệnh của nhân viên gác chắn", "Đèn đỏ sáng nháy, cờ đỏ, biển đỏ",
+				"Còi, chuông kêu, chắn đã đóng", "Tất cả các ý trên." };
 		Answer a1_answer_13_set4 = new Answer(a1_answers_13_set4, 3, idList.get(87));
 		answerRepo.save(a1_answer_13_set4);
 
-		String[] a1_answers_14_set4 = {"Biển 1 và 2.", "Biển 1 và 3.", "Biển 2 và 3.", "Cả ba biển."};
+		String[] a1_answers_14_set4 = { "Biển 1 và 2.", "Biển 1 và 3.", "Biển 2 và 3.", "Cả ba biển." };
 		Answer a1_answer_14_set4 = new Answer(a1_answers_14_set4, 1, idList.get(88));
 		answerRepo.save(a1_answer_14_set4);
 
-		String[] a1_answers_15_set4 = {"Biển 1.", "Biển 2.", "Biển 3."};
+		String[] a1_answers_15_set4 = { "Biển 1.", "Biển 2.", "Biển 3." };
 		Answer a1_answer_15_set4 = new Answer(a1_answers_15_set4, 1, idList.get(89));
 		answerRepo.save(a1_answer_15_set4);
 
-		String[] a1_answers_16_set4 = {"Không biển nào.", "Biển 1 và 2.", "Biển 2 và 3.", "Cả 3 biển."};
+		String[] a1_answers_16_set4 = { "Không biển nào.", "Biển 1 và 2.", "Biển 2 và 3.", "Cả 3 biển." };
 		Answer a1_answer_16_set4 = new Answer(a1_answers_16_set4, 2, idList.get(90));
 		answerRepo.save(a1_answer_16_set4);
 
-		String[] a1_answers_17_set4 = {"Biển 1.", "Biển 2.", "Biển 1 và 2."};
+		String[] a1_answers_17_set4 = { "Biển 1.", "Biển 2.", "Biển 1 và 2." };
 		Answer a1_answer_17_set4 = new Answer(a1_answers_17_set4, 2, idList.get(91));
 		answerRepo.save(a1_answer_17_set4);
 
-		String[] a1_answers_18_set4 = {"Biển 1 và 2.", "Biển 1 và 3.", "Biển 2 và 3."};
+		String[] a1_answers_18_set4 = { "Biển 1 và 2.", "Biển 1 và 3.", "Biển 2 và 3." };
 		Answer a1_answer_18_set4 = new Answer(a1_answers_18_set4, 1, idList.get(92));
 		answerRepo.save(a1_answer_18_set4);
 
-		String[] a1_answers_19_set4 = {"Biển 1", "Biển 2", "Biển 3", "Biển 2 và 3."};
+		String[] a1_answers_19_set4 = { "Biển 1", "Biển 2", "Biển 3", "Biển 2 và 3." };
 		Answer a1_answer_19_set4 = new Answer(a1_answers_19_set4, 3, idList.get(93));
 		answerRepo.save(a1_answer_19_set4);
 
-		String[] a1_answers_20_set4 = {"Biển 1", "Biển 2", "Cả 2 biển", "Không biển nào."};
+		String[] a1_answers_20_set4 = { "Biển 1", "Biển 2", "Cả 2 biển", "Không biển nào." };
 		Answer a1_answer_20_set4 = new Answer(a1_answers_20_set4, 0, idList.get(94));
 		answerRepo.save(a1_answer_20_set4);
 
-		String[] a1_answers_21_set4 = {"Vạch 1", "Vạch 2", "Vạch 3", "Vạch 1 và vạch 3"};
+		String[] a1_answers_21_set4 = { "Vạch 1", "Vạch 2", "Vạch 3", "Vạch 1 và vạch 3" };
 		Answer a1_answer_21_set4 = new Answer(a1_answers_21_set4, 3, idList.get(95));
 		answerRepo.save(a1_answer_21_set4);
 
-		String[] a1_answers_22_set4 = {"Xe tải, mô tô", "Xe khách, mô tô", "Xe tải, xe con", "Mô tô, xe con."};
+		String[] a1_answers_22_set4 = { "Xe tải, mô tô", "Xe khách, mô tô", "Xe tải, xe con", "Mô tô, xe con." };
 		Answer a1_answer_22_set4 = new Answer(a1_answers_22_set4, 1, idList.get(96));
 		answerRepo.save(a1_answer_22_set4);
 
-		String[] a1_answers_23_set4 = {"Xe của bạn, mô tô, xe con", "Xe con, xe của bạn, mô tô", "Mô tô, xe con, xe của bạn."};
+		String[] a1_answers_23_set4 = { "Xe của bạn, mô tô, xe con", "Xe con, xe của bạn, mô tô",
+				"Mô tô, xe con, xe của bạn." };
 		Answer a1_answer_23_set4 = new Answer(a1_answers_23_set4, 2, idList.get(97));
 		answerRepo.save(a1_answer_23_set4);
 
-		String[] a1_answers_24_set4 = {"Cả ba hướng", "Hướng 1 và 2", "Hướng 1 và 3", "Hướng 2 và 3."};
+		String[] a1_answers_24_set4 = { "Cả ba hướng", "Hướng 1 và 2", "Hướng 1 và 3", "Hướng 2 và 3." };
 		Answer a1_answer_24_set4 = new Answer(a1_answers_24_set4, 2, idList.get(98));
 		answerRepo.save(a1_answer_24_set4);
 
-		String[] a1_answers_25_set4 = {"Xe của bạn, mô tô, xe con", "Xe con, xe của bạn, mô tô", "Mô tô, xe con, xe của bạn."};
+		String[] a1_answers_25_set4 = { "Xe của bạn, mô tô, xe con", "Xe con, xe của bạn, mô tô",
+				"Mô tô, xe con, xe của bạn." };
 		Answer a1_answer_25_set4 = new Answer(a1_answers_25_set4, 1, idList.get(99));
 		answerRepo.save(a1_answer_25_set4);
 
-		String[] a1_answers_1_set5 = {"Được phép", "Nếu phương tiện được kéo, đẩy có khối lượng nhỏ hơn phương tiện của mình", "Tùy trường hợp", "Không được phép."};
+		String[] a1_answers_1_set5 = { "Được phép",
+				"Nếu phương tiện được kéo, đẩy có khối lượng nhỏ hơn phương tiện của mình", "Tùy trường hợp",
+				"Không được phép." };
 		Answer a1_answer_1_set5 = new Answer(a1_answers_1_set5, 3, idList.get(100));
 		answerRepo.save(a1_answer_1_set5);
 
-		String[] a1_answers_2_set5 = {"Chỉ được phép nếu cả hai đội mũ bảo hiểm", "Không được phép", "Chỉ được phép thực hiện trên đường thật vắng", "Chỉ được phép khi người đi xe đạp đã quá mệt."};
+		String[] a1_answers_2_set5 = { "Chỉ được phép nếu cả hai đội mũ bảo hiểm", "Không được phép",
+				"Chỉ được phép thực hiện trên đường thật vắng", "Chỉ được phép khi người đi xe đạp đã quá mệt." };
 		Answer a1_answer_2_set5 = new Answer(a1_answers_2_set5, 1, idList.get(101));
 		answerRepo.save(a1_answer_2_set5);
 
-		String[] a1_answers_3_set5 = {"Gồm xe ô tô, máy kéo, xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy, xe cơ giới dùng cho người khuyết tật và xe máy chuyên dùng", "Gồm xe ô tô; máy kéo; rơ moóc hoặc sơ mi rơ moóc được kéo bởi xe ô tô, máy kéo; xe mô tô hai bánh; xe mô tô ba bánh, xe gắn máy (kể cả xe máy điện) và các loại xe tương tự."};
+		String[] a1_answers_3_set5 = {
+				"Gồm xe ô tô, máy kéo, xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy, xe cơ giới dùng cho người khuyết tật và xe máy chuyên dùng",
+				"Gồm xe ô tô; máy kéo; rơ moóc hoặc sơ mi rơ moóc được kéo bởi xe ô tô, máy kéo; xe mô tô hai bánh; xe mô tô ba bánh, xe gắn máy (kể cả xe máy điện) và các loại xe tương tự." };
 		Answer a1_answer_3_set5 = new Answer(a1_answers_3_set5, 1, idList.get(102));
 		answerRepo.save(a1_answer_3_set5);
 
-		String[] a1_answers_4_set5 = {"Diễn ra trên đường phố không có người qua lại", "Được người dân ủng hộ", "Được cơ quan có thẩm quyền cấp phép."};
+		String[] a1_answers_4_set5 = { "Diễn ra trên đường phố không có người qua lại", "Được người dân ủng hộ",
+				"Được cơ quan có thẩm quyền cấp phép." };
 		Answer a1_answer_4_set5 = new Answer(a1_answers_4_set5, 2, idList.get(103));
 		answerRepo.save(a1_answer_4_set5);
 
-		String[] a1_answers_5_set5 = {"16 Tuổi", "18 Tuổi", "17 Tuổi"};
+		String[] a1_answers_5_set5 = { "16 Tuổi", "18 Tuổi", "17 Tuổi" };
 		Answer a1_answer_5_set5 = new Answer(a1_answers_5_set5, 1, idList.get(104));
 		answerRepo.save(a1_answer_5_set5);
 
-		String[] a1_answers_6_set5 = {"Biển báo nguy hiểm", "Biển báo cấm", "Biển báo hiệu lệnh phải thi hành", "Biển báo chỉ dẫn."};
+		String[] a1_answers_6_set5 = { "Biển báo nguy hiểm", "Biển báo cấm", "Biển báo hiệu lệnh phải thi hành",
+				"Biển báo chỉ dẫn." };
 		Answer a1_answer_6_set5 = new Answer(a1_answers_6_set5, 2, idList.get(105));
 		answerRepo.save(a1_answer_6_set5);
 
-		String[] a1_answers_7_set5 = {"Quan sát gương, ra tín hiệu, quan sát an toàn và chuyển hướng.", "Quan sát gương, giảm tốc độ, ra tín hiệu chuyển hướng, quan sát an toàn và chuyển hướng.", "Quan sát gương, tăng tốc độ, ra tín hiệu và chuyển hướng."};
+		String[] a1_answers_7_set5 = { "Quan sát gương, ra tín hiệu, quan sát an toàn và chuyển hướng.",
+				"Quan sát gương, giảm tốc độ, ra tín hiệu chuyển hướng, quan sát an toàn và chuyển hướng.",
+				"Quan sát gương, tăng tốc độ, ra tín hiệu và chuyển hướng." };
 		Answer a1_answer_7_set5 = new Answer(a1_answers_7_set5, 1, idList.get(106));
 		answerRepo.save(a1_answer_7_set5);
 
-		String[] a1_answers_8_set5 = {"Khi có báo hiệu cảnh báo nguy hiểm hoặc có chướng ngại vật trên đường; khi chuyển hướng xe chạy hoặc tầm nhìn bị hạn chế; khi qua nơi đường giao nhau, nơi đường bộ giao nhau với đường sắt; đường vòng; đường có địa hình quanh co, đèo dốc.", "Khi qua cầu, cống hẹp; khi lên gần đỉnh dốc, khi xuống dốc, khi qua trường học, khu đông dân cư, khu vực đang thi công trên đường bộ; hiện trường xảy ra tai nạn giao thông.", "Khi điều khiển xe vượt xe khác trên đường quốc lộ, đường cao tốc", "Cả ý 1 và ý 2."};
+		String[] a1_answers_8_set5 = {
+				"Khi có báo hiệu cảnh báo nguy hiểm hoặc có chướng ngại vật trên đường; khi chuyển hướng xe chạy hoặc tầm nhìn bị hạn chế; khi qua nơi đường giao nhau, nơi đường bộ giao nhau với đường sắt; đường vòng; đường có địa hình quanh co, đèo dốc.",
+				"Khi qua cầu, cống hẹp; khi lên gần đỉnh dốc, khi xuống dốc, khi qua trường học, khu đông dân cư, khu vực đang thi công trên đường bộ; hiện trường xảy ra tai nạn giao thông.",
+				"Khi điều khiển xe vượt xe khác trên đường quốc lộ, đường cao tốc", "Cả ý 1 và ý 2." };
 		Answer a1_answer_8_set5 = new Answer(a1_answers_8_set5, 3, idList.get(107));
 		answerRepo.save(a1_answer_8_set5);
 
-		String[] a1_answers_9_set5 = {"60 Km/h", "50 Km/h", "40 Km/h"};
+		String[] a1_answers_9_set5 = { "60 Km/h", "50 Km/h", "40 Km/h" };
 		Answer a1_answer_9_set5 = new Answer(a1_answers_9_set5, 0, idList.get(108));
 		answerRepo.save(a1_answer_9_set5);
 
-		String[] a1_answers_10_set5 = {"Phải cho xe dừng lại trước vạch dừng, trường hợp đã đi quá vạch dừng hoặc đã quá gần vạch dừng nếu dừng lại thấy nguy hiểm thì được đi tiếp", "Trong trường hợp tín hiệu vàng nhấp nháy là được đi nhưng phải giảm tốc độ, chú ý quan sát nhường đường cho người đi bộ qua đường", "Nhanh chóng tăng tốc độ, vượt qua nút giao và chú ý đảm bảo an toàn", "Cả ý 1 và ý 2."};
+		String[] a1_answers_10_set5 = {
+				"Phải cho xe dừng lại trước vạch dừng, trường hợp đã đi quá vạch dừng hoặc đã quá gần vạch dừng nếu dừng lại thấy nguy hiểm thì được đi tiếp",
+				"Trong trường hợp tín hiệu vàng nhấp nháy là được đi nhưng phải giảm tốc độ, chú ý quan sát nhường đường cho người đi bộ qua đường",
+				"Nhanh chóng tăng tốc độ, vượt qua nút giao và chú ý đảm bảo an toàn", "Cả ý 1 và ý 2." };
 		Answer a1_answer_10_set5 = new Answer(a1_answers_10_set5, 0, idList.get(109));
 		answerRepo.save(a1_answer_10_set5);
 
-		String[] a1_answers_11_set5 = {"Điều khiển xe đi bên phải theo chiều đi của mình, đi đúng phần đường, làn đường quy định, đội mũ bảo hiểm đạt chuẩn, cài quai đúng quy cách.", "Điều khiển xe đi trên phần đường, làn đường có ít phương tiện tham gia giao thông.", "Điều khiển xe và đội mũ bảo hiểm ở nơi có biển báo bắt buộc đội mũ bảo hiểm."};
+		String[] a1_answers_11_set5 = {
+				"Điều khiển xe đi bên phải theo chiều đi của mình, đi đúng phần đường, làn đường quy định, đội mũ bảo hiểm đạt chuẩn, cài quai đúng quy cách.",
+				"Điều khiển xe đi trên phần đường, làn đường có ít phương tiện tham gia giao thông.",
+				"Điều khiển xe và đội mũ bảo hiểm ở nơi có biển báo bắt buộc đội mũ bảo hiểm." };
 		Answer a1_answer_11_set5 = new Answer(a1_answers_11_set5, 0, idList.get(110));
 		answerRepo.save(a1_answer_11_set5);
 
-		String[] a1_answers_12_set5 = {"Để quan sát an toàn phía bên trái khi chuẩn bị rẽ trái.", "Để quan sát an toàn phía bên phải khi chuẩn bị rẽ phải.", "Để quan sát an toàn phía sau cả bên trái và bên phải trước khi chuyển hướng.", "Để quan sát an toàn phía trước cả bên trái và bên phải trước khi chuyển hướng."};
+		String[] a1_answers_12_set5 = { "Để quan sát an toàn phía bên trái khi chuẩn bị rẽ trái.",
+				"Để quan sát an toàn phía bên phải khi chuẩn bị rẽ phải.",
+				"Để quan sát an toàn phía sau cả bên trái và bên phải trước khi chuyển hướng.",
+				"Để quan sát an toàn phía trước cả bên trái và bên phải trước khi chuyển hướng." };
 		Answer a1_answer_12_set5 = new Answer(a1_answers_12_set5, 2, idList.get(111));
 		answerRepo.save(a1_answer_12_set5);
 
-		String[] a1_answers_13_set5 = {"Biển 1.", "Biển 2.", "Biển 3."};
+		String[] a1_answers_13_set5 = { "Biển 1.", "Biển 2.", "Biển 3." };
 		Answer a1_answer_13_set5 = new Answer(a1_answers_13_set5, 0, idList.get(112));
 		answerRepo.save(a1_answer_13_set5);
 
-		String[] a1_answers_14_set5 = {"Biển 1 và 2.", "Biển 1 và 3.", "Biển 2 và 3.", "Cả ba biển."};
+		String[] a1_answers_14_set5 = { "Biển 1 và 2.", "Biển 1 và 3.", "Biển 2 và 3.", "Cả ba biển." };
 		Answer a1_answer_14_set5 = new Answer(a1_answers_14_set5, 2, idList.get(113));
 		answerRepo.save(a1_answer_14_set5);
 
-		String[] a1_answers_15_set5 = {"Biển 1.", "Biển 2.", "Biển 3."};
+		String[] a1_answers_15_set5 = { "Biển 1.", "Biển 2.", "Biển 3." };
 		Answer a1_answer_15_set5 = new Answer(a1_answers_15_set5, 1, idList.get(114));
 		answerRepo.save(a1_answer_15_set5);
 
-		String[] a1_answers_16_set5 = {"Biển 1.", "Biển 2.", "Không biển nào.", "Cả hai biển."};
+		String[] a1_answers_16_set5 = { "Biển 1.", "Biển 2.", "Không biển nào.", "Cả hai biển." };
 		Answer a1_answer_16_set5 = new Answer(a1_answers_16_set5, 1, idList.get(115));
 		answerRepo.save(a1_answer_16_set5);
 
-		String[] a1_answers_17_set5 = {"Biển 1.", "Biển 2.", "Cả ba biển."};
+		String[] a1_answers_17_set5 = { "Biển 1.", "Biển 2.", "Cả ba biển." };
 		Answer a1_answer_17_set5 = new Answer(a1_answers_17_set5, 1, idList.get(116));
 		answerRepo.save(a1_answer_17_set5);
 
-		String[] a1_answers_18_set5 = {"Biển 1.", "Biển 2.", "Biển 3.", "Biển 1 và 3."};
+		String[] a1_answers_18_set5 = { "Biển 1.", "Biển 2.", "Biển 3.", "Biển 1 và 3." };
 		Answer a1_answer_18_set5 = new Answer(a1_answers_18_set5, 0, idList.get(117));
 		answerRepo.save(a1_answer_18_set5);
 
-		String[] a1_answers_19_set5 = {"Biển 1", "Biển 2", "Biển 3", "Cả ba biển."};
+		String[] a1_answers_19_set5 = { "Biển 1", "Biển 2", "Biển 3", "Cả ba biển." };
 		Answer a1_answer_19_set5 = new Answer(a1_answers_19_set5, 1, idList.get(118));
 		answerRepo.save(a1_answer_19_set5);
 
-		String[] a1_answers_20_set5 = {"Biển 1", "Biển 2", "Cả 2 biển", "Không biển nào."};
+		String[] a1_answers_20_set5 = { "Biển 1", "Biển 2", "Cả 2 biển", "Không biển nào." };
 		Answer a1_answer_20_set5 = new Answer(a1_answers_20_set5, 1, idList.get(119));
 		answerRepo.save(a1_answer_20_set5);
 
-		String[] a1_answers_21_set5 = {"Vị trí dừng xe của các phương tiện vận tải hành khách công cộng", "Báo cho người điều khiển được dừng phương tiện trong phạm vi phần mặt đường có bố trí vạch để tránh ùn tắc giao thông.", "Dùng để xác định vị trí giữa các phương tiện trên đường."};
+		String[] a1_answers_21_set5 = { "Vị trí dừng xe của các phương tiện vận tải hành khách công cộng",
+				"Báo cho người điều khiển được dừng phương tiện trong phạm vi phần mặt đường có bố trí vạch để tránh ùn tắc giao thông.",
+				"Dùng để xác định vị trí giữa các phương tiện trên đường." };
 		Answer a1_answer_21_set5 = new Answer(a1_answers_21_set5, 0, idList.get(120));
 		answerRepo.save(a1_answer_21_set5);
 
-		String[] a1_answers_22_set5 = {"Chỉ xe khách, mô tô", "Tất cả các loại xe trên", "Không xe nào chấp hành đúng quy tắc giao thông."};
+		String[] a1_answers_22_set5 = { "Chỉ xe khách, mô tô", "Tất cả các loại xe trên",
+				"Không xe nào chấp hành đúng quy tắc giao thông." };
 		Answer a1_answer_22_set5 = new Answer(a1_answers_22_set5, 1, idList.get(121));
 		answerRepo.save(a1_answer_22_set5);
 
-		String[] a1_answers_23_set5 = {"Xe tải", "Xe con và mô tô", "Cả ba xe", "Xe con và xe tải."};
+		String[] a1_answers_23_set5 = { "Xe tải", "Xe con và mô tô", "Cả ba xe", "Xe con và xe tải." };
 		Answer a1_answer_23_set5 = new Answer(a1_answers_23_set5, 0, idList.get(122));
 		answerRepo.save(a1_answer_23_set5);
 
-		String[] a1_answers_24_set5 = {"Xe mô tô", "Xe con."};
+		String[] a1_answers_24_set5 = { "Xe mô tô", "Xe con." };
 		Answer a1_answer_24_set5 = new Answer(a1_answers_24_set5, 1, idList.get(123));
 		answerRepo.save(a1_answer_24_set5);
 
-		String[] a1_answers_25_set5 = {"Tăng tốc độ, rẽ phải trước xe tải và xe đạp", "Giảm tốc độ, rẽ phải sau xe tải và xe đạp", "Tăng tốc độ, rẽ phải trước xe đạp."};
+		String[] a1_answers_25_set5 = { "Tăng tốc độ, rẽ phải trước xe tải và xe đạp",
+				"Giảm tốc độ, rẽ phải sau xe tải và xe đạp", "Tăng tốc độ, rẽ phải trước xe đạp." };
 		Answer a1_answer_25_set5 = new Answer(a1_answers_25_set5, 1, idList.get(124));
 		answerRepo.save(a1_answer_25_set5);
 
-		String[] a1_answers_1_set6 = {"Được phép", "Tùy trường hợp", "Không được phép."};
+		String[] a1_answers_1_set6 = { "Được phép", "Tùy trường hợp", "Không được phép." };
 		Answer a1_answer_1_set6 = new Answer(a1_answers_1_set6, 2, idList.get(125));
 		answerRepo.save(a1_answer_1_set6);
 
-		String[] a1_answers_2_set6 = {"Người điều khiển: Xe ô tô, xe mô tô, xe đạp, xe gắn máy", "Người ngồi phía sau người điều khiển xe cơ giới", "Người đi bộ", "Cả ý 1 và ý 2."};
+		String[] a1_answers_2_set6 = { "Người điều khiển: Xe ô tô, xe mô tô, xe đạp, xe gắn máy",
+				"Người ngồi phía sau người điều khiển xe cơ giới", "Người đi bộ", "Cả ý 1 và ý 2." };
 		Answer a1_answer_2_set6 = new Answer(a1_answers_2_set6, 0, idList.get(126));
 		answerRepo.save(a1_answer_2_set6);
 
-		String[] a1_answers_3_set6 = {"Gồm xe đạp (kể cả xe đạp máy, xe đạp điện), xe xích lô, xe lăn dùng cho người khuyết tật, xe súc vật kéo và các loại xe tương tự", "Gồm xe đạp (kể cả xe đạp máy, xe đạp điện), xe gắn máy, xe cơ giới dùng cho người khuyết tật và xe máy chuyên dùng", "Gồm xe ô tô, máy kéo, rơ moóc hoặc sơ mi rơ moóc được kéo bởi xe ô tô, máy kéo."};
+		String[] a1_answers_3_set6 = {
+				"Gồm xe đạp (kể cả xe đạp máy, xe đạp điện), xe xích lô, xe lăn dùng cho người khuyết tật, xe súc vật kéo và các loại xe tương tự",
+				"Gồm xe đạp (kể cả xe đạp máy, xe đạp điện), xe gắn máy, xe cơ giới dùng cho người khuyết tật và xe máy chuyên dùng",
+				"Gồm xe ô tô, máy kéo, rơ moóc hoặc sơ mi rơ moóc được kéo bởi xe ô tô, máy kéo." };
 		Answer a1_answer_3_set6 = new Answer(a1_answers_3_set6, 0, idList.get(127));
 		answerRepo.save(a1_answer_3_set6);
 
-		String[] a1_answers_4_set6 = {"Chỉ bị nhắc nhở", "Bị xử phạt hành chính hoặc có thể bị xử lý hình sự tùy theo mức độ vi phạm", "Không bị xử lý hình sự."};
+		String[] a1_answers_4_set6 = { "Chỉ bị nhắc nhở",
+				"Bị xử phạt hành chính hoặc có thể bị xử lý hình sự tùy theo mức độ vi phạm",
+				"Không bị xử lý hình sự." };
 		Answer a1_answer_4_set6 = new Answer(a1_answers_4_set6, 1, idList.get(128));
 		answerRepo.save(a1_answer_4_set6);
 
-		String[] a1_answers_5_set6 = {"Xe mô tô có dung tích xi-lanh 125 cm3", "Xe mô tô có dung tích xi-lanh từ 175 cm3 trở lên", "Xe mô tô có dung tích xi-lanh 100 cm3."};
+		String[] a1_answers_5_set6 = { "Xe mô tô có dung tích xi-lanh 125 cm3",
+				"Xe mô tô có dung tích xi-lanh từ 175 cm3 trở lên", "Xe mô tô có dung tích xi-lanh 100 cm3." };
 		Answer a1_answer_5_set6 = new Answer(a1_answers_5_set6, -1, idList.get(129));
 		answerRepo.save(a1_answer_5_set6);
 
-		String[] a1_answers_6_set6 = {"Biển báo nguy hiểm", "Biển báo cấm", "Biển báo hiệu lệnh phải thi hành", "Biển báo chỉ dẫn."};
+		String[] a1_answers_6_set6 = { "Biển báo nguy hiểm", "Biển báo cấm", "Biển báo hiệu lệnh phải thi hành",
+				"Biển báo chỉ dẫn." };
 		Answer a1_answer_6_set6 = new Answer(a1_answers_6_set6, 3, idList.get(130));
 		answerRepo.save(a1_answer_6_set6);
 
-		String[] a1_answers_7_set6 = {"Nơi đường hẹp chỉ đủ cho một xe chạy và có chỗ tránh xe thì xe nào ở gần chỗ tránh hơn phải vào vị trí tránh, nhường đường cho xe kia đi", "Xe xuống dốc phải nhường đường cho xe đang lên dốc; xe nào có chướng ngại vật phía trước phải nhường đường cho xe không có chướng ngại vật đi trước", "Xe lên dốc phải nhường đường cho xe xuống dốc; xe nào không có chướng ngại vật phía trước phải nhường đường cho xe có chướng ngại vật đi trước", "Cả ý 1 và ý 2"};
+		String[] a1_answers_7_set6 = {
+				"Nơi đường hẹp chỉ đủ cho một xe chạy và có chỗ tránh xe thì xe nào ở gần chỗ tránh hơn phải vào vị trí tránh, nhường đường cho xe kia đi",
+				"Xe xuống dốc phải nhường đường cho xe đang lên dốc; xe nào có chướng ngại vật phía trước phải nhường đường cho xe không có chướng ngại vật đi trước",
+				"Xe lên dốc phải nhường đường cho xe xuống dốc; xe nào không có chướng ngại vật phía trước phải nhường đường cho xe có chướng ngại vật đi trước",
+				"Cả ý 1 và ý 2" };
 		Answer a1_answer_7_set6 = new Answer(a1_answers_7_set6, 3, idList.get(131));
 		answerRepo.save(a1_answer_7_set6);
 
-		String[] a1_answers_8_set6 = {"Khi cho xe chạy thẳng", "Trước khi thay đổi làn đường", "Sau khi thay đổi làn đường."};
+		String[] a1_answers_8_set6 = { "Khi cho xe chạy thẳng", "Trước khi thay đổi làn đường",
+				"Sau khi thay đổi làn đường." };
 		Answer a1_answer_8_set6 = new Answer(a1_answers_8_set6, 1, idList.get(132));
 		answerRepo.save(a1_answer_8_set6);
 
-		String[] a1_answers_9_set6 = {"60 Km/h", "50 Km/h", "40 Km/h"};
+		String[] a1_answers_9_set6 = { "60 Km/h", "50 Km/h", "40 Km/h" };
 		Answer a1_answer_9_set6 = new Answer(a1_answers_9_set6, 1, idList.get(133));
 		answerRepo.save(a1_answer_9_set6);
 
-		String[] a1_answers_10_set6 = {"Ra tín hiệu bằng tay rồi cho xe vượt qua", "Tăng ga mạnh để gây sự chú ý rồi cho xe vượt qua", "Bạn phải có tín hiệu bằng đèn hoặc còi."};
+		String[] a1_answers_10_set6 = { "Ra tín hiệu bằng tay rồi cho xe vượt qua",
+				"Tăng ga mạnh để gây sự chú ý rồi cho xe vượt qua", "Bạn phải có tín hiệu bằng đèn hoặc còi." };
 		Answer a1_answer_10_set6 = new Answer(a1_answers_10_set6, 2, idList.get(134));
 		answerRepo.save(a1_answer_10_set6);
 
-		String[] a1_answers_11_set6 = {"Bấm còi liên tục thúc giục các phương tiện phía trước nhường đường.", "Đi lên vỉa hè, tận dụng mọi khoảng trống để nhanh chóng thoát khỏi nơi ùn tắc.", "Lấn sang trái đường cố gắng vượt lên xe khác.", "Tất cả các ý nêu trên."};
+		String[] a1_answers_11_set6 = { "Bấm còi liên tục thúc giục các phương tiện phía trước nhường đường.",
+				"Đi lên vỉa hè, tận dụng mọi khoảng trống để nhanh chóng thoát khỏi nơi ùn tắc.",
+				"Lấn sang trái đường cố gắng vượt lên xe khác.", "Tất cả các ý nêu trên." };
 		Answer a1_answer_11_set6 = new Answer(a1_answers_11_set6, 3, idList.get(135));
 		answerRepo.save(a1_answer_11_set6);
 
-		String[] a1_answers_12_set6 = {"Bật tín hiệu báo rẽ trước khi quay đầu, từ từ giảm tốc độ đến mức có thể dừng lại.", "Chỉ quay đầu xe tại những nơi được phép quay đầu.", "Quan sát an toàn các phương tiện tới từ phía trước, phía sau, hai bên đồng thời nhường đường cho xe từ bên phải và phía trước đi tới.", "Tất cả các ý nêu trên."};
+		String[] a1_answers_12_set6 = {
+				"Bật tín hiệu báo rẽ trước khi quay đầu, từ từ giảm tốc độ đến mức có thể dừng lại.",
+				"Chỉ quay đầu xe tại những nơi được phép quay đầu.",
+				"Quan sát an toàn các phương tiện tới từ phía trước, phía sau, hai bên đồng thời nhường đường cho xe từ bên phải và phía trước đi tới.",
+				"Tất cả các ý nêu trên." };
 		Answer a1_answer_12_set6 = new Answer(a1_answers_12_set6, 3, idList.get(136));
 		answerRepo.save(a1_answer_12_set6);
 
-		String[] a1_answers_13_set6 = {"Biển 1.", "Biển 2.", "Biển 3.", "Biển 2 và 3."};
+		String[] a1_answers_13_set6 = { "Biển 1.", "Biển 2.", "Biển 3.", "Biển 2 và 3." };
 		Answer a1_answer_13_set6 = new Answer(a1_answers_13_set6, 0, idList.get(137));
 		answerRepo.save(a1_answer_13_set6);
 
-		String[] a1_answers_14_set6 = {"Biển 1.", "Biển 2.", "Biển 3.", "Biển 1 và 3."};
+		String[] a1_answers_14_set6 = { "Biển 1.", "Biển 2.", "Biển 3.", "Biển 1 và 3." };
 		Answer a1_answer_14_set6 = new Answer(a1_answers_14_set6, 0, idList.get(138));
 		answerRepo.save(a1_answer_14_set6);
 
-		String[] a1_answers_15_set6 = {"Biển 1", "Biển 2 và 3", "Cả ba biển."};
+		String[] a1_answers_15_set6 = { "Biển 1", "Biển 2 và 3", "Cả ba biển." };
 		Answer a1_answer_15_set6 = new Answer(a1_answers_15_set6, 1, idList.get(139));
 		answerRepo.save(a1_answer_15_set6);
 
-		String[] a1_answers_16_set6 = {"Biển 1.", "Biển 2.", "Cả hai biển."};
+		String[] a1_answers_16_set6 = { "Biển 1.", "Biển 2.", "Cả hai biển." };
 		Answer a1_answer_16_set6 = new Answer(a1_answers_16_set6, 0, idList.get(140));
 		answerRepo.save(a1_answer_16_set6);
 
-		String[] a1_answers_17_set6 = {"Biển 1.", "Biển 2.", "Cả hai biển."};
+		String[] a1_answers_17_set6 = { "Biển 1.", "Biển 2.", "Cả hai biển." };
 		Answer a1_answer_17_set6 = new Answer(a1_answers_17_set6, 0, idList.get(141));
 		answerRepo.save(a1_answer_17_set6);
 
-		String[] a1_answers_18_set6 = {"Biển 1.", "Biển 1 và 3.", "Biển 3.", "Cả ba biển."};
+		String[] a1_answers_18_set6 = { "Biển 1.", "Biển 1 và 3.", "Biển 3.", "Cả ba biển." };
 		Answer a1_answer_18_set6 = new Answer(a1_answers_18_set6, 2, idList.get(142));
 		answerRepo.save(a1_answer_18_set6);
 
-		String[] a1_answers_19_set6 = {"Biển 1", "Biển 2", "Biển 3."};
+		String[] a1_answers_19_set6 = { "Biển 1", "Biển 2", "Biển 3." };
 		Answer a1_answer_19_set6 = new Answer(a1_answers_19_set6, 1, idList.get(143));
 		answerRepo.save(a1_answer_19_set6);
 
-		String[] a1_answers_20_set6 = {"Dừng xe tại khu vực có trạm Cảnh sát giao thông.", "Tiếp tục lưu thông với tốc độ bình thường", "Phải giảm tốc độ đến mức an toàn và không được vượt khi đi qua khu vực này."};
+		String[] a1_answers_20_set6 = { "Dừng xe tại khu vực có trạm Cảnh sát giao thông.",
+				"Tiếp tục lưu thông với tốc độ bình thường",
+				"Phải giảm tốc độ đến mức an toàn và không được vượt khi đi qua khu vực này." };
 		Answer a1_answer_20_set6 = new Answer(a1_answers_20_set6, 2, idList.get(144));
 		answerRepo.save(a1_answer_20_set6);
 
-		String[] a1_answers_21_set6 = {"Các xe phía tay phải và tay trái của người điều khiển được phép đi thẳng", "Cho phép các xe ở mọi hướng được rẽ phải", "Tất cả các xe phải dừng lại trước ngã tư, trừ những xe đã ở trong ngã tư được phép tiếp tục đi."};
+		String[] a1_answers_21_set6 = { "Các xe phía tay phải và tay trái của người điều khiển được phép đi thẳng",
+				"Cho phép các xe ở mọi hướng được rẽ phải",
+				"Tất cả các xe phải dừng lại trước ngã tư, trừ những xe đã ở trong ngã tư được phép tiếp tục đi." };
 		Answer a1_answer_21_set6 = new Answer(a1_answers_21_set6, 2, idList.get(145));
 		answerRepo.save(a1_answer_21_set6);
 
-		String[] a1_answers_22_set6 = {"Xe khách, xe tải, mô tô", "Xe tải, xe con, mô tô", "Xe khách, xe con, mô tô."};
+		String[] a1_answers_22_set6 = { "Xe khách, xe tải, mô tô", "Xe tải, xe con, mô tô",
+				"Xe khách, xe con, mô tô." };
 		Answer a1_answer_22_set6 = new Answer(a1_answers_22_set6, 0, idList.get(146));
 		answerRepo.save(a1_answer_22_set6);
 
-		String[] a1_answers_23_set6 = {"Cả hai xe", "Không xe nào vi phạm", "Chỉ xe mô tô vi phạm", "Chỉ xe tải vi phạm."};
+		String[] a1_answers_23_set6 = { "Cả hai xe", "Không xe nào vi phạm", "Chỉ xe mô tô vi phạm",
+				"Chỉ xe tải vi phạm." };
 		Answer a1_answer_23_set6 = new Answer(a1_answers_23_set6, 0, idList.get(147));
 		answerRepo.save(a1_answer_23_set6);
 
-		String[] a1_answers_24_set6 = {"Cho phép", "Không được vượt."};
+		String[] a1_answers_24_set6 = { "Cho phép", "Không được vượt." };
 		Answer a1_answer_24_set6 = new Answer(a1_answers_24_set6, 1, idList.get(148));
 		answerRepo.save(a1_answer_24_set6);
 
-		String[] a1_answers_25_set6 = {"Xe con", "Xe mô tô", "Cả 2 xe đều đúng."};
+		String[] a1_answers_25_set6 = { "Xe con", "Xe mô tô", "Cả 2 xe đều đúng." };
 		Answer a1_answer_25_set6 = new Answer(a1_answers_25_set6, 0, idList.get(149));
 		answerRepo.save(a1_answer_25_set6);
 
-		String[] a1_answers_1_set7 = {"Được mang, vác tùy trường hợp cụ thể", "Không được mang, vác", "Được mang, vác nhưng phải đảm bảo an toàn", "Được mang, vác tùy theo sức khỏe của bản thân."};
+		String[] a1_answers_1_set7 = { "Được mang, vác tùy trường hợp cụ thể", "Không được mang, vác",
+				"Được mang, vác nhưng phải đảm bảo an toàn", "Được mang, vác tùy theo sức khỏe của bản thân." };
 		Answer a1_answer_1_set7 = new Answer(a1_answers_1_set7, 1, idList.get(150));
 		answerRepo.save(a1_answer_1_set7);
 
-		String[] a1_answers_2_set7 = {"Phần mặt đường và lề đường", "Phần đường xe chạy", "Phần đường xe cơ giới."};
+		String[] a1_answers_2_set7 = { "Phần mặt đường và lề đường", "Phần đường xe chạy", "Phần đường xe cơ giới." };
 		Answer a1_answer_2_set7 = new Answer(a1_answers_2_set7, 1, idList.get(151));
 		answerRepo.save(a1_answer_2_set7);
 
-		String[] a1_answers_3_set7 = {"Phương tiện giao thông cơ giới đường bộ", "Phương tiện giao thông thô sơ đường bộ và xe máy chuyên dùng", "Cả ý 1 và 2"};
+		String[] a1_answers_3_set7 = { "Phương tiện giao thông cơ giới đường bộ",
+				"Phương tiện giao thông thô sơ đường bộ và xe máy chuyên dùng", "Cả ý 1 và 2" };
 		Answer a1_answer_3_set7 = new Answer(a1_answers_3_set7, 2, idList.get(152));
 		answerRepo.save(a1_answer_3_set7);
 
-		String[] a1_answers_4_set7 = {"Bất cứ đèn nào miễn là mắt nhìn rõ phía trước", "Chỉ bật đèn chiếu xa (đèn pha) khi không nhìn rõ đường", "Đèn chiếu xa (đèn pha) khi đường vắng, đèn pha chiếu gần (đèn cốt) khi có xe đi ngược chiều.", "Đèn chiếu gần (đèn cốt)."};
+		String[] a1_answers_4_set7 = { "Bất cứ đèn nào miễn là mắt nhìn rõ phía trước",
+				"Chỉ bật đèn chiếu xa (đèn pha) khi không nhìn rõ đường",
+				"Đèn chiếu xa (đèn pha) khi đường vắng, đèn pha chiếu gần (đèn cốt) khi có xe đi ngược chiều.",
+				"Đèn chiếu gần (đèn cốt)." };
 		Answer a1_answer_4_set7 = new Answer(a1_answers_4_set7, 3, idList.get(153));
 		answerRepo.save(a1_answer_4_set7);
 
-		String[] a1_answers_5_set7 = {"Xe mô tô hai bánh có dung tích xi-lanh từ 50 cm3 đến dưới 175 cm3", "Xe mô tô ba bánh dùng cho người khuyết tật", "Cả ý 1 và ý 2."};
+		String[] a1_answers_5_set7 = { "Xe mô tô hai bánh có dung tích xi-lanh từ 50 cm3 đến dưới 175 cm3",
+				"Xe mô tô ba bánh dùng cho người khuyết tật", "Cả ý 1 và ý 2." };
 		Answer a1_answer_5_set7 = new Answer(a1_answers_5_set7, 2, idList.get(154));
 		answerRepo.save(a1_answer_5_set7);
 
-		String[] a1_answers_6_set7 = {"Biển báo hiệu cố định", "Báo hiệu tạm thời."};
+		String[] a1_answers_6_set7 = { "Biển báo hiệu cố định", "Báo hiệu tạm thời." };
 		Answer a1_answer_6_set7 = new Answer(a1_answers_6_set7, 1, idList.get(155));
 		answerRepo.save(a1_answer_6_set7);
 
-		String[] a1_answers_7_set7 = {"Tiếp tục đi và xe lên dốc phải nhường đường cho mình", "Nhường đường cho xe lên dốc", "Chỉ nhường đường khi xe lên dốc nháy đèn."};
+		String[] a1_answers_7_set7 = { "Tiếp tục đi và xe lên dốc phải nhường đường cho mình",
+				"Nhường đường cho xe lên dốc", "Chỉ nhường đường khi xe lên dốc nháy đèn." };
 		Answer a1_answer_7_set7 = new Answer(a1_answers_7_set7, 1, idList.get(156));
 		answerRepo.save(a1_answer_7_set7);
 
-		String[] a1_answers_8_set7 = {"Xe bị vượt bất ngờ tăng tốc độ và cố tình không nhường đường", "Xe bị vượt giảm tốc độ và nhường đường", "Phát hiện có xe đi ngược chiều", "Cả ý 1 và ý 3."};
+		String[] a1_answers_8_set7 = { "Xe bị vượt bất ngờ tăng tốc độ và cố tình không nhường đường",
+				"Xe bị vượt giảm tốc độ và nhường đường", "Phát hiện có xe đi ngược chiều", "Cả ý 1 và ý 3." };
 		Answer a1_answer_8_set7 = new Answer(a1_answers_8_set7, 3, idList.get(157));
 		answerRepo.save(a1_answer_8_set7);
 
-		String[] a1_answers_9_set7 = {"Ô tô con, ô tô tải, ô tô chở người trên 30 chỗ", "Xe gắn máy, xe máy chuyên dung", "Cả ý 1 và ý 2"};
+		String[] a1_answers_9_set7 = { "Ô tô con, ô tô tải, ô tô chở người trên 30 chỗ",
+				"Xe gắn máy, xe máy chuyên dung", "Cả ý 1 và ý 2" };
 		Answer a1_answer_9_set7 = new Answer(a1_answers_9_set7, 0, idList.get(158));
 		answerRepo.save(a1_answer_9_set7);
 
-		String[] a1_answers_10_set7 = {"Đường ướt, đường có sỏi cát trên nền đường", "Đường hẹp có nhiều điểm giao cắt từ hai phía", "Đường đèo dốc, vòng liên tục", "Tất cả các ý nêu trên."};
+		String[] a1_answers_10_set7 = { "Đường ướt, đường có sỏi cát trên nền đường",
+				"Đường hẹp có nhiều điểm giao cắt từ hai phía", "Đường đèo dốc, vòng liên tục",
+				"Tất cả các ý nêu trên." };
 		Answer a1_answer_10_set7 = new Answer(a1_answers_10_set7, 3, idList.get(159));
 		answerRepo.save(a1_answer_10_set7);
 
-		String[] a1_answers_11_set7 = {"Thực hiện sơ cứu ban đầu trong trường hợp khẩn cấp; thông báo vụ tai nạn đến cơ quan thi hành pháp luật.", "Nhanh chóng lái xe gây tai nạn hoặc đi nhờ xe khác ra khỏi hiện trường vụ tai nạn.", "Cả ý 1 và ý 2."};
+		String[] a1_answers_11_set7 = {
+				"Thực hiện sơ cứu ban đầu trong trường hợp khẩn cấp; thông báo vụ tai nạn đến cơ quan thi hành pháp luật.",
+				"Nhanh chóng lái xe gây tai nạn hoặc đi nhờ xe khác ra khỏi hiện trường vụ tai nạn.",
+				"Cả ý 1 và ý 2." };
 		Answer a1_answer_11_set7 = new Answer(a1_answers_11_set7, 0, idList.get(160));
 		answerRepo.save(a1_answer_11_set7);
 
-		String[] a1_answers_12_set7 = {"Để điều khiển xe chạy về phía trước.", "Để điều tiết công suất động cơ qua đó điều khiển tốc độ của xe.", "Để điều khiển xe chạy lùi.", "Cả ý 1 và ý 2."};
+		String[] a1_answers_12_set7 = { "Để điều khiển xe chạy về phía trước.",
+				"Để điều tiết công suất động cơ qua đó điều khiển tốc độ của xe.", "Để điều khiển xe chạy lùi.",
+				"Cả ý 1 và ý 2." };
 		Answer a1_answer_12_set7 = new Answer(a1_answers_12_set7, 3, idList.get(161));
 		answerRepo.save(a1_answer_12_set7);
 
-		String[] a1_answers_13_set7 = {"Biển 1 và 3.", "Biển 2.", "Biển 3."};
+		String[] a1_answers_13_set7 = { "Biển 1 và 3.", "Biển 2.", "Biển 3." };
 		Answer a1_answer_13_set7 = new Answer(a1_answers_13_set7, 1, idList.get(162));
 		answerRepo.save(a1_answer_13_set7);
 
-		String[] a1_answers_14_set7 = {"Biển 1 và 2.", "Biển 1 và 3.", "Biển 2 và 3.", "Cả ba biển."};
+		String[] a1_answers_14_set7 = { "Biển 1 và 2.", "Biển 1 và 3.", "Biển 2 và 3.", "Cả ba biển." };
 		Answer a1_answer_14_set7 = new Answer(a1_answers_14_set7, 0, idList.get(163));
 		answerRepo.save(a1_answer_14_set7);
 
-		String[] a1_answers_15_set7 = {"Biển 1", "Biển 2"};
+		String[] a1_answers_15_set7 = { "Biển 1", "Biển 2" };
 		Answer a1_answer_15_set7 = new Answer(a1_answers_15_set7, 1, idList.get(164));
 		answerRepo.save(a1_answer_15_set7);
 
-		String[] a1_answers_16_set7 = {"Biển 1.", "Biển 2.", "Không biển nào."};
+		String[] a1_answers_16_set7 = { "Biển 1.", "Biển 2.", "Không biển nào." };
 		Answer a1_answer_16_set7 = new Answer(a1_answers_16_set7, 1, idList.get(165));
 		answerRepo.save(a1_answer_16_set7);
 
-		String[] a1_answers_17_set7 = {"Biển 1.", "Biển 2.", "Biển 3.", "Biển 1 và 2."};
+		String[] a1_answers_17_set7 = { "Biển 1.", "Biển 2.", "Biển 3.", "Biển 1 và 2." };
 		Answer a1_answer_17_set7 = new Answer(a1_answers_17_set7, 3, idList.get(166));
 		answerRepo.save(a1_answer_17_set7);
 
-		String[] a1_answers_18_set7 = {"Biển 1.", "Biển 2.", "Biển 3."};
+		String[] a1_answers_18_set7 = { "Biển 1.", "Biển 2.", "Biển 3." };
 		Answer a1_answer_18_set7 = new Answer(a1_answers_18_set7, 0, idList.get(167));
 		answerRepo.save(a1_answer_18_set7);
 
-		String[] a1_answers_19_set7 = {"Biển 1.", "Biển 2.", "Không biển nào."};
+		String[] a1_answers_19_set7 = { "Biển 1.", "Biển 2.", "Không biển nào." };
 		Answer a1_answer_19_set7 = new Answer(a1_answers_19_set7, 1, idList.get(168));
 		answerRepo.save(a1_answer_19_set7);
 
-		String[] a1_answers_20_set7 = {"Đi thẳng hoặc rẽ trái trên cầu vượt", "Đi thẳng hoặc rẽ phải trên cầu vượt", "Báo hiệu cầu vượt liên thông."};
+		String[] a1_answers_20_set7 = { "Đi thẳng hoặc rẽ trái trên cầu vượt", "Đi thẳng hoặc rẽ phải trên cầu vượt",
+				"Báo hiệu cầu vượt liên thông." };
 		Answer a1_answer_20_set7 = new Answer(a1_answers_20_set7, 2, idList.get(169));
 		answerRepo.save(a1_answer_20_set7);
 
-		String[] a1_answers_21_set7 = {"Mô tô, xe con", "Xe con, xe tải", "Mô tô, xe tải", "Cả ba xe."};
+		String[] a1_answers_21_set7 = { "Mô tô, xe con", "Xe con, xe tải", "Mô tô, xe tải", "Cả ba xe." };
 		Answer a1_answer_21_set7 = new Answer(a1_answers_21_set7, 2, idList.get(170));
 		answerRepo.save(a1_answer_21_set7);
 
-		String[] a1_answers_22_set7 = {"Xe con", "Xe tải", "Xe con và xe tải."};
+		String[] a1_answers_22_set7 = { "Xe con", "Xe tải", "Xe con và xe tải." };
 		Answer a1_answer_22_set7 = new Answer(a1_answers_22_set7, 1, idList.get(171));
 		answerRepo.save(a1_answer_22_set7);
 
-		String[] a1_answers_23_set7 = {"Chỉ mô tô", "Chỉ xe tải", "Cả 3 xe", "Chỉ mô tô và xe tải."};
+		String[] a1_answers_23_set7 = { "Chỉ mô tô", "Chỉ xe tải", "Cả 3 xe", "Chỉ mô tô và xe tải." };
 		Answer a1_answer_23_set7 = new Answer(a1_answers_23_set7, 2, idList.get(172));
 		answerRepo.save(a1_answer_23_set7);
 
-		String[] a1_answers_24_set7 = {"Xe mô tô", "Xe ô tô con", "Không xe nào vi phạm", "Cả hai xe."};
+		String[] a1_answers_24_set7 = { "Xe mô tô", "Xe ô tô con", "Không xe nào vi phạm", "Cả hai xe." };
 		Answer a1_answer_24_set7 = new Answer(a1_answers_24_set7, 3, idList.get(173));
 		answerRepo.save(a1_answer_24_set7);
 
-		String[] a1_answers_25_set7 = {"Quan sát nếu thấy không có tàu thì tăng tốc, cho xe vượt qua đường sắt", "Dừng lại trước rào chắn một khoảng cách an toàn", "Ra tín hiệu, yêu cầu người gác chắn tàu kéo chậm Barie để xe bạn qua."};
+		String[] a1_answers_25_set7 = { "Quan sát nếu thấy không có tàu thì tăng tốc, cho xe vượt qua đường sắt",
+				"Dừng lại trước rào chắn một khoảng cách an toàn",
+				"Ra tín hiệu, yêu cầu người gác chắn tàu kéo chậm Barie để xe bạn qua." };
 		Answer a1_answer_25_set7 = new Answer(a1_answers_25_set7, 1, idList.get(174));
 		answerRepo.save(a1_answer_25_set7);
 
-		String[] a1_answers_1_set8 = {"Được phép", "Được bám trong trường hợp phương tiện của mình bị hỏng", "Được kéo, đẩy trong trường hợp phương tiện khác bị hỏng", "Không được phép."};
+		String[] a1_answers_1_set8 = { "Được phép", "Được bám trong trường hợp phương tiện của mình bị hỏng",
+				"Được kéo, đẩy trong trường hợp phương tiện khác bị hỏng", "Không được phép." };
 		Answer a1_answer_1_set8 = new Answer(a1_answers_1_set8, 3, idList.get(175));
 		answerRepo.save(a1_answer_1_set8);
 
-		String[] a1_answers_2_set8 = {"Là một phần của phần đường xe chạy được chia theo chiều dọc của đường, sử dụng cho xe chạy.", "Là một phần của phần đường xe chạy được chia theo chiều dọc của đường, có bề rộng đủ cho xe chạy an toàn", "Là đường cho xe ô tô chạy, dừng, đỗ an toàn."};
+		String[] a1_answers_2_set8 = {
+				"Là một phần của phần đường xe chạy được chia theo chiều dọc của đường, sử dụng cho xe chạy.",
+				"Là một phần của phần đường xe chạy được chia theo chiều dọc của đường, có bề rộng đủ cho xe chạy an toàn",
+				"Là đường cho xe ô tô chạy, dừng, đỗ an toàn." };
 		Answer a1_answer_2_set8 = new Answer(a1_answers_2_set8, 1, idList.get(176));
 		answerRepo.save(a1_answer_2_set8);
 
-		String[] a1_answers_3_set8 = {"Người điều khiển xe cơ giới, người điều khiển xe thô sơ", "Người điều khiển xe máy chuyên dùng tham gia giao thông đường bộ.", "Cả ý 1 và ý 2"};
+		String[] a1_answers_3_set8 = { "Người điều khiển xe cơ giới, người điều khiển xe thô sơ",
+				"Người điều khiển xe máy chuyên dùng tham gia giao thông đường bộ.", "Cả ý 1 và ý 2" };
 		Answer a1_answer_3_set8 = new Answer(a1_answers_3_set8, 2, idList.get(177));
 		answerRepo.save(a1_answer_3_set8);
 
-		String[] a1_answers_4_set8 = {"Từ 22 giờ đêm đến 5 giờ sáng", "Từ 5 giờ sáng đến 22 giờ tối", "Từ 23 giờ đêm đến 5 giờ sáng hôm sau."};
+		String[] a1_answers_4_set8 = { "Từ 22 giờ đêm đến 5 giờ sáng", "Từ 5 giờ sáng đến 22 giờ tối",
+				"Từ 23 giờ đêm đến 5 giờ sáng hôm sau." };
 		Answer a1_answer_4_set8 = new Answer(a1_answers_4_set8, 1, idList.get(178));
 		answerRepo.save(a1_answer_4_set8);
 
-		String[] a1_answers_5_set8 = {"Người tham gia giao thông ở các hướng phải dừng lại.", "Người tham gia giao thông ở các hướng được đi theo chiều gậy chỉ của cảnh sát giao thông", "Người tham gia giao thông ở phía trước và phía sau người điều khiển được đi tất cả các hướng, người tham gia giao thông ở phía bên phải và phía bên trái người điều khiển phải dừng lại", "Người tham gia giao thông ở phía trước và phía sau người điều khiển phải dừng lại; người tham gia giao thông ở phía bên phải và bên trái người điều khiển được đi tất cả các hướng."};
+		String[] a1_answers_5_set8 = { "Người tham gia giao thông ở các hướng phải dừng lại.",
+				"Người tham gia giao thông ở các hướng được đi theo chiều gậy chỉ của cảnh sát giao thông",
+				"Người tham gia giao thông ở phía trước và phía sau người điều khiển được đi tất cả các hướng, người tham gia giao thông ở phía bên phải và phía bên trái người điều khiển phải dừng lại",
+				"Người tham gia giao thông ở phía trước và phía sau người điều khiển phải dừng lại; người tham gia giao thông ở phía bên phải và bên trái người điều khiển được đi tất cả các hướng." };
 		Answer a1_answer_5_set8 = new Answer(a1_answers_5_set8, 3, idList.get(179));
 		answerRepo.save(a1_answer_5_set8);
 
-		String[] a1_answers_6_set8 = {"02 Năm", "03 Năm", "05 Năm", "04 Năm."};
+		String[] a1_answers_6_set8 = { "02 Năm", "03 Năm", "05 Năm", "04 Năm." };
 		Answer a1_answer_6_set8 = new Answer(a1_answers_6_set8, 2, idList.get(180));
 		answerRepo.save(a1_answer_6_set8);
 
-		String[] a1_answers_7_set8 = {"Nhường đường cho xe đi ở bên phải mình tới", "Nhường đường cho xe đi ở bên trái mình tới", "Nhường đường cho xe đi trên đường ưu tiên hoặc đường chính từ bất kỳ hướng nào tới."};
+		String[] a1_answers_7_set8 = { "Nhường đường cho xe đi ở bên phải mình tới",
+				"Nhường đường cho xe đi ở bên trái mình tới",
+				"Nhường đường cho xe đi trên đường ưu tiên hoặc đường chính từ bất kỳ hướng nào tới." };
 		Answer a1_answer_7_set8 = new Answer(a1_answers_7_set8, 2, idList.get(181));
 		answerRepo.save(a1_answer_7_set8);
 
-		String[] a1_answers_8_set8 = {"Nhường đường cho người đi bộ đang đi trên phần đường dành cho người đi bộ sang đường; nhường đường cho xe đi trên đường ưu tiên, đường chính từ bất kì hướng nào tới; nhường đường cho xe ưu tiên, xe đi từ bên phải đến", "Nhường đường cho người đi bộ đang đứng chờ đi qua phần đường dành cho người đi bộ sang đường; nhường đường cho xe đi trên đường ngược chiều, đường nhánh từ bất kỳ hướng nào tới; nhường đường cho xe đi từ bên trái đến", "Không phải nhường đường."};
+		String[] a1_answers_8_set8 = {
+				"Nhường đường cho người đi bộ đang đi trên phần đường dành cho người đi bộ sang đường; nhường đường cho xe đi trên đường ưu tiên, đường chính từ bất kì hướng nào tới; nhường đường cho xe ưu tiên, xe đi từ bên phải đến",
+				"Nhường đường cho người đi bộ đang đứng chờ đi qua phần đường dành cho người đi bộ sang đường; nhường đường cho xe đi trên đường ngược chiều, đường nhánh từ bất kỳ hướng nào tới; nhường đường cho xe đi từ bên trái đến",
+				"Không phải nhường đường." };
 		Answer a1_answer_8_set8 = new Answer(a1_answers_8_set8, 0, idList.get(182));
 		answerRepo.save(a1_answer_8_set8);
 
-		String[] a1_answers_9_set8 = {"Chủ động giữ khoảng cách an toàn phù hợp với xe chạy liền trước xe của mình", "Đảm bảo khoảng cách an toàn theo mật độ phương tiện, tình hình giao thông thực tế", "Cả ý 1 và ý 2."};
+		String[] a1_answers_9_set8 = { "Chủ động giữ khoảng cách an toàn phù hợp với xe chạy liền trước xe của mình",
+				"Đảm bảo khoảng cách an toàn theo mật độ phương tiện, tình hình giao thông thực tế", "Cả ý 1 và ý 2." };
 		Answer a1_answer_9_set8 = new Answer(a1_answers_9_set8, 2, idList.get(183));
 		answerRepo.save(a1_answer_9_set8);
 
-		String[] a1_answers_10_set8 = {"Tăng tốc độ nhanh chóng vượt qua bên đỗ", "Giảm tốc độ đến mức an toàn có thể và quan sát người qua đường và từ từ vượt qua xe buýt", "Yêu cầu phải dừng lại phía sau xe buýt chờ xe rời bến mới đi tiếp."};
+		String[] a1_answers_10_set8 = { "Tăng tốc độ nhanh chóng vượt qua bên đỗ",
+				"Giảm tốc độ đến mức an toàn có thể và quan sát người qua đường và từ từ vượt qua xe buýt",
+				"Yêu cầu phải dừng lại phía sau xe buýt chờ xe rời bến mới đi tiếp." };
 		Answer a1_answer_10_set8 = new Answer(a1_answers_10_set8, 1, idList.get(184));
 		answerRepo.save(a1_answer_10_set8);
 
-		String[] a1_answers_11_set8 = {"Không nên đi cố vào đường hẹp; xe đi ở phía sườn núi nên dừng lại trước để nhường đường; khi dừng xe nhường đường phải đổ ngay ngắn.", "Trong khi tránh nhau không nên đổi số; khi tránh nhau ban đêm phải tắt đèn pha, bật đèn cốt.", "Khi tránh nhau ban đêm, phải thường xuyên bật đèn pha tắt đèn cốt.", "Cả ý 1 và ý 2."};
+		String[] a1_answers_11_set8 = {
+				"Không nên đi cố vào đường hẹp; xe đi ở phía sườn núi nên dừng lại trước để nhường đường; khi dừng xe nhường đường phải đổ ngay ngắn.",
+				"Trong khi tránh nhau không nên đổi số; khi tránh nhau ban đêm phải tắt đèn pha, bật đèn cốt.",
+				"Khi tránh nhau ban đêm, phải thường xuyên bật đèn pha tắt đèn cốt.", "Cả ý 1 và ý 2." };
 		Answer a1_answer_11_set8 = new Answer(a1_answers_11_set8, 3, idList.get(185));
 		answerRepo.save(a1_answer_11_set8);
 
-		String[] a1_answers_12_set8 = {"Sử dụng còi.", "Phanh đồng thời cả phanh trước và phanh sau.", "Chỉ sử dụng phanh trước."};
+		String[] a1_answers_12_set8 = { "Sử dụng còi.", "Phanh đồng thời cả phanh trước và phanh sau.",
+				"Chỉ sử dụng phanh trước." };
 		Answer a1_answer_12_set8 = new Answer(a1_answers_12_set8, 2, idList.get(186));
 		answerRepo.save(a1_answer_12_set8);
 
-		String[] a1_answers_13_set8 = {"Biển 1 và 2.", "Biển 1 và 3.", "Biển 2 và 3.", "Cả ba biển."};
+		String[] a1_answers_13_set8 = { "Biển 1 và 2.", "Biển 1 và 3.", "Biển 2 và 3.", "Cả ba biển." };
 		Answer a1_answer_13_set8 = new Answer(a1_answers_13_set8, 1, idList.get(187));
 		answerRepo.save(a1_answer_13_set8);
 
-		String[] a1_answers_14_set8 = {"Biển 1.", "Biển 1 và 3.", "Biển 2 và 3.", "Cả ba biển."};
+		String[] a1_answers_14_set8 = { "Biển 1.", "Biển 1 và 3.", "Biển 2 và 3.", "Cả ba biển." };
 		Answer a1_answer_14_set8 = new Answer(a1_answers_14_set8, 2, idList.get(188));
 		answerRepo.save(a1_answer_14_set8);
 
-		String[] a1_answers_15_set8 = {"Biển 1", "Biển 2", "Biển 3."};
+		String[] a1_answers_15_set8 = { "Biển 1", "Biển 2", "Biển 3." };
 		Answer a1_answer_15_set8 = new Answer(a1_answers_15_set8, 1, idList.get(189));
 		answerRepo.save(a1_answer_15_set8);
 
-		String[] a1_answers_16_set8 = {"Biển 1 và 2.", "Biển 1 và 3.", "Biển 2 và 3.", "Cả ba biển."};
+		String[] a1_answers_16_set8 = { "Biển 1 và 2.", "Biển 1 và 3.", "Biển 2 và 3.", "Cả ba biển." };
 		Answer a1_answer_16_set8 = new Answer(a1_answers_16_set8, 0, idList.get(190));
 		answerRepo.save(a1_answer_16_set8);
 
-		String[] a1_answers_17_set8 = {"Biển 1.", "Biển 2.", "Biển 3."};
+		String[] a1_answers_17_set8 = { "Biển 1.", "Biển 2.", "Biển 3." };
 		Answer a1_answer_17_set8 = new Answer(a1_answers_17_set8, 2, idList.get(191));
 		answerRepo.save(a1_answer_17_set8);
 
-		String[] a1_answers_18_set8 = {"Biển 1", "Biển 2", "Không biển nào."};
+		String[] a1_answers_18_set8 = { "Biển 1", "Biển 2", "Không biển nào." };
 		Answer a1_answer_18_set8 = new Answer(a1_answers_18_set8, 2, idList.get(192));
 		answerRepo.save(a1_answer_18_set8);
 
-		String[] a1_answers_19_set8 = {"Biển 1.", "Biển 2.", "Cả 2 biển."};
+		String[] a1_answers_19_set8 = { "Biển 1.", "Biển 2.", "Cả 2 biển." };
 		Answer a1_answer_19_set8 = new Answer(a1_answers_19_set8, 2, idList.get(193));
 		answerRepo.save(a1_answer_19_set8);
 
-		String[] a1_answers_20_set8 = {"Vạch 1", "Vạch 2", "Vạch 3", "Vạch 1 và 2."};
+		String[] a1_answers_20_set8 = { "Vạch 1", "Vạch 2", "Vạch 3", "Vạch 1 và 2." };
 		Answer a1_answer_20_set8 = new Answer(a1_answers_20_set8, 3, idList.get(194));
 		answerRepo.save(a1_answer_20_set8);
 
-		String[] a1_answers_21_set8 = {"Xe công an, xe quân sự, xe con + mô tô", "Xe quân sự, xe công an, xe con + mô tô", "Xe mô tô + xe con, xe quân sự, xe công an."};
+		String[] a1_answers_21_set8 = { "Xe công an, xe quân sự, xe con + mô tô",
+				"Xe quân sự, xe công an, xe con + mô tô", "Xe mô tô + xe con, xe quân sự, xe công an." };
 		Answer a1_answer_21_set8 = new Answer(a1_answers_21_set8, 1, idList.get(195));
 		answerRepo.save(a1_answer_21_set8);
 
-		String[] a1_answers_22_set8 = {"Xe con, xe tải, xe khách", "Xe tải, xe khách, xe mô tô", "Xe khách, xe mô tô, xe con", "Cả bốn xe."};
+		String[] a1_answers_22_set8 = { "Xe con, xe tải, xe khách", "Xe tải, xe khách, xe mô tô",
+				"Xe khách, xe mô tô, xe con", "Cả bốn xe." };
 		Answer a1_answer_22_set8 = new Answer(a1_answers_22_set8, 1, idList.get(196));
 		answerRepo.save(a1_answer_22_set8);
 
-		String[] a1_answers_23_set8 = {"Xe tải, xe con, mô tô", "Xe con, xe tải, mô tô", "Mô tô, xe con, xe tải", "Xe con, mô tô, xe tải."};
+		String[] a1_answers_23_set8 = { "Xe tải, xe con, mô tô", "Xe con, xe tải, mô tô", "Mô tô, xe con, xe tải",
+				"Xe con, mô tô, xe tải." };
 		Answer a1_answer_23_set8 = new Answer(a1_answers_23_set8, 2, idList.get(197));
 		answerRepo.save(a1_answer_23_set8);
 
-		String[] a1_answers_24_set8 = {"Đúng", "Không đúng."};
+		String[] a1_answers_24_set8 = { "Đúng", "Không đúng." };
 		Answer a1_answer_24_set8 = new Answer(a1_answers_24_set8, 1, idList.get(198));
 		answerRepo.save(a1_answer_24_set8);
 
-		String[] a1_answers_25_set8 = {"Vượt về phía bên phải để đi tiếp", "Giảm tốc độ chờ xe container rẽ xong rồi tiếp tục đi", "Vượt về phía bên trái để đi tiếp."};
+		String[] a1_answers_25_set8 = { "Vượt về phía bên phải để đi tiếp",
+				"Giảm tốc độ chờ xe container rẽ xong rồi tiếp tục đi", "Vượt về phía bên trái để đi tiếp." };
 		Answer a1_answer_25_set8 = new Answer(a1_answers_25_set8, 1, idList.get(199));
 		answerRepo.save(a1_answer_25_set8);
 
-
 	}
+
 	private void LoadAnswerA2() {
 		List<Question> questionList = questionRepo.findAll();
 		ArrayList<String> idList = new ArrayList<String>();

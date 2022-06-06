@@ -30,7 +30,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="false"
-                android:src="@drawable/i412a" />
+                android:src="@drawable/i412c" />
         </RelativeLayout>
 
         <RelativeLayout

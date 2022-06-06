@@ -15,7 +15,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import team2.mobileapp.gplx.Volley.callback.MySingleton;
 import team2.mobileapp.gplx.Volley.model.Answer;
@@ -50,9 +49,9 @@ public class TestService {
 
                     JSONObject set = response.getJSONObject("questionSet");
                     QuestionSet questionSet = new QuestionSet(set.getString("id"), set.getString("Name"), set.getBoolean("Status"),
-                            set.getInt("Quantity"), set.getInt("WrongAns"), set.getInt("RightAns"));
+                            set.getInt("Quantity"), set.getInt("WrongAns"), set.getInt("RightAns"), set.getString("LicenseId"));
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        dto.setQuestionSet(Optional.of(questionSet));
+                        dto.setQuestionSet(questionSet);
                         Log.i("Question Set", dto.getQuestionSet().toString());
                     }
                     JSONArray questList = response.getJSONArray("questList");

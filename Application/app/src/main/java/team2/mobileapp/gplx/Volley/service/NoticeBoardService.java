@@ -27,20 +27,28 @@ public class NoticeBoardService {
     public NoticeBoardService(Context context) {
         this.context = context;
     }
+
     public interface GetALLBoardCallBack {
         void onError(String message);
 
         void onResponse(List<NoticeBoard> boards);
     }
-    public void GetAll(GetALLBoardCallBack getALLBoardCallBack){
-        String requestMapping = "/trafficsign";
+
+    public void GetAll(GetALLBoardCallBack getALLBoardCallBack, String Type) {
+        String requestMapping = "";
+
+        if (Type.equals("all")) {
+            requestMapping = "/trafficsign";
+        } else {
+            requestMapping = "/trafficsign/type/" + Type;
+        }
         String url = BASE_IP + requestMapping;
         List<NoticeBoard> boards = new ArrayList<>();
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 try {
-                    for(int i = 0; i < response.length(); i++){
+                    for (int i = 0; i < response.length(); i++) {
                         NoticeBoard board = new NoticeBoard();
                         JSONObject eachBoard = response.getJSONObject(i);
 

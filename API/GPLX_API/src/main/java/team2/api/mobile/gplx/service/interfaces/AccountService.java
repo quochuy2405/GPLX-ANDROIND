@@ -10,7 +10,7 @@ import team2.api.mobile.gplx.models.Account;
 
 public interface AccountService extends GenericService<Account, String> {
 	
-	Account update(Account account, String id);
+	Account update(String id, Account account);
 	LoginResponse Login(DtoLogin account);
 	List<String> Register(SignupDto dto);
 }

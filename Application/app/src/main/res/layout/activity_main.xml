@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    tools:context="team2.mobileapp.gplx.view.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -194,13 +194,21 @@
                 android:layout_height="wrap_content"
                 android:onClick="AllQuestion"
                 android:text="AllQuestion" />
+
             <Button
                 android:id="@+id/button20"
-                android:layout_below="@+id/button19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/button19"
                 android:onClick="Guide"
                 android:text="Guide" />
+            <Button
+                android:id="@+id/button21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/button20"
+                android:onClick="TrafficByType"
+                android:text="TrafficByType" />
         </RelativeLayout>
     </LinearLayout>
 

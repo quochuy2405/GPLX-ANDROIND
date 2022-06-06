@@ -1,5 +1,7 @@
 package team2.api.mobile.gplx.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,10 +33,21 @@ public class TrafficSignServiceImpl extends GenericServiceImpl<TrafficSign, Stri
 	}
 
 	@Override
-	public TrafficSign findTrafficSignById(String id) {
+	public TrafficSign findByTrafficSignTypeId(String id) {
 		try {
 			TrafficSign object = repo.findById(id).get();
 			return object;
+		}
+		catch (Exception ex){
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
+
+	@Override
+	public List<TrafficSign> findByTrafficSignType(String id) {
+		try {
+			return repo.findByTrafficSignType(id);
 		}
 		catch (Exception ex){
 			System.out.println(ex.getMessage());

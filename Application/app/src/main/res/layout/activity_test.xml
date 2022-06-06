@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".view.TestActivity">
+    tools:context="team2.mobileapp.gplx.view.TestActivity">
 
 
     <RelativeLayout
@@ -74,11 +74,14 @@
         </TextView>
 
         <ImageView
+
             android:id="@+id/iv_question"
-            android:layout_width="match_parent"
+            android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_question"
-            android:scaleType="fitCenter" />
+            android:scaleType="fitXY"
+
+            android:layout_centerHorizontal="true"/>
 
         <ScrollView
             android:id="@+id/group_answer"
@@ -88,7 +91,7 @@
             android:layout_marginBottom="120dp">
 
             <RelativeLayout
-
+                android:id="@+id/list_answer_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
@@ -146,9 +149,38 @@
 
                 </RadioGroup>
 
+                <RelativeLayout
+                    android:id="@+id/result"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rg_answer"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/tv_title_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đáp án:"
+                        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_title_result"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/button_radius_10"
+                        android:padding="10dp"
+                        android:text=""
+                        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                        android:textColor="#FF5607"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
             </RelativeLayout>
-
-
         </ScrollView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

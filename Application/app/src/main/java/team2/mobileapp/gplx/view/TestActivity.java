@@ -1,5 +1,6 @@
 package team2.mobileapp.gplx.view;
 
+import androidx.annotation.LongDef;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -22,48 +23,55 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.squareup.picasso.Picasso;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
+import team2.mobileapp.gplx.Volley.model.Answer;
 import team2.mobileapp.gplx.Volley.model.CheckRadioButton;
 import team2.mobileapp.gplx.Volley.model.dto.DtoQuestionSet;
 import team2.mobileapp.gplx.Volley.service.TestService;
 
-public class TestActivity extends AppCompatActivity {
+public class TestActivity extends AppCompatActivity implements Serializable {
 
-    private TextView tvPositionQuestion, tvTotalQuestion, tvQuestion;
+    private RelativeLayout result_layout;
+    private TextView tvPositionQuestion, tvTotalQuestion, tvQuestion, tvResult, tvTitleResult;
     private ProgressBar determinateBar;
     private ObjectAnimator progressAnimator;
     private RadioButton rdAnswer1, rdAnswer2, rdAnswer3, rdAnswer4, rdAnswer5;
     private Button btnNext, btnPrev;
     private ImageView ivQuestion;
     private RadioGroup rgAnswer;
-    boolean mSlideState;
     private DrawerLayout mDrawerLayout;
     private GridLayout layoutQuestionBar;
     private FloatingActionButton myFab;
-    private int totalQuestion=0;
+    private int totalQuestion = 0;
     private final int[] historyID = {-1};
-    private final int [] historyProgressBarValue = {0};
+    private final int[] historyProgressBarValue = {0};
     private final int[] i = {0};
     private final ArrayList<CheckRadioButton> checkList = new ArrayList<>();
+    private boolean isCompleted = false;
+    private String questionId = "";
+    private DtoQuestionSet dtoQuestionSet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_test);
-
         InitialVariables();
 
         final TestService testService = new TestService(TestActivity.this);
 
-        // Đang hardcode để test
         String questionSetId = getIntent().getStringExtra("QuestionSetId");
         Log.i("QuestionSetId", questionSetId);
 
@@ -72,23 +80,24 @@ public class TestActivity extends AppCompatActivity {
         myFab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // If the navigation drawer is not open then open it, if its already open then close it.
-                if(!mDrawerLayout.isDrawerOpen(GravityCompat.END)) mDrawerLayout.openDrawer(GravityCompat.END);
+                if (!mDrawerLayout.isDrawerOpen(GravityCompat.END))
+                    mDrawerLayout.openDrawer(GravityCompat.END);
                 else mDrawerLayout.closeDrawer(GravityCompat.END);
             }
         });
-        historyProgressBarValue[0]=determinateBar.getProgress();
-
+        historyProgressBarValue[0] = determinateBar.getProgress();
 
 
     }
-    private void ProgressAnimation(int end){
+
+    private void ProgressAnimation(int end) {
 
         ValueAnimator animator = ValueAnimator.ofInt(historyProgressBarValue[0], end);
 
         animator.setDuration(200);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
-            public void onAnimationUpdate(ValueAnimator animation){
+            public void onAnimationUpdate(ValueAnimator animation) {
                 determinateBar.setProgress((Integer) animation.getAnimatedValue());
             }
         });
@@ -100,22 +109,22 @@ public class TestActivity extends AppCompatActivity {
             }
         });
         animator.start();
-        historyProgressBarValue[0]=end;
+        historyProgressBarValue[0] = end;
     }
+
     // Khi chọn câu trả lời thì nó sẽ lưu lại vào checkList
     private void CheckedRadioButton(DtoQuestionSet dto, int index) {
         rgAnswer.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId)
-            {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
                 int radioButtonID = rgAnswer.getCheckedRadioButtonId();
                 View radioButton = rgAnswer.findViewById(radioButtonID);
                 int idx = rgAnswer.indexOfChild(radioButton);
                 RadioButton checkedRadioButton = null;
                 String answerValue = "";
                 checkedRadioButton = (RadioButton) findViewById(checkedId);
-                if((Integer) checkedId != -1 && historyID[0]!=checkedId){
+                if ((Integer) checkedId != -1 && historyID[0] != checkedId) {
 
                     answerValue = checkedRadioButton.getText().toString();
 
@@ -123,8 +132,8 @@ public class TestActivity extends AppCompatActivity {
 
                 // check hết checkList nếu xuất questionId trong checkList nghĩa là câu này đc trả lời rồi
                 boolean flag = false;
-                for(int j = 0; j < checkList.size(); j++){
-                    if(checkList.get(j).getQuestionId().equals(dto.getQuestList().get(index).getId())){
+                for (int j = 0; j < checkList.size(); j++) {
+                    if (checkList.get(j).getQuestionId().equals(questionId)) {
                         Log.i("CheckList I", String.valueOf(index));
                         flag = true;
                         break;
@@ -132,17 +141,16 @@ public class TestActivity extends AppCompatActivity {
                 }
 
 
-                if(!flag){
+                if (!flag) {
 
-                    if(checkedRadioButton != null && answerValue != "" && index == i[0]) {
-                        TextView textview= (TextView)layoutQuestionBar.getChildAt(index);
+                    if (checkedRadioButton != null && answerValue != "" && index == i[0]) {
+                        TextView textview = (TextView) layoutQuestionBar.getChildAt(index);
                         textview.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.yellow)));
                         AddtoCheckList(idx, answerValue, dto, index);
                     }
-                }
-                else {
-                    if(checkedRadioButton != null && answerValue != "") {
-                        UpdateCheckList(idx, dto, index);
+                } else {
+                    if (checkedRadioButton != null && answerValue != "") {
+                        UpdateCheckList(idx);
                     }
                 }
 
@@ -150,15 +158,15 @@ public class TestActivity extends AppCompatActivity {
         });
     }
 
-    private void UpdateCheckList(int idx, DtoQuestionSet dto, int i) {
-        for(int j = 0; j < checkList.size(); j++) {
-            if(checkList.get(j).getQuestionId().equals(dto.getQuestList().get(i).getId())){
+    private void UpdateCheckList(int idx) {
+        for (int j = 0; j < checkList.size(); j++) {
+            if (checkList.get(j).getQuestionId().equals(questionId)) {
                 checkList.get(j).setAnswerIndex(idx);
             }
         }
     }
 
-    private void UpdateHistory(String questionId) {
+    private void UpdateHistory() {
         try {
             boolean flag = true;
             for (CheckRadioButton item : checkList) {
@@ -172,14 +180,40 @@ public class TestActivity extends AppCompatActivity {
 
             }
 
-            if (flag ) {
+            if (flag) {
                 ResetRadioButton();
             }
-        } catch(Exception ex){
-            Log.i("Error", ""+ex.getMessage());
+        } catch (Exception ex) {
+            Log.i("Error", "" + ex.getMessage());
+        }
+    }
+
+    private void SetDisableRadioButton() {
+        int count = rgAnswer.getChildCount();
+        for (int i = 0; i < count; i++) {
+            rgAnswer.getChildAt(i).setEnabled(false);
+        }
+        result_layout.setVisibility(View.VISIBLE);
+    }
+
+    private void ViewResult(DtoQuestionSet dto, int i) {
+        try {
+            List<Answer> ansList = dto.getAnsList();
+            tvResult.setText(ansList.get(i).getAnswerList()[ansList.get(i).getResult()]);
+            // Check đúng sai
+            for (CheckRadioButton item : checkList) {
+                if (item.getQuestionId().equals(questionId) && item.getAnswerIndex() == ansList.get(i).getResult()) {
+                    tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.green_main)));
+                    break;
+                } else {
+                    tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.red)));
+                }
+            }
+        }catch (Exception e){
+            Log.d("Error","TRUE");
+        }
         }
 
-    }
 
     private void AddtoCheckList(int idx, String answerValue, DtoQuestionSet dto, int i) {
         CheckRadioButton checkRadioButton = new CheckRadioButton();
@@ -201,20 +235,21 @@ public class TestActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(DtoQuestionSet dto) {
-
+                dtoQuestionSet = dto;
                 totalQuestion = dto.getQuestList().size();
-                tvTotalQuestion.setText("" + dto.getQuestionSet().get().getQuantity());
+                tvTotalQuestion.setText("" + dto.getQuestionSet().getQuantity());
 
                 UpdateQuestion(dto, totalQuestion, i[0]);
                 CheckedRadioButton(dto, i[0]);
-                for (int k = 1; k <=totalQuestion; k++) {
+                for (int k = 1; k <= totalQuestion; k++) {
                     TextView question = new TextView(new ContextThemeWrapper(TestActivity.this, R.style.QuestionButton), null, 0);
                     question.setText(String.valueOf(k));
-                    final int num=k;
+                    int num = k;
                     question.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            i[0]=num-1;
+                            i[0] = num - 1;
+                            questionId = dto.getQuestList().get(i[0]).getId();
                             myFab.callOnClick();
                             UpdateQuestion(dto, totalQuestion, i[0]);
                             CheckedRadioButton(dto, i[0]);
@@ -226,17 +261,26 @@ public class TestActivity extends AppCompatActivity {
                 btnNext.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        i[0]++;
+                        i[0] += 1;
                         // trường hợp câu cuối, bấm chấm điểm
-                        if(i[0] == totalQuestion){
-                            Log.i("CheckList size", String.valueOf(checkList.size()));
-                            Intent intent = new Intent(TestActivity.this, ResultActivity.class);
-                            intent.putExtra("History", checkList);
-                            TestActivity.this.finish();
-                            startActivity(intent);
+                        if (i[0] == totalQuestion) {
+                            if (!isCompleted) {
+                                Log.i("CheckList size", String.valueOf(checkList.size()));
+                                Intent intent = new Intent(TestActivity.this, ResultActivity.class);
+                                intent.putExtra("Dto", dto);
+                                intent.putExtra("History", checkList);
+                                isCompleted = true;
+                                SetDisableRadioButton();
+                                startActivity(intent);
+                            } else {
+                                Intent intent = new Intent(TestActivity.this, A1_TestActivity.class);
+                                intent.putExtra("License", VariableGlobal.license);
+                                startActivity(intent);
+                            }
                         }
                         // Trường hợp đang thi
                         else {
+                            questionId = dto.getQuestList().get(i[0]).getId();
                             // Update lại câu hỏi
                             UpdateQuestion(dto, totalQuestion, i[0]);
                             CheckedRadioButton(dto, i[0]);
@@ -247,7 +291,8 @@ public class TestActivity extends AppCompatActivity {
                 btnPrev.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        i[0]--;
+                        i[0] -= 1;
+                        questionId = dto.getQuestList().get(i[0]).getId();
                         // Update lại câu hỏi
                         UpdateQuestion(dto, totalQuestion, i[0]);
                         CheckedRadioButton(dto, i[0]);
@@ -261,27 +306,37 @@ public class TestActivity extends AppCompatActivity {
 
     // Hàm hiển thị câu hỏi và câu trả lời
     private void UpdateQuestion(DtoQuestionSet dto, int totalQuestion, int i) {
-        UpdateHistory(dto.getQuestList().get(i).getId());
+        if(isCompleted){
+            ViewResult(dto,i);
+        }
+        UpdateHistory();
         // Trường hợp câu 1
-        if(i == 0){
+        if (i == 0) {
             btnPrev.setVisibility(View.INVISIBLE);
+            btnNext.setText("Câu sau");
         }
         // Trường hợp câu cuối
-        else if(i == totalQuestion-1){
-            btnNext.setText("Chấm điểm");
-        }
-        else{
+        else if (i == totalQuestion - 1) {
+            if (!isCompleted)
+                btnNext.setText("Chấm điểm");
+            else btnNext.setText("Hoàn tất xem lại");
+        } else {
+            btnNext.setText("Câu sau");
             btnNext.setVisibility(View.VISIBLE);
             btnPrev.setVisibility(View.VISIBLE);
         }
         String photo = dto.getQuestList().get(i).getPhoto();
         // Khi nào có hình thì mở ra
-//        if(!photo.isEmpty()){
-//            String uri = photo.substring(0, photo.length() - 4);
-//            int imageResource = getResources().getIdentifier(uri, "drawable", getPackageName());
-//            Drawable res = getResources().getDrawable(imageResource);
-//            iv_question.setImageDrawable(res);
-//        }
+        if(!photo.isEmpty()){
+            Log.d("URL1", photo);
+            String uri=VariableGlobal.PHOTO1+VariableGlobal.typeCode+VariableGlobal.PHOTO2+photo+VariableGlobal.PHOTO3;
+            Picasso.get()
+                    .load(uri)
+                    .placeholder(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
+                    .error(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
+                    .fit()
+                    .into(ivQuestion);
+        }
         int index = dto.getQuestList().get(i).getIndex();
         String[] ansList = dto.getAnsList().get(i).getAnswerList();
         int numberOfAns = ansList.length;
@@ -355,9 +410,13 @@ public class TestActivity extends AppCompatActivity {
         btnPrev = findViewById(R.id.btn_prev);
         ivQuestion = findViewById(R.id.iv_question);
         rgAnswer = findViewById(R.id.rg_answer);
-        layoutQuestionBar= findViewById(R.id.layout_question_bar);
-        mDrawerLayout=findViewById(R.id.drawer_test);
+        layoutQuestionBar = findViewById(R.id.layout_question_bar);
+        mDrawerLayout = findViewById(R.id.drawer_test);
+        result_layout = findViewById(R.id.result);
+        tvResult = findViewById(R.id.tv_result);
+        tvTitleResult = findViewById(R.id.tv_title_result);
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -369,5 +428,15 @@ public class TestActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         return super.moveTaskToBack(nonRoot);
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(isCompleted) {
+            i[0] = 0;
+            UpdateQuestion(dtoQuestionSet, totalQuestion, i[0]);
+            CheckedRadioButton(dtoQuestionSet, i[0]);
+        }
     }
 }

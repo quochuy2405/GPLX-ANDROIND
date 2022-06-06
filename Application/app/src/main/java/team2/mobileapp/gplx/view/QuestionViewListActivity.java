@@ -13,6 +13,7 @@ import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.TestCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.QuestionDetailsController;
 import team2.mobileapp.gplx.Retrofit.dto.QuestionDetails;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
 public class QuestionViewListActivity extends AppCompatActivity implements TestCallBackListener {
     private QuestionDetailsController questionDetailsController;
@@ -26,9 +27,9 @@ public class QuestionViewListActivity extends AppCompatActivity implements TestC
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_question_view_list);
 
-
+        VariableGlobal.SetNavigationBar(this);
         listView = (ListView) findViewById(R.id.lvAllQuestion);
-        tvTitleBoard = (TextView) findViewById(R.id.tv_title_activity_app);
+        tvTitleBoard = (TextView) findViewById(R.id.title_layouts);
         String title = getIntent().getExtras().getString("TITLE_QUESTION_LIST");
         String license = getIntent().getExtras().getString("LICENSE_QUESTION_LIST");
         String type = getIntent().getExtras().getString("TYPE_QUESTION_LIST");

@@ -27,7 +27,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_select_category);
-
+        VariableGlobal.SetNavigationBar(this);
         InitialVariable();
 
         licenseController = new LicenseController(this);
@@ -55,6 +55,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
                     intent.putExtra("License", licenses.get(0));
 
                     VariableGlobal.typeCode="A1";
+                    VariableGlobal.license = licenses.get(0);
                     startActivity(intent);
                 }
             });
@@ -65,6 +66,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
                     Intent intent = new Intent(SelectCategoryActivity.this, A1_TestActivity.class);
                     intent.putExtra("License", licenses.get(1));
                     VariableGlobal.typeCode="A2";
+                    VariableGlobal.license = licenses.get(1);
                     startActivity(intent);
                 }
             });
@@ -74,6 +76,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
                 public void onClick(View view) {
                     Intent intent = new Intent(SelectCategoryActivity.this, A1_TestActivity.class);
                     intent.putExtra("License", licenses.get(2));
+                    VariableGlobal.license = licenses.get(2);
                     VariableGlobal.typeCode="B1";
                     startActivity(intent);
                 }
@@ -84,6 +87,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
                 public void onClick(View view) {
                     Intent intent = new Intent(SelectCategoryActivity.this, A1_TestActivity.class);
                     intent.putExtra("License", licenses.get(3));
+                    VariableGlobal.license = licenses.get(3);
                     VariableGlobal.typeCode="B2";
                     startActivity(intent);
                 }

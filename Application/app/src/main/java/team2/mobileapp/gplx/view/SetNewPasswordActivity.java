@@ -4,13 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import team2.mobileapp.gplx.R;
-import android.os.Bundle;
+
 public class SetNewPasswordActivity extends AppCompatActivity {
 
 //    EditText et_new_password, et_confirm_password;

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.TestAPIActivity">
+    tools:context="team2.mobileapp.gplx.view.TestAPIActivity">
 
     <Button
         android:id="@+id/btn_get_all_license"

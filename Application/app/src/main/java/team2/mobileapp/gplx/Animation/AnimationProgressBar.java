@@ -1,12 +1,5 @@
 package team2.mobileapp.gplx.Animation;
 
-import android.animation.Animator;
-import android.animation.ObjectAnimator;
-import android.transition.Transition;
-import android.transition.TransitionValues;
-import android.util.IntProperty;
-import android.util.Property;
-import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import android.widget.ProgressBar;

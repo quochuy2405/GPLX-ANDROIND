@@ -8,6 +8,7 @@ import android.os.Bundle;
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.QuestionSetCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.QuestionSetController;
+import team2.mobileapp.gplx.Retrofit.dto.GroupTestItem;
 import team2.mobileapp.gplx.Retrofit.models.QuestionSet;
 import team2.mobileapp.gplx.Retrofit.models.QuestionCountByType;
 import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
@@ -35,7 +36,7 @@ public class ReviewTestActivity extends AppCompatActivity implements QuestionSet
         String title= getIntent().getStringExtra("TITLE");
         titleActivity = findViewById(R.id.tv_title_activity_app);
         groupTest = findViewById(R.id.lv_group_test);
-
+        VariableGlobal.SetNavigationBar(this);
 
         titleActivity.setText(title);
 

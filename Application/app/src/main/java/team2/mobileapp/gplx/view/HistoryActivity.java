@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.Retrofit.dto.HistoryItem;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
 
 public class HistoryActivity extends AppCompatActivity {
@@ -23,8 +25,10 @@ public class HistoryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_history);
+        VariableGlobal.SetNavigationBar(this);
         titleActivity = findViewById(R.id.tv_title_activity_app);
         titleActivity.setText("Lịch sử");
 //        btn_home = findViewById(R.id.page_home);

@@ -30,12 +30,12 @@ public class AccountServiceImpl extends GenericServiceImpl<Account, String> impl
 	private RoleRepository roleRepo;
 	
 	@Override
-	public Account update(Account account, String id) {
+	public Account update(String id, Account account) {
 		try {
 			Account updatedAccount = repo.findById(id).get();
-			updatedAccount.setUsername(account.getUsername());
+//			updatedAccount.setUsername(account.getUsername());
 			updatedAccount.setPassword(account.getPassword());
-			updatedAccount.setEmail(account.getEmail());
+//			updatedAccount.setEmail(account.getEmail());
 			updatedAccount.setFirstName(account.getFirstName());
 			updatedAccount.setLastName(account.getLastName());
 			updatedAccount.setAvatar(account.getAvatar());

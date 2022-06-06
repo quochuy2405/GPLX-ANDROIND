@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    tools:context=".view.HistoryActivity">
+    tools:context="team2.mobileapp.gplx.view.HistoryActivity">
 
 
     <include
@@ -22,7 +22,7 @@
 
 
     </ListView>
-    <include android:id="@+id/layout" layout="@layout/activity_navigation" />
+    <include layout="@layout/activity_navigation" android:id="@+id/bottom_bar" />
 
 
 </RelativeLayout>

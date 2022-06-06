@@ -1,12 +1,15 @@
 package team2.mobileapp.gplx.Volley.model;
 
-public class QuestionSet {
+import java.io.Serializable;
+
+public class QuestionSet implements Serializable {
     private String id;
     private String name;
     private boolean status;
     private int quantity;
     private int wrongAns;
     private int rightAns;
+    private String licenseId;
 
     public QuestionSet(String name, boolean status, int quantity, int wrongAns, int rightAns) {
         super();
@@ -16,7 +19,7 @@ public class QuestionSet {
         this.wrongAns = wrongAns;
         this.rightAns = rightAns;
     }
-    public QuestionSet(String id, String name, boolean status, int quantity, int wrongAns, int rightAns) {
+    public QuestionSet(String id, String name, boolean status, int quantity, int wrongAns, int rightAns, String licenseId) {
         super();
         this.id = id;
         this.name = name;
@@ -24,6 +27,7 @@ public class QuestionSet {
         this.quantity = quantity;
         this.wrongAns = wrongAns;
         this.rightAns = rightAns;
+        this.licenseId = licenseId;
     }
     public QuestionSet() {
 
@@ -67,6 +71,14 @@ public class QuestionSet {
         this.rightAns = rightAns;
     }
 
+    public String getLicenseId() {
+        return licenseId;
+    }
+
+    public void setLicenseId(String licenseId) {
+        this.licenseId = licenseId;
+    }
+
     @Override
     public String toString() {
         return "QuestionSet{" +
@@ -76,6 +88,7 @@ public class QuestionSet {
                 ", quantity=" + quantity +
                 ", wrongAns=" + wrongAns +
                 ", rightAns=" + rightAns +
+                ", licenseId='" + licenseId + '\'' +
                 '}';
     }
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    tools:context=".view.GroupTestActivity">
+    tools:context="team2.mobileapp.gplx.view.GroupTestActivity">
 
 
     <include
@@ -12,17 +12,15 @@
         layout="@layout/header_activity_app" />
 
     <ListView
+        android:id="@+id/lv_exam_group"
         android:divider="@android:color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/lv_exam_group"
         android:layout_below="@+id/header_activity"
         android:layout_marginBottom="65dp"
         tools:listitem="@layout/listview_group_test_item"/>
 
-    <include
-        android:id="@+id/layout"
-        layout="@layout/activity_navigation" />
+    <include layout="@layout/activity_navigation" android:id="@+id/bottom_bar" />
 
 
 </RelativeLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.SelectCategoryActivity">
+    tools:context="team2.mobileapp.gplx.view.SelectCategoryActivity">
 
 
     <ImageView
@@ -203,9 +203,6 @@
         </RelativeLayout>
     </ScrollView>
 
-    <include
-        android:id="@+id/layout"
-        layout="@layout/activity_navigation" />
-
+    <include layout="@layout/activity_navigation" android:id="@+id/bottom_bar" />
 
 </RelativeLayout>

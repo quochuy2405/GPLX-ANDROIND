@@ -7,6 +7,7 @@
     >
 
     <RelativeLayout
+
         style="@style/ImageRounder_10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,11 +23,12 @@
             style="@style/TextDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
+            android:background="@drawable/button_radius_10"
+            android:padding="10dp"
             android:text="Câu hỏi thứ "
-            android:textStyle="bold"
             android:textAlignment="textStart"
-            android:textColor="#232323" />
+            android:textColor="#232323"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/iv_board"
@@ -48,6 +50,7 @@
                 android:id="@+id/tv_list_answer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:lineHeight="27dp"
                 android:text=""
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
                 android:textColor="@color/white"
@@ -61,7 +64,7 @@
                 android:layout_below="@+id/tv_list_answer"
                 android:text="Đáp án:"
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
@@ -71,17 +74,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tv_board_code"
                 android:layout_marginTop="10dp"
-                android:text=""
                 android:background="@drawable/button_radius_10"
+                android:padding="10dp"
+                android:text=""
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
                 android:textColor="#FF5607"
                 android:textSize="16dp"
-                android:padding="10dp"
                 android:textStyle="bold" />
         </RelativeLayout>
-
-
     </RelativeLayout>
-
-
 </RelativeLayout>

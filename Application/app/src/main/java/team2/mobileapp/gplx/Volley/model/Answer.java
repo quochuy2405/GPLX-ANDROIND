@@ -1,8 +1,9 @@
 package team2.mobileapp.gplx.Volley.model;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Answer {
+public class Answer implements Serializable {
     private String id;
     private String[] answerList;
     private int result;

@@ -10,12 +10,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 import team2.mobileapp.gplx.Volley.model.NoticeBoard;
 
-public  class NoticeBoardAdapter extends ArrayAdapter<NoticeBoard> {
+public class NoticeBoardAdapter extends ArrayAdapter<NoticeBoard> {
 
     Context context;
 
@@ -31,6 +34,7 @@ public  class NoticeBoardAdapter extends ArrayAdapter<NoticeBoard> {
         this.arrayList = objects;
         this.layoutResource = resource;
     }
+
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
@@ -44,18 +48,21 @@ public  class NoticeBoardAdapter extends ArrayAdapter<NoticeBoard> {
         tvBoardCode.setText(arrayList.get(position).getBoardCode());
         TextView tvBoardName = (TextView)
                 convertView.findViewById(R.id.tv_board_name);
+        ImageView ivBoardPhoto = (ImageView)
+                convertView.findViewById(R.id.iv_board);
         tvBoardName.setText(arrayList.get(position).getBoardName());
         Log.i("Position", String.valueOf(position));
         Log.i("Code", arrayList.get(position).getBoardCode());
         Log.i("Name", arrayList.get(position).getBoardName());
         Log.i("Description", arrayList.get(position).getBoardDescription());
-        Log.i("Photo",arrayList.get(position).getPhoto().substring(0, arrayList.get(position).getPhoto().length() - 4));
-        String uri = arrayList.get(position).getPhoto().substring(0, arrayList.get(position).getPhoto().length() - 4);
-        int imageResource = context.getResources().getIdentifier(uri, "drawable", context.getPackageName());
-        Drawable res = context.getResources().getDrawable(imageResource);
-        ImageView ivBoardPhoto = (ImageView)
-                convertView.findViewById(R.id.iv_board);
-        ivBoardPhoto.setImageDrawable(res);
+        Log.i("Photo", arrayList.get(position).getPhoto().substring(0, arrayList.get(position).getPhoto().length() - 4));
+        String uri = VariableGlobal.PHOTO1 + "BB" + VariableGlobal.PHOTO2 + arrayList.get(position).getPhoto() + VariableGlobal.PHOTO3;
+        Picasso.get()
+                .load(uri)
+                .placeholder(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
+                .error(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
+                .fit()
+                .into(ivBoardPhoto);
 // Get item
         return convertView;
     }

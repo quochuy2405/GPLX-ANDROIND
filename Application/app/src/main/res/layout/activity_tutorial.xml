@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.TutorialActivity">
+    tools:context="team2.mobileapp.gplx.view.TutorialActivity">
 
     <ImageButton
         android:id="@+id/btn_close"
@@ -30,12 +30,15 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="27dp"
+        android:background="@drawable/background_title"
         android:text="@string/Tutor_title"
-       android:background="@drawable/background_title"
         android:textColor="@color/white"
-        android:textStyle="bold"
+        android:textSize="20sp"
         android:textAllCaps="true"
-        android:textSize="25sp"></TextView>
+        android:padding="3dp"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"></TextView>
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/ScrollView01"
@@ -43,9 +46,11 @@
         android:layout_height="wrap_content"
         android:fillViewport="true"
         android:layout_below="@id/tv_tutorial"
+
         android:scrollbars="none" >
 
         <LinearLayout
+            android:paddingBottom="100dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">

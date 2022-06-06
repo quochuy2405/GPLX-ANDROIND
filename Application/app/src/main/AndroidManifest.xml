@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Design.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".view.GroupTrafficSignActivity"
+            android:name=".view.GroupBoardingActivity"
             android:exported="false" />
         <activity
             android:name=".view.GuideActivity"

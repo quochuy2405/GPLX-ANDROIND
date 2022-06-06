@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.models.License;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
 
 public class A1_TestActivity extends AppCompatActivity {
@@ -25,13 +26,14 @@ public class A1_TestActivity extends AppCompatActivity {
 
         InitialVariable();
 
+        VariableGlobal.SetNavigationBar(A1_TestActivity.this);
         License license = (License) getIntent().getSerializableExtra("License");
-        tvLicense.setText("Hạng " + license.getName());
+        tvLicense.setText("Hạng " +   VariableGlobal.typeCode);
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         btnRandom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(A1_TestActivity.this, GroupTestActivity.class);
+                Intent intent = new Intent(A1_TestActivity.this, GuideActivity.class);
                 intent.putExtra("License", license);
                 intent.putExtra("TITLE", "Hướng dẫn");
                 startActivity(intent);
@@ -51,7 +53,7 @@ public class A1_TestActivity extends AppCompatActivity {
         btnBoard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(A1_TestActivity.this, NoticeBoardActivity.class);
+                Intent intent = new Intent(A1_TestActivity.this, GroupBoardingActivity.class);
                 intent.putExtra("TITLE", "Các loại biển báo");
                 startActivity(intent);
             }
