@@ -8,7 +8,5 @@ import team2.api.mobile.gplx.models.Answer;
 
 @Repository
 public interface AnswerRepository extends MongoRepository<Answer, String> {
-
 	Answer findByQuestionId(String id);
-
 }

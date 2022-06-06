@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -117,22 +116,23 @@ public class GroupBoardingActivity extends AppCompatActivity implements TrafficS
 
     @Override
     public void onFetchTrafficSignTypeProgress(List<TrafficSignTypes> trafficSignTypes) {
+        if (!trafficSignTypes.isEmpty()) {
+            List<GroupBoardingItem> listGroupBoardings = new ArrayList<>();
+            int quantityAll = 0;
+            for (TrafficSignTypes trafficType : trafficSignTypes) {
+                GroupBoardingItem groupBoardingItem = new GroupBoardingItem();
+                groupBoardingItem.setId(trafficType.getId());
+                groupBoardingItem.setType(trafficType.getCode());
+                groupBoardingItem.setName(trafficType.getName());
+                groupBoardingItem.setQuantity(trafficType.getQuantity());
+                quantityAll += trafficType.getQuantity();
+                listGroupBoardings.add(groupBoardingItem);
+            }
 
-        List<GroupBoardingItem> listGroupBoardings = new ArrayList<>();
-        int quantityAll = 0;
-        for (TrafficSignTypes trafficType : trafficSignTypes) {
-            GroupBoardingItem groupBoardingItem = new GroupBoardingItem();
-            groupBoardingItem.setId(trafficType.getId());
-            groupBoardingItem.setType(trafficType.getCode());
-            groupBoardingItem.setName(trafficType.getName());
-            groupBoardingItem.setQuantity(trafficType.getQuantity());
-            quantityAll += trafficType.getQuantity();
-            listGroupBoardings.add(groupBoardingItem);
+            groupBoardingAdapter = new GroupBoardingAdapter(GroupBoardingActivity.this, 1, listGroupBoardings);
+            lvItemsTrafficSign.setAdapter(groupBoardingAdapter);
+            quantityOfAll.setText("Gồm " + quantityAll + " câu");
         }
-
-        groupBoardingAdapter = new GroupBoardingAdapter(GroupBoardingActivity.this, 1, listGroupBoardings);
-        lvItemsTrafficSign.setAdapter(groupBoardingAdapter);
-        quantityOfAll.setText("Gồm " + quantityAll + " câu");
     }
 
     @Override

@@ -127,7 +127,7 @@ public class NoticeBoardActivity extends AppCompatActivity {
                 new NoticeBoardService.GetALLBoardCallBack() {
                     @Override
                     public void onError(String message) {
-                        Toast.makeText(NoticeBoardActivity.this, "Something wrong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(NoticeBoardActivity.this, "Đã có lỗi xảy ra!", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

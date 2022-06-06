@@ -67,21 +67,24 @@ public class ReviewTestActivity extends AppCompatActivity implements QuestionSet
 
     @Override
     public void onFetchProgressQuestionSize(ArrayList<QuestionCountByType> questionCountByTypes) {
-        for (QuestionCountByType questionCountByType : questionCountByTypes ) {
-            if(questionCountByType.getNum()>0)
-            {
-                GroupTestItem groupTestItem = new GroupTestItem();
-                groupTestItem.setName(questionCountByType.getName());
-                groupTestItem.setType(questionCountByType.getType());
-                groupTestItem.setNum(questionCountByType.getNum());
-                groupTestItem.setId(questionCountByType.getType()+questionCountByType.getNum());
-                listGroupTests.add(groupTestItem);
+        if(!questionCountByTypes.isEmpty()){
+            for (QuestionCountByType questionCountByType : questionCountByTypes ) {
+                if(questionCountByType.getNum()>0)
+                {
+                    GroupTestItem groupTestItem = new GroupTestItem();
+                    groupTestItem.setName(questionCountByType.getName());
+                    groupTestItem.setType(questionCountByType.getType());
+                    groupTestItem.setNum(questionCountByType.getNum());
+                    groupTestItem.setId(questionCountByType.getType()+questionCountByType.getNum());
+                    listGroupTests.add(groupTestItem);
+                }
+
+
             }
-
-
+            groupTestAdapter = new GroupTestAdapter(this, 1,listGroupTests );
+            groupTest.setAdapter(groupTestAdapter);
         }
-        groupTestAdapter = new GroupTestAdapter(this, 1,listGroupTests );
-        groupTest.setAdapter(groupTestAdapter);
+
     }
 
     @Override

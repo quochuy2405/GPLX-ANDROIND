@@ -53,11 +53,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/number_question"
+                android:animationResolution="1000"
                 android:indeterminate="false"
                 android:max="100"
                 android:maxHeight="10dip"
                 android:minHeight="10dip"
-                android:animationResolution = "1000"
                 android:progressDrawable="@drawable/progress_custom" />
 
         </RelativeLayout>
@@ -80,8 +80,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_question"
             android:scaleType="fitXY"
-
+             android:visibility="gone"
             android:layout_centerHorizontal="true"/>
+
 
         <ScrollView
             android:id="@+id/group_answer"
@@ -245,39 +246,37 @@
         android:layout_height="match_parent"
         android:layout_gravity="right"
         android:visibility="gone"
-        app:headerLayout="@layout/layout_header_show_test_progress"
-        >
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+        app:headerLayout="@layout/layout_header_show_test_progress">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="10"
-        >
-    <GridLayout
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        android:id="@+id/layout_question_bar"
-        android:columnCount="4"
-        android:rowCount="7"
-        android:layout_marginTop="100dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:columnOrderPreserved="true"
-        android:padding="10dp"
-        android:useDefaultMargins="true"
-        android:rowOrderPreserved="false">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="10">
 
-    </GridLayout>
-    </LinearLayout>
-</ScrollView>
+                <GridLayout
 
+                    android:id="@+id/layout_question_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="100dp"
+                    android:columnCount="4"
+                    android:columnOrderPreserved="true"
+                    android:padding="10dp"
+                    android:rowCount="7"
+                    android:rowOrderPreserved="false"
+                    android:useDefaultMargins="true">
 
+                </GridLayout>
+            </LinearLayout>
+        </ScrollView>
 
 
-
-    </com.google.android.material.navigation.NavigationView>>
+    </com.google.android.material.navigation.NavigationView>
+    >
 
 </androidx.drawerlayout.widget.DrawerLayout>

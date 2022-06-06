@@ -1,6 +1,5 @@
 package team2.mobileapp.gplx.view;
 
-import androidx.annotation.LongDef;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -73,7 +72,6 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         final TestService testService = new TestService(TestActivity.this);
 
         String questionSetId = getIntent().getStringExtra("QuestionSetId");
-        Log.i("QuestionSetId", questionSetId);
 
         ShowTest(testService, questionSetId);
         myFab = (FloatingActionButton) findViewById(R.id.fab);
@@ -112,7 +110,6 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         historyProgressBarValue[0] = end;
     }
 
-    // Khi chọn câu trả lời thì nó sẽ lưu lại vào checkList
     private void CheckedRadioButton(DtoQuestionSet dto, int index) {
         rgAnswer.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
@@ -130,7 +127,6 @@ public class TestActivity extends AppCompatActivity implements Serializable {
 
                 }
 
-                // check hết checkList nếu xuất questionId trong checkList nghĩa là câu này đc trả lời rồi
                 boolean flag = false;
                 for (int j = 0; j < checkList.size(); j++) {
                     if (checkList.get(j).getQuestionId().equals(questionId)) {
@@ -209,11 +205,11 @@ public class TestActivity extends AppCompatActivity implements Serializable {
                     tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.red)));
                 }
             }
-        }catch (Exception e){
-            Log.d("Error","TRUE");
-        }
+        } catch (Exception e) {
+            Log.d("Error", "TRUE");
         }
 
+    }
 
     private void AddtoCheckList(int idx, String answerValue, DtoQuestionSet dto, int i) {
         CheckRadioButton checkRadioButton = new CheckRadioButton();
@@ -229,7 +225,7 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         testService.GetByQuestionSet(questionSetId, new TestService.GetByQuestionSetCallBack() {
             @Override
             public void onError(String message) {
-                Toast.makeText(TestActivity.this, "Error Babe!!!", Toast.LENGTH_LONG);
+                Toast.makeText(TestActivity.this, "Có lỗi xảy ra!", Toast.LENGTH_LONG);
             }
 
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -265,7 +261,6 @@ public class TestActivity extends AppCompatActivity implements Serializable {
                         // trường hợp câu cuối, bấm chấm điểm
                         if (i[0] == totalQuestion) {
                             if (!isCompleted) {
-                                Log.i("CheckList size", String.valueOf(checkList.size()));
                                 Intent intent = new Intent(TestActivity.this, ResultActivity.class);
                                 intent.putExtra("Dto", dto);
                                 intent.putExtra("History", checkList);
@@ -306,8 +301,9 @@ public class TestActivity extends AppCompatActivity implements Serializable {
 
     // Hàm hiển thị câu hỏi và câu trả lời
     private void UpdateQuestion(DtoQuestionSet dto, int totalQuestion, int i) {
-        if(isCompleted){
-            ViewResult(dto,i);
+
+        if (isCompleted) {
+            ViewResult(dto, i);
         }
         UpdateHistory();
         // Trường hợp câu 1
@@ -327,21 +323,27 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         }
         String photo = dto.getQuestList().get(i).getPhoto();
         // Khi nào có hình thì mở ra
-        if(!photo.isEmpty()){
-            Log.d("URL1", photo);
-            String uri=VariableGlobal.PHOTO1+VariableGlobal.typeCode+VariableGlobal.PHOTO2+photo+VariableGlobal.PHOTO3;
+
+        if (photo.length() >= 5) {
+            ivQuestion.setVisibility(View.VISIBLE);
+            String uri = VariableGlobal.PHOTO1 + VariableGlobal.typeCode + VariableGlobal.PHOTO2 + photo + VariableGlobal.PHOTO3 + VariableGlobal.Token;
             Picasso.get()
                     .load(uri)
                     .placeholder(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
                     .error(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
                     .fit()
                     .into(ivQuestion);
+
+
+        } else {
+            ivQuestion.setVisibility(View.GONE);
         }
+
         int index = dto.getQuestList().get(i).getIndex();
         String[] ansList = dto.getAnsList().get(i).getAnswerList();
         int numberOfAns = ansList.length;
         ProgressAnimation(index * 100 / totalQuestion);
-//        determinateBar.setProgress();
+
         tvPositionQuestion.setText("" + dto.getQuestList().get(i).getIndex());
         tvQuestion.setText(dto.getQuestList().get(i).getQuery());
 
@@ -392,6 +394,7 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         }
     }
 
+
     private void ResetRadioButton() {
         rgAnswer.clearCheck();
     }
@@ -427,13 +430,12 @@ public class TestActivity extends AppCompatActivity implements Serializable {
     public boolean moveTaskToBack(boolean nonRoot) {
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         return super.moveTaskToBack(nonRoot);
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        if(isCompleted) {
+        if (isCompleted) {
             i[0] = 0;
             UpdateQuestion(dtoQuestionSet, totalQuestion, i[0]);
             CheckedRadioButton(dtoQuestionSet, i[0]);

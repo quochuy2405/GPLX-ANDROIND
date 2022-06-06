@@ -65,9 +65,6 @@ public class LoginActivity extends AppCompatActivity {
         tvSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //clear all stack and add activity new task
-
-
                 startActivity(signup);
             }
         });
@@ -105,11 +102,11 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d("Username", etUsername.getText().toString());
                 Log.d("Pass", etPassword.getText().toString());
                 if (etUsername.getText().toString().isEmpty() && etPassword.getText().toString().isEmpty())
-                    Toast.makeText(LoginActivity.this, "Please enter username and password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Hãy nhập tên đăng nhập và mật khẩu", Toast.LENGTH_LONG).show();
                 else if (etUsername.getText().toString().isEmpty())
-                    Toast.makeText(LoginActivity.this, "Please enter username", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Hãy nhập tên đăng nhập", Toast.LENGTH_LONG).show();
                 else if (etPassword.getText().toString().isEmpty())
-                    Toast.makeText(LoginActivity.this, "Please enter password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Hãy nhập mật khẩu", Toast.LENGTH_LONG).show();
                 else {
                     System.out.println(etUsername.getText().toString() + " " + etPassword.getText().toString());
                     authenService.Login(etUsername.getText().toString(), etPassword.getText().toString(), new AuthenService.LoginCallBack() {
@@ -120,8 +117,6 @@ public class LoginActivity extends AppCompatActivity {
 
                         @Override
                         public void onResponse(LoginResponse loginResponse) {
-                            //Toast.makeText(SignInActivity.this, loginResponse.toString(), Toast.LENGTH_LONG).show();
-                            Log.i("Login response", loginResponse.toString());
                             VariableGlobal.idUser=loginResponse.getId();
                             //clear all stack and add activity new task
                             tutorial.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

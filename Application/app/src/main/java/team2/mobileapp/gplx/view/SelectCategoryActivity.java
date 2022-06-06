@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class SelectCategoryActivity extends AppCompatActivity implements LicenseCallBackListener {
 
-//    BottomNavigationItemView btn_home, btn_menu, btn_noti, btn_profile;
     LicenseController licenseController;
     RelativeLayout btnA1, btnA2, btnB1, btnB2;
     ArrayList<License> licenses;

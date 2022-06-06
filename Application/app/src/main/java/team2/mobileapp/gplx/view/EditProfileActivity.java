@@ -8,7 +8,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -76,7 +75,7 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
 
     private void InitialVariables() {
         accountController = new AccountController(this);
-        etFullName = (EditText) findViewById(R.id.et_fullname);
+        etFullName = (EditText) findViewById(R.id.et_last_name);
         etUsername = (EditText) findViewById(R.id.et_username);
         etEmail = (EditText) findViewById(R.id.et_email_profile);
         btnSave = (Button) findViewById(R.id.btn_save);

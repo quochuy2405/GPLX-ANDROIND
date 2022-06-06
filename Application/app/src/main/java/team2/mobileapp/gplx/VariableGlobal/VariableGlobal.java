@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.models.License;
-import team2.mobileapp.gplx.view.BoardingActivity;
 import team2.mobileapp.gplx.view.EditProfileActivity;
 import team2.mobileapp.gplx.view.GroupBoardingActivity;
 import team2.mobileapp.gplx.view.HistoryActivity;
@@ -21,8 +20,8 @@ public class VariableGlobal  {
     public static License license = new License();
     public static String PHOTO1="https://firebasestorage.googleapis.com/v0/b/upload-image-9b971.appspot.com/o/";
     public static String PHOTO2="%2F";
-    public static String PHOTO3="?alt=media&token=9c10699c-a49b-4464-b698-07b04e25972b";
-
+    public static String PHOTO3="?alt=media&token=";
+    public static String Token="";
     public static ArrayList<String> listMarkGlobal = new ArrayList<>();
     public static void SetNavigationBar(Activity activity){
         View bottom_bar_container = activity.findViewById(R.id.bottom_bar);

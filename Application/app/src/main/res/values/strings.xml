@@ -2,17 +2,16 @@
 <resources>
     <string name="app_name">GPLX</string>
     <string name="text_boarding">SHARE - INSPIRE - CONNECT</string>
-    <string name="text_get_started">GET STARTED</string>
-    <string name="text_forgot_pass">FORGOT PASSWORD</string>
+    <string name="text_get_started">BẮT ĐẦU</string>
+    <string name="text_forgot_pass">QUÊN MẬT KHẨU</string>
 
-    <string name="text_signup">SIGN UP</string>
-    <string name="text_login">LOG IN</string>
-    <string name="text_verification">VERIFICATION</string>
-    <string name="text_type_your_email">TYPE YOUR EMAIL</string>
-    <string name="text_set_new_password">SET NEW PASSWORD</string>
-    <string name="text_verify">VERIFY</string>
-    <string name="text_send">SEND</string>
-    <string name="text_notice_verify">A message with verification code was sent to your mobile phone</string>
+    <string name="text_signup">ĐĂNG KÝ</string>
+    <string name="text_login">ĐĂNG NHẬP</string>
+    <string name="text_verification">XÁC THỰC</string>
+    <string name="text_type_your_email">NHẬP EMAIL </string>
+    <string name="text_set_new_password">XÁC NHẬN MẬT KHẨU MỚI</string>
+    <string name="text_verify">XÁC THỰC</string>
+    <string name="text_send">GỬI</string>
     <string name="list_guide_line">
         <h2>HƯỚNG DẪN THI</h2>\n
         <li>SỐ LƯỢNG CÂU HỎI: 25 CÂU</li>\n

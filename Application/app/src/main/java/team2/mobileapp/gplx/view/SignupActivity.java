@@ -92,19 +92,19 @@ public class SignupActivity extends AppCompatActivity {
 
                 hideKeyboard();
                 if (firstName.getText().toString().isEmpty())
-                    Toast.makeText(SignupActivity.this, "Please enter your first name", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignupActivity.this, "Hãy nhập Họ", Toast.LENGTH_LONG).show();
                 else if (lastName.getText().toString().isEmpty())
-                    Toast.makeText(SignupActivity.this, "Please enter your last name", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignupActivity.this, "Hãy nhập Tên", Toast.LENGTH_LONG).show();
                 else if (Email.getText().toString().isEmpty())
-                    Toast.makeText(SignupActivity.this, "Please enter your email", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignupActivity.this, "Hãy nhập Email", Toast.LENGTH_LONG).show();
                 else if (userName.getText().toString().isEmpty())
-                    Toast.makeText(SignupActivity.this, "Please enter your username", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignupActivity.this, "Hãy nhập tên đăng nhập", Toast.LENGTH_LONG).show();
                 else if (Password.getText().toString().isEmpty())
-                    Toast.makeText(SignupActivity.this, "Please enter your password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignupActivity.this, "Hãy nhập mật khẩu", Toast.LENGTH_LONG).show();
                 else if (confirmPassword.getText().toString().isEmpty())
-                    Toast.makeText(SignupActivity.this, "Please enter your confirm password", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignupActivity.this, "Hãy nhập xác nhận mật khẩu", Toast.LENGTH_LONG).show();
                 else if (!Password.getText().toString().equals(confirmPassword.getText().toString()))
-                    Toast.makeText(SignupActivity.this, "Please check your confirm password again!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignupActivity.this, "Hãy xác nhận lại mật khẩu", Toast.LENGTH_LONG).show();
                 else {
                     Account account = new Account();
                     account.setFirstName(firstName.getText().toString());
@@ -115,12 +115,12 @@ public class SignupActivity extends AppCompatActivity {
                     authenService.Register(account, new AuthenService.SignupCallBack() {
                         @Override
                         public void onError(String message) {
-                            Toast.makeText(SignupActivity.this, "Something wrong!!!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignupActivity.this, "Có lỗi xảy ra!", Toast.LENGTH_LONG).show();
                         }
 
                         @Override
                         public void onResponse(RegisterResponse registerResponse) {
-                            Log.i("Register response", registerResponse.toString());
+
                             if (registerResponse.getEmail().equals("Email") && registerResponse.getUsername().equals("Username"))
                                 Toast.makeText(SignupActivity.this, "This email and username has already been taken", Toast.LENGTH_LONG).show();
                             else if (registerResponse.getEmail().equals("Email"))

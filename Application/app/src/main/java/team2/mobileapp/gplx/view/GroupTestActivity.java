@@ -14,7 +14,6 @@ import team2.mobileapp.gplx.Retrofit.models.QuestionSet;
 import team2.mobileapp.gplx.Retrofit.models.QuestionCountByType;
 import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -59,8 +58,6 @@ public class GroupTestActivity extends AppCompatActivity implements QuestionSetC
     @Override
     public void onFetchProgress(ArrayList<QuestionSet> questionSets) {
         sets = questionSets;
-        Log.d("Sets", sets.toString());
-        Log.d("SetSize", String.valueOf(sets.size()));
         ShowSet(sets);
     }
 

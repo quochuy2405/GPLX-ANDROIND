@@ -51,7 +51,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:padding="10dp"
-            android:text="SIGN UP">
+            android:text="@string/text_signup">
 
         </TextView>
 
@@ -80,7 +80,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/button_radius"
                     android:backgroundTint="@color/white"
-                    android:hint="First Name"
+                    android:hint="Họ"
                     android:inputType="text"
                     android:paddingLeft="30dp"
                     android:paddingRight="30dp"
@@ -94,7 +94,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/button_radius"
                     android:backgroundTint="@color/white"
-                    android:hint="Last Name"
+                    android:hint="Tên"
                     android:inputType="text"
                     android:singleLine="true"
                     android:paddingLeft="30dp"
@@ -111,7 +111,7 @@
             android:background="@drawable/button_radius"
             android:backgroundTint="@color/white"
             android:hint="Email"
-            android:inputType="text"
+            android:inputType="textEmailAddress"
             android:paddingLeft="30dp"
             android:paddingRight="30dp" />
 
@@ -123,7 +123,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/button_radius"
             android:backgroundTint="@color/white"
-            android:hint="Username"
+            android:hint="Tên đăng nhập"
             android:inputType="text"
             android:paddingLeft="30dp"
             android:paddingRight="30dp" />
@@ -137,7 +137,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/button_radius"
             android:backgroundTint="@color/white"
-            android:hint="Password"
+            android:hint="Mật khẩu"
             android:inputType="textPassword"
             android:paddingLeft="30dp"
             android:paddingRight="30dp" />
@@ -150,7 +150,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/button_radius"
             android:backgroundTint="@color/white"
-            android:hint="Confirm Password"
+            android:hint="Xác nhận mật khẩu"
             android:inputType="textPassword"
             android:paddingLeft="30dp"
             android:paddingRight="30dp" />
@@ -180,7 +180,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/gray"
-                android:text="Already have account?" />
+                android:text="Bạn đã có tài khoản?" />
 
             <TextView
                 android:id="@+id/tv_login"

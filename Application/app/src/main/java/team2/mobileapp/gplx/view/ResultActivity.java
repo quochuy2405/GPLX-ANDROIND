@@ -42,7 +42,6 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
         setContentView(R.layout.activity_result);
 
         InitialVariable();
-//        VariableGlobal.SetNavigationBar(ResultActivity.this);
 
         checkList = (ArrayList<CheckRadioButton>) getIntent().getSerializableExtra("History");
         dto = (DtoQuestionSet) getIntent().getSerializableExtra("Dto");
@@ -55,7 +54,6 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
         btn_view_again.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(ResultActivity.this, )
                 finish();
             }
         });
@@ -145,7 +143,6 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
             boolean flag = false;
             for(CheckRadioButton item : checkList){
                 if(item.getQuestionId().equals(questions.get(i).getId()) && item.getAnswerId().equals(answers.get(i).getId())){
-                    Log.i("Result", String.valueOf(answers.get(i).getResult()));
                     if(item.getAnswerIndex() == answers.get(i).getResult()){
                         flag = true;
                         rightAns++;

@@ -1,6 +1,10 @@
 package team2.api.mobile.gplx.extension;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +14,7 @@ import org.springframework.stereotype.Component;
 import team2.api.mobile.gplx.models.Account;
 import team2.api.mobile.gplx.models.AccountStatus;
 import team2.api.mobile.gplx.models.Answer;
+import team2.api.mobile.gplx.models.HistoricalExam;
 import team2.api.mobile.gplx.models.License;
 import team2.api.mobile.gplx.models.LicenseType;
 import team2.api.mobile.gplx.models.Question;
@@ -21,6 +26,7 @@ import team2.api.mobile.gplx.models.TrafficSign;
 import team2.api.mobile.gplx.models.TrafficSignType;
 import team2.api.mobile.gplx.repository.AccountRepository;
 import team2.api.mobile.gplx.repository.AnswerRepository;
+import team2.api.mobile.gplx.repository.HistoricalExamRepository;
 import team2.api.mobile.gplx.repository.LicenseRepository;
 import team2.api.mobile.gplx.repository.LicenseTypeRepository;
 import team2.api.mobile.gplx.repository.QuestionRepository;
@@ -53,9 +59,12 @@ public class DataSeeding implements CommandLineRunner {
 	private QuestionSetRepository questionSetRepo;
 	@Autowired
 	private AnswerRepository answerRepo;
+	@Autowired
+	private HistoricalExamRepository historicalExamRepo;
 
 	@Override
 	public void run(String... args) throws Exception {
+//		historicalExamRepo.deleteAll();
 //		licenseTypeRepo.deleteAll();
 //		licenseRepo.deleteAll();
 //		roleRepo.deleteAll();
@@ -82,6 +91,16 @@ public class DataSeeding implements CommandLineRunner {
 //		LoadAnswerA2();
 //		LoadAnswerB1();
 //		LoadAnswerB2();
+		LoadHistoricalExam();
+	}
+
+	private void LoadHistoricalExam() {
+		Account account = accountRepo.findById("629e1a55e6954349648603ee").get();
+		QuestionSet setA1_1 = questionSetRepo.findByName("Đề 1 - A1");
+		String[] setAndLicense = setA1_1.getName().split(" - ");
+ 		String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+		HistoricalExam result1 = new HistoricalExam(account.getId(), setAndLicense[1], setAndLicense[0], date, 25, setA1_1.getQuantity());
+		historicalExamRepo.save(result1);
 	}
 
 	private void LoadRole() {

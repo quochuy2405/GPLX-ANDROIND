@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/check_out_focus"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="team2.mobileapp.gplx.view.EditProfileActivity"
-    android:id="@+id/check_out_focus">
+    tools:context="team2.mobileapp.gplx.view.EditProfileActivity">
 
     <RelativeLayout
         android:id="@+id/header"
@@ -42,35 +42,90 @@
         android:layout_marginTop="100px"
         android:padding="40dp">
 
-        <TextView
-            android:id="@+id/tv_fullname"
-            android:layout_width="match_parent"
+        <RelativeLayout
+            android:id="@+id/name_profile"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tên"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/et_fullname"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_below="@+id/tv_fullname"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/br_input"
-            android:hint="Nguyễn Văn A"
+            android:layout_centerHorizontal="true">
 
-            android:maxLines="1"
-            android:inputType="text"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp" />
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                >
+
+                <RelativeLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:paddingLeft="10dp"
+                        android:id="@+id/tv_first_name"
+                        android:layout_width="1in"
+                        android:layout_height="wrap_content"
+                        android:text="Họ "
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/et_first_name"
+                        android:layout_width="1in"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/tv_first_name"
+                        android:layout_marginBottom="15dp"
+                        android:background="@drawable/input_radius"
+                        android:backgroundTint="#E6F3F3F3"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView
+
+                        android:paddingLeft="10dp"
+                        android:id="@+id/tv_last_name"
+                        android:layout_width="1in"
+                        android:layout_height="wrap_content"
+                        android:text="Tên"
+                        android:textColor="@color/black"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/et_last_name"
+                        android:layout_width="1in"
+                        android:layout_height="50dp"
+                        android:layout_below="@id/tv_last_name"
+                        android:layout_marginBottom="15dp"
+                        android:background="@drawable/input_radius"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:backgroundTint="#E6F3F3F3"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tv_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/et_fullname"
+            android:layout_below="@id/name_profile"
             android:text="Tên đăng nhập"
+            android:paddingLeft="10dp"
             android:textColor="@color/black"
             android:textSize="18dp"
             android:textStyle="bold" />
@@ -81,15 +136,17 @@
             android:layout_height="50dp"
             android:layout_below="@id/tv_username"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/br_input"
+            android:background="@drawable/input_radius"
             android:enabled="true"
-            android:maxLines="1"
-            android:inputType="text"
             android:hint="user"
+            android:backgroundTint="#E6F3F3F3"
+            android:inputType="text"
+            android:maxLines="1"
             android:paddingLeft="30dp"
             android:paddingRight="30dp" />
 
         <TextView
+            android:paddingLeft="10dp"
             android:id="@+id/tv_email_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -105,11 +162,12 @@
             android:layout_height="50dp"
             android:layout_below="@id/tv_email_profile"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/br_input"
+            android:background="@drawable/input_radius"
             android:enabled="false"
+            android:backgroundTint="#E6F3F3F3"
+            android:hint="example@gmail.com"
             android:inputType="text"
             android:maxLines="1"
-            android:hint="example@gmail.com"
             android:paddingLeft="30dp"
             android:paddingRight="30dp" />
 
@@ -122,8 +180,20 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/br_button2"
             android:text="Cập nhật"
-            android:textSize="17dp"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            android:textSize="17dp" />
     </RelativeLayout>
-    <include layout="@layout/activity_navigation" android:id="@+id/bottom_bar" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gif_done"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#83F8F8F8"
+        android:padding="90dp"
+        android:src="@raw/animation_done"
+        android:visibility="invisible" />
+
+    <include
+        android:id="@+id/bottom_bar"
+        layout="@layout/activity_navigation" />
 </RelativeLayout>

@@ -2,7 +2,6 @@ package team2.mobileapp.gplx.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -44,7 +43,7 @@ public class DetailsNoticeBoardActivity extends AppCompatActivity implements Tra
     public void onFetchProgress(TrafficSign trafficSign) {
         tvTitle.setText(trafficSign.getName());
         tvDescription.setText(trafficSign.getDescription());
-        String uri = VariableGlobal.PHOTO1 + "BB" + VariableGlobal.PHOTO2 + trafficSign.getPhoto() + VariableGlobal.PHOTO3;
+        String uri = VariableGlobal.PHOTO1 + "BB" + VariableGlobal.PHOTO2 + trafficSign.getPhoto() + VariableGlobal.PHOTO3+VariableGlobal.Token;
         Picasso.get()
                 .load(uri)
                 .placeholder(com.wooplr.spotlight.R.drawable.ic_spotlight_arc)
