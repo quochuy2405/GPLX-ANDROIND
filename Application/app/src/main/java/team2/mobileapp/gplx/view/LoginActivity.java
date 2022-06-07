@@ -3,7 +3,9 @@ package team2.mobileapp.gplx.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,15 +17,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.Retrofit.callbacks.AccountCallbackListener;
+import team2.mobileapp.gplx.Retrofit.controllers.AccountController;
+import team2.mobileapp.gplx.Retrofit.models.Account;
 import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 import team2.mobileapp.gplx.Volley.model.dto.LoginResponse;
 import team2.mobileapp.gplx.Volley.service.AuthenService;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements AccountCallbackListener {
     EditText etUsername, etPassword;
     Button btnLogin;
     TextView tvForgotPass, tvSignup;
     RelativeLayout checkOutFocusLogin;
+    AccountController accountController;
+    String Id;
+    Intent category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +40,13 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         InitialVariable();
-
+        category = new Intent(this, SelectCategoryActivity.class);
         Intent tutorial = new Intent(this, TutorialActivity.class);
         Intent forgotPass = new Intent(this, ForgotPasswordActivity.class);
         Intent signup = new Intent(this, SignupActivity.class);
-
         final AuthenService authenService = new AuthenService(this);
-
+        accountController = new AccountController(LoginActivity.this);
+        CheckId();
         Login(authenService, tutorial);
 
         ForgotPass(forgotPass);
@@ -70,6 +78,17 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    private void CheckId() {
+
+        SharedPreferences sharedPreferences = getSharedPreferences("User", Context.MODE_PRIVATE);
+        if (sharedPreferences != null) {
+            String Id = sharedPreferences.getString("UserId", "");
+            if (!Id.equals("") || !Id.isEmpty()) {
+                accountController.startFetching(Id);
+            }
+        }
+    }
+
     public void hideKeyboard() {
         View view = this.getCurrentFocus();
         if (view != null) {
@@ -99,8 +118,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 hideKeyboard();
-                Log.d("Username", etUsername.getText().toString());
-                Log.d("Pass", etPassword.getText().toString());
                 if (etUsername.getText().toString().isEmpty() && etPassword.getText().toString().isEmpty())
                     Toast.makeText(LoginActivity.this, "Hãy nhập tên đăng nhập và mật khẩu", Toast.LENGTH_LONG).show();
                 else if (etUsername.getText().toString().isEmpty())
@@ -108,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                 else if (etPassword.getText().toString().isEmpty())
                     Toast.makeText(LoginActivity.this, "Hãy nhập mật khẩu", Toast.LENGTH_LONG).show();
                 else {
-                    System.out.println(etUsername.getText().toString() + " " + etPassword.getText().toString());
+
                     authenService.Login(etUsername.getText().toString(), etPassword.getText().toString(), new AuthenService.LoginCallBack() {
                         @Override
                         public void onError(String message) {
@@ -117,7 +134,12 @@ public class LoginActivity extends AppCompatActivity {
 
                         @Override
                         public void onResponse(LoginResponse loginResponse) {
-                            VariableGlobal.idUser=loginResponse.getId();
+                            VariableGlobal.idUser = loginResponse.getId();
+                            // add session in android
+                            SharedPreferences sharedPreferences = getSharedPreferences("User", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("UserId", loginResponse.getId());
+                            editor.commit();
                             //clear all stack and add activity new task
                             tutorial.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(tutorial);
@@ -164,5 +186,20 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
+    }
+
+    @Override
+    public void onFetchAccountProgress(Account account) {
+        if (!account.getId().isEmpty()) {
+            VariableGlobal.idUser = account.getId();
+            category.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(category);
+
+        }
+    }
+
+    @Override
+    public void onFetchComplete(String message) {
+
     }
 }

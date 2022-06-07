@@ -192,7 +192,17 @@
         android:padding="90dp"
         android:src="@raw/animation_done"
         android:visibility="invisible" />
-
+    <Button
+        android:id="@+id/logout"
+        android:background="@drawable/button_radius_10"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:backgroundTint="#FF5722"
+        android:textStyle="bold"
+        android:layout_margin="20dp"
+        android:textColor="@color/white"
+        android:text="Đăng xuất"/>
     <include
         android:id="@+id/bottom_bar"
         layout="@layout/activity_navigation" />

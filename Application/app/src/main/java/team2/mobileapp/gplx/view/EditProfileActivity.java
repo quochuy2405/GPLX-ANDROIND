@@ -1,6 +1,9 @@
 package team2.mobileapp.gplx.view;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,7 +25,7 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
     private EditText etFullName;
     private EditText etUsername;
     private EditText etEmail;
-    private Button btnSave;
+    private Button btnSave,Logout;
     private RelativeLayout checkOutFocus;
     private Account accountView;
     private AccountController accountController;
@@ -37,7 +40,8 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
         setContentView(R.layout.activity_edit_profile);
         VariableGlobal.SetNavigationBar(this);
         InitialVariables();
-
+        Logout();
+        getUser();
         try {
             accountController.startFetching(VariableGlobal.idUser);
             btnSave.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +76,29 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
         }
 
     }
+    private void Logout(){
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("User", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.remove("UserId");
+                editor.apply();
+                editor.clear();
+                Intent login = new Intent(EditProfileActivity.this, LoginActivity.class);
+                login.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(login);
+            }
+        });
 
+    }
+    private void getUser(){
+        SharedPreferences sharedPreferences = getSharedPreferences("User", Context.MODE_PRIVATE);
+        if(sharedPreferences!=null){
+            String Id = sharedPreferences.getString("UserId","");
+            VariableGlobal.idUser=Id;
+        }
+    }
     private void InitialVariables() {
         accountController = new AccountController(this);
         etFullName = (EditText) findViewById(R.id.et_last_name);
@@ -80,6 +106,7 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
         etEmail = (EditText) findViewById(R.id.et_email_profile);
         btnSave = (Button) findViewById(R.id.btn_save);
         checkOutFocus= findViewById(R.id.check_out_focus);
+        Logout= findViewById(R.id.logout);
     }
 
     @Override
