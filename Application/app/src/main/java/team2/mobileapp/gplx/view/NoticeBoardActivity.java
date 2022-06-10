@@ -141,7 +141,6 @@ public class NoticeBoardActivity extends AppCompatActivity {
                             noticeBoard.setBoardName(boards.get(i).getBoardName());
                             noticeBoard.setBoardDescription(boards.get(i).getBoardDescription());
                             noticeBoard.setPhoto(boards.get(i).getPhoto());
-                            Log.i("NoticeBoard", noticeBoard.toString());
                             listNoticeBoard.add(noticeBoard);
                         }
                         noticeBoardAdapter = new NoticeBoardAdapter(NoticeBoardActivity.this, 1, listNoticeBoard);

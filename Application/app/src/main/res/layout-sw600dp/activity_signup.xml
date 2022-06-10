@@ -14,22 +14,19 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="500sp"
+            android:layout_height="240sp"
             android:adjustViewBounds="false"
             android:cropToPadding="false"
-            android:scaleType="fitXY"
+            android:scaleType="centerInside"
             android:src="@drawable/br_car2" />
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="0.8in"
-            android:layout_height="0.8in"
+            android:layout_width="0.6in"
+            android:layout_height="0.4in"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/logo"
-
-            />
+            android:src="@drawable/logo"></ImageView>
     </RelativeLayout>
 
     <RelativeLayout
@@ -40,8 +37,9 @@
         android:layout_below="@id/layout_br"
         android:layout_marginTop="-50px"
         android:backgroundTint="@color/gray_milk"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="80dp"
+        android:paddingRight="80dp"
         android:paddingBottom="20dp">
 
         <TextView
@@ -60,6 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/title_form"
+
             android:layout_centerHorizontal="true">
 
             <EditText
@@ -70,6 +69,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/button_radius"
                 android:backgroundTint="@color/white"
+                android:gravity="center_vertical"
                 android:hint="Tên"
                 android:inputType="text"
                 android:paddingLeft="30dp"
@@ -87,6 +87,7 @@
             android:background="@drawable/button_radius"
             android:backgroundTint="@color/white"
             android:hint="Email"
+            android:gravity="center_vertical"
             android:inputType="textEmailAddress"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
@@ -101,10 +102,11 @@
             android:background="@drawable/button_radius"
             android:backgroundTint="@color/white"
             android:hint="Tên đăng nhập"
+            android:gravity="center_vertical"
             android:inputType="text"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
-            android:textSize="24dp"/>
+            android:textSize="24dp" />
 
 
         <EditText
@@ -119,7 +121,8 @@
             android:inputType="textPassword"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
-            android:textSize="24dp"/>
+            android:gravity="center_vertical"
+            android:textSize="24dp" />
 
         <EditText
             android:id="@+id/et_password_confirm_signup"
@@ -133,7 +136,8 @@
             android:inputType="textPassword"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
-            android:textSize="24dp"/>
+            android:gravity="center_vertical"
+            android:textSize="24dp" />
 
         <Button
             android:id="@+id/btn_signup"
@@ -144,15 +148,16 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/br_button2"
             android:text="@string/text_signup"
+            android:gravity="center"
             android:textAlignment="center"
-            android:textSize="30dp" />
+            android:textSize="28dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/btn_signup"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="20dp">
 
             <TextView
 
@@ -170,6 +175,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="@string/text_login"
+
                 android:textColor="@color/green_main"
                 android:textSize="20dp"/>
 

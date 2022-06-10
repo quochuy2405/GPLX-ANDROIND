@@ -13,11 +13,11 @@
         style="@style/TextTitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:padding="20dp"
+        android:layout_marginTop="40dp"
+
         android:text="CHÚC MỪNG"
         android:textColor="@color/white"
-        android:textSize="60dp"
-        android:layout_marginTop="40dp"
+        android:textSize="50dp"
 
         />
 
@@ -28,7 +28,7 @@
         android:layout_centerHorizontal="true"
         android:text="Bạn đã hoàn thành bài thi"
         android:textColor="@color/white"
-        android:textSize="40dp"
+        android:textSize="24dp"
 
         />
 
@@ -38,7 +38,7 @@
         android:layout_height="fill_parent"
         android:layout_below="@+id/description_result"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="60dp"
         android:background="@drawable/radius_around">
@@ -47,21 +47,20 @@
             android:id="@+id/tv_result"
             style="@style/TextTitle"
             android:layout_centerHorizontal="true"
-            android:padding="10dp"
             android:layout_marginTop="20dp"
+            android:padding="10dp"
             android:text="KẾT QUẢ"
             android:textColor="@color/green_main"
-            android:textSize="35dp"
+            android:textSize="30dp"
 
             />
 
         <ImageView
             android:id="@+id/iv_result"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_below="@+id/tv_result"
             android:layout_centerHorizontal="true"
-
             android:src="@drawable/result_pass"
 
             />
@@ -73,7 +72,7 @@
             android:layout_centerHorizontal="true"
             android:padding="10dp"
             android:text="ĐẠT"
-            android:textSize="55dp"
+            android:textSize="40dp"
 
             />
 
@@ -81,27 +80,29 @@
             android:id="@+id/btn_result_next"
             style="@style/ButtonRouder"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
+            android:layout_height="80dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="200dp"
             android:layout_marginBottom="40dp"
             android:background="@drawable/br_button2"
+            android:gravity="center"
             android:text="TIẾP TỤC"
-            android:textSize="30dp" />
+            android:textSize="24dp" />
 
         <Button
             android:id="@+id/btn_view_again"
             style="@style/ButtonRouder"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
+            android:layout_height="80dp"
             android:layout_above="@+id/btn_result_next"
             android:layout_centerHorizontal="true"
-            android:layout_marginLeft="100dp"
+            android:layout_marginLeft="200dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/background_title"
+            android:gravity="center"
             android:text="XEM LẠI"
-            android:textSize="30dp" />
+            android:textSize="24dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"

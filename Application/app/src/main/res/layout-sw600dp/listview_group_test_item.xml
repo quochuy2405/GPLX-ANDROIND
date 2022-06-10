@@ -9,7 +9,7 @@
     <RelativeLayout
 
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="230dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="100dp"
         android:layout_marginTop="10dp"
@@ -36,7 +36,7 @@
                 android:textAlignment="center"
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
                 android:textColor="@color/white"
-                android:textSize="40dp" />
+                android:textSize="35dp" />
 
             <TextView
                 android:id="@+id/tv_num_group_test"
@@ -47,8 +47,8 @@
                 android:text="Tổng số câu"
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
                 android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="30dp" />
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 

@@ -16,11 +16,14 @@
 
         <ImageView
             android:id="@+id/logo_top_board"
-            android:layout_width="0.8in"
-            android:layout_height="0.8in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
+            android:padding="20dp"
+            android:scaleType="centerCrop"
+
             android:src="@drawable/logo"
 
             />
@@ -28,19 +31,19 @@
         <TextView
             android:id="@+id/tv_title_board"
             style="@style/TextTitle"
-
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/logo_top_board"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:background="@drawable/background_title"
-            android:gravity="center"
+            android:background="@drawable/radius_around"
+            android:backgroundTint="@color/green_main"
             android:paddingLeft="20dp"
-            android:paddingTop="5dp"
             android:paddingRight="20dp"
-            android:paddingBottom="5dp"
+            android:gravity="center"
             android:text="Chi tiết biển báo"
             android:textColor="@color/white"
-            android:textSize="40dp"
+            android:textSize="30dp"
 
             />
     </RelativeLayout>
@@ -63,13 +66,13 @@
                 android:text="BIỂN CẤM A"
                 android:textAllCaps="true"
                 android:textColor="@color/red"
-                android:textSize="40dp"/>
+                android:textSize="35dp" />
 
             <ImageView
                 android:id="@+id/iv_image_board_details"
                 style="@style/ImageRounder"
-                android:layout_width="400dp"
-                android:layout_height="400dp"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
                 android:layout_below="@+id/tv_title_board_details"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/ic_spotlight_arc" />

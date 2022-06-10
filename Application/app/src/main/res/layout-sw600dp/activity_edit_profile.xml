@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="220dp"
         android:background="@drawable/mask_group">
 
         <TextView
@@ -27,19 +27,20 @@
     </RelativeLayout>
 
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:id="@+id/avatar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_below="@+id/header"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-50dp"
+        android:layout_marginTop="-70dp"
         android:src="@drawable/avatar" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/header"
-        android:layout_marginTop="400px"
-        android:padding="40dp">
+        android:layout_below="@id/avatar"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp">
 
         <RelativeLayout
             android:id="@+id/name_profile"
@@ -59,7 +60,7 @@
                     android:paddingLeft="10dp"
                     android:text="Tên"
                     android:textColor="@color/black"
-                    android:textSize="30dp"
+                    android:textSize="28dp"
                     android:textStyle="bold" />
 
                 <EditText
@@ -71,8 +72,11 @@
                     android:layout_marginBottom="15dp"
                     android:background="@drawable/input_radius"
                     android:backgroundTint="#E6F3F3F3"
+                    android:gravity="center_vertical"
+                    android:hint="Họ tên"
                     android:inputType="text"
                     android:maxLines="1"
+                    android:textSize="24dp"
                     android:paddingLeft="30dp"
                     android:paddingRight="30dp" />
             </RelativeLayout>
@@ -83,11 +87,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/name_profile"
-            android:text="Tên đăng nhập"
+            android:layout_marginTop="5dp"
             android:paddingLeft="10dp"
-            android:layout_marginTop="20dp"
+            android:text="Tên đăng nhập"
             android:textColor="@color/black"
-            android:textSize="30dp"
+            android:textSize="28dp"
             android:textStyle="bold" />
 
         <EditText
@@ -97,25 +101,25 @@
             android:layout_below="@id/tv_username"
             android:layout_marginBottom="15dp"
             android:background="@drawable/input_radius"
+            android:backgroundTint="#E6F3F3F3"
             android:enabled="true"
             android:hint="user"
-            android:backgroundTint="#E6F3F3F3"
             android:inputType="text"
             android:maxLines="1"
             android:paddingLeft="40dp"
             android:paddingRight="440dp"
-            android:textSize="30dp"/>
+            android:textSize="24dp" />
 
         <TextView
-            android:paddingLeft="10dp"
-            android:layout_marginTop="20dp"
             android:id="@+id/tv_email_profile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/et_username"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="10dp"
             android:text="Email"
             android:textColor="@color/black"
-            android:textSize="30dp"
+            android:textSize="28dp"
             android:textStyle="bold" />
 
         <EditText
@@ -132,17 +136,18 @@
             android:maxLines="1"
             android:paddingLeft="40dp"
             android:paddingRight="40dp"
-            android:textSize="30dp" />
+            android:textSize="24dp" />
 
         <Button
             android:id="@+id/btn_save"
             style="@style/ButtonRouder"
-            android:layout_centerHorizontal="true"
             android:layout_width="3in"
             android:layout_height="80dp"
             android:layout_below="@+id/et_email_profile"
-            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
             android:background="@drawable/br_button2"
+            android:gravity="center"
             android:text="Cập nhật"
             android:textAllCaps="false"
             android:textSize="30dp" />

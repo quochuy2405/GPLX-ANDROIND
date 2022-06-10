@@ -29,11 +29,12 @@ public class HistoryActivity extends AppCompatActivity implements HistoricalExam
 
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_history);
-        VariableGlobal.SetNavigationBar(this);
+
 
         heController = new HistoricalExamController(HistoryActivity.this);
 
         titleActivity = findViewById(R.id.tv_title_activity_app);
+        VariableGlobal.SetNavigationBar(this);
         titleActivity.setText("Lịch sử");
         listView = (ListView) findViewById(R.id.lvItems);
         heController.startFetching();

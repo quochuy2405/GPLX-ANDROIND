@@ -30,7 +30,7 @@
                 android:text="Hạng A1 - Đề 1"
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
                 android:textColor="@color/white"
-                android:textSize="40dp" />
+                android:textSize="30dp" />
 
             <TextView
                 android:id="@+id/tv_date_history"
@@ -40,7 +40,7 @@
                 android:text="30/02/2022"
                 android:textAppearance="?android:attr/textAppearanceListItemSmall"
                 android:textColor="@color/white"
-                android:textSize="30dp" />
+                android:textSize="24dp" />
 
         </RelativeLayout>
 
@@ -62,7 +62,7 @@
                     android:text="23"
                     android:textAppearance="?android:attr/textAppearanceListItemSmall"
                     android:textColor="@color/white"
-                    android:textSize="40dp"
+                    android:textSize="30dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -71,7 +71,7 @@
                     android:text="/"
                     android:textAppearance="?android:attr/textAppearanceListItemSmall"
                     android:textColor="@color/white"
-                    android:textSize="40dp"
+                    android:textSize="30dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -81,7 +81,7 @@
                     android:text="23"
                     android:textAppearance="?android:attr/textAppearanceListItemSmall"
                     android:textColor="@color/white"
-                    android:textSize="40dp"
+                    android:textSize="30dp"
                     android:textStyle="bold" />
             </LinearLayout>
 
