@@ -15,76 +15,76 @@
         android:theme="@style/Theme.Design.Light.NoActionBar"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="team2.mobileapp.gplx.view.GroupBoardingActivity"
+            android:name=".view.GroupBoardingActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.GuideActivity"
+            android:name=".view.GuideActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.QuestionViewListActivity"
+            android:name=".view.QuestionViewListActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.DetailsNoticeBoardActivity"
+            android:name=".view.DetailsNoticeBoardActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.ReviewTestActivity"
+            android:name=".view.ReviewTestActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.GroupTestActivity"
+            android:name=".view.GroupTestActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.NoticeBoardActivity"
+            android:name=".view.NoticeBoardActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.ResultActivity"
+            android:name=".view.ResultActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.A1_TestActivity"
+            android:name=".view.A1_TestActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.TestActivity"
+            android:name=".view.TestActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.VerifyActivity"
+            android:name=".view.VerifyActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.SignupActivity"
+            android:name=".view.SignupActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.SetNewPasswordActivity"
+            android:name=".view.SetNewPasswordActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.HistoryActivity"
+            android:name=".view.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.LoginActivity"
+            android:name=".view.LoginActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.SelectCategoryActivity"
+            android:name=".view.SelectCategoryActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.NavigationActivity"
+            android:name=".view.NavigationActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.EditProfileActivity"
+            android:name=".view.EditProfileActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.BoardingActivity"
+            android:name=".view.BoardingActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.SplashActivity"
+            android:name=".view.SplashActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.TutorialActivity"
+            android:name=".view.TutorialActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.ForgotPasswordActivity"
+            android:name=".view.ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.TestAPIActivity"
+            android:name=".view.TestAPIActivity"
             android:exported="false" />
         <activity
-            android:name="team2.mobileapp.gplx.view.MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -50,20 +50,22 @@
         <RelativeLayout
             android:id="@+id/list_choice_category"
             android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:gravity="center">
 
 
             <RelativeLayout
                 android:id="@+id/btn_radom"
                 style="@style/AroundButton"
-                android:layout_height="140dp"
+                android:layout_width="300dp"
+                android:layout_height="400dp"
                 android:background="@drawable/button_radius_10"
                 android:backgroundTint="@color/green_main">
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="1.2in"
+                    android:layout_marginTop="40dp"
                     android:paddingTop="10dp"
                     android:src="@drawable/file_dock_fill"></ImageView>
 
@@ -73,11 +75,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:paddingBottom="10dp"
+                    android:paddingBottom="40dp"
                     android:text="Hưỡng dẫn "
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textStyle="bold">
+                    android:textStyle="bold"
+                    android:textSize="35dp">
 
                 </TextView>
             </RelativeLayout>
@@ -85,14 +88,16 @@
             <RelativeLayout
                 android:id="@+id/btn_set"
                 style="@style/AroundButton"
-                android:layout_height="140dp"
+                android:layout_width="300dp"
+                android:layout_height="400dp"
                 android:layout_toEndOf="@+id/btn_radom"
                 android:background="@drawable/button_radius_10"
                 android:backgroundTint="@color/green_main">
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="1.2in"
+                    android:layout_marginTop="40dp"
                     android:paddingTop="10dp"
                     android:src="@drawable/close_round_fill"></ImageView>
 
@@ -101,10 +106,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:paddingBottom="10dp"
+                    android:paddingBottom="40dp"
                     android:text="Thi theo bộ đề"
                     android:textAlignment="center"
                     android:textColor="@color/white"
+                    android:textSize="35dp"
                     android:textStyle="bold">
 
                 </TextView>
@@ -114,14 +120,16 @@
             <RelativeLayout
                 android:id="@+id/btn_board"
                 style="@style/AroundButton"
-                android:layout_height="140dp"
+                android:layout_width="300dp"
+                android:layout_height="400dp"
                 android:layout_below="@+id/btn_radom"
                 android:background="@drawable/button_radius_10"
                 android:backgroundTint="@color/green_main">
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="1.2in"
+                    android:layout_marginTop="40dp"
                     android:paddingTop="10dp"
                     android:src="@drawable/cancel_fill" />
 
@@ -131,10 +139,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:paddingBottom="10dp"
+                    android:padding="40dp"
                     android:text="Các loại biển báo"
                     android:textAlignment="center"
                     android:textColor="@color/white"
+                    android:textSize="35dp"
                     android:textStyle="bold" />
 
 
@@ -143,17 +152,18 @@
             <RelativeLayout
                 android:id="@+id/btn_review_question"
                 style="@style/AroundButton"
-                android:layout_height="140dp"
+                android:layout_width="300dp"
+                android:layout_height="400dp"
                 android:layout_alignTop="@+id/btn_board"
                 android:layout_toEndOf="@id/btn_board"
-
                 android:background="@drawable/button_radius_10"
                 android:backgroundTint="@color/green_main">
 
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="1.2in"
+                    android:layout_marginTop="40dp"
                     android:paddingTop="20dp"
                     android:src="@drawable/open_book" />
 
@@ -163,12 +173,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
-                    android:paddingBottom="10dp"
+                    android:paddingBottom="40dp"
                     android:text="Ôn tập câu hỏi"
                     android:textAlignment="center"
                     android:textColor="@color/white"
+                    android:textSize="35dp"
                     android:textStyle="bold">
-
                 </TextView>
 
             </RelativeLayout>
