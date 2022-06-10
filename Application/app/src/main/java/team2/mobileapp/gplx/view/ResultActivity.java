@@ -15,7 +15,6 @@ import team2.mobileapp.gplx.Volley.model.CheckRadioButton;
 import team2.mobileapp.gplx.Volley.model.Question;
 import team2.mobileapp.gplx.Volley.model.dto.DtoQuestionSet;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;

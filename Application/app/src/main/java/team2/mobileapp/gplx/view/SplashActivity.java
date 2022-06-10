@@ -95,7 +95,7 @@ public class SplashActivity extends AppCompatActivity implements AccountCallback
 
     @Override
     public void onFetchAccountProgress(Account account) {
-        if (!account.getId().isEmpty()) {
+        if (account!=null) {
             VariableGlobal.idUser = account.getId();
             toCategory.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(toCategory);

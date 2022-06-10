@@ -2,8 +2,13 @@ package team2.mobileapp.gplx.VariableGlobal;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.view.MenuItem;
 import android.view.View;
 
+
+import androidx.annotation.NonNull;
+
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
 
@@ -22,37 +27,43 @@ public class VariableGlobal  {
     public static String PHOTO2="%2F";
     public static String PHOTO3="?alt=media&token=";
     public static String Token="";
+    public static int IdNavigation=1000010;
     public static ArrayList<String> listMarkGlobal = new ArrayList<>();
     public static void SetNavigationBar(Activity activity){
         View bottom_bar_container = activity.findViewById(R.id.bottom_bar);
-        bottom_bar_container.findViewById(R.id.page_home).setOnClickListener(new View.OnClickListener() {
+        NavigationBarView navigationBarView = bottom_bar_container.findViewById(R.id.bottomBar);
+        navigationBarView.setSelectedItemId(IdNavigation);
+        navigationBarView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(activity, SelectCategoryActivity.class);
-                activity.startActivity(intent);
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                IdNavigation=item.getItemId();
+                switch (item.getItemId()){
+                    case R.id.page_home:{
+                        Intent intent = new Intent(activity, SelectCategoryActivity.class);
+                        activity.startActivity(intent);
+                        return true;
+                    }
+                    case R.id.page_category:{
+                        Intent intent = new Intent(activity, GroupBoardingActivity.class);
+                        activity.startActivity(intent);
+                        return true;
+                    }
+                    case R.id.page_notice:{
+                        Intent intent = new Intent(activity, HistoryActivity.class);
+                        activity.startActivity(intent);
+                        return true;
+                    }
+                    case R.id.page_profile:{
+                        Intent intent = new Intent(activity, EditProfileActivity.class);
+                        activity.startActivity(intent);
+                        return true;
+                    }
+                }
+
+                return false;
             }
         });
-        bottom_bar_container.findViewById(R.id.page_category).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(activity, GroupBoardingActivity.class);
-                activity.startActivity(intent);
-            }
-        });
-        bottom_bar_container.findViewById(R.id.page_notice).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(activity, HistoryActivity.class);
-                activity.startActivity(intent);
-            }
-        });
-        bottom_bar_container.findViewById(R.id.page_profile).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(activity, EditProfileActivity.class);
-                activity.startActivity(intent);
-            }
-        });
+
     }
 
 }

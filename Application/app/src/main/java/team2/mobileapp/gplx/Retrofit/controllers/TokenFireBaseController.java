@@ -27,10 +27,10 @@ public class TokenFireBaseController {
                 try {
                     message = response.code() == 200 ? "Successfully fetched" : "Failed to fetch";
                     TokenFireBase tokenFireBase = response.body();
-                    ;
                     tokenCallbackListener.onFetchProgress(tokenFireBase);
                 } catch (Exception e) {
                     Log.d("Error: ", e.getMessage());
+
                 }
                 tokenCallbackListener.onFetchComplete(message);
             }
