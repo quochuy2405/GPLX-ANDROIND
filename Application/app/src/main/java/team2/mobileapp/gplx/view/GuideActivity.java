@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -50,6 +51,15 @@ public class GuideActivity extends AppCompatActivity {
         final Runnable r = new Runnable() {
             @Override
             public void run() {
+                if (check[0] == 1 && spotlightSequence.queue.size() == 0) {
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            check[0]++;
+                        }
+                    }, 3000);
+
+                }
                 if (check[0] == 1 && spotlightSequence.queue.size() == 1) {
 
                     mDrawerLayout.openDrawer(GravityCompat.END);
@@ -73,6 +83,12 @@ public class GuideActivity extends AppCompatActivity {
                         sleep(500);
                         handler.post(r);
                     }
+
+                    Intent intent = new Intent(GuideActivity.this,SelectCategoryActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+
+
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();

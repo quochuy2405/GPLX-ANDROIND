@@ -36,7 +36,7 @@ public class BoardingActivity extends AppCompatActivity implements TokenCallback
                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                startActivity(intent);
            }
-       }, 3000);
+       }, 2500);
    }
     @Override
     public void onBackPressed() {

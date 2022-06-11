@@ -5,25 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="team2.mobileapp.gplx.view.SplashActivity">
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_margin="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        >
+    </ImageView>
+
+    <RelativeLayout
+        android:layout_below="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_centerInParent="true">
         <ImageView
-            android:id="@+id/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/logo"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            >
-        </ImageView>
-
-        <ImageView
             android:id="@+id/splash"
-            android:layout_width="match_parent"
-            android:layout_height="350sp"
-            android:layout_below="@+id/logo"
+            android:layout_width="240dp"
+            android:layout_height="340sp"
+         android:layout_centerHorizontal="true"
             android:src="@drawable/br_car">
 
         </ImageView>
@@ -47,6 +49,7 @@
             android:layout_marginTop="20dp"
             android:text="ỨNG DỤNG HỖ TRỢ THI LÝ THUYẾT BẰNG LÁI XE"
             android:textColor="@color/gray"
+            android:paddingHorizontal="20dp"
             android:textSize="0.1in"></TextView>
         <Button
             android:layout_marginTop="20dp"

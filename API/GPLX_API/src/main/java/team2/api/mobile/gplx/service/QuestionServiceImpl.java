@@ -25,7 +25,6 @@ public class QuestionServiceImpl extends GenericServiceImpl<Question, String> im
 			Question updatedQuestion = repo.findById(id).get();
 			updatedQuestion.setIndex(question.getIndex());
 			updatedQuestion.setQuery(question.getQuery());
-			updatedQuestion.setTop50(question.isTop50());
 			updatedQuestion.setPhoto(question.getPhoto());
 			updatedQuestion.setLicenseId(question.getLicenseId());
 			updatedQuestion.setQuestionSetId(question.getQuestionSetId());

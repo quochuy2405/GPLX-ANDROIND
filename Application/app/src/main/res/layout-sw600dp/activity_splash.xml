@@ -6,34 +6,37 @@
     android:layout_height="match_parent"
     tools:context="team2.mobileapp.gplx.view.SplashActivity">
 
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:id="@+id/logo"
+        android:layout_width="0.6in"
+        android:layout_height="0.4in"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo"></ImageView>
+
+
     <RelativeLayout
+        android:gravity="center"
+        android:layout_below="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_centerInParent="true">
 
         <ImageView
-            android:id="@+id/logo"
-            android:layout_width="0.6in"
-            android:layout_height="0.4in"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/logo"></ImageView>
-
-        <ImageView
             android:id="@+id/splash"
             android:layout_width="match_parent"
-            android:layout_height="500sp"
-            android:layout_below="@+id/logo"
-            android:src="@drawable/br_car">
+            android:layout_height="400sp"
 
-        </ImageView>
+            android:src="@drawable/br_car"/>
 
         <TextView
+
             android:id="@+id/textTitle"
             style="@style/TextTitle"
-            android:layout_below="@id/splash"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
+            android:layout_below="@id/splash"
             android:text="THI LÝ THUYẾT BẰNG LÁI XE"
             android:textColor="@color/gray"
             android:textSize="35dp"></TextView>

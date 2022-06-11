@@ -11,6 +11,7 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -110,6 +111,7 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         historyProgressBarValue[0] = end;
     }
 
+    // Khi chọn câu trả lời thì nó sẽ lưu lại vào checkList
     private void CheckedRadioButton(DtoQuestionSet dto, int index) {
         rgAnswer.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
@@ -184,6 +186,32 @@ public class TestActivity extends AppCompatActivity implements Serializable {
         }
     }
 
+//    private void SetDisableRadioButton() {
+//        int count = rgAnswer.getChildCount();
+//        for (int i = 0; i < count; i++) {
+//            rgAnswer.getChildAt(i).setEnabled(false);
+//        }
+//        result_layout.setVisibility(View.VISIBLE);
+//    }
+//
+//    private void ViewResult(DtoQuestionSet dto, int i) {
+//        try {
+//            List<Answer> ansList = dto.getAnsList();
+//            tvResult.setText(ansList.get(i).getAnswerList()[ansList.get(i).getResult()]);
+//            // Check đúng sai
+//            for (CheckRadioButton item : checkList) {
+//                if (item.getQuestionId().equals(questionId) && item.getAnswerIndex() == ansList.get(i).getResult()) {
+//                    tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.green_main)));
+//                    break;
+//                } else {
+//                    tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.red)));
+//                }
+//            }
+//        } catch (Exception e) {
+//            Log.d("Error", "TRUE");
+//        }
+//    }
+
     private void SetDisableRadioButton() {
         int count = rgAnswer.getChildCount();
         for (int i = 0; i < count; i++) {
@@ -193,22 +221,17 @@ public class TestActivity extends AppCompatActivity implements Serializable {
     }
 
     private void ViewResult(DtoQuestionSet dto, int i) {
-        try {
-            List<Answer> ansList = dto.getAnsList();
-            tvResult.setText(ansList.get(i).getAnswerList()[ansList.get(i).getResult()]);
-            // Check đúng sai
-            for (CheckRadioButton item : checkList) {
-                if (item.getQuestionId().equals(questionId) && item.getAnswerIndex() == ansList.get(i).getResult()) {
-                    tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.green_main)));
-                    break;
-                } else {
-                    tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.red)));
-                }
+        List<Answer> ansList = dto.getAnsList();
+        tvResult.setText(ansList.get(i).getAnswerList()[ansList.get(i).getResult()]);
+        // Check đúng sai
+        for (CheckRadioButton item : checkList) {
+            if (item.getQuestionId().equals(questionId) && item.getAnswerIndex() == ansList.get(i).getResult()) {
+                tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.green_main)));
+                break;
+            } else {
+                tvResult.setTextColor(ColorStateList.valueOf(getResources().getColor(R.color.red)));
             }
-        } catch (Exception e) {
-            Log.d("Error", "TRUE");
         }
-
     }
 
     private void AddtoCheckList(int idx, String answerValue, DtoQuestionSet dto, int i) {
@@ -261,6 +284,7 @@ public class TestActivity extends AppCompatActivity implements Serializable {
                         // trường hợp câu cuối, bấm chấm điểm
                         if (i[0] == totalQuestion) {
                             if (!isCompleted) {
+                                Log.i("CheckList size", String.valueOf(checkList.size()));
                                 Intent intent = new Intent(TestActivity.this, ResultActivity.class);
                                 intent.putExtra("Dto", dto);
                                 intent.putExtra("History", checkList);

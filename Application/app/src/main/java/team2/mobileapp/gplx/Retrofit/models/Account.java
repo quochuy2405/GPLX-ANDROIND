@@ -5,8 +5,7 @@ public class Account {
     private String Username;
     private String Password;
     private String Email;
-    private String FirstName;
-    private String LastName;
+    private String FullName;
     private String Avatar;
     private String Status;
     private String roleId;
@@ -14,13 +13,12 @@ public class Account {
     public Account() {
     }
 
-    public Account(String id, String username, String password, String email, String firstName, String lastName, String avatar, String status, String roleId) {
+    public Account(String id, String username, String password, String email, String fullName, String avatar, String status, String roleId) {
         this.id = id;
         Username = username;
         Password = password;
         Email = email;
-        FirstName = firstName;
-        LastName = lastName;
+        FullName = fullName;
         Avatar = avatar;
         Status = status;
         this.roleId = roleId;
@@ -58,20 +56,12 @@ public class Account {
         Email = email;
     }
 
-    public String getFirstName() {
-        return FirstName;
+    public String getFullName() {
+        return FullName;
     }
 
-    public void setFirstName(String firstName) {
-        FirstName = firstName;
-    }
-
-    public String getLastName() {
-        return LastName;
-    }
-
-    public void setLastName(String lastName) {
-        LastName = lastName;
+    public void setFullName(String fullName) {
+        FullName = fullName;
     }
 
     public String getAvatar() {
@@ -96,20 +86,5 @@ public class Account {
 
     public void setRoleId(String roleId) {
         this.roleId = roleId;
-    }
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "id='" + id + '\'' +
-                ", Username='" + Username + '\'' +
-                ", Password='" + Password + '\'' +
-                ", Email='" + Email + '\'' +
-                ", FirstName='" + FirstName + '\'' +
-                ", LastName='" + LastName + '\'' +
-                ", Avatar='" + Avatar + '\'' +
-                ", Status='" + Status + '\'' +
-                ", roleId='" + roleId + '\'' +
-                '}';
     }
 }

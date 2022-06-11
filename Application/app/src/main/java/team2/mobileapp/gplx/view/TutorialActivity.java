@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
 public class TutorialActivity extends AppCompatActivity {
 
@@ -24,7 +25,8 @@ public class TutorialActivity extends AppCompatActivity {
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //clear all stack and add activity new task
+                //clear all stack and add activity new task'
+                VariableGlobal.IdNavigation=1000010;
                 select.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
                 startActivity(select);

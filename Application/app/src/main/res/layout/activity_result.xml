@@ -13,10 +13,10 @@
         style="@style/TextTitle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:padding="20dp"
+        android:paddingTop="10dp"
         android:text="CHÚC MỪNG"
         android:textColor="@color/white"
-        android:textSize="40dp"
+        android:textSize="35dp"
 
         />
 
@@ -26,7 +26,6 @@
         android:layout_below="@id/title_result"
         android:layout_centerHorizontal="true"
         android:text="Bạn đã hoàn thành bài thi"
-
         android:textColor="@color/white"
         android:textSize="20dp"
 
@@ -37,10 +36,11 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_below="@+id/description_result"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
         android:layout_marginBottom="60dp"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/radius_around">
 
         <TextView
@@ -72,7 +72,7 @@
             android:layout_centerHorizontal="true"
             android:padding="10dp"
             android:text="ĐẠT"
-            android:textSize="35dp"
+            android:textSize="24dp"
 
             />
 

@@ -24,23 +24,15 @@ public class QuestionSet extends AbstractEntity {
 	@JsonProperty("Quantity")
 	private int quantity;
 	
-	@JsonProperty("WrongAns")
-	private int wrongAns;
-	
-	@JsonProperty("RightAns")
-	private int rightAns;
-	
 	@JsonProperty("LicenseId")
 	private String licenseId;
 	
 	
-	public QuestionSet(String name, boolean status, int quantity, int wrongAns, int rightAns, String licenseId) {
+	public QuestionSet(String name, boolean status, int quantity, String licenseId) {
 		super();
 		this.name = name;
 		this.status = status;
 		this.quantity = quantity;
-		this.wrongAns = wrongAns;
-		this.rightAns = rightAns;
 		this.licenseId = licenseId;
 	}
 	public QuestionSet() {
@@ -52,7 +44,7 @@ public class QuestionSet extends AbstractEntity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public boolean getStatus() {
+	public boolean isStatus() {
 		return status;
 	}
 	public void setStatus(boolean status) {
@@ -64,24 +56,10 @@ public class QuestionSet extends AbstractEntity {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public int getWrongAns() {
-		return wrongAns;
-	}
-	public void setWrongAns(int wrongAns) {
-		this.wrongAns = wrongAns;
-	}
-	public int getRightAns() {
-		return rightAns;
-	}
-	public void setRightAns(int rightAns) {
-		this.rightAns = rightAns;
-	}
 	public String getLicenseId() {
 		return licenseId;
 	}
 	public void setLicenseId(String licenseId) {
 		this.licenseId = licenseId;
 	}
-	
-	
 }

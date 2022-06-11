@@ -7,17 +7,15 @@ public class Question implements Serializable {
     private String id;
     private int index;
     private String query;
-    private boolean isTop50;
     private String photo;
     private String licenseId;
     private String questionSetId;
     private String questionTypeId;
 
-    public Question(int index, String query, boolean isTop50, String photo, String licenseId,String questionSetId, String questionTypeId) {
+    public Question(int index, String query, String photo, String licenseId,String questionSetId, String questionTypeId) {
         super();
         this.index = index;
         this.query = query;
-        this.isTop50 = isTop50;
         this.photo = photo;
         this.licenseId = licenseId;
         this.questionSetId = questionSetId;
@@ -50,14 +48,6 @@ public class Question implements Serializable {
 
     public void setQuery(String query) {
         this.query = query;
-    }
-
-    public boolean isTop50() {
-        return isTop50;
-    }
-
-    public void setTop50(boolean isTop50) {
-        this.isTop50 = isTop50;
     }
 
     public String getPhoto() {
@@ -98,7 +88,6 @@ public class Question implements Serializable {
                 "id='" + id + '\'' +
                 ", index=" + index +
                 ", query='" + query + '\'' +
-                ", isTop50=" + isTop50 +
                 ", photo='" + photo + '\'' +
                 ", licenseId='" + licenseId + '\'' +
                 ", questionSetId='" + questionSetId + '\'' +

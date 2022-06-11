@@ -25,11 +25,8 @@ public class Account extends AbstractEntity {
 	@JsonProperty("Email")
 	private String email;
 	
-	@JsonProperty("FirstName")
-	private String firstName;
-	
-	@JsonProperty("LastName")
-	private String lastName;
+	@JsonProperty("FullName")
+	private String fullName;
 	
 	@JsonProperty("Avatar")
 	private String avatar;
@@ -38,71 +35,76 @@ public class Account extends AbstractEntity {
 	private AccountStatus status;
 	
 	private String roleId;
-	
-	public String getUsername() {
-		return username;
+
+	public Account() {
+		super();
 	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	public String getAvatar() {
-		return avatar;
-	}
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
-	public AccountStatus getStatus() {
-		return status;
-	}
-	public void setStatus(AccountStatus status) {
-		this.status = status;
-	}
-	public Account(String username, String password, String email, String firstName, String lastName, String avatar,
-			AccountStatus status, String roleId) {
+
+	public Account(String username, String password, String email, String fullName, String avatar, AccountStatus status,
+			String roleId) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.email = email;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.fullName = fullName;
 		this.avatar = avatar;
 		this.status = status;
 		this.roleId = roleId;
 	}
-	public Account() {
-		
+
+	public String getUsername() {
+		return username;
 	}
-	public String getFirstName() {
-		return firstName;
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+
+	public String getPassword() {
+		return password;
 	}
-	public String getLastName() {
-		return lastName;
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+
+	public String getEmail() {
+		return email;
 	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+	public AccountStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(AccountStatus status) {
+		this.status = status;
+	}
+
 	public String getRoleId() {
 		return roleId;
 	}
+
 	public void setRoleId(String roleId) {
 		this.roleId = roleId;
 	}
-	
-	
 }

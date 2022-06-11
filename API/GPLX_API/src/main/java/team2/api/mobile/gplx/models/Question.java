@@ -19,9 +19,6 @@ public class Question extends AbstractEntity {
 	@JsonProperty("Query")
 	private String query;
 	
-	@JsonProperty("IsTop50")
-	private boolean isTop50;
-	
 	@JsonProperty("Photo")
 	private String photo;
 	
@@ -34,11 +31,10 @@ public class Question extends AbstractEntity {
 	@JsonProperty("QuestionTypeId")
 	private String questionTypeId;
 	
-	public Question(int index, String query, boolean isTop50, String photo, String licenseId,String questionSetId, String questionTypeId) {
+	public Question(int index, String query, String photo, String licenseId,String questionSetId, String questionTypeId) {
 		super();
 		this.index = index;
 		this.query = query;
-		this.isTop50 = isTop50;
 		this.photo = photo;
 		this.licenseId = licenseId;
 		this.questionSetId = questionSetId;
@@ -63,14 +59,6 @@ public class Question extends AbstractEntity {
 
 	public void setQuery(String query) {
 		this.query = query;
-	}
-
-	public boolean isTop50() {
-		return isTop50;
-	}
-
-	public void setTop50(boolean isTop50) {
-		this.isTop50 = isTop50;
 	}
 
 	public String getPhoto() {

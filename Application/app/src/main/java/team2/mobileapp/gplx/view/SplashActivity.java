@@ -41,18 +41,24 @@ public class SplashActivity extends AppCompatActivity implements AccountCallback
     }
 
     private void CheckId() {
-        SharedPreferences sharedPreferences = getSharedPreferences("User", Context.MODE_PRIVATE);
-        if (sharedPreferences != null) {
-            String Id = sharedPreferences.getString("UserId", "");
-            if (!Id.equals("") || !Id.isEmpty()) {
-                accountController.startFetching(Id);
-            }
-            else{
+        try {
+            SharedPreferences sharedPreferences = getSharedPreferences("User", Context.MODE_PRIVATE);
+            if (sharedPreferences != null) {
+                String Id = sharedPreferences.getString("UserId", "");
+                if (!Id.equals("") || !Id.isEmpty()) {
+                    accountController.startFetching(Id);
+                }
+                else{
+                    startActivity(toLogin);
+                }
+            }else{
                 startActivity(toLogin);
             }
-        }else{
+        }
+        catch (Exception e){
             startActivity(toLogin);
         }
+
     }
 
     @Override

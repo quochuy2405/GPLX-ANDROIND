@@ -55,17 +55,12 @@
 
         </TextView>
 
-        <RelativeLayout
-            android:id="@+id/name_register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/title_form"
-            android:layout_centerHorizontal="true">
 
 
                 <EditText
-                    android:id="@+id/et_last_name_signup"
+                    android:id="@+id/et_fullname"
                     style="@style/EditTextRouder"
+                    android:layout_below="@id/title_form"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_weight="1"
@@ -76,13 +71,13 @@
                     android:singleLine="true"
                     android:paddingLeft="30dp"
                     android:paddingRight="30dp" />
-        </RelativeLayout>
+
 
         <EditText
             android:id="@+id/et_email_signup"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_below="@id/name_register"
+            android:layout_below="@id/et_fullname"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_radius"
             android:backgroundTint="@color/white"

@@ -118,17 +118,17 @@ public class LoginActivity extends AppCompatActivity implements AccountCallbackL
             public void onClick(View view) {
                 hideKeyboard();
                 if (etUsername.getText().toString().isEmpty() && etPassword.getText().toString().isEmpty())
-                    Toast.makeText(LoginActivity.this, "Hãy nhập tên đăng nhập và mật khẩu", Toast.LENGTH_LONG).show();
+                    VariableGlobal.showToast(LoginActivity.this, "Hãy nhập tên đăng nhập và mật khẩu");
                 else if (etUsername.getText().toString().isEmpty())
-                    Toast.makeText(LoginActivity.this, "Hãy nhập tên đăng nhập", Toast.LENGTH_LONG).show();
+                    VariableGlobal.showToast(LoginActivity.this, "Hãy nhập tên đăng nhập");
                 else if (etPassword.getText().toString().isEmpty())
-                    Toast.makeText(LoginActivity.this, "Hãy nhập mật khẩu", Toast.LENGTH_LONG).show();
+                    VariableGlobal.showToast(LoginActivity.this, "Hãy nhập mật khẩu");
                 else {
 
                     authenService.Login(etUsername.getText().toString(), etPassword.getText().toString(), new AuthenService.LoginCallBack() {
                         @Override
                         public void onError(String message) {
-                            Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
+                            VariableGlobal.showToast(LoginActivity.this, "Lỗi đăng nhập");
                         }
 
                         @Override
@@ -199,6 +199,5 @@ public class LoginActivity extends AppCompatActivity implements AccountCallbackL
 
     @Override
     public void onFetchComplete(String message) {
-
     }
 }

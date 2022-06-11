@@ -62,8 +62,8 @@
                 android:animationResolution="1000"
                 android:indeterminate="false"
                 android:max="100"
-                android:maxHeight="30dp"
-                android:minHeight="30dp"
+                android:maxHeight="20dp"
+                android:minHeight="20dp"
                 android:progress="10"
                 android:progressDrawable="@drawable/progress_custom" />
 

@@ -49,7 +49,7 @@ public class TestService {
 
                     JSONObject set = response.getJSONObject("questionSet");
                     QuestionSet questionSet = new QuestionSet(set.getString("id"), set.getString("Name"), set.getBoolean("Status"),
-                            set.getInt("Quantity"), set.getInt("WrongAns"), set.getInt("RightAns"), set.getString("LicenseId"));
+                            set.getInt("Quantity"), set.getString("LicenseId"));
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                         dto.setQuestionSet(questionSet);
                         Log.i("Question Set", dto.getQuestionSet().toString());
@@ -60,7 +60,6 @@ public class TestService {
                         JSONObject eachQuestion = (JSONObject) questList.get(i);
 
                         newQuestion.setId(eachQuestion.getString("id"));
-                        newQuestion.setTop50(eachQuestion.getBoolean("top50"));
                         newQuestion.setIndex(eachQuestion.getInt("Index"));
                         newQuestion.setQuery(eachQuestion.getString("Query"));
                         newQuestion.setPhoto(eachQuestion.getString("Photo"));

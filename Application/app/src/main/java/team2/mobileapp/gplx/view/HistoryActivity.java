@@ -1,6 +1,7 @@
 package team2.mobileapp.gplx.view;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ public class HistoryActivity extends AppCompatActivity implements HistoricalExam
     public HistoryAdapter historyAdapter;
     private ListView listView;
     private TextView titleActivity;
+    private TextView noHistory;
     private HistoricalExamController heController;
 
     //
@@ -32,7 +34,7 @@ public class HistoryActivity extends AppCompatActivity implements HistoricalExam
 
 
         heController = new HistoricalExamController(HistoryActivity.this);
-
+        noHistory= findViewById(R.id.no_history);
         titleActivity = findViewById(R.id.tv_title_activity_app);
         VariableGlobal.SetNavigationBar(this);
         titleActivity.setText("Lịch sử");
@@ -83,6 +85,11 @@ public class HistoryActivity extends AppCompatActivity implements HistoricalExam
         if (!histories.isEmpty()) {
             historyAdapter = new HistoryAdapter(HistoryActivity.this, 1, histories);
             listView.setAdapter(historyAdapter);
+        }
+        else{
+
+            if(noHistory.getVisibility()==View.GONE)
+                noHistory.setVisibility(View.VISIBLE);
         }
     }
 

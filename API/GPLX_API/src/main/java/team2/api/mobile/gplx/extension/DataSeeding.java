@@ -64,38 +64,38 @@ public class DataSeeding implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-//		historicalExamRepo.deleteAll();
-//		licenseTypeRepo.deleteAll();
-//		licenseRepo.deleteAll();
-//		roleRepo.deleteAll();
-//		accountRepo.deleteAll();
-//		trafficSignTypeRepo.deleteAll();
-//		trafficSignRepo.deleteAll();
-//		questionTypeRepo.deleteAll();
-//		questionRepo.deleteAll();
-//		questionSetRepo.deleteAll();
-//		answerRepo.deleteAll();
-//		LoadRole();
-//		LoadAccount();
-//		LoadLicenseType();
-//		LoadLicense();
-//		LoadTrafficSignType();
-//		LoadTrafficSign();
-//		LoadQuestionSet();
-//		LoadQuestionType();
-//		LoadQuestionA1();
-//		LoadQuestionA2();
-//		LoadQuestionB1();
-//		LoadQuestionB2();
-//		LoadAnswerA1();
-//		LoadAnswerA2();
-//		LoadAnswerB1();
-//		LoadAnswerB2();
-		LoadHistoricalExam();
+		historicalExamRepo.deleteAll();
+		licenseTypeRepo.deleteAll();
+		licenseRepo.deleteAll();
+		roleRepo.deleteAll();
+		accountRepo.deleteAll();
+		trafficSignTypeRepo.deleteAll();
+		trafficSignRepo.deleteAll();
+		questionTypeRepo.deleteAll();
+		questionRepo.deleteAll();
+		questionSetRepo.deleteAll();
+		answerRepo.deleteAll();
+		LoadRole();
+		LoadAccount();
+		LoadLicenseType();
+		LoadLicense();
+		LoadTrafficSignType();
+		LoadTrafficSign();
+		LoadQuestionSet();
+		LoadQuestionType();
+		LoadQuestionA1();
+		LoadQuestionA2();
+		LoadQuestionB1();
+		LoadQuestionB2();
+		LoadAnswerA1();
+		LoadAnswerA2();
+		LoadAnswerB1();
+		LoadAnswerB2();
+//		LoadHistoricalExam();
 	}
 
 	private void LoadHistoricalExam() {
-		Account account = accountRepo.findById("629e1a55e6954349648603ee").get();
+		Account account = accountRepo.findByUsername("admin").get();
 		QuestionSet setA1_1 = questionSetRepo.findByName("Đề 1 - A1");
 		String[] setAndLicense = setA1_1.getName().split(" - ");
  		String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
@@ -110,19 +110,19 @@ public class DataSeeding implements CommandLineRunner {
 
 	private void LoadAccount() {
 		Role user = roleRepo.findByRoleName("User");
-		Account account1 = new Account("user1", "nhatvh123", "nhatvh@gmail.com", "Nhật", "Võ Hoàng", "",
+		Account account1 = new Account("user1", "nhatvh123", "nhatvh@gmail.com", "Võ Hoàng Nhật", "",
 				AccountStatus.ACTIVE, user.getId());
 		accountRepo.save(account1);
-		Account account2 = new Account("user2", "hubq123", "huybq@gmail.com", "Huy", "Bùi Quốc", "",
+		Account account2 = new Account("user2", "hubq123", "huybq@gmail.com", "Bùi Quốc Huy", "",
 				AccountStatus.ACTIVE, user.getId());
 		accountRepo.save(account2);
-		Account account3 = new Account("user3", "khoalta123", "khoalta@gmail.com", "Khoa", "Lưu Trần Anh", "",
+		Account account3 = new Account("user3", "khoalta123", "khoalta@gmail.com", "Lưu Trần Anh Khoa", "",
 				AccountStatus.ACTIVE, user.getId());
 		accountRepo.save(account3);
-		Account account4 = new Account("user4", "huyhn123", "huyhn@gmail.com", "Huy", "Hồ Nhật", "",
+		Account account4 = new Account("user4", "huyhn123", "huyhn@gmail.com", "Hồ Nhật Huy", "",
 				AccountStatus.ACTIVE, user.getId());
 		accountRepo.save(account4);
-		Account account5 = new Account("user5", "hoangnb123", "hoangnb@gmail.com", "Hoàng", "Nguyễn Bá", "",
+		Account account5 = new Account("user5", "hoangnb123", "hoangnb@gmail.com", "Nguyễn Bá Hoàng", "",
 				AccountStatus.ACTIVE, user.getId());
 		accountRepo.save(account5);
 	}
@@ -960,19 +960,19 @@ public class DataSeeding implements CommandLineRunner {
 		License b1 = licenseRepo.findByName("B1");
 		License b2 = licenseRepo.findByName("B2");
 		for (int c = 1; c <= 8; c++) {
-			QuestionSet set = new QuestionSet("Đề " + c + " - A1", false, 25, 0, 0, a1.getId());
+			QuestionSet set = new QuestionSet("Đề " + c + " - A1", false, 25, a1.getId());
 			questionSetRepo.save(set);
 		}
 		for (int c = 1; c <= 18; c++) {
-			QuestionSet set = new QuestionSet("Đề " + c + " - A2", false, 25, 0, 0, a2.getId());
+			QuestionSet set = new QuestionSet("Đề " + c + " - A2", false, 25, a2.getId());
 			questionSetRepo.save(set);
 		}
 		for (int c = 1; c <= 20; c++) {
-			QuestionSet set = new QuestionSet("Đề " + c + " - B1", false, 30, 0, 0, b1.getId());
+			QuestionSet set = new QuestionSet("Đề " + c + " - B1", false, 30, b1.getId());
 			questionSetRepo.save(set);
 		}
 		for (int c = 1; c <= 17; c++) {
-			QuestionSet set = new QuestionSet("Đề " + c + " - B2", false, 35, 0, 0, b2.getId());
+			QuestionSet set = new QuestionSet("Đề " + c + " - B2", false, 35, b2.getId());
 			questionSetRepo.save(set);
 		}
 	}
@@ -1016,914 +1016,914 @@ public class DataSeeding implements CommandLineRunner {
 
 		Question questionA1_1 = new Question(1,
 				"Người điều khiển phương tiện giao thông đường bộ mà trong cơ thể có chất ma túy có bị nghiêm cấm hay không?",
-				true, "nan", a1.getId(), set1.getId(), kn.getId());
+				"nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_1);
 
 		Question questionA1_9 = new Question(2,
-				"Người ngồi trên xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy khi tham gia giao thông có được sử dụng ô khi trười mưa hay không?",
-				true, "nan", a1.getId(), set1.getId(), kn.getId());
+				"Người ngồi trên xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy khi tham gia giao thông có được sử dụng ô khi trời mưa hay không?",
+				"nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_9);
 
 		Question questionA1_17 = new Question(3,
 				"Đường mà trên đó phương tiện tham gia giao thông được các phương tiện giao thông đến từ hướng khác nhường đường khi qua nơi đường giao nhau, được cắm biển báo hiệu đường ưu tiên là loại đường gì?",
-				true, "nan", a1.getId(), set1.getId(), kn.getId());
+				"nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_17);
 
 		Question questionA1_25 = new Question(4,
-				"Khái niệm \"người điều khiển giao thông\" được hiểu như thế nào là đúng?", true, "nan", a1.getId(),
+				"Khái niệm \"người điều khiển giao thông\" được hiểu như thế nào là đúng?", "nan", a1.getId(),
 				set1.getId(), kn.getId());
 		questionRepo.save(questionA1_25);
 
 		Question questionA1_33 = new Question(5,
 				"Trong trường hợp đặc biệt, để được lắp đặt, sử dụng còi, đèn không đúng với thiết kế của nhà sản xuất đối với từng loại xe cơ giới bạn phải đảm bảo yêu cầu nào dưới đây?",
-				true, "nan", a1.getId(), set1.getId(), kn.getId());
+				"nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_33);
 
 		Question questionA1_41 = new Question(6,
 				"Khi gặp hiệu lệnh như dưới đây của cảnh sát giao thông thì người tham gia giao thông phải đi như thế nào là đúng quy tắc giao thông?",
-				true, "a1_41.jpg", a1.getId(), set1.getId(), kn.getId());
+				"a1_41.jpg", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_41);
 
 		Question questionA1_49 = new Question(7,
 				"Trên đường có nhiều làn đường cho xe đi cùng chiều được phân biệt bằng vạch kẻ phân làn đường, người điều khiển phương tiện phải cho xe đi như thế nào?",
-				true, "nan", a1.getId(), set1.getId(), kn.getId());
+				"nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_49);
 
 		Question questionA1_57 = new Question(8,
 				"Tại nơi đường giao nhau không có báo hiệu đi theo vòng xuyến, người điều khiển phương tiện phải nhường đường như thế nào là đúng quy tắc giao thông?",
-				true, "nan", a1.getId(), set1.getId(), kn.getId());
+				"nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_57);
 
 		Question questionA1_65 = new Question(9, "Người lái xe mô tô xử lý như thế nào khi cho xe mô tô phía sau vượt?",
-				true, "nan", a1.getId(), set1.getId(), kn.getId());
+				"nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_65);
 
 		Question questionA1_73 = new Question(10,
 				"Người lái xe phải giảm tốc độ thấp hơn tốc độ tối đa cho phép đến mức cần thiết, chú ý quan sát và chuẩn bị sẵn sàng những tình huống có thể xảy ra để phòng ngừa tai nạn trong các trường hợp nào dưới đây?",
-				true, "nan", a1.getId(), set1.getId(), kn.getId());
+				"nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_73);
 
 		Question questionA1_81 = new Question(11,
 				"Tại nơi đường bộ giao nhau cùng mức với đường sắt chỉ có đèn tín hiệu hoặc chuông báo hiệu, khi đèn tín hiệu màu đỏ đã bất sáng hoặc có tiếng chuông báo hiệu, người tham gia giao thông phải dừng ngay và giữ khoảng cách tối thiểu bao nhiêu mét tính từ ray gần nhất?",
-				true, "nan", a1.getId(), set1.getId(), kn.getId());
+				"nan", a1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA1_81);
 
 		Question questionA1_89 = new Question(12,
 				"Khi quay đầu xe, người lái xe cần phải quan sát và thực hiện các thao tác nào để đảm bảo an toàn giao thông?",
-				true, "nan", a1.getId(), set1.getId(), kt.getId());
+				"nan", a1.getId(), set1.getId(), kt.getId());
 		questionRepo.save(questionA1_89);
 
 		Question questionA1_97 = new Question(13,
 				"Để đảm bảo an toàn khi tham gia giao thông, người lái xe lái xe mô tô hai bánh cần điều khiển tay ga như thế nào trong các trường hợp dưới đây?",
-				true, "nan", a1.getId(), set1.getId(), kt.getId());
+				"nan", a1.getId(), set1.getId(), kt.getId());
 		questionRepo.save(questionA1_97);
 
-		Question questionA1_105 = new Question(14, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?", true,
+		Question questionA1_105 = new Question(14, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?",
 				"a1_105.jpg", a1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA1_105);
 
-		Question questionA1_113 = new Question(15, "Biển nào báo hiệu \"Đường đôi\"?", true, "a1_113.jpg", a1.getId(),
+		Question questionA1_113 = new Question(15, "Biển nào báo hiệu \"Đường đôi\"?", "a1_113.jpg", a1.getId(),
 				set1.getId(), bb.getId());
 		questionRepo.save(questionA1_113);
 
-		Question questionA1_121 = new Question(16, "Biển báo này có ý nghĩa gì?", true, "a1_121.jpg", a1.getId(),
+		Question questionA1_121 = new Question(16, "Biển báo này có ý nghĩa gì?", "a1_121.jpg", a1.getId(),
 				set1.getId(), bb.getId());
 		questionRepo.save(questionA1_121);
 
-		Question questionA1_129 = new Question(17, "Biển nào cấm các phương tiện giao thông đường bộ rẽ trái?", true,
+		Question questionA1_129 = new Question(17, "Biển nào cấm các phương tiện giao thông đường bộ rẽ trái?",
 				"a1_129.jpg", a1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA1_129);
 
-		Question questionA1_137 = new Question(18, "Biển báo này có ý nghĩa như thế nào?", true, "a1_137.jpg",
+		Question questionA1_137 = new Question(18, "Biển báo này có ý nghĩa như thế nào?", "a1_137.jpg",
 				a1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA1_137);
 
 		Question questionA1_145 = new Question(19,
-				"Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối đa cho phép\"?", true, "a1_145.jpg",
+				"Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối đa cho phép\"?", "a1_145.jpg",
 				a1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA1_145);
 
 		Question questionA1_153 = new Question(20,
 				"Biển báo nào báo hiệu bắt đầu đoạn đường vào phạm vi khu dân cư, các phương tiện tham gia giao thông phải tuân thủ các quy định đi đường được áp dụng ở khu đông dân cư?",
-				true, "a1_153.jpg", a1.getId(), set1.getId(), bb.getId());
+				"a1_153.jpg", a1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA1_153);
 
 		Question questionA1_161 = new Question(21,
-				"Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy ( vạch tim đường), xe không được lấn làn, không được đè lên vạch?",
-				true, "a1_161.jpg", a1.getId(), set1.getId(), bb.getId());
+				"Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy (vạch tim đường), xe không được lấn làn, không được đè lên vạch?",
+				"a1_161.jpg", a1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA1_161);
 
-		Question questionA1_169 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?", true,
+		Question questionA1_169 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?",
 				"a1_169.jpg", a1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionA1_169);
 
 		Question questionA1_177 = new Question(23, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
-				true, "a1_177.jpg", a1.getId(), set1.getId(), sh.getId());
+				"a1_177.jpg", a1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionA1_177);
 
-		Question questionA1_185 = new Question(24, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionA1_185 = new Question(24, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"a1_185.jpg", a1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionA1_185);
 
-		Question questionA1_193 = new Question(25, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?", true,
+		Question questionA1_193 = new Question(25, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?",
 				"a1_193.jpg", a1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionA1_193);
 
 		Question questionA1_2 = new Question(1,
 				"Hành vi điều khiển xe cơ giới chạy quá tốc độ quy định, giành đường, vượt ẩu có bị nghiêm cấm hay không?",
-				true, "nan", a1.getId(), set2.getId(), kn.getId());
+				"nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_2);
 
 		Question questionA1_10 = new Question(2,
 				"Người điều khiển xe mô tô hai bánh, xe gắn máy có được đi xe dàn hàng ngang; đi xe vào phần đường dành cho người đi bộ và phương tiện khác; sử dụng ô, điện thoại di động, thiết bị âm thanh (trừ thiết bị trợ thính) hay không?",
-				true, "nan", a1.getId(), set2.getId(), kn.getId());
+				"nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_10);
 
 		Question questionA1_18 = new Question(3, "Người lái xe được hiểu như thế nào trong các khái niệm dưới đây?",
-				true, "nan", a1.getId(), set2.getId(), kn.getId());
+				"nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_18);
 
 		Question questionA1_26 = new Question(4, "\"Người tham gia giao thông đường bộ\" gồm những đối tượng nào?",
-				true, "nan", a1.getId(), set2.getId(), kn.getId());
+				"nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_26);
 
 		Question questionA1_34 = new Question(5,
 				"Bạn đang lái xe phía trước có một xe cảnh sát giao thông không phát tín hiệu ưu tiên bạn có được phép vượt hay không?",
-				true, "nan", a1.getId(), set2.getId(), kn.getId());
+				"nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_34);
 
 		Question questionA1_42 = new Question(6,
-				"Theo luật giao thông đường bộ, tín hiệu đèn giao thông gồm 3 màu nào dưới đây?", true, "a1_42.jpg",
+				"Theo luật giao thông đường bộ, tín hiệu đèn giao thông gồm 3 màu nào dưới đây?", "a1_42.jpg",
 				a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_42);
 
 		Question questionA1_50 = new Question(7,
 				"Trên đường một chiều có vạch kẻ phân làn đường xe thô sơ và xe cơ giới phải đi như thế nào là đúng quy tắc giao thông?",
-				true, "nan", a1.getId(), set2.getId(), kn.getId());
+				"nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_50);
 
 		Question questionA1_58 = new Question(8,
 				"Người ngồi trên xe mô tô 2 bánh, xe gắn máy phải đội mũ bảo hiểm có cài quai đúng quy cách khi nào?",
-				true, "nan", a1.getId(), set2.getId(), kn.getId());
+				"nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_58);
 
 		Question questionA1_66 = new Question(9,
 				"Trong các trường hợp dưới đây, để đảo bảo an toàn khi tham gia giao thông, người lái xe mô tô cần thực hiện như thế nào?",
-				true, "nan", a1.getId(), set2.getId(), kn.getId());
+				"nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_66);
 
 		Question questionA1_74 = new Question(10,
 				"Tác dụng của mũ bảo hiểm đối với người ngồi trên xe mô tô hai bánh trong trường hợp xảy ra tai nạn giao thông là gì?",
-				true, "nan", a1.getId(), set2.getId(), kn.getId());
+				"nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_74);
 
 		Question questionA1_82 = new Question(11,
 				"Người điều khiển phương tiện tham giao thông trong hầm đường bộ ngoài việc phải tuân thủ các quy tắc giao thông còn phải thực hiện những quy định nào dưới đây?",
-				true, "nan", a1.getId(), set2.getId(), kn.getId());
+				"nan", a1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA1_82);
 
 		Question questionA1_90 = new Question(12,
-				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", true, "nan",
+				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", "nan",
 				a1.getId(), set2.getId(), kt.getId());
 		questionRepo.save(questionA1_90);
 
 		Question questionA1_98 = new Question(13,
 				"Kỹ thuật cơ bản để giữ thăng bằng khi điều khiển xe mô tô đi trên đường gồ ghề như thế nào trong các trường hợp dưới đây?",
-				true, "nan", a1.getId(), set2.getId(), kt.getId());
+				"nan", a1.getId(), set2.getId(), kt.getId());
 		questionRepo.save(questionA1_98);
 
-		Question questionA1_106 = new Question(14, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?", true,
+		Question questionA1_106 = new Question(14, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?",
 				"a1_106.jpg", a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_106);
 
-		Question questionA1_114 = new Question(15, "Biển nào báo hiệu \"Đường đôi\"?", true, "a1_114.jpg", a1.getId(),
+		Question questionA1_114 = new Question(15, "Biển nào báo hiệu \"Đường đôi\"?", "a1_114.jpg", a1.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionA1_114);
 
-		Question questionA1_122 = new Question(16, "Biển nào dưới đây xe gắn máy được phép đi vào?", true, "a1_122.jpg",
+		Question questionA1_122 = new Question(16, "Biển nào dưới đây xe gắn máy được phép đi vào?", "a1_122.jpg",
 				a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_122);
 
-		Question questionA1_130 = new Question(17, "Biển nào xe được phép quay đầu nhưng không được rẽ trái?", true,
+		Question questionA1_130 = new Question(17, "Biển nào xe được phép quay đầu nhưng không được rẽ trái?",
 				"a1_130.jpg", a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_130);
 
 		Question questionA1_138 = new Question(18,
-				"Chiều dài đoạn đường 500 m từ nơi đặt biển này, người lái xe có được phép bấm còi không?", true,
+				"Chiều dài đoạn đường 500 m từ nơi đặt biển này, người lái xe có được phép bấm còi không?",
 				"a1_138.jpg", a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_138);
 
 		Question questionA1_146 = new Question(19,
-				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?", true,
+				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?",
 				"a1_146.jpg", a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_146);
 
-		Question questionA1_154 = new Question(20, "Biển nào báo hiệu \"Hướng đi thẳng phải theo\"?", true,
+		Question questionA1_154 = new Question(20, "Biển nào báo hiệu \"Hướng đi thẳng phải theo\"?",
 				"a1_154.jpg", a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_154);
 
 		Question questionA1_162 = new Question(21,
-				"Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy ( vạch tim đường)?", true, "a1_162.jpg",
+				"Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy ( vạch tim đường)?", "a1_162.jpg",
 				a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_162);
 
-		Question questionA1_170 = new Question(22, "Theo tín hiệu đèn, xe nào được phép đi?", true, "a1_170.jpg",
+		Question questionA1_170 = new Question(22, "Theo tín hiệu đèn, xe nào được phép đi?", "a1_170.jpg",
 				a1.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionA1_170);
 
-		Question questionA1_178 = new Question(23, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionA1_178 = new Question(23, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"a1_178.jpg", a1.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionA1_178);
 
-		Question questionA1_186 = new Question(24, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionA1_186 = new Question(24, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"a1_186.jpg", a1.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionA1_186);
 
-		Question questionA1_194 = new Question(25, "Trong hình dưới những xe nào vi phạm quy tắc giao thông?", true,
+		Question questionA1_194 = new Question(25, "Trong hình dưới những xe nào vi phạm quy tắc giao thông?",
 				"a1_194.jpg", a1.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionA1_194);
 
 		Question questionA1_3 = new Question(1,
 				"Bạn đang lái xe phía trước có một xe cứu thương đang phát tín hiệu ưu tiên bạn có được phép vượt hay không?",
-				true, "nan", a1.getId(), set3.getId(), kn.getId());
+				"nan", a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_3);
 
 		Question questionA1_11 = new Question(2,
 				"Hành vi vận chuyển đồ vật cồng kềnh bằng xe mô tô, xe gắn máy khi tham gia giao thông có được phép hay không?",
-				true, "nan", a1.getId(), set3.getId(), kn.getId());
+				"nan", a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_11);
 
 		Question questionA1_19 = new Question(3,
-				"Trong các khái niệm dưới đây, \"dải phân cách\" được hiểu như thế nào là đúng?", true, "nan",
+				"Trong các khái niệm dưới đây, \"dải phân cách\" được hiểu như thế nào là đúng?", "nan",
 				a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_19);
 
-		Question questionA1_27 = new Question(4, "Khái niệm \"đỗ xe\" được hiểu như thế nào là đúng?", true, "nan",
+		Question questionA1_27 = new Question(4, "Khái niệm \"đỗ xe\" được hiểu như thế nào là đúng?", "nan",
 				a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_27);
 
 		Question questionA1_35 = new Question(5,
 				"Khi điều khiển xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy, những hành vi nào không được phép?",
-				true, "nan", a1.getId(), set3.getId(), kn.getId());
+				"nan", a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_35);
 
 		Question questionA1_43 = new Question(6,
 				"Biển báo hiệu có dạng hình tròn, viền đỏ, nền trắng, trên nền có hình vẽ hoặc chữ số, chữ viết màu đen là loại biển gì dưới đây?",
-				true, "nan", a1.getId(), set3.getId(), kn.getId());
+				"nan", a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_43);
 
 		Question questionA1_51 = new Question(7,
 				"Bạn đang lái xe trong khu vực đô thị từ 22 giờ đến 5 giờ sáng hôm sau và cần vượt một xe khác, bạn cần báo hiệu như thế nào để đảm bảo an toàn giao thông?",
-				true, "nan", a1.getId(), set3.getId(), kn.getId());
+				"nan", a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_51);
 
 		Question questionA1_59 = new Question(8,
 				"Người điều khiển xe mô tô hai bánh, xe gắn máy được phép chở tối đa 2 người trong những trường hợp nào?",
-				true, "nan", a1.getId(), set3.getId(), kn.getId());
+				"nan", a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_59);
 
 		Question questionA1_67 = new Question(9,
-				"Đường bộ trong khu vực đông dân cư gồm những đoạn đường nào dưới đây?", true, "nan", a1.getId(),
+				"Đường bộ trong khu vực đông dân cư gồm những đoạn đường nào dưới đây?", "nan", a1.getId(),
 				set3.getId(), kn.getId());
 		questionRepo.save(questionA1_67);
 
 		Question questionA1_75 = new Question(10,
 				"Tại nơi đường giao nhau, người lái xe đang đi trên đường không ưu tiên phải xử lý như thế nào là đúng quy tắc giao thông?",
-				true, "nan", a1.getId(), set3.getId(), kn.getId());
+				"nan", a1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA1_75);
 
 		Question questionA1_83 = new Question(11, "Khái niệm về văn hóa giao thông được hiểu như thế nào là đúng?",
-				true, "nan", a1.getId(), set3.getId(), vh.getId());
+				"nan", a1.getId(), set3.getId(), vh.getId());
 		questionRepo.save(questionA1_83);
 
 		Question questionA1_91 = new Question(12,
 				"Để đạt được hiệu quả phanh cao nhất, người lái xe mô tô phải sử dụng các kỹ năng như thế nào dưới đây?",
-				true, "nan", a1.getId(), set3.getId(), kt.getId());
+				"nan", a1.getId(), set3.getId(), kt.getId());
 		questionRepo.save(questionA1_91);
 
 		Question questionA1_99 = new Question(13,
 				"Khi điều khiển xe mô tô tay ga xuống đường dốc dài, độ dốc cao, người lái xe cần thực hiện các thao tác nào dưới đây để đảm bảo an toàn?",
-				true, "nan", a1.getId(), set3.getId(), kt.getId());
+				"nan", a1.getId(), set3.getId(), kt.getId());
 		questionRepo.save(questionA1_99);
 
-		Question questionA1_107 = new Question(14, "Biển nào báo hiệu \"Giao nhau với đường sắt có rào chắn\"?", true,
+		Question questionA1_107 = new Question(14, "Biển nào báo hiệu \"Giao nhau với đường sắt có rào chắn\"?",
 				"a1_107.jpg", a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_107);
 
-		Question questionA1_115 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", true,
+		Question questionA1_115 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?",
 				"a1_115.jpg", a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_115);
 
-		Question questionA1_123 = new Question(16, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?", true,
+		Question questionA1_123 = new Question(16, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?",
 				"a1_123.jpg", a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_123);
 
-		Question questionA1_131 = new Question(17, "Biển nào là biển \"Cấm đi ngược chiều\"?", true, "a1_131.jpg",
+		Question questionA1_131 = new Question(17, "Biển nào là biển \"Cấm đi ngược chiều\"?", "a1_131.jpg",
 				a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_131);
 
-		Question questionA1_139 = new Question(18, "Biển nào xe mô tô hai bánh không được đi vào?", true, "a1_139.jpg",
+		Question questionA1_139 = new Question(18, "Biển nào xe mô tô hai bánh không được đi vào?", "a1_139.jpg",
 				a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_139);
 
 		Question questionA1_147 = new Question(19, "Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối thiểu\"?",
-				true, "a1_147.jpg", a1.getId(), set3.getId(), bb.getId());
+				"a1_147.jpg", a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_147);
 
-		Question questionA1_155 = new Question(20, "Biển nào báo hiệu \"Đường một chiều\"?", true, "a1_155.jpg",
+		Question questionA1_155 = new Question(20, "Biển nào báo hiệu \"Đường một chiều\"?", "a1_155.jpg",
 				a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_155);
 
-		Question questionA1_163 = new Question(21, "Các vạch dưới đây có tác dụng gì?", true, "a1_163.jpg", a1.getId(),
+		Question questionA1_163 = new Question(21, "Các vạch dưới đây có tác dụng gì?", "a1_163.jpg", a1.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionA1_163);
 
-		Question questionA1_171 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?", true,
+		Question questionA1_171 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?",
 				"a1_171.jpg", a1.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionA1_171);
 
-		Question questionA1_179 = new Question(23, "Xe nào được quyền đi trước trong trường hợp này?", true,
+		Question questionA1_179 = new Question(23, "Xe nào được quyền đi trước trong trường hợp này?",
 				"a1_179.jpg", a1.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionA1_179);
 
-		Question questionA1_187 = new Question(24, "Theo hướng mũi tên, những hướng nào xe gắn máy đi được?", true,
+		Question questionA1_187 = new Question(24, "Theo hướng mũi tên, những hướng nào xe gắn máy đi được?",
 				"a1_187.jpg", a1.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionA1_187);
 
-		Question questionA1_195 = new Question(25, "Xe nào vi phạm quy tắc giao thông?", true, "a1_195.jpg", a1.getId(),
+		Question questionA1_195 = new Question(25, "Xe nào vi phạm quy tắc giao thông?", "a1_195.jpg", a1.getId(),
 				set3.getId(), sh.getId());
 		questionRepo.save(questionA1_195);
 
 		Question questionA1_4 = new Question(1,
 				"Ở phần đường dành cho người đi bộ qua đường, trên cầu, đầu cầu, đường cao tốc, đường hẹp, đường dốc, tại nơi đường bộ giao nhau cùng mức với đường sắt có được quay đầu xe hay không?",
-				true, "nan", a1.getId(), set4.getId(), kn.getId());
+				"nan", a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_4);
 
 		Question questionA1_12 = new Question(2,
 				"Hành vi sử dụng xe mô tô để kéo, đẩy xe mô tô khác bị hết xăng đến trạm mua xăng có được phép hay không?",
-				true, "nan", a1.getId(), set4.getId(), kn.getId());
+				"nan", a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_12);
 
-		Question questionA1_20 = new Question(3, "\"Dải phân cách\" trên đường bộ gồm những loại nào?", true, "nan",
+		Question questionA1_20 = new Question(3, "\"Dải phân cách\" trên đường bộ gồm những loại nào?", "nan",
 				a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_20);
 
 		Question questionA1_28 = new Question(4,
-				"Trong các khái niệm dưới đây, khái niệm \"dừng xe\" được hiểu như thế nào là đúng?", true, "nan",
+				"Trong các khái niệm dưới đây, khái niệm \"dừng xe\" được hiểu như thế nào là đúng?", "nan",
 				a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_28);
 
-		Question questionA1_36 = new Question(5, "Người đủ 16 tuổi được điều khiển các loại xe nào dưới đây?", true,
+		Question questionA1_36 = new Question(5, "Người đủ 16 tuổi được điều khiển các loại xe nào dưới đây?",
 				"nan", a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_36);
 
 		Question questionA1_44 = new Question(6,
 				"Biển báo hiệu có dạng hình tam giác đều, viền đỏ, nền màu vàng, trên có hình vẽ màu đen là loại biển gì dưới đây?",
-				true, "a1_44.jpg", a1.getId(), set4.getId(), kn.getId());
+				"a1_44.jpg", a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_44);
 
 		Question questionA1_52 = new Question(7,
 				"Khi điều khiển xe chạy trên đường biết có xe sau xin vượt nếu đủ điều kiện an toàn người lái xe phải làm gì?",
-				true, "nan", a1.getId(), set4.getId(), kn.getId());
+				"nan", a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_52);
 
 		Question questionA1_60 = new Question(8,
-				"Người điều khiển xe mô tô hai bánh, xe gắn máy không được thực hiện những hành vi nào dưới dây?", true,
+				"Người điều khiển xe mô tô hai bánh, xe gắn máy không được thực hiện những hành vi nào dưới dây?",
 				"nan", a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_60);
 
 		Question questionA1_68 = new Question(9,
 				"Tốc độ tối đa cho phép đối với xe máy chuyên dùng, xe gắn máy (kể cả xe máy điện) và các loại xe tương tự trên đường bộ (trừ đường cao tốc) không được vượt quá bao nhiêu km",
-				true, "nan", a1.getId(), set4.getId(), kn.getId());
+				"nan", a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_68);
 
 		Question questionA1_76 = new Question(10,
 				"Người lái xe phải xử lý như thế nào khi quan sát phía trước thấy người đi bộ đang sang đường tại nơi có vạch đường dành cho người đi bộ để đảm bảo an toàn?",
-				true, "nan", a1.getId(), set4.getId(), kn.getId());
+				"nan", a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_76);
 
 		Question questionA1_84 = new Question(11,
 				"Trong các hành vi dưới đây, người lái xe ô tô, mô tô có văn hóa giao thông phải ứng xử như thế nào?",
-				true, "nan", a1.getId(), set4.getId(), vh.getId());
+				"nan", a1.getId(), set4.getId(), vh.getId());
 		questionRepo.save(questionA1_84);
 
 		Question questionA1_92 = new Question(12,
 				"Khi đang lái xe mô tô và ô tô, nếu có nhu cầu sử dụng điện thoại để nhắn tin hoặc gọi điện, người lái xe phải thực hiện như thế nào trong các tình huống dưới đây?",
-				true, "nan", a1.getId(), set4.getId(), kt.getId());
+				"nan", a1.getId(), set4.getId(), kt.getId());
 		questionRepo.save(questionA1_92);
 
 		Question questionA1_100 = new Question(13,
 				"Các phương tiện tham gia giao thông đường bộ (kể cả những xe có quyền ưu tiên) đều phải dừng lại bên phải đường của mình và trước vạch \"dừng xe\" tại các điểm giao cắt giữa đường bộ và đường sắt khi có báo hiệu dừng nào dưới đây?",
-				true, "nan", a1.getId(), set4.getId(), kt.getId());
+				"nan", a1.getId(), set4.getId(), kt.getId());
 		questionRepo.save(questionA1_100);
 
-		Question questionA1_108 = new Question(14, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?", true,
+		Question questionA1_108 = new Question(14, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?",
 				"a1_108.jpg", a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_108);
 
-		Question questionA1_116 = new Question(15, "Biển nào báo hiệu \"Đường hai chiều\"?", true, "a1_116.jpg",
+		Question questionA1_116 = new Question(15, "Biển nào báo hiệu \"Đường hai chiều\"?", "a1_116.jpg",
 				a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_116);
 
-		Question questionA1_124 = new Question(16, "khi gặp biển nào thì xe mô tô hai bánh được đi vào?", true,
+		Question questionA1_124 = new Question(16, "khi gặp biển nào thì xe mô tô hai bánh được đi vào?",
 				"a1_124.jpg", a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_124);
 
-		Question questionA1_132 = new Question(17, "Biển nào dưới đây các phương tiện không được phép đi vào?", true,
+		Question questionA1_132 = new Question(17, "Biển nào dưới đây các phương tiện không được phép đi vào?",
 				"a1_132.jpg", a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_132);
 
-		Question questionA1_140 = new Question(18, "Biển nào xe mô tô hai bánh được đi vào?", true, "a1_140.jpg",
+		Question questionA1_140 = new Question(18, "Biển nào xe mô tô hai bánh được đi vào?", "a1_140.jpg",
 				a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_140);
 
-		Question questionA1_148 = new Question(19, "Biển nào dưới đây báo hiệu hết cấm vượt?", true, "a1_148.jpg",
+		Question questionA1_148 = new Question(19, "Biển nào dưới đây báo hiệu hết cấm vượt?", "a1_148.jpg",
 				a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_148);
 
-		Question questionA1_156 = new Question(20, "Biển nào chỉ dẫn cho người đi bộ sử dụng cầu vượt qua đường?", true,
+		Question questionA1_156 = new Question(20, "Biển nào chỉ dẫn cho người đi bộ sử dụng cầu vượt qua đường?",
 				"a1_156.jpg", a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_156);
 
-		Question questionA1_164 = new Question(21, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?", true,
+		Question questionA1_164 = new Question(21, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?",
 				"a1_164.jpg", a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_164);
 
 		Question questionA1_172 = new Question(22,
-				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", true, "a1_172.jpg",
+				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", "a1_172.jpg",
 				a1.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionA1_172);
 
 		Question questionA1_180 = new Question(23, "Các xe đi theo thứ tự nào là đúng quy tắc giao thông đường bộ?",
-				true, "a1_180.jpg", a1.getId(), set4.getId(), sh.getId());
+				"a1_180.jpg", a1.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionA1_180);
 
-		Question questionA1_188 = new Question(24, "Theo hướng mũi tên, những hướng nào xe mô tô được phép đi?", true,
+		Question questionA1_188 = new Question(24, "Theo hướng mũi tên, những hướng nào xe mô tô được phép đi?",
 				"a1_188.jpg", a1.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionA1_188);
 
-		Question questionA1_196 = new Question(25, "Các xe đi theo thứ nào là đúng quy tắc giao thông đường bộ?", true,
+		Question questionA1_196 = new Question(25, "Các xe đi theo thứ nào là đúng quy tắc giao thông đường bộ?",
 				"a1_196.jpg", a1.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionA1_196);
 
 		Question questionA1_5 = new Question(1,
 				"Người điều khiển xe mô tô hai bánh, ba bánh, xe gắn máy có được phép sử dụng xe để kéo hoặc đẩy các phương tiện khác khi tham gia giao thông không?",
-				true, "nan", a1.getId(), set5.getId(), kn.getId());
+				"nan", a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_5);
 
 		Question questionA1_13 = new Question(2,
 				"Khi đang lên dốc người ngồi trên xe mô tô có được kéo theo người đang điều khiển xe đạp hay không?",
-				true, "nan", a1.getId(), set5.getId(), kn.getId());
+				"nan", a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_13);
 
 		Question questionA1_21 = new Question(3,
-				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", true, "nan",
+				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", "nan",
 				a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_21);
 
-		Question questionA1_29 = new Question(4, "Cuộc đua xe chỉ được thực hiện khi nào?", true, "nan", a1.getId(),
+		Question questionA1_29 = new Question(4, "Cuộc đua xe chỉ được thực hiện khi nào?", "nan", a1.getId(),
 				set5.getId(), kn.getId());
 		questionRepo.save(questionA1_29);
 
 		Question questionA1_37 = new Question(5,
 				"Người đủ bao nhiêu tuổi trở lên thì được điều khiển xe mô tô hai bánh, xe mô tô ba bánh có dung tích xi lanh từ 50 cm3 trở lên và các loại xe có kết cấu tương tự; xe ô tô tải, máy kéo có trọng tải dưới 3500kg; xe ô tô chở người đến 9 chỗ ngồi?",
-				true, "nan", a1.getId(), set5.getId(), kn.getId());
+				"nan", a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_37);
 
 		Question questionA1_45 = new Question(6,
-				"Biển báo hiệu hình tròn có nền xanh lam có hình vẽ màu trắng là loại gì dưới đây?", true, "a1_45.jpg",
+				"Biển báo hiệu hình tròn có nền xanh lam có hình vẽ màu trắng là loại gì dưới đây?", "a1_45.jpg",
 				a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_45);
 
 		Question questionA1_53 = new Question(7,
-				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?", true,
+				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?",
 				"nan", a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_53);
 
 		Question questionA1_61 = new Question(8,
 				"Người lái xe phải giảm tốc độ thấp hơn tốc độ tối đa cho phép (có thể dừng lại một cách an toàn) trong trường hợp nào dưới đây?",
-				true, "nan", a1.getId(), set5.getId(), kn.getId());
+				"nan", a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_61);
 
 		Question questionA1_69 = new Question(9,
 				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường đôi có dải phân cách giữa, xe mô tô hai bánh, ô tô chở người đến 30 chỗ tham gia giao thông với tốc độ tối đa cho phép là bao nhiêu?",
-				true, "nan", a1.getId(), set5.getId(), kn.getId());
+				"nan", a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_69);
 
 		Question questionA1_77 = new Question(10,
 				"Tại nơi đường giao nhau, khi đèn điều khiển giao thông có tín hiệu màu vàng, người điều khiển giao thông phải chấp hành như thế nào là đúng quy tắc giao thông?",
-				true, "nan", a1.getId(), set5.getId(), kn.getId());
+				"nan", a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_77);
 
 		Question questionA1_85 = new Question(11,
-				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?", true,
+				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?",
 				"nan", a1.getId(), set5.getId(), vh.getId());
 		questionRepo.save(questionA1_85);
 
 		Question questionA1_93 = new Question(12,
-				"Gương chiếu hậu của xe mô tô hai bánh, có tác dụng gì trong các trường hợp dưới đây?", true, "nan",
+				"Gương chiếu hậu của xe mô tô hai bánh, có tác dụng gì trong các trường hợp dưới đây?", "nan",
 				a1.getId(), set5.getId(), kt.getId());
 		questionRepo.save(questionA1_93);
 
 		Question questionA1_101 = new Question(13,
-				"Biển nào báo hiệu \"Đường giao nhau\" của các tuyến đường cùng cấp?", true, "a1_101.jpg", a1.getId(),
+				"Biển nào báo hiệu \"Đường giao nhau\" của các tuyến đường cùng cấp?", "a1_101.jpg", a1.getId(),
 				set5.getId(), bb.getId());
 		questionRepo.save(questionA1_101);
 
 		Question questionA1_109 = new Question(14,
-				"Biển nào báo hiệu đường sắt giao nhau với đường bộ không có rào chắn?", true, "a1_109.jpg", a1.getId(),
+				"Biển nào báo hiệu đường sắt giao nhau với đường bộ không có rào chắn?", "a1_109.jpg", a1.getId(),
 				set5.getId(), bb.getId());
 		questionRepo.save(questionA1_109);
 
-		Question questionA1_117 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", true,
+		Question questionA1_117 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?",
 				"a1_117.jpg", a1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA1_117);
 
-		Question questionA1_125 = new Question(16, "Biển nào cấm quay đầu xe?", true, "a1_125.jpg", a1.getId(),
+		Question questionA1_125 = new Question(16, "Biển nào cấm quay đầu xe?", "a1_125.jpg", a1.getId(),
 				set5.getId(), bb.getId());
 		questionRepo.save(questionA1_125);
 
 		Question questionA1_133 = new Question(17, "Khi gặp biển nào xe ưu tiên theo luật định vẫn phải dừng lại?",
-				true, "a1_133.jpg", a1.getId(), set5.getId(), bb.getId());
+				"a1_133.jpg", a1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA1_133);
 
-		Question questionA1_141 = new Question(18, "Gặp biển nào người lái xe phải nhường đường cho người đi bộ?", true,
+		Question questionA1_141 = new Question(18, "Gặp biển nào người lái xe phải nhường đường cho người đi bộ?",
 				"a1_141.jpg", a1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA1_141);
 
 		Question questionA1_149 = new Question(19, "Trong các biển dưới đây biển nào là biển \"Hết mọi lệnh cấm\"?",
-				true, "a1_149.jpg", a1.getId(), set5.getId(), bb.getId());
+				"a1_149.jpg", a1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA1_149);
 
-		Question questionA1_157 = new Question(20, "Biển nào chỉ dẫn cho người đi bộ sử dụng hầm chui qua đường?", true,
+		Question questionA1_157 = new Question(20, "Biển nào chỉ dẫn cho người đi bộ sử dụng hầm chui qua đường?",
 				"a1_157.jpg", a1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA1_157);
 
-		Question questionA1_165 = new Question(21, "Vạch dưới đây có ý nghĩa gì?", true, "a1_165.jpg", a1.getId(),
+		Question questionA1_165 = new Question(21, "Vạch dưới đây có ý nghĩa gì?", "a1_165.jpg", a1.getId(),
 				set5.getId(), bb.getId());
 		questionRepo.save(questionA1_165);
 
 		Question questionA1_173 = new Question(22, "Trong hình dưới đây, xe nào chấp hành đúng quy tắc giao thông?",
-				true, "a1_173.jpg", a1.getId(), set5.getId(), sh.getId());
+				"a1_173.jpg", a1.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionA1_173);
 
-		Question questionA1_181 = new Question(23, "Trong trường hợp này xe nào đỗ vi phạm quy tắc giao thông?", true,
+		Question questionA1_181 = new Question(23, "Trong trường hợp này xe nào đỗ vi phạm quy tắc giao thông?",
 				"a1_181.jpg", a1.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionA1_181);
 
-		Question questionA1_189 = new Question(24, "Trường hợp này xe nào được quyền đi trước?", true, "a1_189.jpg",
+		Question questionA1_189 = new Question(24, "Trường hợp này xe nào được quyền đi trước?", "a1_189.jpg",
 				a1.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionA1_189);
 
-		Question questionA1_197 = new Question(25, "Bạn xử lý như thế nào trong trường hợp này?", true, "a1_197.jpg",
+		Question questionA1_197 = new Question(25, "Bạn xử lý như thế nào trong trường hợp này?", "a1_197.jpg",
 				a1.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionA1_197);
 
 		Question questionA1_6 = new Question(1,
 				"Khi điều khiển xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy, những hành vi buông cả hai tay; sử dụng xe để kéo, đẩy xe khác, vật khác; sử dụng chân chống của xe quệt xuống đường khi xe đang chạy có được phép không?",
-				true, "nan", a1.getId(), set6.getId(), kn.getId());
+				"nan", a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_6);
 
 		Question questionA1_14 = new Question(2,
 				"Theo luật phòng chống tác hại của rượu, bia, đối tượng nào dưới đây bị cấm sử dụng rượu bia khi tham gia giao thông?",
-				true, "nan", a1.getId(), set6.getId(), kn.getId());
+				"nan", a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_14);
 
 		Question questionA1_22 = new Question(3,
-				"Khái niệm \"phương tiện giao thông thô sơ đường bộ\" được hiểu thế nào là đúng?", true, "nan",
+				"Khái niệm \"phương tiện giao thông thô sơ đường bộ\" được hiểu thế nào là đúng?", "nan",
 				a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_22);
 
 		Question questionA1_30 = new Question(4,
-				"Sử dụng rượu, bia khi lái xe, nếu bị phát hiện thì bị xử lý như thế nào?", true, "nan", a1.getId(),
+				"Sử dụng rượu, bia khi lái xe, nếu bị phát hiện thì bị xử lý như thế nào?", "nan", a1.getId(),
 				set6.getId(), kn.getId());
 		questionRepo.save(questionA1_30);
 
 		Question questionA1_38 = new Question(5,
-				"Người có giấy phép lái xe mô tô hạng A1 không được phép điều khiển loại xe nào dưới đây?", true, "nan",
+				"Người có giấy phép lái xe mô tô hạng A1 không được phép điều khiển loại xe nào dưới đây?", "nan",
 				a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_38);
 
 		Question questionA1_46 = new Question(6,
 				"Biển báo hiệu hình chữ nhật hoặc hình vuông hoặc hình mũi tên nền xanh lam là loại biển gì dưới đây?",
-				true, "a1_46.jpg", a1.getId(), set6.getId(), kn.getId());
+				"a1_46.jpg", a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_46);
 
 		Question questionA1_54 = new Question(7,
-				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?", true,
+				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?",
 				"nan", a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_54);
 
 		Question questionA1_62 = new Question(8,
 				"Khi điều khiển xe cơ giới, người lái xe phải bật đèn tín hiệu báo rẽ trong các trường hợp nào sau đây?",
-				true, "nan", a1.getId(), set6.getId(), kn.getId());
+				"nan", a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_62);
 
 		Question questionA1_70 = new Question(9,
 				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường hai chiều không có dải phân cách giữa, xe mô tô hai bánh, ô tô chở người đến 30 chỗ tham gia giao thông với tốc độ tối đa cho phép là bao nhiêu?",
-				true, "nan", a1.getId(), set6.getId(), kn.getId());
+				"nan", a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_70);
 
 		Question questionA1_78 = new Question(10,
 				"Để báo hiệu cho xe phía trước biết xe mô tô của bạn muốn vượt, bạn phải có tín hiệu như thế nào dưới đây?",
-				true, "nan", a1.getId(), set6.getId(), kn.getId());
+				"nan", a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_78);
 
 		Question questionA1_86 = new Question(11,
 				"Trên đường đang xảy ra ùn tắc những hành vi nào sau đây là thiếu văn hóa khi tham gia giao thông?",
-				true, "nan", a1.getId(), set6.getId(), vh.getId());
+				"nan", a1.getId(), set6.getId(), vh.getId());
 		questionRepo.save(questionA1_86);
 
 		Question questionA1_94 = new Question(12,
-				"Khi điều khiển xe mô tô quay đầu người lái xe cần thực hiện như thế nào để đảm bảo an toàn?", true,
+				"Khi điều khiển xe mô tô quay đầu người lái xe cần thực hiện như thế nào để đảm bảo an toàn?",
 				"nan", a1.getId(), set6.getId(), kt.getId());
 		questionRepo.save(questionA1_94);
 
-		Question questionA1_102 = new Question(13, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?", true,
+		Question questionA1_102 = new Question(13, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?",
 				"a1_102.jpg", a1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA1_102);
 
 		Question questionA1_110 = new Question(14,
-				"Biển nào báo hiệu sắp đến chỗ giao nhau giữa đường bộ và đường sắt?", true, "a1_110.jpg", a1.getId(),
+				"Biển nào báo hiệu sắp đến chỗ giao nhau giữa đường bộ và đường sắt?", "a1_110.jpg", a1.getId(),
 				set6.getId(), bb.getId());
 		questionRepo.save(questionA1_110);
 
-		Question questionA1_118 = new Question(15, "Biển nào báo hiệu \"Chú ý chướng ngại vật\"?", true, "a1_118.jpg",
+		Question questionA1_118 = new Question(15, "Biển nào báo hiệu \"Chú ý chướng ngại vật\"?", "a1_118.jpg",
 				a1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA1_118);
 
-		Question questionA1_126 = new Question(16, "Biển nào cấm xe rẽ trái?", true, "a1_126.jpg", a1.getId(),
+		Question questionA1_126 = new Question(16, "Biển nào cấm xe rẽ trái?", "a1_126.jpg", a1.getId(),
 				set6.getId(), bb.getId());
 		questionRepo.save(questionA1_126);
 
 		Question questionA1_134 = new Question(17,
 				"Biển nào cấm tất cả các loại xe cơ giới và thô sơ đi lại trên đường, trừ xe ưu tiên theo luật định (nếu đường vẫn cho xe chạy được)?",
-				true, "a1_134.jpg", a1.getId(), set6.getId(), bb.getId());
+				"a1_134.jpg", a1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA1_134);
 
 		Question questionA1_142 = new Question(18,
-				"Biển nào chỉ đường dành cho người đi bộ, các loại xe không được đi vào khi gặp biển này?", true,
+				"Biển nào chỉ đường dành cho người đi bộ, các loại xe không được đi vào khi gặp biển này?",
 				"a1_142.jpg", a1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA1_142);
 
-		Question questionA1_150 = new Question(19, "Biển nào báo hiệu \"Nơi đỗ xe cho người tàn tật\"?", true,
+		Question questionA1_150 = new Question(19, "Biển nào báo hiệu \"Nơi đỗ xe cho người tàn tật\"?",
 				"a1_150.jpg", a1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA1_150);
 
 		Question questionA1_158 = new Question(20,
-				"Gặp biển báo này, người tham gia giao thông phải xử lý như thế nào?", true, "a1_158.jpg", a1.getId(),
+				"Gặp biển báo này, người tham gia giao thông phải xử lý như thế nào?", "a1_158.jpg", a1.getId(),
 				set6.getId(), bb.getId());
 		questionRepo.save(questionA1_158);
 
-		Question questionA1_166 = new Question(21, "Các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionA1_166 = new Question(21, "Các xe đi như thế nào là đúng quy tắc giao thông?",
 				"a1_166.jpg", a1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA1_166);
 
 		Question questionA1_174 = new Question(22, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
-				true, "a1_174.jpg", a1.getId(), set6.getId(), sh.getId());
+				"a1_174.jpg", a1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA1_174);
 
-		Question questionA1_182 = new Question(23, "Xe nào đỗ vi phạm quy tắc giao thông?", true, "a1_182.jpg",
+		Question questionA1_182 = new Question(23, "Xe nào đỗ vi phạm quy tắc giao thông?", "a1_182.jpg",
 				a1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA1_182);
 
-		Question questionA1_190 = new Question(24, "Bạn có được phép vượt xe mô tô phía trước không?", true,
+		Question questionA1_190 = new Question(24, "Bạn có được phép vượt xe mô tô phía trước không?",
 				"a1_190.jpg", a1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA1_190);
 
-		Question questionA1_198 = new Question(25, "Xe nào dừng đúng theo quy tắc giao thông?", true, "a1_198.jpg",
+		Question questionA1_198 = new Question(25, "Xe nào dừng đúng theo quy tắc giao thông?", "a1_198.jpg",
 				a1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA1_198);
 
 		Question questionA1_7 = new Question(1,
 				"Người ngồi trên xe mô tô hai bánh, ba bánh, xe gắn máy khi tham gia giao thông có được mang, vác vật cồng kềnh hay không?",
-				true, "nan", a1.getId(), set7.getId(), kn.getId());
+				"nan", a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_7);
 
 		Question questionA1_15 = new Question(2,
-				"Phần của đường bộ đươc sử dụng cho các phương tiện giao thông qua lại là gì?", true, "nan", a1.getId(),
+				"Phần của đường bộ đươc sử dụng cho các phương tiện giao thông qua lại là gì?", "nan", a1.getId(),
 				set7.getId(), kn.getId());
 		questionRepo.save(questionA1_15);
 
 		Question questionA1_23 = new Question(3, "\"Phương tiện tham gia giao thông đường bộ\" gồm những loại nào?",
-				true, "nan", a1.getId(), set7.getId(), kn.getId());
+				"nan", a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_23);
 
 		Question questionA1_31 = new Question(4,
-				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?", true,
+				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?",
 				"nan", a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_31);
 
 		Question questionA1_39 = new Question(5,
-				"Người có giấy phép lái xe mô tô hạng A1 được phép điều khiển các loại xe nào dưới đây?", true, "nan",
+				"Người có giấy phép lái xe mô tô hạng A1 được phép điều khiển các loại xe nào dưới đây?", "nan",
 				a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_39);
 
 		Question questionA1_47 = new Question(6,
 				"Tại nơi có biển báo hiệu cố định lại có báo hiệu tạm thời thì người tham gia giao thông phải chấp hành hiệu lệnh của báo hiệu nào?",
-				true, "nan", a1.getId(), set7.getId(), kn.getId());
+				"nan", a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_47);
 
 		Question questionA1_55 = new Question(7,
-				"Bạn đang lái xe trên đường hẹp, xuống dốc và gặp một xe đang đi lên dốc, bạn cần làm gì?", true, "nan",
+				"Bạn đang lái xe trên đường hẹp, xuống dốc và gặp một xe đang đi lên dốc, bạn cần làm gì?", "nan",
 				a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_55);
 
 		Question questionA1_63 = new Question(8,
 				"Trên đoạn đường hai chiều không có giải phân cách giữa, người lái xe không được vượt xe khác trong các trường hợp nào dưới đây?",
-				true, "nan", a1.getId(), set7.getId(), kn.getId());
+				"nan", a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_63);
 
 		Question questionA1_71 = new Question(9,
 				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường hai chiều hoặc đường một chiều có một làn xe cơ giới, loại xe nào dưới đây được tham gia giao thông với tốc độ tối đa cho phép là 50 km",
-				true, "nan", a1.getId(), set7.getId(), kn.getId());
+				"nan", a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_71);
 
 		Question questionA1_79 = new Question(10,
 				"Người điều khiển xe mô tô phải giảm tốc độ và hết sức thận trọng khi qua những đoạn đường nào dưới đây?",
-				true, "nan", a1.getId(), set7.getId(), kn.getId());
+				"nan", a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_79);
 
 		Question questionA1_87 = new Question(11,
 				"Khi xảy ra tai nạn giao thông, có người bị thương nghiêm trọng, người lái xe và người có mặt tại hiện trường vụ tai nạn phải thực hiện các công việc gì dưới đây?",
-				true, "nan", a1.getId(), set7.getId(), vh.getId());
+				"nan", a1.getId(), set7.getId(), vh.getId());
 		questionRepo.save(questionA1_87);
 
 		Question questionA1_95 = new Question(12,
-				"Tay ga trên xe mô tô hai bánh có tác dụng gì trong các trường hợp dưới đây?", true, "nan", a1.getId(),
+				"Tay ga trên xe mô tô hai bánh có tác dụng gì trong các trường hợp dưới đây?", "nan", a1.getId(),
 				set7.getId(), kt.getId());
 		questionRepo.save(questionA1_95);
 
-		Question questionA1_103 = new Question(13, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?", true,
+		Question questionA1_103 = new Question(13, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?",
 				"a1_103.jpg", a1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA1_103);
 
-		Question questionA1_111 = new Question(14, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", true, "a1_111.jpg",
+		Question questionA1_111 = new Question(14, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", "a1_111.jpg",
 				a1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA1_111);
 
 		Question questionA1_119 = new Question(15,
 				"Gặp biển nào người tham gia giao thông phải đi chậm và thận trọng đề phòng khả năng xuất hiện và di chuyển bất ngờ của trẻ em trên mặt đường?",
-				true, "a1_119.jpg", a1.getId(), set7.getId(), bb.getId());
+				"a1_119.jpg", a1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA1_119);
 
-		Question questionA1_127 = new Question(16, "Khi gặp biển nào xe được rẽ trái?", true, "a1_127.jpg", a1.getId(),
+		Question questionA1_127 = new Question(16, "Khi gặp biển nào xe được rẽ trái?", "a1_127.jpg", a1.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionA1_127);
 
-		Question questionA1_135 = new Question(17, "Gặp biển nào xe xích lô được phép đi vào?", true, "a1_135.jpg",
+		Question questionA1_135 = new Question(17, "Gặp biển nào xe xích lô được phép đi vào?", "a1_135.jpg",
 				a1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA1_135);
 
-		Question questionA1_143 = new Question(18, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?", true,
+		Question questionA1_143 = new Question(18, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?",
 				"a1_143.jpg", a1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA1_143);
 
-		Question questionA1_151 = new Question(19, "Biển nào cho phép xe rẽ trái?", true, "a1_151.jpg", a1.getId(),
+		Question questionA1_151 = new Question(19, "Biển nào cho phép xe rẽ trái?", "a1_151.jpg", a1.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionA1_151);
 
-		Question questionA1_159 = new Question(20, "Biển số 1 có ý nghĩa gì?", true, "a1_159.jpg", a1.getId(),
+		Question questionA1_159 = new Question(20, "Biển số 1 có ý nghĩa gì?", "a1_159.jpg", a1.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionA1_159);
 
-		Question questionA1_167 = new Question(21, "Theo hướng mũi tên, xe nào được phép đi?", true, "a1_167.jpg",
+		Question questionA1_167 = new Question(21, "Theo hướng mũi tên, xe nào được phép đi?", "a1_167.jpg",
 				a1.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionA1_167);
 
 		Question questionA1_175 = new Question(22, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
-				true, "a1_175.jpg", a1.getId(), set7.getId(), sh.getId());
+				"a1_175.jpg", a1.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionA1_175);
 
-		Question questionA1_183 = new Question(23, "Xe nào đỗ vi phạm quy tắc giao thông?", true, "a1_183.jpg",
+		Question questionA1_183 = new Question(23, "Xe nào đỗ vi phạm quy tắc giao thông?", "a1_183.jpg",
 				a1.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionA1_183);
 
 		Question questionA1_191 = new Question(24,
-				"Theo tín hiệu đèn của xe cơ giới, xe nào vi phạm quy tắc giao thông?", true, "a1_191.jpg", a1.getId(),
+				"Theo tín hiệu đèn của xe cơ giới, xe nào vi phạm quy tắc giao thông?", "a1_191.jpg", a1.getId(),
 				set7.getId(), sh.getId());
 		questionRepo.save(questionA1_191);
 
 		Question questionA1_199 = new Question(25,
 				"Xe của bạn đang di chuyển gần đến khu vực giao cắt với đường sắt, khi rào chắn đang dịch chuyển, bạn điều khiển xe như thế nào là đúng quy tắc giao thông?",
-				true, "a1_199.jpg", a1.getId(), set7.getId(), sh.getId());
+				"a1_199.jpg", a1.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionA1_199);
 
 		Question questionA1_8 = new Question(1,
 				"Người ngồi trên xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy khi tham gia giao thông có được bám, kéo hoặc đẩy các phương thiện khác không?",
-				true, "nan", a1.getId(), set8.getId(), kn.getId());
+				"nan", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_8);
 
-		Question questionA1_16 = new Question(2, "\"Làn đường\" là gì?", true, "nan", a1.getId(), set8.getId(),
+		Question questionA1_16 = new Question(2, "\"Làn đường\" là gì?", "nan", a1.getId(), set8.getId(),
 				kn.getId());
 		questionRepo.save(questionA1_16);
 
 		Question questionA1_24 = new Question(3,
-				"\"Người điều khiển phương tiện tham gia giao thông đường bộ\" gồm những đối tượng nào dưới đây?", true,
+				"\"Người điều khiển phương tiện tham gia giao thông đường bộ\" gồm những đối tượng nào dưới đây?",
 				"nan", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_24);
 
 		Question questionA1_32 = new Question(4,
 				"Khi lái xe trong khu đô thị và đông dân cư trừ các khu vực có biển cấm sử dụng còi, người lái xe được sử dụng còi như thế nào trong các trường hợp dưới đây?",
-				true, "nan", a1.getId(), set8.getId(), kn.getId());
+				"nan", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_32);
 
 		Question questionA1_40 = new Question(5,
 				"Khi gặp hiệu lệnh như dưới đây của cảnh sát giao thông thì người tham gia giao thông phải đi như thế nào là đúng quy tắc giao thông?",
-				true, "a1_40.jpg", a1.getId(), set8.getId(), kn.getId());
+				"a1_40.jpg", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_40);
 
 		Question questionA1_48 = new Question(6,
 				"Khi sử dụng giấy phép lái xe đã khai báo mất để điều khiển phương tiện cơ giới đường bộ, ngoài việc bị thu hồi giấy phép lái xe, chịu trách nhiệm trước pháp luật, người lái xe không được cấp giấy phép lái xe trong thời gian bao nhiêu năm?",
-				true, "nan", a1.getId(), set8.getId(), kn.getId());
+				"nan", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_48);
 
 		Question questionA1_56 = new Question(7,
 				"Tại nơi đường giao nhau, người lái xe đang đi trên đường không ưu tiên phải nhường đường như thế nào là đúng quy tắc giao thông?",
-				true, "nan", a1.getId(), set8.getId(), kn.getId());
+				"nan", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_56);
 
 		Question questionA1_64 = new Question(8,
 				"Tại ngã ba hoặc ngã tư không có đảm bảo an toàn, người lái xe phải nhường đường như thế nào là đúng trong các trường hợp dưới đây?",
-				true, "nan", a1.getId(), set8.getId(), kn.getId());
+				"nan", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_64);
 
-		Question questionA1_72 = new Question(9, "Khi điều khiển xe chạy với tốc độ dưới 60km", true, "nan", a1.getId(),
+		Question questionA1_72 = new Question(9, "Khi điều khiển xe chạy với tốc độ dưới 60km", "nan", a1.getId(),
 				set8.getId(), kn.getId());
 		questionRepo.save(questionA1_72);
 
 		Question questionA1_80 = new Question(10,
 				"Khi gặp xe buýt đang dừng đón, trả khách, người điều khiển xe mô tô phải xử lý như thế nào dưới đây để đảm bảo an toàn giao thông?",
-				true, "nan", a1.getId(), set8.getId(), kn.getId());
+				"nan", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_80);
 
 		Question questionA1_88 = new Question(11,
 				"Khi tránh nhau trên đường hẹp, người lái xe cần phải chú ý những điểm nào để đảm bảo an toàn giao thông?",
-				true, "nan", a1.getId(), set8.getId(), kt.getId());
+				"nan", a1.getId(), set8.getId(), kt.getId());
 		questionRepo.save(questionA1_88);
 
 		Question questionA1_96 = new Question(12,
 				"Những thói quen nào dưới đây khi điều khiển xe mô tô tay ga tham gia giao thông dễ gây tai nạn nguy hiểm?",
-				true, "nan", a1.getId(), set8.getId(), kt.getId());
+				"nan", a1.getId(), set8.getId(), kt.getId());
 		questionRepo.save(questionA1_96);
 
 		Question questionA1_104 = new Question(13,
-				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?", true,
+				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?",
 				"a1_104.jpg", a1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA1_104);
 
 		Question questionA1_112 = new Question(14,
 				"Khi gặp biển nào, người lái xe phải giảm tốc độ, chú ý xe đi ngược chiều, xe đi ở phía đường bị hẹp phải nhường đường cho xe đi ngược chiều?",
-				true, "a1_112.jpg", a1.getId(), set8.getId(), bb.getId());
+				"a1_112.jpg", a1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA1_112);
 
 		Question questionA1_120 = new Question(15, "Biển nào chỉ dẫn nới bắt đầu đoạn đường dành cho người đi bộ?",
-				true, "a1_120.jpg", a1.getId(), set8.getId(), bb.getId());
+				"a1_120.jpg", a1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA1_120);
 
-		Question questionA1_128 = new Question(16, "Biển nào cấm các phương tiện giao thông đường bộ rẽ phải?", true,
+		Question questionA1_128 = new Question(16, "Biển nào cấm các phương tiện giao thông đường bộ rẽ phải?",
 				"a1_128.jpg", a1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA1_128);
 
-		Question questionA1_136 = new Question(17, "Gặp biển nào xe lam, xe xích lô máy được phép đi vào?", true,
+		Question questionA1_136 = new Question(17, "Gặp biển nào xe lam, xe xích lô máy được phép đi vào?",
 				"a1_136.jpg", a1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA1_136);
 
 		Question questionA1_144 = new Question(18,
-				"Biển nào (đặt trước ngã ba, ngã tư) cho phép xe được rẽ sang hướng khác?", true, "a1_144.jpg",
+				"Biển nào (đặt trước ngã ba, ngã tư) cho phép xe được rẽ sang hướng khác?", "a1_144.jpg",
 				a1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA1_144);
 
-		Question questionA1_152 = new Question(19, "Biển nào xe quay đầu không bị cấm?", true, "a1_152.jpg", a1.getId(),
+		Question questionA1_152 = new Question(19, "Biển nào xe quay đầu không bị cấm?", "a1_152.jpg", a1.getId(),
 				set8.getId(), bb.getId());
 		questionRepo.save(questionA1_152);
 
 		Question questionA1_160 = new Question(20,
-				"Vạch kẻ đường nào dưới đây là vạch phân chia các làn xe cùng chiều?", true, "a1_160.jpg", a1.getId(),
+				"Vạch kẻ đường nào dưới đây là vạch phân chia các làn xe cùng chiều?", "a1_160.jpg", a1.getId(),
 				set8.getId(), bb.getId());
 		questionRepo.save(questionA1_160);
 
 		Question questionA1_168 = new Question(21,
-				"Trong trường hợp này, thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true, "a1_168.jpg",
+				"Trong trường hợp này, thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", "a1_168.jpg",
 				a1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionA1_168);
 
 		Question questionA1_176 = new Question(22, "Các xe đi theo hướng mũi tên xe nào vi phạm quy tắc giao thông?",
-				true, "a1_176.jpg", a1.getId(), set8.getId(), sh.getId());
+				"a1_176.jpg", a1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionA1_176);
 
-		Question questionA1_184 = new Question(23, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionA1_184 = new Question(23, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"a1_184.jpg", a1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionA1_184);
 
 		Question questionA1_192 = new Question(24,
-				"Xe tải kéo mô tô ba bánh như hình này có đúng quy tắc giao thông không?", true, "a1_192.jpg",
+				"Xe tải kéo mô tô ba bánh như hình này có đúng quy tắc giao thông không?", "a1_192.jpg",
 				a1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionA1_192);
 
 		Question questionA1_200 = new Question(25,
 				"Trong tình huống dưới đây, xe đầu kéo kéo rơ móoc (xe container) đang rẽ phải, xe con màu xanh và xe máy phía sau xe container đi như thế nào để đảm bảo an toàn?",
-				true, "a1_200.jpg", a1.getId(), set8.getId(), sh.getId());
+				"a1_200.jpg", a1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionA1_200);
 	}
 
@@ -1957,2036 +1957,2036 @@ public class DataSeeding implements CommandLineRunner {
 
 		// Câu hỏi A2
 		Question questionA2_1 = new Question(1,
-				"Phần của đường bộ được sử dụng cho các phương tiện giao thông qua lại là gì?", true, "", a2.getId(),
+				"Phần của đường bộ được sử dụng cho các phương tiện giao thông qua lại là gì?", "nan", a2.getId(),
 				set1.getId(), kn.getId());
 		questionRepo.save(questionA2_1);
 
-		Question questionA2_19 = new Question(2, "Cuộc đua xe chỉ được thực hiện khi nào?", true, "", a2.getId(),
+		Question questionA2_19 = new Question(2, "Cuộc đua xe chỉ được thực hiện khi nào?", "nan", a2.getId(),
 				set1.getId(), kn.getId());
 		questionRepo.save(questionA2_19);
 
 		Question questionA2_37 = new Question(3,
 				"Ở phần đường dành cho người đi bộ qua đường, trên cầu, đầu cầu, đường cao tốc, đường hẹp, đường dốc, tại nơi đường bộ giao nhau cùng mức với đường sắt có được quay đầu xe hay không?",
-				true, "", a2.getId(), set1.getId(), kn.getId());
+				"nan", a2.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA2_37);
 
 		Question questionA2_55 = new Question(4,
-				"Người có giấy phép lái xe mô tô hạng A1 không được phép điều khiển loại xe nào dưới đây?", true, "",
+				"Người có giấy phép lái xe mô tô hạng A1 không được phép điều khiển loại xe nào dưới đây?", "nan",
 				a2.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA2_55);
 
 		Question questionA2_73 = new Question(5,
 				"Khi điều khiển xe chạy trên đường biết có xe sau xin vượt nêu đủ điều kiện an toàn người lái xe phải làm gì?",
-				true, "", a2.getId(), set1.getId(), kn.getId());
+				"nan", a2.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA2_73);
 
 		Question questionA2_91 = new Question(6,
 				"Người điều khiển xe mô tô hai bánh, xe gắn máy có được đi xe dàn hàng ngang; đi xe vào phần đường dành cho người đi bộ và phương tiện khác; sử dụng ô, điện thoại di động, thiết bị âm thanh (trừ thiết bị trợ thính) hay không?",
-				true, "", a2.getId(), set1.getId(), kn.getId());
+				"nan", a2.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA2_91);
 
 		Question questionA2_109 = new Question(7,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường đôi có dải phân cách giữa (trừ đường cao tốc), loại xe nào dưới đây tham gia giao thông với tốc độ tối đa cho phép là 60 km/h?",
-				true, "", a2.getId(), set1.getId(), kn.getId());
+				"nan", a2.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA2_109);
 
 		Question questionA2_127 = new Question(8,
 				"Khi xe ô tô, mô tô đến gần vị trí giao nhau giữa đường bộ và đường sắt không có rào chắn, khi đèn tín hiệu màu đỏ đã bật sáng hoặc khi có tiếng chuông báo hiệu, người lái xe xử lý như thế nào?",
-				true, "", a2.getId(), set1.getId(), kn.getId());
+				"nan", a2.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionA2_127);
 
 		Question questionA2_145 = new Question(9,
 				"Trên làn đường dành cho ô tô có vũng nước lớn, có nhiều người đi xe mô tô trên làn đường bên cạnh, người lái xe ô tô xử lý như thế nào là có văn hóa giao thông?",
-				true, "", a2.getId(), set1.getId(), vh.getId());
+				"nan", a2.getId(), set1.getId(), vh.getId());
 		questionRepo.save(questionA2_145);
 
 		Question questionA2_163 = new Question(10,
 				"Khi tránh nhau trên đường hẹp, người lái xe cần phải chú ý những điểm nào để đảm bảo an toàn giao thông?",
-				true, "", a2.getId(), set1.getId(), kt.getId());
+				"nan", a2.getId(), set1.getId(), kt.getId());
 		questionRepo.save(questionA2_163);
 
-		Question questionA2_181 = new Question(11, "Thế nào là động cơ 4 kỳ?", true, "", a2.getId(), set1.getId(),
+		Question questionA2_181 = new Question(11, "Thế nào là động cơ 4 kỳ?", "nan", a2.getId(), set1.getId(),
 				kt.getId());
 		questionRepo.save(questionA2_181);
 
-		Question questionA2_199 = new Question(12, "Biển nào cấm xe rẽ trái?", true, "a2_199.jpg", a2.getId(),
+		Question questionA2_199 = new Question(12, "Biển nào cấm xe rẽ trái?", "a2_199.jpg", a2.getId(),
 				set1.getId(), bb.getId());
 		questionRepo.save(questionA2_199);
 
-		Question questionA2_217 = new Question(13, "Gặp biển nào xe xích lô được phép đi vào?", true, "a2_217.jpg",
+		Question questionA2_217 = new Question(13, "Gặp biển nào xe xích lô được phép đi vào?", "a2_217.jpg",
 				a2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA2_217);
 
-		Question questionA2_235 = new Question(14, "Biển nào xe mô tô hai bánh không được đi vào?", true, "a2_235.jpg",
+		Question questionA2_235 = new Question(14, "Biển nào xe mô tô hai bánh không được đi vào?", "a2_235.jpg",
 				a2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA2_235);
 
 		Question questionA2_253 = new Question(15,
-				"Biển nào chỉ đường dành cho người đi bộ, các loại xe không được đi vào khi gặp biển này?", true,
+				"Biển nào chỉ đường dành cho người đi bộ, các loại xe không được đi vào khi gặp biển này?",
 				"a2_253.jpg", a2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA2_253);
 
-		Question questionA2_271 = new Question(16, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?", true,
+		Question questionA2_271 = new Question(16, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?",
 				"a2_271.jpg", a2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA2_271);
 
 		Question questionA2_289 = new Question(17, "Biển nào sau đây là biển \"Kè, vực sâu bên đường phía bên trái\"?",
-				true, "a2_289.jpg", a2.getId(), set1.getId(), bb.getId());
+				"a2_289.jpg", a2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA2_289);
 
-		Question questionA2_307 = new Question(18, "Các biển báo này có ý nghĩa gì?", true, "a2_307.jpg", a2.getId(),
+		Question questionA2_307 = new Question(18, "Các biển báo này có ý nghĩa gì?", "a2_307.jpg", a2.getId(),
 				set1.getId(), bb.getId());
 		questionRepo.save(questionA2_307);
 
 		Question questionA2_325 = new Question(19,
-				"Biển nào cho phép được quay đầu xe đi theo hướng ngược lại khi đặt biển trước ngã ba, ngã tư?", true,
+				"Biển nào cho phép được quay đầu xe đi theo hướng ngược lại khi đặt biển trước ngã ba, ngã tư?",
 				"a2_325.jpg", a2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA2_325);
 
-		Question questionA2_343 = new Question(20, "Biển số 1 có ý nghĩa gì?", true, "a2_343.jpg", a2.getId(),
+		Question questionA2_343 = new Question(20, "Biển số 1 có ý nghĩa gì?", "a2_343.jpg", a2.getId(),
 				set1.getId(), bb.getId());
 		questionRepo.save(questionA2_343);
 
 		Question questionA2_361 = new Question(21,
-				"Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy (vạch tim đường)?", true, "a2_361.jpg",
+				"Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy (vạch tim đường)?", "a2_361.jpg",
 				a2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA2_361);
 
 		Question questionA2_379 = new Question(22,
-				"Theo tín hiệu đèn, xe tải đi theo hướng nào là đúng quy tắc giao thông?", true, "a2_379.jpg",
+				"Theo tín hiệu đèn, xe tải đi theo hướng nào là đúng quy tắc giao thông?", "a2_379.jpg",
 				a2.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionA2_379);
 
-		Question questionA2_397 = new Question(23, "Các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionA2_397 = new Question(23, "Các xe đi như thế nào là đúng quy tắc giao thông?",
 				"a2_397.jpg", a2.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionA2_397);
 
-		Question questionA2_415 = new Question(24, "Xe nào đi trước là đúng quy tắc giao thông?", true, "a2_415.jpg",
+		Question questionA2_415 = new Question(24, "Xe nào đi trước là đúng quy tắc giao thông?", "a2_415.jpg",
 				a2.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionA2_415);
 
-		Question questionA2_433 = new Question(25, "Bạn xử lý như thế nào trong trường hợp này?", true, "a2_433.jpg",
+		Question questionA2_433 = new Question(25, "Bạn xử lý như thế nào trong trường hợp này?", "a2_433.jpg",
 				a2.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionA2_433);
 
-		Question questionA2_2 = new Question(1, "\"Làn đường\" là gì?", true, "", a2.getId(), set2.getId(), kn.getId());
+		Question questionA2_2 = new Question(1, "\"Làn đường\" là gì?", "nan", a2.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA2_2);
 
 		Question questionA2_20 = new Question(2,
 				"Người điều khiển phương tiện giao thông đường bộ mà trong cơ thể có chất ma tuý có bị nghiêm cấm hay không?",
-				true, "", a2.getId(), set2.getId(), kn.getId());
+				"nan", a2.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA2_20);
 
 		Question questionA2_38 = new Question(3,
 				"Bạn đang lái xe, phía trước có một xe cảnh sát giao thông không phát tín hiệu ưu tiên bạn có được phép vượt hay không?",
-				true, "", a2.getId(), set2.getId(), kn.getId());
+				"nan", a2.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA2_38);
 
-		Question questionA2_56 = new Question(4, "Người có giấy phép lái xe mô tô hạ", true, "", a2.getId(),
+		Question questionA2_56 = new Question(4, "Người có giấy phép lái xe mô tô hạ", "nan", a2.getId(),
 				set2.getId(), kn.getId());
 		questionRepo.save(questionA2_56);
 
 		Question questionA2_74 = new Question(5,
 				"Trong khu dân cư, ở nơi nào cho phép người lái xe, người điều khiển xe máy chuyên dùng được quay đầu xe?",
-				true, "", a2.getId(), set2.getId(), kn.getId());
+				"nan", a2.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA2_74);
 
 		Question questionA2_92 = new Question(6,
 				"Người lái xe phải giảm tốc độ thấp hơn tốc độ tối đa cho phép (có thể dùng lại một cách an toàn) trong trường hợp nào dưới đây?",
-				true, "", a2.getId(), set2.getId(), kn.getId());
+				"nan", a2.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA2_92);
 
 		Question questionA2_110 = new Question(7,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường hai chiều không có dải phân cách giữa; đường một chiều có một làn xe cơ giới (trừ đường cao tốc), loại xe nào dưới đây tham gia giao thông với tốc độ tối đa cho phép là 80 km/h?",
-				true, "", a2.getId(), set2.getId(), kn.getId());
+				"nan", a2.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA2_110);
 
 		Question questionA2_128 = new Question(8,
 				"Khi điều khiển xe trên đường vòng, khuất tầm nhìn người lái xe cần phải làm gì để đảm bảo an toàn?",
-				true, "", a2.getId(), set2.getId(), kn.getId());
+				"nan", a2.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA2_128);
 
 		Question questionA2_146 = new Question(9,
 				"Người lái xe cố tình không phân biệt làn đường, vạch phân làn, phóng nhanh, vượt ẩu, vượt đèn đỏ, đi vào đường cấm, đường một chiều được coi là hành vi nào trong các hành vi dưới đây?",
-				true, "", a2.getId(), set2.getId(), vh.getId());
+				"nan", a2.getId(), set2.getId(), vh.getId());
 		questionRepo.save(questionA2_146);
 
 		Question questionA2_164 = new Question(10,
-				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", true, "",
+				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", "nan",
 				a2.getId(), set2.getId(), kt.getId());
 		questionRepo.save(questionA2_164);
 
-		Question questionA2_182 = new Question(11, "Đèn phanh trên xe ô tô có tác dụng gì?", true, "", a2.getId(),
+		Question questionA2_182 = new Question(11, "Đèn phanh trên xe ô tô có tác dụng gì?", "nan", a2.getId(),
 				set2.getId(), kt.getId());
 		questionRepo.save(questionA2_182);
 
-		Question questionA2_200 = new Question(12, "Khi gặp biển nào xe được rẽ trái?", true, "a2_200.jpg", a2.getId(),
+		Question questionA2_200 = new Question(12, "Khi gặp biển nào xe được rẽ trái?", "a2_200.jpg", a2.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionA2_200);
 
-		Question questionA2_218 = new Question(13, "Gặp biển nào xe lam, xe xích lô máy được phép đi vào?", true,
+		Question questionA2_218 = new Question(13, "Gặp biển nào xe lam, xe xích lô máy được phép đi vào?",
 				"a2_218.jpg", a2.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA2_218);
 
-		Question questionA2_236 = new Question(14, "Ba biển này có hiệu lực như thế nào?", true, "a2_236.jpg",
+		Question questionA2_236 = new Question(14, "Ba biển này có hiệu lực như thế nào?", "a2_236.jpg",
 				a2.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA2_236);
 
-		Question questionA2_254 = new Question(15, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?", true,
+		Question questionA2_254 = new Question(15, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?",
 				"a2_254.jpg", a2.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA2_254);
 
 		Question questionA2_272 = new Question(16,
-				"Biển nào báo hiệu \"Đường giao nhau\" của các tuyến đường cùng cấp?", true, "a2_272.jpg", a2.getId(),
+				"Biển nào báo hiệu \"Đường giao nhau\" của các tuyến đường cùng cấp?", "a2_272.jpg", a2.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionA2_272);
 
 		Question questionA2_290 = new Question(17, "Biển nào sau đây là biển \"Kè, vực sâu bên đường phía bên phải\"?",
-				true, "a2_290.jpg", a2.getId(), set2.getId(), bb.getId());
+				"a2_290.jpg", a2.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA2_290);
 
-		Question questionA2_308 = new Question(18, "Biển báo này có ý nghĩa gì?", true, "a2_308.jpg", a2.getId(),
+		Question questionA2_308 = new Question(18, "Biển báo này có ý nghĩa gì?", "a2_308.jpg", a2.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionA2_308);
 
-		Question questionA2_326 = new Question(19, "Biển nào không cho phép rẽ phải?", true, "a2_326.jpg", a2.getId(),
+		Question questionA2_326 = new Question(19, "Biển nào không cho phép rẽ phải?", "a2_326.jpg", a2.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionA2_326);
 
-		Question questionA2_344 = new Question(20, "Biển nào báo hiệu \"Tuyến đường cầu vượt cắt qua\"?", true,
+		Question questionA2_344 = new Question(20, "Biển nào báo hiệu \"Tuyến đường cầu vượt cắt qua\"?",
 				"a2_344.jpg", a2.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA2_344);
 
-		Question questionA2_362 = new Question(21, "Các vạch dưới đây có tác dụng gì?", true, "a2_362.jpg", a2.getId(),
+		Question questionA2_362 = new Question(21, "Các vạch dưới đây có tác dụng gì?", "a2_362.jpg", a2.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionA2_362);
 
 		Question questionA2_380 = new Question(22, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
-				true, "a2_380.jpg", a2.getId(), set2.getId(), sh.getId());
+				"a2_380.jpg", a2.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionA2_380);
 
-		Question questionA2_398 = new Question(23, "Theo hướng mũi tên, xe nào được phép đi?", true, "a2_398.jpg",
+		Question questionA2_398 = new Question(23, "Theo hướng mũi tên, xe nào được phép đi?", "a2_398.jpg",
 				a2.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionA2_398);
 
 		Question questionA2_416 = new Question(24,
-				"Người lái xe có thể quay đầu xe như thế nào là đúng quy tắc giao thông?", true, "a2_416.jpg",
+				"Người lái xe có thể quay đầu xe như thế nào là đúng quy tắc giao thông?", "a2_416.jpg",
 				a2.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionA2_416);
 
-		Question questionA2_434 = new Question(25, "Bạn xử lý như thế nào trong trường hợp này?", true, "a2_434.jpg",
+		Question questionA2_434 = new Question(25, "Bạn xử lý như thế nào trong trường hợp này?", "a2_434.jpg",
 				a2.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionA2_434);
 
 		Question questionA2_3 = new Question(1,
-				"Khái niệm \"khổ giới hạn của đường bộ\" được hiểu như thế nào là đúng?", true, "", a2.getId(),
+				"Khái niệm \"khổ giới hạn của đường bộ\" được hiểu như thế nào là đúng?", "nan", a2.getId(),
 				set3.getId(), kn.getId());
 		questionRepo.save(questionA2_3);
 
 		Question questionA2_21 = new Question(2,
-				"Việc lái xe mô tô, ô tô, máy kéo ngay sau khi uống rượu, bia có được phép hay không?", true, "",
+				"Việc lái xe mô tô, ô tô, máy kéo ngay sau khi uống rượu, bia có được phép hay không?", "nan",
 				a2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA2_21);
 
 		Question questionA2_39 = new Question(3,
 				"Bạn đang lái xe, phía trước có một xe cứu thương đang phát tín hiệu ưu tiên bạn có được phép vượt hay không?",
-				true, "", a2.getId(), set3.getId(), kn.getId());
+				"nan", a2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA2_39);
 
 		Question questionA2_57 = new Question(4,
-				"Người có giấy phép lái xe mô tô hạng A2 được phép điều khiển loại xe nào dưới đây?", true, "",
+				"Người có giấy phép lái xe mô tô hạng A2 được phép điều khiển loại xe nào dưới đây?", "nan",
 				a2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA2_57);
 
 		Question questionA2_75 = new Question(5,
 				"Người lái xe phải làm gì khi quay đầu xe trên cầu, đường ngâm hay khu vực đường bộ giao nhau cùng mức với đường sắt?",
-				true, "", a2.getId(), set3.getId(), kn.getId());
+				"nan", a2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA2_75);
 
 		Question questionA2_93 = new Question(6,
 				"Khi gặp một đoàn xe, một đoàn xe tăng hay gặp một đoàn người có tổ chức theo đội ngũ, người lái xe phải xử lý như thế nào?",
-				true, "", a2.getId(), set3.getId(), kn.getId());
+				"nan", a2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA2_93);
 
 		Question questionA2_111 = new Question(7,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường hai chiều không có dải phân cách giữa đường một chiều có 01 làn xe cơ giới (trừ đường cao tốc), loại xe nào dưới đây tham gia giao thông với tốc độ tối đa cho phép là 70 km/h?",
-				true, "", a2.getId(), set3.getId(), kn.getId());
+				"nan", a2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA2_111);
 
 		Question questionA2_129 = new Question(8,
 				"Người lái xe phải xử lý như thế nào khi quan sát phía trước thấy người đi bộ đang sang đường tại nơi có vạch đường dành cho người đi bộ để đảm bảo an toàn?",
-				true, "", a2.getId(), set3.getId(), kn.getId());
+				"nan", a2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionA2_129);
 
 		Question questionA2_147 = new Question(9,
 				"Khi sơ cứu người bị tai nạn giao thông đường bộ, có vết thương chảy máu ngoài, màu đỏ tươi phun thành tia và phun mạnh khi mạch đập, bạn phải làm gì dưới đây?",
-				true, "", a2.getId(), set3.getId(), vh.getId());
+				"nan", a2.getId(), set3.getId(), vh.getId());
 		questionRepo.save(questionA2_147);
 
 		Question questionA2_165 = new Question(10,
 				"Khi điều khiển xe qua đường sắt, người lái xe cần phải thực hiện các thao tác nào dưới đây để đảm bảo an toàn?",
-				true, "", a2.getId(), set3.getId(), kt.getId());
+				"nan", a2.getId(), set3.getId(), kt.getId());
 		questionRepo.save(questionA2_165);
 
 		Question questionA2_183 = new Question(11,
-				"Trên xe ô tô có trang bị thiết bị như hình vẽ có tác dụng gì dưới đây?", true, "a2_183.jpg",
+				"Trên xe ô tô có trang bị thiết bị như hình vẽ có tác dụng gì dưới đây?", "a2_183.jpg",
 				a2.getId(), set3.getId(), kt.getId());
 		questionRepo.save(questionA2_183);
 
-		Question questionA2_201 = new Question(12, "Biển nào cấm ô tô rẽ trái?", true, "a2_201.jpg", a2.getId(),
+		Question questionA2_201 = new Question(12, "Biển nào cấm ô tô rẽ trái?", "a2_201.jpg", a2.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionA2_201);
 
-		Question questionA2_219 = new Question(13, "Biển báo này có ý nghĩa gì?", true, "a2_219.jpg", a2.getId(),
+		Question questionA2_219 = new Question(13, "Biển báo này có ý nghĩa gì?", "a2_219.jpg", a2.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionA2_219);
 
 		Question questionA2_237 = new Question(14,
-				"Biển nào báo hiệu chiều dài đoạn đường phải giữ cự ly tôi thiếu giữa hai xe?", true, "a2_237.jpg",
+				"Biển nào báo hiệu chiều dài đoạn đường phải giữ cự ly tôi thiếu giữa hai xe?", "a2_237.jpg",
 				a2.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA2_237);
 
-		Question questionA2_255 = new Question(15, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?", true,
+		Question questionA2_255 = new Question(15, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?",
 				"a2_255.jpg", a2.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA2_255);
 
-		Question questionA2_273 = new Question(16, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?", true,
+		Question questionA2_273 = new Question(16, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?",
 				"a2_273.jpg", a2.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA2_273);
 
-		Question questionA2_291 = new Question(17, "Biển nào sau đây là biển \"Đường trơn\"?", true, "a2_291.jpg",
+		Question questionA2_291 = new Question(17, "Biển nào sau đây là biển \"Đường trơn\"?", "a2_291.jpg",
 				a2.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA2_291);
 
-		Question questionA2_309 = new Question(18, "Gặp biển báo này người lái xe phải xử lý thế nào?", true,
+		Question questionA2_309 = new Question(18, "Gặp biển báo này người lái xe phải xử lý thế nào?",
 				"a2_309.jpg", a2.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA2_309);
 
 		Question questionA2_327 = new Question(19,
 				"Khi đến chỗ giao nhau, gặp biển nào thì người lái xe không được cho xe đi thẳng, phải rẽ sang hướng khác?",
-				true, "a2_327.jpg", a2.getId(), set3.getId(), bb.getId());
+				"a2_327.jpg", a2.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA2_327);
 
-		Question questionA2_345 = new Question(20, "Biển báo dưới đây có ý nghĩa gì?", true, "a2_345.jpg", a2.getId(),
+		Question questionA2_345 = new Question(20, "Biển báo dưới đây có ý nghĩa gì?", "a2_345.jpg", a2.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionA2_345);
 
-		Question questionA2_363 = new Question(21, "Các vạch dưới đây có tác dụng gì?", true, "a2_363.jpg", a2.getId(),
+		Question questionA2_363 = new Question(21, "Các vạch dưới đây có tác dụng gì?", "a2_363.jpg", a2.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionA2_363);
 
-		Question questionA2_381 = new Question(22, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionA2_381 = new Question(22, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"a2_381.jpg", a2.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionA2_381);
 
-		Question questionA2_399 = new Question(23, "Xe con vượt xe tải như trường hợp này có đúng không?", true,
+		Question questionA2_399 = new Question(23, "Xe con vượt xe tải như trường hợp này có đúng không?",
 				"a2_399.jpg", a2.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionA2_399);
 
-		Question questionA2_417 = new Question(24, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionA2_417 = new Question(24, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"a2_417.jpg", a2.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionA2_417);
 
-		Question questionA2_435 = new Question(25, "Bạn xử lý như thế nào trong trường hợp này?", true, "a2_435.jpg",
+		Question questionA2_435 = new Question(25, "Bạn xử lý như thế nào trong trường hợp này?", "a2_435.jpg",
 				a2.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionA2_435);
 
 		Question questionA2_4 = new Question(1,
-				"Trong các khái niệm dưới đây, \"dải phân cách\" được hiểu như thế nào là đúng?", true, "", a2.getId(),
+				"Trong các khái niệm dưới đây, \"dải phân cách\" được hiểu như thế nào là đúng?", "nan", a2.getId(),
 				set4.getId(), kn.getId());
 		questionRepo.save(questionA2_4);
 
 		Question questionA2_22 = new Question(2,
 				"Người điều khiển xe môtô, ô tô, máy kéo trên đường mà trong máu hoặc hơi thở có nồng độ cồn có bị nghiêm cấm không?",
-				true, "", a2.getId(), set4.getId(), kn.getId());
+				"nan", a2.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA2_22);
 
 		Question questionA2_40 = new Question(3,
-				"Người lái xe không được quay đầu xe trong các trường hợp nào dưới đây?", true, "", a2.getId(),
+				"Người lái xe không được quay đầu xe trong các trường hợp nào dưới đây?", "nan", a2.getId(),
 				set4.getId(), kn.getId());
 		questionRepo.save(questionA2_40);
 
 		Question questionA2_58 = new Question(4,
-				"Người có giấy phép lái xe mô tô hạng A3 được phép điều khiển loại xe nào dưới đây?", true, "",
+				"Người có giấy phép lái xe mô tô hạng A3 được phép điều khiển loại xe nào dưới đây?", "nan",
 				a2.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA2_58);
 
 		Question questionA2_76 = new Question(5,
-				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?", true,
+				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?",
 				"", a2.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA2_76);
 
 		Question questionA2_94 = new Question(6,
 				"Tại ngã ba hoặc ngã tư không có đảo an toàn, người lái xe phải nhường đường như thế nào là đúng trong các trường hợp dưới đây?",
-				true, "", a2.getId(), set4.getId(), kn.getId());
+				"nan", a2.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA2_94);
 
 		Question questionA2_112 = new Question(7,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường hai chiều không có dải phân cách giữa đường một chiều có 01 làn xe cơ giới (trừ đường cao tốc), loại xe nào dưới đây tham gia giao thông với tốc độ tối đa cho phép là 60 km/h?",
-				true, "", a2.getId(), set4.getId(), kn.getId());
+				"nan", a2.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA2_112);
 
 		Question questionA2_130 = new Question(8,
 				"Người điều khiển phương tiện tham gia giao thông đường bộ phải giảm tốc độ để có thể dùng lại một cách an toàn trong các trường hợp nào dưới đây?",
-				true, "", a2.getId(), set4.getId(), kn.getId());
+				"nan", a2.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA2_130);
 
 		Question questionA2_148 = new Question(9,
-				"Người lái xe có văn hóa khi tham gia giao thông phải đáp ứng các điều kiện nào dưới đây?", true, "",
+				"Người lái xe có văn hóa khi tham gia giao thông phải đáp ứng các điều kiện nào dưới đây?", "nan",
 				a2.getId(), set4.getId(), vh.getId());
 		questionRepo.save(questionA2_148);
 
-		Question questionA2_166 = new Question(10, "Các biện pháp tiết kiệm nhiên liệu khi chạy xe?", true, "",
+		Question questionA2_166 = new Question(10, "Các biện pháp tiết kiệm nhiên liệu khi chạy xe?", "nan",
 				a2.getId(), set4.getId(), kt.getId());
 		questionRepo.save(questionA2_166);
 
 		Question questionA2_184 = new Question(11, "Trên xe ô tô có trang bị thiết bị như hình vẽ, dùng để làm gì?",
-				true, "a2_184.jpg", a2.getId(), set4.getId(), kt.getId());
+				"a2_184.jpg", a2.getId(), set4.getId(), kt.getId());
 		questionRepo.save(questionA2_184);
 
-		Question questionA2_202 = new Question(12, "Biển nào cấm các phương tiện giao thông đường bộ rẽ phải?", true,
+		Question questionA2_202 = new Question(12, "Biển nào cấm các phương tiện giao thông đường bộ rẽ phải?",
 				"a2_202.jpg", a2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA2_202);
 
-		Question questionA2_220 = new Question(13, "Biển báo này có ý nghĩa như thế nào?", true, "a2_220.jpg",
+		Question questionA2_220 = new Question(13, "Biển báo này có ý nghĩa như thế nào?", "a2_220.jpg",
 				a2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA2_220);
 
 		Question questionA2_238 = new Question(14,
-				"Biển nào báo hiệu khoảng cách thực tế từ nơi đặt biển đến nơi cần cự ly tối thiểu giữa hai xe?", true,
+				"Biển nào báo hiệu khoảng cách thực tế từ nơi đặt biển đến nơi cần cự ly tối thiểu giữa hai xe?",
 				"a2_238.jpg", a2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA2_238);
 
-		Question questionA2_256 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường sắt có rào chắn\"?", true,
+		Question questionA2_256 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường sắt có rào chắn\"?",
 				"a2_256.jpg", a2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA2_256);
 
-		Question questionA2_274 = new Question(16, "Biển nào báo hiệu \"Đường hai chiều\"?", true, "a2_274.jpg",
+		Question questionA2_274 = new Question(16, "Biển nào báo hiệu \"Đường hai chiều\"?", "a2_274.jpg",
 				a2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA2_274);
 
-		Question questionA2_292 = new Question(17, "Biển nào sau đây là biển \"Lề đường nguy hiểm\"?", true,
+		Question questionA2_292 = new Question(17, "Biển nào sau đây là biển \"Lề đường nguy hiểm\"?",
 				"a2_292.jpg", a2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA2_292);
 
-		Question questionA2_310 = new Question(18, "Biển báo này có ý nghĩa gì?", true, "a2_310.jpg", a2.getId(),
+		Question questionA2_310 = new Question(18, "Biển báo này có ý nghĩa gì?", "a2_310.jpg", a2.getId(),
 				set4.getId(), bb.getId());
 		questionRepo.save(questionA2_310);
 
-		Question questionA2_328 = new Question(19, "Biển nào cho phép quay đầu xe?", true, "a2_328.jpg", a2.getId(),
+		Question questionA2_328 = new Question(19, "Biển nào cho phép quay đầu xe?", "a2_328.jpg", a2.getId(),
 				set4.getId(), bb.getId());
 		questionRepo.save(questionA2_328);
 
 		Question questionA2_346 = new Question(20,
 				"Tại đoạn đường có biển \"Làn đường dành riêng cho từng loại xe\" dưới đây, các phương tiện có được phép chuyển sang làn khác để đi theo hành trình mong muốn khi đến gần nơi đường bộ giao nhau hay không?",
-				true, "a2_346.jpg", a2.getId(), set4.getId(), bb.getId());
+				"a2_346.jpg", a2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA2_346);
 
-		Question questionA2_364 = new Question(21, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?", true,
+		Question questionA2_364 = new Question(21, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?",
 				"a2_364.jpg", a2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA2_364);
 
-		Question questionA2_382 = new Question(22, "Trong trường hợp này xe nào đỗ vi phạm quy tắc giao thông?", true,
+		Question questionA2_382 = new Question(22, "Trong trường hợp này xe nào đỗ vi phạm quy tắc giao thông?",
 				"a2_382.jpg", a2.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionA2_382);
 
-		Question questionA2_400 = new Question(23, "Xe nào vượt đúng quy tắc giao thông?", true, "a2_400.jpg",
+		Question questionA2_400 = new Question(23, "Xe nào vượt đúng quy tắc giao thông?", "a2_400.jpg",
 				a2.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionA2_400);
 
 		Question questionA2_418 = new Question(24,
-				"Theo tín hiệu đèn, xe nào phải dừng lại là đúng quy tắc giao thông?", true, "a2_418.jpg", a2.getId(),
+				"Theo tín hiệu đèn, xe nào phải dừng lại là đúng quy tắc giao thông?", "a2_418.jpg", a2.getId(),
 				set4.getId(), sh.getId());
 		questionRepo.save(questionA2_418);
 
-		Question questionA2_436 = new Question(25, "Xe nào phải nhường đường trong trường hợp này?", true, "a2_436.jpg",
+		Question questionA2_436 = new Question(25, "Xe nào phải nhường đường trong trường hợp này?", "a2_436.jpg",
 				a2.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionA2_436);
 
-		Question questionA2_5 = new Question(1, "Dải phân cách trên đường bộ gồm những loại nào?", true, "", a2.getId(),
+		Question questionA2_5 = new Question(1, "Dải phân cách trên đường bộ gồm những loại nào?", "nan", a2.getId(),
 				set5.getId(), kn.getId());
 		questionRepo.save(questionA2_5);
 
 		Question questionA2_23 = new Question(2,
-				"Sử dụng rượu, bia khi lái xe, nếu bị phát hiện thì bị xử lý như thế nào?", true, "", a2.getId(),
+				"Sử dụng rượu, bia khi lái xe, nếu bị phát hiện thì bị xử lý như thế nào?", "nan", a2.getId(),
 				set5.getId(), kn.getId());
 		questionRepo.save(questionA2_23);
 
 		Question questionA2_41 = new Question(3,
 				"Bạn đang lái xe trong khu dân cư, có đông xe qua lại, nếu muốn quay đầu bạn cần làm gì để tránh ùn tắc và đảm bảo an toàn giao thông?",
-				true, "", a2.getId(), set5.getId(), kn.getId());
+				"nan", a2.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA2_41);
 
 		Question questionA2_59 = new Question(4,
 				"Biển báo hiệu có dạng hình tròn, viền đỏ, nền trắng, trên nền có hình vẽ hoặc chữ số, chữ viết màu đen loại biển gì dưới đây?",
-				true, "a2_59.jpg", a2.getId(), set5.getId(), kn.getId());
+				"a2_59.jpg", a2.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA2_59);
 
-		Question questionA2_77 = new Question(5, "Khi lùi xe người lái xe phải làm gì để bảo đảm an toàn?", true, "",
+		Question questionA2_77 = new Question(5, "Khi lùi xe người lái xe phải làm gì để bảo đảm an toàn?", "nan",
 				a2.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA2_77);
 
 		Question questionA2_95 = new Question(6,
 				"Khi điều khiển xe cơ giới, người lái xe phải bật đèn tín hiệu báo rẽ trong trường hợp nào sau đây?",
-				true, "", a2.getId(), set5.getId(), kn.getId());
+				"nan", a2.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA2_95);
 
 		Question questionA2_113 = new Question(7,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường hai chiều không có dải phân cách giữa đường một chiều có 01 làn xe cơ giới (trừ đường cao tốc), loại xe nào dưới đây tham gia giao thông với tốc độ tối đa cho phép là 50 km/h?",
-				true, "", a2.getId(), set5.getId(), kn.getId());
+				"nan", a2.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA2_113);
 
 		Question questionA2_131 = new Question(8,
 				"Tại những đoạn đường không bố trí biển báo hạn chế tốc độ, không bố trí biển báo khoảng cách an toàn tối thiểu giữa hai xe, người điều khiển phương tiện tham gia giao thông phải thực hiện quy định nào dưới đây để đảm bảo an toàn giao thông?",
-				true, "", a2.getId(), set5.getId(), kn.getId());
+				"nan", a2.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA2_131);
 
 		Question questionA2_149 = new Question(9,
-				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?", true,
+				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?",
 				"", a2.getId(), set5.getId(), vh.getId());
 		questionRepo.save(questionA2_149);
 
 		Question questionA2_167 = new Question(10,
-				"Khi tầm nhìn bị hạn chế bởi sương mù hoặc mưa to, người lái xe phải thực hiện các thao tác nào?", true,
+				"Khi tầm nhìn bị hạn chế bởi sương mù hoặc mưa to, người lái xe phải thực hiện các thao tác nào?",
 				"", a2.getId(), set5.getId(), kt.getId());
 		questionRepo.save(questionA2_167);
 
 		Question questionA2_185 = new Question(11, "Trên xe ô tô có trang bị thiết bị như hình vẽ, dùng để làm gì?",
-				true, "a2_185.jpg", a2.getId(), set5.getId(), kt.getId());
+				"a2_185.jpg", a2.getId(), set5.getId(), kt.getId());
 		questionRepo.save(questionA2_185);
 
-		Question questionA2_203 = new Question(12, "Biển nào cấm các phương tiện giao thông đường bộ rẽ trái?", true,
+		Question questionA2_203 = new Question(12, "Biển nào cấm các phương tiện giao thông đường bộ rẽ trái?",
 				"a2_203.jpg", a2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA2_203);
 
 		Question questionA2_221 = new Question(13,
 				"Khi gặp các biển này xe ưu tiên theo luật định (có tải trọng hay chiều cao toàn bộ vượt quá chỉ số ghi trên biển) có được phép đi qua hay không?",
-				true, "a2_221.jpg", a2.getId(), set5.getId(), bb.getId());
+				"a2_221.jpg", a2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA2_221);
 
-		Question questionA2_239 = new Question(14, "Biển này có ý nghĩa gì?", true, "a2_239.jpg", a2.getId(),
+		Question questionA2_239 = new Question(14, "Biển này có ý nghĩa gì?", "a2_239.jpg", a2.getId(),
 				set5.getId(), bb.getId());
 		questionRepo.save(questionA2_239);
 
-		Question questionA2_257 = new Question(15, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?", true,
+		Question questionA2_257 = new Question(15, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?",
 				"a2_257.jpg", a2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA2_257);
 
 		Question questionA2_275 = new Question(16,
-				"Biển nào báo hiệu phải giảm tốc độ, nhường đường cho xe cơ giới đi ngược chiều qua đường hẹp?", true,
+				"Biển nào báo hiệu phải giảm tốc độ, nhường đường cho xe cơ giới đi ngược chiều qua đường hẹp?",
 				"a2_275.jpg", a2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA2_275);
 
 		Question questionA2_293 = new Question(17,
-				"Biển nào sau đây báo trước gần tới đoạn đường đang tiến hành thi công?", true, "a2_293.jpg",
+				"Biển nào sau đây báo trước gần tới đoạn đường đang tiến hành thi công?", "a2_293.jpg",
 				a2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA2_293);
 
 		Question questionA2_311 = new Question(18,
 				"Biển nào báo hiệu các phương tiện phải đi đúng làn đường quy định và tuân thủ tốc độ tối đa cho phép?",
-				true, "a2_311.jpg", a2.getId(), set5.getId(), bb.getId());
+				"a2_311.jpg", a2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA2_311);
 
-		Question questionA2_329 = new Question(19, "Biển nào chỉ dẫn tên đường trên các tuyến đường đối ngoại?", true,
+		Question questionA2_329 = new Question(19, "Biển nào chỉ dẫn tên đường trên các tuyến đường đối ngoại?",
 				"a2_329.jpg", a2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA2_329);
 
 		Question questionA2_347 = new Question(20,
-				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?", true,
+				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?",
 				"a2_347.jpg", a2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA2_347);
 
-		Question questionA2_365 = new Question(21, "Vạch dưới đây có tác dụng gì?", true, "a2_365.jpg", a2.getId(),
+		Question questionA2_365 = new Question(21, "Vạch dưới đây có tác dụng gì?", "a2_365.jpg", a2.getId(),
 				set5.getId(), bb.getId());
 		questionRepo.save(questionA2_365);
 
-		Question questionA2_383 = new Question(22, "Xe nào được quyền đi trước?", true, "a2_383.jpg", a2.getId(),
+		Question questionA2_383 = new Question(22, "Xe nào được quyền đi trước?", "a2_383.jpg", a2.getId(),
 				set5.getId(), sh.getId());
 		questionRepo.save(questionA2_383);
 
-		Question questionA2_401 = new Question(23, "Đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?", true,
+		Question questionA2_401 = new Question(23, "Đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
 				"a2_401.jpg", a2.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionA2_401);
 
-		Question questionA2_419 = new Question(24, "Xe nào phải nhường đường là đúng quy tắc giao thông?", true,
+		Question questionA2_419 = new Question(24, "Xe nào phải nhường đường là đúng quy tắc giao thông?",
 				"a2_419.jpg", a2.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionA2_419);
 
 		Question questionA2_437 = new Question(25,
-				"Bạn xử lý như thế nào khi lái xe ô tô vượt qua đoàn người đi xe đạp có tổ chức?", true, "a2_437.jpg",
+				"Bạn xử lý như thế nào khi lái xe ô tô vượt qua đoàn người đi xe đạp có tổ chức?", "a2_437.jpg",
 				a2.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionA2_437);
 
 		Question questionA2_6 = new Question(1, "Người lái xe được hiểu như thế nào trong các khái niệm dưới đây?",
-				true, "", a2.getId(), set6.getId(), kn.getId());
+				"nan", a2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA2_6);
 
 		Question questionA2_24 = new Question(2,
 				"Theo Luật phòng chống tác hại của rượu, bia, đối tượng nào dưới đây bị cấm sử dụng rượu, bia khi tham gia giao thông?",
-				true, "", a2.getId(), set6.getId(), kn.getId());
+				"nan", a2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA2_24);
 
-		Question questionA2_42 = new Question(3, "Người lái xe không được lùi xe ở những khu vực nào dưới đây?", true,
+		Question questionA2_42 = new Question(3, "Người lái xe không được lùi xe ở những khu vực nào dưới đây?",
 				"", a2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA2_42);
 
 		Question questionA2_60 = new Question(4,
 				"Biển báo hiệu có dạng tam giác đều, viền đỏ, nền màu vàng, trên có hình vẽ màu đen là loại biển gì dưới đây?",
-				true, "a2_60.jpg", a2.getId(), set6.getId(), kn.getId());
+				"a2_60.jpg", a2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA2_60);
 
 		Question questionA2_78 = new Question(5,
-				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?", true,
+				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?",
 				"", a2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA2_78);
 
 		Question questionA2_96 = new Question(6,
 				"Trên đoạn đường hai chiều không có giải phân cách giữa, người lái xe không được vượt xe khác trong các trường hợp nào dưới đây?",
-				true, "", a2.getId(), set6.getId(), kn.getId());
+				"nan", a2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA2_96);
 
 		Question questionA2_114 = new Question(7,
 				"Khi tham gia giao thông trên đoạn đường không có biển báo \"Cự ly tối thiểu giữa hai xe\", với điều kiện mặt đường khô ráo, xe cơ giới đang chạy với tốc độ từ trên 60 km/h đến 80 km/h, người lái xe phải giữ khoảng cách an toàn với xe đang chạy liền trước tối thiểu là bao nhiêu?",
-				true, "", a2.getId(), set6.getId(), kn.getId());
+				"nan", a2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA2_114);
 
 		Question questionA2_132 = new Question(8,
-				"Theo Luật Giao thông đường bộ, tín hiệu đèn giao thông gồm 3 màu nào dưới đây?", true, "", a2.getId(),
+				"Theo Luật Giao thông đường bộ, tín hiệu đèn giao thông gồm 3 màu nào dưới đây?", "nan", a2.getId(),
 				set6.getId(), kn.getId());
 		questionRepo.save(questionA2_132);
 
 		Question questionA2_150 = new Question(9,
-				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?", true,
+				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?",
 				"", a2.getId(), set6.getId(), vh.getId());
 		questionRepo.save(questionA2_150);
 
 		Question questionA2_168 = new Question(10,
 				"Khi đèn pha của xe đi ngược chiều gây chói mắt, làm giảm khả năng quan sát trên đường, người lái xe xử lý như thế nào để đảm bảo an toàn?",
-				true, "", a2.getId(), set6.getId(), kt.getId());
+				"nan", a2.getId(), set6.getId(), kt.getId());
 		questionRepo.save(questionA2_168);
 
 		Question questionA2_186 = new Question(11,
 				"Biển nào cấm các loại xe cơ giới đi vào, trừ xe gắn máy, mô tô hai bánh và các loại xe ưu tiên theo luật định?",
-				true, "a2_186.jpg", a2.getId(), set6.getId(), bb.getId());
+				"a2_186.jpg", a2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA2_186);
 
-		Question questionA2_204 = new Question(12, "Biển nào dưới đây cấm ô tô quay đầu?", true, "a2_204.jpg",
+		Question questionA2_204 = new Question(12, "Biển nào dưới đây cấm ô tô quay đầu?", "a2_204.jpg",
 				a2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA2_204);
 
-		Question questionA2_222 = new Question(13, "Biển nào hạn chế chiều cao của xe và hàng?", true, "a2_222.jpg",
+		Question questionA2_222 = new Question(13, "Biển nào hạn chế chiều cao của xe và hàng?", "a2_222.jpg",
 				a2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA2_222);
 
-		Question questionA2_240 = new Question(14, "Theo hướng bên phải có được phép đỗ xe, dừng xe không?", true,
+		Question questionA2_240 = new Question(14, "Theo hướng bên phải có được phép đỗ xe, dừng xe không?",
 				"a2_240.jpg", a2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA2_240);
 
-		Question questionA2_258 = new Question(15, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?", true,
+		Question questionA2_258 = new Question(15, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?",
 				"a2_258.jpg", a2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA2_258);
 
-		Question questionA2_276 = new Question(16, "Biển nào chỉ dẫn \"Được ưu tiên qua đường hẹp\"?", true,
+		Question questionA2_276 = new Question(16, "Biển nào chỉ dẫn \"Được ưu tiên qua đường hẹp\"?",
 				"a2_276.jpg", a2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA2_276);
 
 		Question questionA2_294 = new Question(17,
-				"Biển nào sau đây cảnh báo nguy hiểm đoạn đường thường xảy ra tai nạn?", true, "a2_294.jpg", a2.getId(),
+				"Biển nào sau đây cảnh báo nguy hiểm đoạn đường thường xảy ra tai nạn?", "a2_294.jpg", a2.getId(),
 				set6.getId(), bb.getId());
 		questionRepo.save(questionA2_294);
 
 		Question questionA2_312 = new Question(18,
-				"Biển nào báo hiệu các phương tiện phải tuân thủ tốc độ tối đa cho phép trên từng làn đường?", true,
+				"Biển nào báo hiệu các phương tiện phải tuân thủ tốc độ tối đa cho phép trên từng làn đường?",
 				"a2_312.jpg", a2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA2_312);
 
-		Question questionA2_330 = new Question(19, "Biển số 1 có ý nghĩa gì?", true, "a2_330.jpg", a2.getId(),
+		Question questionA2_330 = new Question(19, "Biển số 1 có ý nghĩa gì?", "a2_330.jpg", a2.getId(),
 				set6.getId(), bb.getId());
 		questionRepo.save(questionA2_330);
 
 		Question questionA2_348 = new Question(20,
-				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?", true,
+				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?",
 				"a2_348.jpg", a2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA2_348);
 
-		Question questionA2_366 = new Question(21, "Vạch dưới đây có ý nghĩa gì?", true, "a2_366.jpg", a2.getId(),
+		Question questionA2_366 = new Question(21, "Vạch dưới đây có ý nghĩa gì?", "a2_366.jpg", a2.getId(),
 				set6.getId(), bb.getId());
 		questionRepo.save(questionA2_366);
 
-		Question questionA2_384 = new Question(22, "Theo hướng mũi tên, những hướng nào xe gắn máy đi được?", true,
+		Question questionA2_384 = new Question(22, "Theo hướng mũi tên, những hướng nào xe gắn máy đi được?",
 				"a2_384.jpg", a2.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA2_384);
 
-		Question questionA2_402 = new Question(23, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionA2_402 = new Question(23, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"a2_402.jpg", a2.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA2_402);
 
-		Question questionA2_420 = new Question(24, "Bạn có được phép vượt xe mô tô phía trước không?", true,
+		Question questionA2_420 = new Question(24, "Bạn có được phép vượt xe mô tô phía trước không?",
 				"a2_420.jpg", a2.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA2_420);
 
-		Question questionA2_438 = new Question(25, "Bạn xử lý như thế nào trong trường hợp này?", true, "a2_438.jpg",
+		Question questionA2_438 = new Question(25, "Bạn xử lý như thế nào trong trường hợp này?", "a2_438.jpg",
 				a2.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA2_438);
 
 		Question questionA2_7 = new Question(1,
 				"Đường mà trên đó phương tiện tham gia giao thông được các phương tiện giao thông đến từ hướng khác nhường đường khi qua nơi đường giao nhau, được cắm biển báo hiệu đường ưu tiên là loại đường gì?",
-				true, "", a2.getId(), set7.getId(), kn.getId());
+				"nan", a2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA2_7);
 
 		Question questionA2_25 = new Question(2,
 				"Hành vi giao xe cơ giới, xe máy chuyên dùng cho người không đủ điều kiện để điều khiển xe tham gia giao thông có được phép hay không?",
-				true, "", a2.getId(), set7.getId(), kn.getId());
+				"nan", a2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA2_25);
 
 		Question questionA2_43 = new Question(3,
 				"Người điều khiển phương tiện giao thông trên đường phố có được dùng xe, đỗ xe trên miệng cống thoát nước, miệng hâm của đường điện thoại, điện cao thế, chỗ dành riêng cho xe chữa cháy lấy nước hay không?",
-				true, "", a2.getId(), set7.getId(), kn.getId());
+				"nan", a2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA2_43);
 
 		Question questionA2_61 = new Question(4,
-				"Biển báo hiệu hình tròn có nền xanh lam có hình vẽ màu trắng là loại biển gì dưới đây?", true,
+				"Biển báo hiệu hình tròn có nền xanh lam có hình vẽ màu trắng là loại biển gì dưới đây?",
 				"a2_61.jpg", a2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA2_61);
 
 		Question questionA2_79 = new Question(5,
-				"Bạn đang lái xe trên đường hẹp, xuống dốc và gặp một xe đang đi lên dốc, bạn cần làm gì?", true, "",
+				"Bạn đang lái xe trên đường hẹp, xuống dốc và gặp một xe đang đi lên dốc, bạn cần làm gì?", "nan",
 				a2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA2_79);
 
 		Question questionA2_97 = new Question(6,
 				"Khi lái xe trên đường vắng mà cảm thấy buồn ngủ, người lái xe nên chọn cách xử lý như thế nào cho phù hợp?",
-				true, "", a2.getId(), set7.getId(), kn.getId());
+				"nan", a2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA2_97);
 
 		Question questionA2_115 = new Question(7,
 				"Khi tham gia giao thông trên đoạn đường không có biển báo \"Cự ly tối thiểu giữa hai xe\", với điều kiện mặt đường khô ráo, xe cơ giới đang chạy với tốc độ từ trên 80 km/h đến 100 km/h, người lái xe phải giữ khoảng cách an toàn với xe đang chạy liền trước tối thiểu là bao nhiêu?",
-				true, "", a2.getId(), set7.getId(), kn.getId());
+				"nan", a2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA2_115);
 
 		Question questionA2_133 = new Question(8,
 				"Tại nơi đường giao nhau, khi đèn điều khiển giao thông có tín hiệu màu vàng, người điều khiển giao thông phải chấp hành như thế nào là đúng quy tắc giao thông?",
-				true, "", a2.getId(), set7.getId(), kn.getId());
+				"nan", a2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA2_133);
 
 		Question questionA2_151 = new Question(9,
 				"Trong các hành vi dưới đây, người lái xe ô tô, mô tô có văn hóa giao thông phải ứng xử như thế nào?",
-				true, "", a2.getId(), set7.getId(), vh.getId());
+				"nan", a2.getId(), set7.getId(), vh.getId());
 		questionRepo.save(questionA2_151);
 
 		Question questionA2_169 = new Question(10,
 				"Để đạt được hiệu quả phanh cao nhất, người lái xe mô tô phải sử dụng các kỹ năng như thế nào dưới đây?",
-				true, "", a2.getId(), set7.getId(), kt.getId());
+				"nan", a2.getId(), set7.getId(), kt.getId());
 		questionRepo.save(questionA2_169);
 
-		Question questionA2_187 = new Question(11, "Biển nào cấm ô tô tải?", true, "a2_187.jpg", a2.getId(),
+		Question questionA2_187 = new Question(11, "Biển nào cấm ô tô tải?", "a2_187.jpg", a2.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionA2_187);
 
-		Question questionA2_205 = new Question(12, "Biển nào dưới đây cấm ô tô quay đầu và rẽ phải?", true,
+		Question questionA2_205 = new Question(12, "Biển nào dưới đây cấm ô tô quay đầu và rẽ phải?",
 				"a2_205.jpg", a2.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA2_205);
 
-		Question questionA2_223 = new Question(13, "Biển số 2 có ý nghĩa như thế nào?", true, "a2_223.jpg", a2.getId(),
+		Question questionA2_223 = new Question(13, "Biển số 2 có ý nghĩa như thế nào?", "a2_223.jpg", a2.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionA2_223);
 
 		Question questionA2_241 = new Question(14,
 				"Gặp biển này, xe ô tô sơ mi rơ moóc có chiều dài toàn bộ kể cả xe, moóc và hàng lớn hơn trị số ghi trên biển có được phép đi vào không?",
-				true, "a2_241.jpg", a2.getId(), set7.getId(), bb.getId());
+				"a2_241.jpg", a2.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA2_241);
 
 		Question questionA2_259 = new Question(15,
-				"Biển nào báo hiệu đường sắt giao nhau với đường bộ không có rào chắn?", true, "a2_259.jpg", a2.getId(),
+				"Biển nào báo hiệu đường sắt giao nhau với đường bộ không có rào chắn?", "a2_259.jpg", a2.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionA2_259);
 
-		Question questionA2_277 = new Question(16, "Biển nào báo hiệu \"Đường đôi\"?", true, "a2_277.jpg", a2.getId(),
+		Question questionA2_277 = new Question(16, "Biển nào báo hiệu \"Đường đôi\"?", "a2_277.jpg", a2.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionA2_277);
 
 		Question questionA2_295 = new Question(17,
-				"Biển nào dưới đây báo hiệu đoạn đường hay xảy ra ùn tắc giao thông?", true, "a2_295.jpg", a2.getId(),
+				"Biển nào dưới đây báo hiệu đoạn đường hay xảy ra ùn tắc giao thông?", "a2_295.jpg", a2.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionA2_295);
 
-		Question questionA2_313 = new Question(18, "Biển nào báo hiệu \"Đường dành cho xe ô tô\"?", true, "a2_313.jpg",
+		Question questionA2_313 = new Question(18, "Biển nào báo hiệu \"Đường dành cho xe ô tô\"?", "a2_313.jpg",
 				a2.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA2_313);
 
-		Question questionA2_331 = new Question(19, "Biển số 3 có ý nghĩa gì?", true, "a2_331.jpg", a2.getId(),
+		Question questionA2_331 = new Question(19, "Biển số 3 có ý nghĩa gì?", "a2_331.jpg", a2.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionA2_331);
 
-		Question questionA2_349 = new Question(20, "Biển nào báo hiệu kết thúc đường cao tốc?", true, "a2_349.jpg",
+		Question questionA2_349 = new Question(20, "Biển nào báo hiệu kết thúc đường cao tốc?", "a2_349.jpg",
 				a2.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA2_349);
 
-		Question questionA2_367 = new Question(21, "Vạch dưới đây có ý nghĩa gì?", true, "a2_367.jpg", a2.getId(),
+		Question questionA2_367 = new Question(21, "Vạch dưới đây có ý nghĩa gì?", "a2_367.jpg", a2.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionA2_367);
 
-		Question questionA2_385 = new Question(22, "Xe nào đỗ vi phạm quy tắc giao thông?", true, "a2_385.jpg",
+		Question questionA2_385 = new Question(22, "Xe nào đỗ vi phạm quy tắc giao thông?", "a2_385.jpg",
 				a2.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionA2_385);
 
-		Question questionA2_403 = new Question(23, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionA2_403 = new Question(23, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"a2_403.jpg", a2.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionA2_403);
 
 		Question questionA2_421 = new Question(24,
-				"Theo tín hiệu đèn của xe cơ giới, xe nào vi phạm quy tắc giao thông?", true, "a2_421.jpg", a2.getId(),
+				"Theo tín hiệu đèn của xe cơ giới, xe nào vi phạm quy tắc giao thông?", "a2_421.jpg", a2.getId(),
 				set7.getId(), sh.getId());
 		questionRepo.save(questionA2_421);
 
 		Question questionA2_439 = new Question(25, "Các xe đi theo thứ tự nào là đúng quy tắc giao thông đường bộ?",
-				true, "a2_439.jpg", a2.getId(), set7.getId(), sh.getId());
+				"a2_439.jpg", a2.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionA2_439);
 
 		Question questionA2_8 = new Question(1,
-				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", true, "",
+				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", "nan",
 				a2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA2_8);
 
 		Question questionA2_26 = new Question(2,
 				"Hành vi điều khiển xe cơ giới chạy quá tốc độ quy định, giành đường, vượt ẩu có bị nghiêm cấm hay không?",
-				true, "", a2.getId(), set8.getId(), kn.getId());
+				"nan", a2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA2_26);
 
 		Question questionA2_44 = new Question(3,
 				"Khi xe đã kéo 1 xe hoặc xe đã kéo 1 rơ moóc, bạn có được phép kéo thêm xe (kể cả xe thô sơ) hoặc rơ moóc thứ hai hay không?",
-				true, "", a2.getId(), set8.getId(), kn.getId());
+				"nan", a2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA2_44);
 
 		Question questionA2_62 = new Question(4,
 				"Biển báo hiệu hình chữ nhật hoặc hình vuông hoặc hình mũi tên nền xanh lam là loại biển gì dưới đây?",
-				true, "a2_62.jpg", a2.getId(), set8.getId(), kn.getId());
+				"a2_62.jpg", a2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA2_62);
 
 		Question questionA2_80 = new Question(5,
 				"Tại nơi đường giao nhau, người lái xe đang đi trên đường không ưu tiên phải nhường đường như thế nào là đúng quy tắc giao thông?",
-				true, "", a2.getId(), set8.getId(), kn.getId());
+				"nan", a2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA2_80);
 
 		Question questionA2_98 = new Question(6, "Người lái xe mô tô xử lý như thế nào khi cho xe mô tô phía sau vượt?",
-				true, "", a2.getId(), set8.getId(), kn.getId());
+				"nan", a2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA2_98);
 
 		Question questionA2_116 = new Question(7,
 				"Khi tham gia giao thông trên đoạn đường không có biển báo \"Cự ly tối thiểu giữa hai xe\", với điều kiện mặt đường khô ráo, xe cơ giới đang chạy với tốc độ từ trên 100 km/h đến 120 km/h, người lái xe phải giữ khoảng cách an toàn với xe đang chạy liền trước tối thiểu là bao nhiêu?",
-				true, "", a2.getId(), set8.getId(), kn.getId());
+				"nan", a2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA2_116);
 
 		Question questionA2_134 = new Question(8,
 				"Để báo hiệu cho xe phía trước biết xe mô tô của bạn muốn vượt, bạn phải có tín hiệu như thế nào dưới đây?",
-				true, "", a2.getId(), set8.getId(), kn.getId());
+				"nan", a2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA2_134);
 
 		Question questionA2_152 = new Question(9,
 				"Người có văn hóa giao thông khi điều khiển xe cơ giới tham gia giao thông đường bộ phải đảm bảo các điều kiện gì dưới đây?",
-				true, "", a2.getId(), set8.getId(), vh.getId());
+				"nan", a2.getId(), set8.getId(), vh.getId());
 		questionRepo.save(questionA2_152);
 
 		Question questionA2_170 = new Question(10,
 				"Khi lái xe ô tô trên mặt đường có nhiều \"ổ gà\", người lái xe phải thực hiện thao tác như thế nào để đảm bảo an toàn?",
-				true, "", a2.getId(), set8.getId(), kt.getId());
+				"nan", a2.getId(), set8.getId(), kt.getId());
 		questionRepo.save(questionA2_170);
 
-		Question questionA2_188 = new Question(11, "Biển nào cấm máy kéo?", true, "a2_188.jpg", a2.getId(),
+		Question questionA2_188 = new Question(11, "Biển nào cấm máy kéo?", "a2_188.jpg", a2.getId(),
 				set8.getId(), bb.getId());
 		questionRepo.save(questionA2_188);
 
-		Question questionA2_206 = new Question(12, "Biển nào cấm xe taxi mà không cấm các phương tiện khác?", true,
+		Question questionA2_206 = new Question(12, "Biển nào cấm xe taxi mà không cấm các phương tiện khác?",
 				"a2_206.jpg", a2.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA2_206);
 
-		Question questionA2_224 = new Question(13, "Biển số 3 có ý nghĩa như thế nào?", true, "a2_224.jpg", a2.getId(),
+		Question questionA2_224 = new Question(13, "Biển số 3 có ý nghĩa như thế nào?", "a2_224.jpg", a2.getId(),
 				set8.getId(), bb.getId());
 		questionRepo.save(questionA2_224);
 
 		Question questionA2_242 = new Question(14,
 				"Xe ô tô chở hàng vượt quá phía trước và sau thùng xe, mỗi phía quá 10% chiều dài toàn bộ thân xe, tổng chiều dài xe (cả hàng) từ trước đến sau nhỏ hơn trị số ghi trên biển thì có được phép đi vào không?",
-				true, "a2_242.jpg", a2.getId(), set8.getId(), bb.getId());
+				"a2_242.jpg", a2.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA2_242);
 
 		Question questionA2_260 = new Question(15,
-				"Biển nào báo hiệu sắp đến chỗ giao nhau giữa đường bộ và đường sắt?", true, "a2_260.jpg", a2.getId(),
+				"Biển nào báo hiệu sắp đến chỗ giao nhau giữa đường bộ và đường sắt?", "a2_260.jpg", a2.getId(),
 				set8.getId(), bb.getId());
 		questionRepo.save(questionA2_260);
 
-		Question questionA2_278 = new Question(16, "Biển nào báo hiệu \"Đường đôi\"?", true, "a2_278.jpg", a2.getId(),
+		Question questionA2_278 = new Question(16, "Biển nào báo hiệu \"Đường đôi\"?", "a2_278.jpg", a2.getId(),
 				set8.getId(), bb.getId());
 		questionRepo.save(questionA2_278);
 
 		Question questionA2_296 = new Question(17,
 				"Gặp biển nào người tham gia giao thông phải đi chậm và thận trọng đề phòng khả năng xuất hiện và di chuyển bất ngờ của trẻ em trên mặt đường?",
-				true, "a2_296.jpg", a2.getId(), set8.getId(), bb.getId());
+				"a2_296.jpg", a2.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA2_296);
 
-		Question questionA2_314 = new Question(18, "Biển nào báo hiệu \"Hết đoạn đường dành cho xe ô tô\"?", true,
+		Question questionA2_314 = new Question(18, "Biển nào báo hiệu \"Hết đoạn đường dành cho xe ô tô\"?",
 				"a2_314.jpg", a2.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA2_314);
 
 		Question questionA2_332 = new Question(19,
-				"Biển nào báo hiệu \"Đường phía trước có làn đường dành cho ô tô khách\"?", true, "a2_332.jpg",
+				"Biển nào báo hiệu \"Đường phía trước có làn đường dành cho ô tô khách\"?", "a2_332.jpg",
 				a2.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA2_332);
 
-		Question questionA2_350 = new Question(20, "Biển này có ý nghĩa gì?", true, "a2_350.jpg", a2.getId(),
+		Question questionA2_350 = new Question(20, "Biển này có ý nghĩa gì?", "a2_350.jpg", a2.getId(),
 				set8.getId(), bb.getId());
 		questionRepo.save(questionA2_350);
 
-		Question questionA2_368 = new Question(21, "Thứ tự đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionA2_368 = new Question(21, "Thứ tự đi như thế nào là đúng quy tắc giao thông?",
 				"a2_368.jpg", a2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionA2_368);
 
-		Question questionA2_386 = new Question(22, "Xe nào đỗ vi phạm quy tắc giao thông?", true, "a2_386.jpg",
+		Question questionA2_386 = new Question(22, "Xe nào đỗ vi phạm quy tắc giao thông?", "a2_386.jpg",
 				a2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionA2_386);
 
-		Question questionA2_404 = new Question(23, "Những hướng nào ô tô tải được phép đi?", true, "a2_404.jpg",
+		Question questionA2_404 = new Question(23, "Những hướng nào ô tô tải được phép đi?", "a2_404.jpg",
 				a2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionA2_404);
 
 		Question questionA2_422 = new Question(24, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
-				true, "a2_422.jpg", a2.getId(), set8.getId(), sh.getId());
+				"a2_422.jpg", a2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionA2_422);
 
 		Question questionA2_440 = new Question(25, "Các xe đi theo thứ tự nào là đúng quy tắc giao thông đường bộ?",
-				true, "a2_440.jpg", a2.getId(), set8.getId(), sh.getId());
+				"a2_440.jpg", a2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionA2_440);
 
 		Question questionA2_9 = new Question(1,
-				"Khái niệm \"phương tiện giao thông thô sơ đường bộ\" được hiểu thế nào là đúng?", true, "", a2.getId(),
+				"Khái niệm \"phương tiện giao thông thô sơ đường bộ\" được hiểu thế nào là đúng?", "nan", a2.getId(),
 				set9.getId(), kn.getId());
 		questionRepo.save(questionA2_9);
 
 		Question questionA2_27 = new Question(2,
-				"Khi lái xe trên đường, người lái xe cần quan sát và bảo đảm tốc độ phương tiện như thế nào?", true, "",
+				"Khi lái xe trên đường, người lái xe cần quan sát và bảo đảm tốc độ phương tiện như thế nào?", "nan",
 				a2.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionA2_27);
 
 		Question questionA2_45 = new Question(3,
 				"Người điều khiển xe mô tô hai bánh, ba bánh, xe gắn máy có được phép sử dụng xe để kéo hoặc đẩy các phương tiện khác khi tham gia giao thông không?",
-				true, "", a2.getId(), set9.getId(), kn.getId());
+				"nan", a2.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionA2_45);
 
 		Question questionA2_63 = new Question(4,
-				"Việc sát hạch cấp giấy phép lái xe ô tô phải thực hiện ở đâu và như thế nào?", true, "", a2.getId(),
+				"Việc sát hạch cấp giấy phép lái xe ô tô phải thực hiện ở đâu và như thế nào?", "nan", a2.getId(),
 				set9.getId(), kn.getId());
 		questionRepo.save(questionA2_63);
 
 		Question questionA2_81 = new Question(5,
 				"Tại nơi đường giao nhau không có báo hiệu đi theo vòng xuyến, người điều khiển phương tiện phải nhường đường như thế nào là đúng quy tắc giao thông?",
-				true, "", a2.getId(), set9.getId(), kn.getId());
+				"nan", a2.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionA2_81);
 
 		Question questionA2_99 = new Question(6,
 				"Trong các trường hợp dưới đây, để đảm bảo an toàn khi tham gia giao thông, người lái xe mô tô cần thực hiện như thế nào?",
-				true, "", a2.getId(), set9.getId(), kn.getId());
+				"nan", a2.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionA2_99);
 
 		Question questionA2_117 = new Question(7,
 				"Khi điều khiển xe chạy với tốc độ dưới 60 km/h, để đảm bảo khoảng cách an toàn giữa hai xe, người lái xe phải điều khiển xe như thế nào?",
-				true, "", a2.getId(), set9.getId(), kn.getId());
+				"nan", a2.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionA2_117);
 
 		Question questionA2_135 = new Question(8,
 				"Khi người lái xe ô tô dừng, đỗ sát theo lề đường, hè phố phía bên phải theo chiều đi của mình, bánh xe gần nhất không được cách xa lề đường, hè phố quá bao nhiêu mét trong các trường hợp dưới đây và không gây cản trở, nguy hiểm cho giao thông?",
-				true, "", a2.getId(), set9.getId(), kn.getId());
+				"nan", a2.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionA2_135);
 
 		Question questionA2_153 = new Question(9,
 				"Khi xảy ra tai nạn giao thông, người lái xe và người có mặt tại hiện trường vụ tai nạn phải thực hiện các công việc gì dưới đây?",
-				true, "", a2.getId(), set9.getId(), vh.getId());
+				"nan", a2.getId(), set9.getId(), vh.getId());
 		questionRepo.save(questionA2_153);
 
 		Question questionA2_171 = new Question(10,
 				"Khi đi từ đường nhánh ra đường chính, người lái xe phải xử lý như nào là đúng quy tắc giao thông?",
-				true, "", a2.getId(), set9.getId(), kt.getId());
+				"nan", a2.getId(), set9.getId(), kt.getId());
 		questionRepo.save(questionA2_171);
 
-		Question questionA2_189 = new Question(11, "Biển nào báo hiệu cấm xe mô tô ba bánh đi vào?", true, "a2_189.jpg",
+		Question questionA2_189 = new Question(11, "Biển nào báo hiệu cấm xe mô tô ba bánh đi vào?", "a2_189.jpg",
 				a2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionA2_189);
 
-		Question questionA2_207 = new Question(12, "Biển nào cho phép xe rẽ trái?", true, "a2_207.jpg", a2.getId(),
+		Question questionA2_207 = new Question(12, "Biển nào cho phép xe rẽ trái?", "a2_207.jpg", a2.getId(),
 				set9.getId(), bb.getId());
 		questionRepo.save(questionA2_207);
 
-		Question questionA2_225 = new Question(13, "Biển nào cấm máy kéo kéo theo rơ moóc?", true, "a2_225.jpg",
+		Question questionA2_225 = new Question(13, "Biển nào cấm máy kéo kéo theo rơ moóc?", "a2_225.jpg",
 				a2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionA2_225);
 
-		Question questionA2_243 = new Question(14, "Biển này có ý nghĩa gì?", true, "a2_243.jpg", a2.getId(),
+		Question questionA2_243 = new Question(14, "Biển này có ý nghĩa gì?", "a2_243.jpg", a2.getId(),
 				set9.getId(), bb.getId());
 		questionRepo.save(questionA2_243);
 
-		Question questionA2_261 = new Question(15, "Biển nào báo hiệu \"Của chui\"?", true, "a2_261.jpg", a2.getId(),
+		Question questionA2_261 = new Question(15, "Biển nào báo hiệu \"Của chui\"?", "a2_261.jpg", a2.getId(),
 				set9.getId(), bb.getId());
 		questionRepo.save(questionA2_261);
 
-		Question questionA2_279 = new Question(16, "Biển nào báo hiệu \"Kết thúc đường đôi\"?", true, "a2_279.jpg",
+		Question questionA2_279 = new Question(16, "Biển nào báo hiệu \"Kết thúc đường đôi\"?", "a2_279.jpg",
 				a2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionA2_279);
 
 		Question questionA2_297 = new Question(17, "Biển nào chỉ dẫn nơi bắt đầu đoạn đường dành cho người đi bộ?",
-				true, "a2_297.jpg", a2.getId(), set9.getId(), bb.getId());
+				"a2_297.jpg", a2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionA2_297);
 
 		Question questionA2_315 = new Question(18,
-				"Khi gặp biển nào thì các phương tiện không được đi vào, trừ ô tô và mô tô?", true, "a2_315.jpg",
+				"Khi gặp biển nào thì các phương tiện không được đi vào, trừ ô tô và mô tô?", "a2_315.jpg",
 				a2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionA2_315);
 
 		Question questionA2_333 = new Question(19,
-				"Biển nào báo hiệu \"Rẽ ra đường có làn đường dành cho ô tô khách\"?", true, "a2_333.jpg", a2.getId(),
+				"Biển nào báo hiệu \"Rẽ ra đường có làn đường dành cho ô tô khách\"?", "a2_333.jpg", a2.getId(),
 				set9.getId(), bb.getId());
 		questionRepo.save(questionA2_333);
 
-		Question questionA2_351 = new Question(20, "Biển này có ý nghĩa gì?", true, "a2_351.jpg", a2.getId(),
+		Question questionA2_351 = new Question(20, "Biển này có ý nghĩa gì?", "a2_351.jpg", a2.getId(),
 				set9.getId(), bb.getId());
 		questionRepo.save(questionA2_351);
 
-		Question questionA2_369 = new Question(21, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionA2_369 = new Question(21, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"a2_369.jpg", a2.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionA2_369);
 
 		Question questionA2_387 = new Question(22,
-				"Xe tải kéo mô tô ba bánh như hình này có đúng quy tắc giao thông không?", true, "a2_387.jpg",
+				"Xe tải kéo mô tô ba bánh như hình này có đúng quy tắc giao thông không?", "a2_387.jpg",
 				a2.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionA2_387);
 
-		Question questionA2_405 = new Question(23, "Theo hướng mũi tên, thứ tự các xe đi như thế nào là đúng?", true,
+		Question questionA2_405 = new Question(23, "Theo hướng mũi tên, thứ tự các xe đi như thế nào là đúng?",
 				"a2_405.jpg", a2.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionA2_405);
 
 		Question questionA2_423 = new Question(24, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
-				true, "a2_423.jpg", a2.getId(), set9.getId(), sh.getId());
+				"a2_423.jpg", a2.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionA2_423);
 
-		Question questionA2_441 = new Question(25, "Xe nào phải nhường đường trong trường hợp này?", true, "a2_441.jpg",
+		Question questionA2_441 = new Question(25, "Xe nào phải nhường đường trong trường hợp này?", "a2_441.jpg",
 				a2.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionA2_441);
 
 		Question questionA2_10 = new Question(1, "\"Phương tiện tham gia giao thông đường bộ\" gồm những loại nào?",
-				true, "", a2.getId(), set10.getId(), kn.getId());
+				"nan", a2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionA2_10);
 
 		Question questionA2_28 = new Question(2,
-				"Phương tiện giao thông đường bộ di chuyển với tốc độ thấp hơn phải đi như thế nào?", true, "",
+				"Phương tiện giao thông đường bộ di chuyển với tốc độ thấp hơn phải đi như thế nào?", "nan",
 				a2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionA2_28);
 
 		Question questionA2_46 = new Question(3,
 				"Khi điều khiển xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy, những hành vi buông cả hai tay; sử dụng xe để kéo, đẩy xe khác, vật khác, sử dụng chân chống của xe quệt xuống đường khi xe đang chạy có được phép hay không?",
-				true, "", a2.getId(), set10.getId(), kn.getId());
+				"nan", a2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionA2_46);
 
 		Question questionA2_64 = new Question(4,
-				"Khi điều khiển xe chạy trên đường, người lái xe phải mang theo các loại giấy tờ gì?", true, "",
+				"Khi điều khiển xe chạy trên đường, người lái xe phải mang theo các loại giấy tờ gì?", "nan",
 				a2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionA2_64);
 
 		Question questionA2_82 = new Question(5,
 				"Trên đoạn đường bộ giao nhau cùng lúc với đường sắt, cầu đường bộ đi chung với đường sắt thì loại phương tiện nào được quyền ưu tiên đi trước?",
-				true, "", a2.getId(), set10.getId(), kn.getId());
+				"nan", a2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionA2_82);
 
 		Question questionA2_100 = new Question(6,
-				"Đường bộ trong khu vực đông dân cư gồm những đoạn đường nào dưới đây?", true, "", a2.getId(),
+				"Đường bộ trong khu vực đông dân cư gồm những đoạn đường nào dưới đây?", "nan", a2.getId(),
 				set10.getId(), kn.getId());
 		questionRepo.save(questionA2_100);
 
 		Question questionA2_118 = new Question(7,
 				"Người lái xe phải giảm tốc độ thấp hơn tốc độ tối đa cho phép đến mức cần thiết, chú ý quan sát và chuẩn bị sẵn sàng những tình huống có thể xảy ra để phòng ngừa tai nạn trong các trường hợp nào dưới đây?",
-				true, "", a2.getId(), set10.getId(), kn.getId());
+				"nan", a2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionA2_118);
 
 		Question questionA2_136 = new Question(8,
 				"Khi dừng, đỗ xe trên đường phố hẹp, người lái xe ô tô phải dừng, đỗ xe ở vị trí cách xe ô tô đang đổ bên kia đường khoảng cách tối thiểu là bao nhiêu mét trong các trường hợp dưới đây để đảm bảo an toàn giao thông?",
-				true, "", a2.getId(), set10.getId(), kn.getId());
+				"nan", a2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionA2_136);
 
 		Question questionA2_154 = new Question(9,
 				"Khi xảy ra tai nạn giao thông, có người bị thương nghiêm trọng, người lái xe và người có mặt tại hiện trường vụ tai nạn phải thực hiện các công việc gì dưới đây?",
-				true, "", a2.getId(), set10.getId(), vh.getId());
+				"nan", a2.getId(), set10.getId(), vh.getId());
 		questionRepo.save(questionA2_154);
 
 		Question questionA2_172 = new Question(10,
 				"Khi đang lái xe mô tô và ô tô, nếu có nhu cầu sử dụng điện thoại để nhắn tin hoặc gọi điện, người lái xe phải thực hiện như thế nào trong các tình huống nêu dưới đây?",
-				true, "", a2.getId(), set10.getId(), kt.getId());
+				"nan", a2.getId(), set10.getId(), kt.getId());
 		questionRepo.save(questionA2_172);
 
-		Question questionA2_190 = new Question(11, "Biển nào dưới đây xe gắn máy được phép đi vào?", true, "a2_190.jpg",
+		Question questionA2_190 = new Question(11, "Biển nào dưới đây xe gắn máy được phép đi vào?", "a2_190.jpg",
 				a2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionA2_190);
 
-		Question questionA2_208 = new Question(12, "Biển nào xe quay đầu không bị cấm?", true, "a2_208.jpg", a2.getId(),
+		Question questionA2_208 = new Question(12, "Biển nào xe quay đầu không bị cấm?", "a2_208.jpg", a2.getId(),
 				set10.getId(), bb.getId());
 		questionRepo.save(questionA2_208);
 
-		Question questionA2_226 = new Question(13, "Khi gặp biển số 1, xe ô tô tải có được đi vào không?", true,
+		Question questionA2_226 = new Question(13, "Khi gặp biển số 1, xe ô tô tải có được đi vào không?",
 				"a2_226.jpg", a2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionA2_226);
 
-		Question questionA2_244 = new Question(14, "Biển này có ý nghĩa gì?", true, "a2_244.jpg", a2.getId(),
+		Question questionA2_244 = new Question(14, "Biển này có ý nghĩa gì?", "a2_244.jpg", a2.getId(),
 				set10.getId(), bb.getId());
 		questionRepo.save(questionA2_244);
 
-		Question questionA2_262 = new Question(15, "Hai biển này có ý nghĩa gì?", true, "a2_262.jpg", a2.getId(),
+		Question questionA2_262 = new Question(15, "Hai biển này có ý nghĩa gì?", "a2_262.jpg", a2.getId(),
 				set10.getId(), bb.getId());
 		questionRepo.save(questionA2_262);
 
-		Question questionA2_280 = new Question(16, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", true,
+		Question questionA2_280 = new Question(16, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?",
 				"a2_280.jpg", a2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionA2_280);
 
 		Question questionA2_298 = new Question(17,
-				"Biển nào dưới đây báo hiệu gần đến đoạn đường thường có trẻ em đi ngang qua?", true, "a2_298.jpg",
+				"Biển nào dưới đây báo hiệu gần đến đoạn đường thường có trẻ em đi ngang qua?", "a2_298.jpg",
 				a2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionA2_298);
 
-		Question questionA2_316 = new Question(18, "Biển này có ý nghĩa gì?", true, "a2_316.jpg", a2.getId(),
+		Question questionA2_316 = new Question(18, "Biển này có ý nghĩa gì?", "a2_316.jpg", a2.getId(),
 				set10.getId(), bb.getId());
 		questionRepo.save(questionA2_316);
 
 		Question questionA2_334 = new Question(19,
-				"Biển nào đặt trên đường chính trước khi đến nơi đường giao nhau để rẽ vào đường cụt?", true,
+				"Biển nào đặt trên đường chính trước khi đến nơi đường giao nhau để rẽ vào đường cụt?",
 				"a2_334.jpg", a2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionA2_334);
 
-		Question questionA2_352 = new Question(20, "Ý nghĩa các biểu tượng ghi trên biển chỉ dẫn là gì?", true,
+		Question questionA2_352 = new Question(20, "Ý nghĩa các biểu tượng ghi trên biển chỉ dẫn là gì?",
 				"a2_352.jpg", a2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionA2_352);
 
-		Question questionA2_370 = new Question(21, "Trường hợp này xe nào được quyền đi trước?", true, "a2_370.jpg",
+		Question questionA2_370 = new Question(21, "Trường hợp này xe nào được quyền đi trước?", "a2_370.jpg",
 				a2.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionA2_370);
 
-		Question questionA2_388 = new Question(22, "Theo hướng mũi tên, hướng nào xe không được phép đi?", true,
+		Question questionA2_388 = new Question(22, "Theo hướng mũi tên, hướng nào xe không được phép đi?",
 				"a2_388.jpg", a2.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionA2_388);
 
 		Question questionA2_406 = new Question(23, "Trong hình dưới đây, xe nào chấp hành đúng quy tắc giao thông?",
-				true, "a2_406.jpg", a2.getId(), set10.getId(), sh.getId());
+				"a2_406.jpg", a2.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionA2_406);
 
 		Question questionA2_424 = new Question(24, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
-				true, "a2_424.jpg", a2.getId(), set10.getId(), sh.getId());
+				"a2_424.jpg", a2.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionA2_424);
 
-		Question questionA2_442 = new Question(25, "Bạn xử lý như thế nào trong trường hợp này?", true, "a2_442.jpg",
+		Question questionA2_442 = new Question(25, "Bạn xử lý như thế nào trong trường hợp này?", "a2_442.jpg",
 				a2.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionA2_442);
 
 		Question questionA2_11 = new Question(1, "\"Người tham gia giao thông đường bộ\" gồm những đối tượng nào?",
-				true, "", a2.getId(), set11.getId(), kn.getId());
+				"nan", a2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionA2_11);
 
 		Question questionA2_29 = new Question(2,
 				"Trên đường có nhiều làn đường, khi điều khiển phương tiện ở tốc độ chậm bạn phải đi ở làn đường nào?",
-				true, "", a2.getId(), set11.getId(), kn.getId());
+				"nan", a2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionA2_29);
 
 		Question questionA2_47 = new Question(3,
 				"Khi điều khiển xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy, những hành vi nào không được phép?",
-				true, "", a2.getId(), set11.getId(), kn.getId());
+				"nan", a2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionA2_47);
 
 		Question questionA2_65 = new Question(4,
 				"Khi sử dụng giấy phép lái xe đã khai báo mất để điều khiển phương tiện cơ giới đường bộ, ngoài việc bị thu hồi giấy phép lái xe, chịu trách nhiệm trước pháp luật, người lái xe không được cấp giấy phép lái xe trong thời gian bao nhiêu năm?",
-				true, "", a2.getId(), set11.getId(), kn.getId());
+				"nan", a2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionA2_65);
 
 		Question questionA2_83 = new Question(5,
 				"Tại nơi đường bộ giao nhau cùng lúc với đường sắt chỉ có đèn tín hiệu hoặc chuông báo hiệu, khi đèn tín hiệu màu đỏ đã bật sáng hoặc có tiếng chuông báo hiệu, người tham gia giao thông phải dừng lại ngay và giữ khoảng cách tối thiểu bao nhiêu mét tính từ ray gần nhất?",
-				true, "", a2.getId(), set11.getId(), kn.getId());
+				"nan", a2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionA2_83);
 
 		Question questionA2_101 = new Question(6,
 				"Tốc độ tối đa cho phép đối với xe máy chuyên dùng, xe gắn máy (kể cả xe máy điện) và các loại xe tương tự trên đường bộ (trừ đường cao tốc) không được vượt quá bao nhiêu km/h?",
-				true, "", a2.getId(), set11.getId(), kn.getId());
+				"nan", a2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionA2_101);
 
 		Question questionA2_119 = new Question(7,
 				"Người lái xe phải giảm tốc độ, đi sát về bên phải của phần đường xe chạy trong các trường hợp nào dưới đây?",
-				true, "", a2.getId(), set11.getId(), kn.getId());
+				"nan", a2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionA2_119);
 
 		Question questionA2_137 = new Question(8,
 				"Trên đường bộ, người lái xe ô tô có được phép dùng xe, đỗ xe song song với một xe khác đang dừng, đỗ hay không?",
-				true, "", a2.getId(), set11.getId(), kn.getId());
+				"nan", a2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionA2_137);
 
 		Question questionA2_155 = new Question(9,
 				"Khi sơ cứu ban đầu cho người bị tai nạn giao thông đường bộ không còn hô hấp, người lái xe và người có mặt tại hiện trường vụ tai nạn phải thực hiện các công việc gì dưới đây?",
-				true, "", a2.getId(), set11.getId(), vh.getId());
+				"nan", a2.getId(), set11.getId(), vh.getId());
 		questionRepo.save(questionA2_155);
 
 		Question questionA2_173 = new Question(10,
 				"Những thói quen nào dưới đây khi điều khiển xe mô tô tay ga tham gia giao thông dễ gây tai nạn nguy hiểm?",
-				true, "", a2.getId(), set11.getId(), kt.getId());
+				"nan", a2.getId(), set11.getId(), kt.getId());
 		questionRepo.save(questionA2_173);
 
-		Question questionA2_191 = new Question(11, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?", true,
+		Question questionA2_191 = new Question(11, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?",
 				"a2_191.jpg", a2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionA2_191);
 
-		Question questionA2_209 = new Question(12, "Biển nào xe được phép quay đầu nhưng không được rẽ trái?", true,
+		Question questionA2_209 = new Question(12, "Biển nào xe được phép quay đầu nhưng không được rẽ trái?",
 				"a2_209.jpg", a2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionA2_209);
 
-		Question questionA2_227 = new Question(13, "Biển nào không có hiệu lực đối với ô tô tải không kéo moóc?", true,
+		Question questionA2_227 = new Question(13, "Biển nào không có hiệu lực đối với ô tô tải không kéo moóc?",
 				"a2_227.jpg", a2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionA2_227);
 
-		Question questionA2_245 = new Question(14, "Biển nào là biển \"Tốc độ tối đa cho phép về ban đêm\"?", true,
+		Question questionA2_245 = new Question(14, "Biển nào là biển \"Tốc độ tối đa cho phép về ban đêm\"?",
 				"a2_245.jpg", a2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionA2_245);
 
 		Question questionA2_263 = new Question(15, "Biển nào báo hiệu \"Nơi đường sắt giao vuông góc với đường bộ\"?",
-				true, "a2_263.jpg", a2.getId(), set11.getId(), bb.getId());
+				"a2_263.jpg", a2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionA2_263);
 
-		Question questionA2_281 = new Question(16, "Biển nào báo hiệu \"Đường hai chiều\"?", true, "a2_281.jpg",
+		Question questionA2_281 = new Question(16, "Biển nào báo hiệu \"Đường hai chiều\"?", "a2_281.jpg",
 				a2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionA2_281);
 
 		Question questionA2_299 = new Question(17,
 				"Gặp biển nào dưới đây người tham gia giao thông cần phải điều chỉnh tốc độ xe chạy cho thích hợp, đề phòng gió ngang thổi mạnh gây lật xe?",
-				true, "a2_299.jpg", a2.getId(), set11.getId(), bb.getId());
+				"a2_299.jpg", a2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionA2_299);
 
 		Question questionA2_317 = new Question(18,
-				"Biển nào (đặt trước ngã ba, ngã tư) cho phép xe được rẽ sang hướng khác?", true, "a2_317.jpg",
+				"Biển nào (đặt trước ngã ba, ngã tư) cho phép xe được rẽ sang hướng khác?", "a2_317.jpg",
 				a2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionA2_317);
 
-		Question questionA2_335 = new Question(19, "Biển nào chỉ dẫn cho người đi bộ sử dụng cầu vượt qua đường?", true,
+		Question questionA2_335 = new Question(19, "Biển nào chỉ dẫn cho người đi bộ sử dụng cầu vượt qua đường?",
 				"a2_335.jpg", a2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionA2_335);
 
-		Question questionA2_353 = new Question(20, "Biển này có ý nghĩa gì?", true, "a2_353.jpg", a2.getId(),
+		Question questionA2_353 = new Question(20, "Biển này có ý nghĩa gì?", "a2_353.jpg", a2.getId(),
 				set11.getId(), bb.getId());
 		questionRepo.save(questionA2_353);
 
-		Question questionA2_371 = new Question(21, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionA2_371 = new Question(21, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"a2_371.jpg", a2.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionA2_371);
 
-		Question questionA2_389 = new Question(22, "Theo hướng mũi tên, những hướng nào ô tô không được phép đi?", true,
+		Question questionA2_389 = new Question(22, "Theo hướng mũi tên, những hướng nào ô tô không được phép đi?",
 				"a2_389.jpg", a2.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionA2_389);
 
-		Question questionA2_407 = new Question(23, "Theo hướng mũi tên, những hướng nào xe mô tô được phép đi?", true,
+		Question questionA2_407 = new Question(23, "Theo hướng mũi tên, những hướng nào xe mô tô được phép đi?",
 				"a2_407.jpg", a2.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionA2_407);
 
 		Question questionA2_425 = new Question(24, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
-				true, "a2_425.jpg", a2.getId(), set11.getId(), sh.getId());
+				"a2_425.jpg", a2.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionA2_425);
 
-		Question questionA2_443 = new Question(25, "Xe nào được đi trước trong trường hợp này?", true, "a2_443.jpg",
+		Question questionA2_443 = new Question(25, "Xe nào được đi trước trong trường hợp này?", "a2_443.jpg",
 				a2.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionA2_443);
 
 		Question questionA2_12 = new Question(1,
-				"\"Người điều khiển phương tiện tham gia giao thông đường bộ\" gồm những đối tượng nào dưới đây?", true,
+				"\"Người điều khiển phương tiện tham gia giao thông đường bộ\" gồm những đối tượng nào dưới đây?",
 				"", a2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionA2_12);
 
 		Question questionA2_30 = new Question(2,
 				"Hành vi vượt xe tại các vị trí có tầm nhìn hạn chế, đường vòng, đầu dốc có bị nghiêm cấm hay không?",
-				true, "", a2.getId(), set12.getId(), kn.getId());
+				"nan", a2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionA2_30);
 
 		Question questionA2_48 = new Question(3,
 				"Người ngồi trên xe mô tô hai bánh, ba bánh, xe gắn máy khi tham gia giao thông có được mang, vác vật cồng kềnh hay không?",
-				true, "", a2.getId(), set12.getId(), kn.getId());
+				"nan", a2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionA2_48);
 
 		Question questionA2_66 = new Question(4,
 				"Khi gặp hiệu lệnh như dưới đây của cảnh sát giao thông thì người tham gia giao thông phải đi như thế nào là đúng quy tắc giao thông?",
-				true, "a2_66.jpg", a2.getId(), set12.getId(), kn.getId());
+				"a2_66.jpg", a2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionA2_66);
 
 		Question questionA2_84 = new Question(5,
 				"Những trường hợp nào ghi ở dưới đây không được đi vào đường cao tốc trừ người, phương tiện, thiết bị phục vụ cho việc quản lý, bảo trì đường cao tốc?",
-				true, "", a2.getId(), set12.getId(), kn.getId());
+				"nan", a2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionA2_84);
 
 		Question questionA2_102 = new Question(6,
 				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường đôi có dải phân cách giữa, xe mô tô hai bánh, ô tô chở người đến 30 chỗ tham gia giao thông với tốc độ tối đa cho phép là bao nhiêu?",
-				true, "", a2.getId(), set12.getId(), kn.getId());
+				"nan", a2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionA2_102);
 
 		Question questionA2_120 = new Question(7,
 				"Tại các điểm giao cắt giữa đường bộ và đường sắt quyền ưu tiên thuộc về loại phương tiện nào dưới đây?",
-				true, "", a2.getId(), set12.getId(), kn.getId());
+				"nan", a2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionA2_120);
 
 		Question questionA2_138 = new Question(8,
 				"Người điều khiển xe mô tô phải giảm tốc độ và hết sức thận trọng khi qua những đoạn đường nào dưới đây?",
-				true, "", a2.getId(), set12.getId(), kn.getId());
+				"nan", a2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionA2_138);
 
 		Question questionA2_156 = new Question(9,
 				"Hành vi bỏ trốn sau khi gây tai nạn để trốn tránh trách nhiệm hoặc khi có điều kiện mà cố ý không cứu giúp người bị tai nạn giao thông có bị nghiêm cấm hay không?",
-				true, "", a2.getId(), set12.getId(), vh.getId());
+				"nan", a2.getId(), set12.getId(), vh.getId());
 		questionRepo.save(questionA2_156);
 
 		Question questionA2_174 = new Question(10,
-				"Khi điều khiển xe mô tô quay đầu người lái xe cần thực hiện như thế nào để đảm bảo an toàn?", true, "",
+				"Khi điều khiển xe mô tô quay đầu người lái xe cần thực hiện như thế nào để đảm bảo an toàn?", "nan",
 				a2.getId(), set12.getId(), kt.getId());
 		questionRepo.save(questionA2_174);
 
-		Question questionA2_192 = new Question(11, "Khi gặp biển nào thì xe mô tô hai bánh được đi vào?", true,
+		Question questionA2_192 = new Question(11, "Khi gặp biển nào thì xe mô tô hai bánh được đi vào?",
 				"a2_192.jpg", a2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionA2_192);
 
-		Question questionA2_210 = new Question(12, "Biển nào là biển \"Cấm đi ngược chiều\"?", true, "a2_210.jpg",
+		Question questionA2_210 = new Question(12, "Biển nào là biển \"Cấm đi ngược chiều\"?", "a2_210.jpg",
 				a2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionA2_210);
 
-		Question questionA2_228 = new Question(13, "Biển nào cấm máy kéo?", true, "a2_228.jpg", a2.getId(),
+		Question questionA2_228 = new Question(13, "Biển nào cấm máy kéo?", "a2_228.jpg", a2.getId(),
 				set12.getId(), bb.getId());
 		questionRepo.save(questionA2_228);
 
 		Question questionA2_246 = new Question(14,
 				"Biển báo nào báo hiệu bắt đầu đoạn đường vào phạm vi khu dân cư, các phương tiện tham gia giao thông phải tuân theo các quy định đi đường được áp dụng ở khu đông dân cư?",
-				true, "a2_246.jpg", a2.getId(), set12.getId(), bb.getId());
+				"a2_246.jpg", a2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionA2_246);
 
-		Question questionA2_264 = new Question(15, "Các biển này có ý nghĩa gì?", true, "a2_264.jpg", a2.getId(),
+		Question questionA2_264 = new Question(15, "Các biển này có ý nghĩa gì?", "a2_264.jpg", a2.getId(),
 				set12.getId(), bb.getId());
 		questionRepo.save(questionA2_264);
 
-		Question questionA2_282 = new Question(16, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", true,
+		Question questionA2_282 = new Question(16, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?",
 				"a2_282.jpg", a2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionA2_282);
 
-		Question questionA2_300 = new Question(17, "Biển nào sau đây là biển \"Dốc xuống nguy hiểm\"?", true,
+		Question questionA2_300 = new Question(17, "Biển nào sau đây là biển \"Dốc xuống nguy hiểm\"?",
 				"a2_300.jpg", a2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionA2_300);
 
-		Question questionA2_318 = new Question(18, "Biển nào báo hiệu \"Hướng đi thẳng phải theo\" ?", true,
+		Question questionA2_318 = new Question(18, "Biển nào báo hiệu \"Hướng đi thẳng phải theo\" ?",
 				"a2_318.jpg", a2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionA2_318);
 
-		Question questionA2_336 = new Question(19, "Biển nào chỉ dẫn cho người đi bộ sử dụng hầm chui qua đường?", true,
+		Question questionA2_336 = new Question(19, "Biển nào chỉ dẫn cho người đi bộ sử dụng hầm chui qua đường?",
 				"a2_336.jpg", a2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionA2_336);
 
 		Question questionA2_354 = new Question(20,
 				"Trên đường cao tốc, gặp biển nào thì người lái xe đi theo hướng bên trái để tránh chướng ngại vật?",
-				true, "a2_354.jpg", a2.getId(), set12.getId(), bb.getId());
+				"a2_354.jpg", a2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionA2_354);
 
-		Question questionA2_372 = new Question(21, "Xe nào được quyền đi trước trong trường hợp này?", true,
+		Question questionA2_372 = new Question(21, "Xe nào được quyền đi trước trong trường hợp này?",
 				"a2_372.jpg", a2.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionA2_372);
 
-		Question questionA2_390 = new Question(22, "Xe nào vượt đúng quy tắc giao thông?", true, "a2_390.jpg",
+		Question questionA2_390 = new Question(22, "Xe nào vượt đúng quy tắc giao thông?", "a2_390.jpg",
 				a2.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionA2_390);
 
 		Question questionA2_408 = new Question(23,
-				"Trong trường hợp này, thứ tự xe đi như thế nào là đúng quy tắc giao thông?", true, "a2_408.jpg",
+				"Trong trường hợp này, thứ tự xe đi như thế nào là đúng quy tắc giao thông?", "a2_408.jpg",
 				a2.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionA2_408);
 
 		Question questionA2_426 = new Question(24,
-				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", true, "a2_426.jpg",
+				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", "a2_426.jpg",
 				a2.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionA2_426);
 
 		Question questionA2_444 = new Question(25, "Các xe đi theo thứ tự nào là đúng quy tắc giao thông đường bộ?",
-				true, "a2_444.jpg", a2.getId(), set12.getId(), sh.getId());
+				"a2_444.jpg", a2.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionA2_444);
 
 		Question questionA2_13 = new Question(1,
-				"Khái niệm \"người điều khiển giao thông\" được hiểu như thế nào là đúng?", true, "", a2.getId(),
+				"Khái niệm \"người điều khiển giao thông\" được hiểu như thế nào là đúng?", "nan", a2.getId(),
 				set13.getId(), kn.getId());
 		questionRepo.save(questionA2_13);
 
 		Question questionA2_31 = new Question(2,
 				"Khi lái xe trong khu đô thị và đồng dân cư trừ các khu vực có biển cấm sử dụng còi, người lái xe được sử dụng còi như thế nào trong các trường hợp dưới đây?",
-				true, "", a2.getId(), set13.getId(), kn.getId());
+				"nan", a2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionA2_31);
 
 		Question questionA2_49 = new Question(3,
 				"Người ngồi trên xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy khi tham gia giao thông có được bám, kéo hoặc đẩy các phương tiện khác không?",
-				true, "", a2.getId(), set13.getId(), kn.getId());
+				"nan", a2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionA2_49);
 
 		Question questionA2_67 = new Question(4,
 				"Khi gặp hiệu lệnh như dưới đây của cảnh sát giao thông thì người tham gia giao thông phải đi như thế nào là đúng quy tắc giao thông?",
-				true, "a2_67.jpg", a2.getId(), set13.getId(), kn.getId());
+				"a2_67.jpg", a2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionA2_67);
 
 		Question questionA2_85 = new Question(5,
 				"Người điều khiển phương tiện tham gia giao thông trong hầm đường bộ ngoài việc phải tuân thủ các quy tắc giao thông còn phải thực hiện những quy định nào dưới đây?",
-				true, "", a2.getId(), set13.getId(), kn.getId());
+				"nan", a2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionA2_85);
 
 		Question questionA2_103 = new Question(6,
 				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường hai chiều không có dải phân cách giữa, xe mô tô hai bánh, ô tô chở người đến 30 chỗ tham gia giao thông với tốc độ tối đa cho phép là bao nhiêu?",
-				true, "", a2.getId(), set13.getId(), kn.getId());
+				"nan", a2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionA2_103);
 
 		Question questionA2_121 = new Question(7,
 				"Các phương tiện tham gia giao thông đường bộ (kể cả những xe có quyền ưu tiên) đều phải dừng lại bên phải đường của mình và trước vạch \"dừng xe\" tại các điểm giao cắt giữa đường bộ và đường sắt khi có báo hiệu dùng nào dưới đây?",
-				true, "", a2.getId(), set13.getId(), kn.getId());
+				"nan", a2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionA2_121);
 
 		Question questionA2_139 = new Question(8,
 				"Khi gặp xe buýt đang dùng đón, trả khách, người điều khiển xe mô tô phải xử lý như thế nào dưới đây để đảm bảo an toàn giao thông?",
-				true, "", a2.getId(), set13.getId(), kn.getId());
+				"nan", a2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionA2_139);
 
 		Question questionA2_157 = new Question(9,
-				"Khi xảy ra tai nạn giao thông, những hành vi nào dưới đây bị nghiêm cấm?", true, "", a2.getId(),
+				"Khi xảy ra tai nạn giao thông, những hành vi nào dưới đây bị nghiêm cấm?", "nan", a2.getId(),
 				set13.getId(), vh.getId());
 		questionRepo.save(questionA2_157);
 
 		Question questionA2_175 = new Question(10,
-				"Tay ga trên xe mô tô hai bánh có tác dụng gì trong các trường hợp dưới đây?", true, "", a2.getId(),
+				"Tay ga trên xe mô tô hai bánh có tác dụng gì trong các trường hợp dưới đây?", "nan", a2.getId(),
 				set13.getId(), kt.getId());
 		questionRepo.save(questionA2_175);
 
-		Question questionA2_193 = new Question(11, "Biển nào cho phép ô tô con được vượt?", true, "a2_193.jpg",
+		Question questionA2_193 = new Question(11, "Biển nào cho phép ô tô con được vượt?", "a2_193.jpg",
 				a2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionA2_193);
 
-		Question questionA2_211 = new Question(12, "Biển nào dưới đây các phương tiện không được phép đi vào?", true,
+		Question questionA2_211 = new Question(12, "Biển nào dưới đây các phương tiện không được phép đi vào?",
 				"a2_211.jpg", a2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionA2_211);
 
 		Question questionA2_229 = new Question(13,
-				"Khi gặp biển này, xe mô tô ba bánh có được phép rẽ trái hoặc rẽ phải hay không?", true, "a2_229.jpg",
+				"Khi gặp biển này, xe mô tô ba bánh có được phép rẽ trái hoặc rẽ phải hay không?", "a2_229.jpg",
 				a2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionA2_229);
 
 		Question questionA2_247 = new Question(14,
-				"Biển nào báo hiệu hạn chế tốc độ của phương tiện không vượt quá trị số ghi trên biển?", true,
+				"Biển nào báo hiệu hạn chế tốc độ của phương tiện không vượt quá trị số ghi trên biển?",
 				"a2_247.jpg", a2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionA2_247);
 
-		Question questionA2_265 = new Question(15, "Biển nào báo hiệu \"Hết đoạn đường ưu tiên\"?", true, "a2_265.jpg",
+		Question questionA2_265 = new Question(15, "Biển nào báo hiệu \"Hết đoạn đường ưu tiên\"?", "a2_265.jpg",
 				a2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionA2_265);
 
-		Question questionA2_283 = new Question(16, "Biển nào báo hiệu \"Chú ý chướng ngại vật\"?", true, "a2_283.jpg",
+		Question questionA2_283 = new Question(16, "Biển nào báo hiệu \"Chú ý chướng ngại vật\"?", "a2_283.jpg",
 				a2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionA2_283);
 
-		Question questionA2_301 = new Question(17, "Biển nào sau đây là biển \"Dốc lên nguy hiểm\"?", true,
+		Question questionA2_301 = new Question(17, "Biển nào sau đây là biển \"Dốc lên nguy hiểm\"?",
 				"a2_301.jpg", a2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionA2_301);
 
-		Question questionA2_319 = new Question(18, "Biển nào báo hiệu \"Đường một chiều\"?", true, "a2_319.jpg",
+		Question questionA2_319 = new Question(18, "Biển nào báo hiệu \"Đường một chiều\"?", "a2_319.jpg",
 				a2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionA2_319);
 
-		Question questionA2_337 = new Question(19, "Biển nào báo hiệu \"Nơi đỗ xe dành cho người khuyết tật\"?", true,
+		Question questionA2_337 = new Question(19, "Biển nào báo hiệu \"Nơi đỗ xe dành cho người khuyết tật\"?",
 				"a2_337.jpg", a2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionA2_337);
 
 		Question questionA2_355 = new Question(20,
 				"Trên đường cao tốc, gặp biển nào thì người lái xe đi theo hướng bên phải để tránh chướng ngại vật?",
-				true, "a2_355.jpg", a2.getId(), set13.getId(), bb.getId());
+				"a2_355.jpg", a2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionA2_355);
 
-		Question questionA2_373 = new Question(21, "Xe nào phải nhường đường đi cuối cùng qua nơi giao nhau này?", true,
+		Question questionA2_373 = new Question(21, "Xe nào phải nhường đường đi cuối cùng qua nơi giao nhau này?",
 				"a2_373.jpg", a2.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionA2_373);
 
 		Question questionA2_391 = new Question(22,
 				"Theo hướng mũi tên, gặp biển hướng đi phải theo đặt trước ngã tư, những hướng nào xe được phép đi?",
-				true, "a2_391.jpg", a2.getId(), set13.getId(), sh.getId());
+				"a2_391.jpg", a2.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionA2_391);
 
 		Question questionA2_409 = new Question(23,
-				"Xe con quay đầu đi ngược lại như hình vẽ dưới có vị phạm quy tắc giao thông không?", true,
+				"Xe con quay đầu đi ngược lại như hình vẽ dưới có vị phạm quy tắc giao thông không?",
 				"a2_409.jpg", a2.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionA2_409);
 
-		Question questionA2_427 = new Question(24, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?", true,
+		Question questionA2_427 = new Question(24, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?",
 				"a2_427.jpg", a2.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionA2_427);
 
-		Question questionA2_445 = new Question(25, "Xe nào được đi trước trong trường hợp này?", true, "a2_445.jpg",
+		Question questionA2_445 = new Question(25, "Xe nào được đi trước trong trường hợp này?", "a2_445.jpg",
 				a2.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionA2_445);
 
 		Question questionA2_14 = new Question(1,
-				"Trong các khái niệm dưới đây khái niệm \"dùng xe\" được hiều như thế nào là đúng?", true, "",
+				"Trong các khái niệm dưới đây khái niệm \"dùng xe\" được hiều như thế nào là đúng?", "nan",
 				a2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionA2_14);
 
 		Question questionA2_32 = new Question(2,
-				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?", true,
+				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?",
 				"", a2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionA2_32);
 
 		Question questionA2_50 = new Question(3,
 				"Người ngồi trên xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy khi tham gia giao thông có được sử dụng ô khi trời mưa hay không ?",
-				true, "", a2.getId(), set14.getId(), kn.getId());
+				"nan", a2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionA2_50);
 
 		Question questionA2_68 = new Question(4,
 				"Trên đường giao thông, khi hiệu lệnh của người điều khiển giao thông trái với hiệu lệnh của đèn hoặc biển báo hiệu thì người tham gia giao thông phải chấp hành theo hiệu lệnh nào?",
-				true, "", a2.getId(), set14.getId(), kn.getId());
+				"nan", a2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionA2_68);
 
 		Question questionA2_86 = new Question(5,
 				"Xe quá tải trọng, quá khổ giới hạn tham gia giao thông cần tuân thủ quy định nào ghi ở dưới đây?",
-				true, "", a2.getId(), set14.getId(), kn.getId());
+				"nan", a2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionA2_86);
 
 		Question questionA2_104 = new Question(6,
 				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường hai chiều hoặc đường một chiều có một làn xe cơ giới, loại xe nào dưới đây được tham gia giao thông với tốc độ tối đa cho phép là 50 km/h?",
-				true, "", a2.getId(), set14.getId(), kn.getId());
+				"nan", a2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionA2_104);
 
 		Question questionA2_122 = new Question(7,
 				"Trên đoạn đường bộ giao nhau đồng mức với đường sắt, người không có nhiệm vụ có được tự ý mở chắn đường ngang khi chắn đã đóng hay không?",
-				true, "", a2.getId(), set14.getId(), kn.getId());
+				"nan", a2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionA2_122);
 
 		Question questionA2_140 = new Question(8,
 				"Người hành nghề lái xe khi thực hiện tốt việc rèn luyện, nâng cao trách nhiệm, đạo đức nghề nghiệp sẽ thu được kết quả như thế nào dưới đây?",
-				true, "", a2.getId(), set14.getId(), kn.getId());
+				"nan", a2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionA2_140);
 
 		Question questionA2_158 = new Question(9,
-				"Khi xảy ra tai nạn giao thông, những hành vi nào dưới đây bị nghiêm cấm?", true, "", a2.getId(),
+				"Khi xảy ra tai nạn giao thông, những hành vi nào dưới đây bị nghiêm cấm?", "nan", a2.getId(),
 				set14.getId(), vh.getId());
 		questionRepo.save(questionA2_158);
 
 		Question questionA2_176 = new Question(10,
-				"Gương chiếu hậu của xe mô tô hai bánh, có tác dụng gì trong các trường hợp dưới đây?", true, "",
+				"Gương chiếu hậu của xe mô tô hai bánh, có tác dụng gì trong các trường hợp dưới đây?", "nan",
 				a2.getId(), set14.getId(), kt.getId());
 		questionRepo.save(questionA2_176);
 
-		Question questionA2_194 = new Question(11, "Biển nào không cho phép ô tô con vượt?", true, "a2_194.jpg",
+		Question questionA2_194 = new Question(11, "Biển nào không cho phép ô tô con vượt?", "a2_194.jpg",
 				a2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionA2_194);
 
-		Question questionA2_212 = new Question(12, "Gặp biển nào người lái xe không được đỗ xe vào ngày chắn?", true,
+		Question questionA2_212 = new Question(12, "Gặp biển nào người lái xe không được đỗ xe vào ngày chắn?",
 				"a2_212.jpg", a2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionA2_212);
 
-		Question questionA2_230 = new Question(13, "Biển này có hiệu lực đối với xe mô tô hai, ba bánh không?", true,
+		Question questionA2_230 = new Question(13, "Biển này có hiệu lực đối với xe mô tô hai, ba bánh không?",
 				"a2_230.jpg", a2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionA2_230);
 
 		Question questionA2_248 = new Question(14, "Trong các biển báo dưới đây biển nào báo hiệu \"Hết đường cao tốc?",
-				true, "a2_248.jpg", a2.getId(), set14.getId(), bb.getId());
+				"a2_248.jpg", a2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionA2_248);
 
 		Question questionA2_266 = new Question(15,
-				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?", true,
+				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?",
 				"a2_266.jpg", a2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionA2_266);
 
 		Question questionA2_284 = new Question(16,
 				"Biển nào chỉ dẫn cho người tham gia giao thông biết vị trí và khoảng cách có làn đường cứu nạn hay làn thoát xe khẩn cấp?",
-				true, "a2_284.jpg", a2.getId(), set14.getId(), bb.getId());
+				"a2_284.jpg", a2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionA2_284);
 
-		Question questionA2_302 = new Question(17, "Biển báo này có ý nghĩa gì?", true, "a2_302.jpg", a2.getId(),
+		Question questionA2_302 = new Question(17, "Biển báo này có ý nghĩa gì?", "a2_302.jpg", a2.getId(),
 				set14.getId(), bb.getId());
 		questionRepo.save(questionA2_302);
 
 		Question questionA2_320 = new Question(18,
-				"Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối đa cho phép\"?", true, "a2_320.jpg",
+				"Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối đa cho phép\"?", "a2_320.jpg",
 				a2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionA2_320);
 
-		Question questionA2_338 = new Question(19, "Gặp biển báo này, người lái xe phải đỗ xe như thế nào?", true,
+		Question questionA2_338 = new Question(19, "Gặp biển báo này, người lái xe phải đỗ xe như thế nào?",
 				"a2_338.jpg", a2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionA2_338);
 
 		Question questionA2_356 = new Question(20,
 				"Trên đường cao tốc, gặp biển nào thì người lái xe đi được cả hai hướng (bên trái hoặc bên phải) để tránh chướng ngại vật?",
-				true, "a2_356.jpg", a2.getId(), set14.getId(), bb.getId());
+				"a2_356.jpg", a2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionA2_356);
 
-		Question questionA2_374 = new Question(21, "Xe nào phải nhường đường là đúng quy tắc giao thông?", true,
+		Question questionA2_374 = new Question(21, "Xe nào phải nhường đường là đúng quy tắc giao thông?",
 				"a2_374.jpg", a2.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionA2_374);
 
-		Question questionA2_392 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?", true,
+		Question questionA2_392 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?",
 				"a2_392.jpg", a2.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionA2_392);
 
-		Question questionA2_410 = new Question(23, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?", true,
+		Question questionA2_410 = new Question(23, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?",
 				"a2_410.jpg", a2.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionA2_410);
 
 		Question questionA2_428 = new Question(24, "Các xe đi theo thứ tự nào là đúng quy tắc giao thông đường bộ?",
-				true, "a2_428.jpg", a2.getId(), set14.getId(), sh.getId());
+				"a2_428.jpg", a2.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionA2_428);
 
-		Question questionA2_446 = new Question(25, "Xe nào dùng đúng theo quy tắc giao thông?", true, "a2_446.jpg",
+		Question questionA2_446 = new Question(25, "Xe nào dùng đúng theo quy tắc giao thông?", "a2_446.jpg",
 				a2.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionA2_446);
 
-		Question questionA2_15 = new Question(1, "Khái niệm \"đỗ xe\" được hiểu như thế nào là đúng?", true, "",
+		Question questionA2_15 = new Question(1, "Khái niệm \"đỗ xe\" được hiểu như thế nào là đúng?", "nan",
 				a2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionA2_15);
 
 		Question questionA2_33 = new Question(2,
 				"Hành vi lắp đặt, sử dụng còi, đèn không đúng thiết kế của nhà sản xuất đối với từng loại xe cơ giới có được phép hay không?",
-				true, "", a2.getId(), set15.getId(), kn.getId());
+				"nan", a2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionA2_33);
 
 		Question questionA2_51 = new Question(3,
-				"Người có giấy phép lái xe mô tô hạng A1 không được phép điều khiển loại xe nào dưới đây?", true, "",
+				"Người có giấy phép lái xe mô tô hạng A1 không được phép điều khiển loại xe nào dưới đây?", "nan",
 				a2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionA2_51);
 
 		Question questionA2_69 = new Question(4,
 				"Tại nơi có biển báo hiệu cố định lại có báo hiệu tạm thời thì người tham gia giao thông phải chấp hành hiệu lệnh của báo hiệu nào?",
-				true, "", a2.getId(), set15.getId(), kn.getId());
+				"nan", a2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionA2_69);
 
 		Question questionA2_87 = new Question(5,
 				"Việc nối giữa xe kéo với xe được kéo trong trường hợp hệ thống hãm của xe được kéo không còn hiệu lực thì phải dùng cách nào?",
-				true, "", a2.getId(), set15.getId(), kn.getId());
+				"nan", a2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionA2_87);
 
 		Question questionA2_105 = new Question(6,
 				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường hai chiều hoặc đường một chiều có một làn xe cơ giới, loại xe nào dưới đây được tham gia giao thông với tốc độ tối đa cho phép là 50 km/h?",
-				true, "", a2.getId(), set15.getId(), kn.getId());
+				"nan", a2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionA2_105);
 
 		Question questionA2_123 = new Question(7,
 				"Tác dụng của mũ bảo hiểm đối với người ngồi trên xe mô tô hai bánh trong trường hợp xảy ra tai nạn giao thông là gì?",
-				true, "", a2.getId(), set15.getId(), kn.getId());
+				"nan", a2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionA2_123);
 
 		Question questionA2_141 = new Question(8,
-				"Người lái xe vận tải hàng hóa cần thực hiện những nhiệm vụ gì ghi ở dưới đây?", true, "", a2.getId(),
+				"Người lái xe vận tải hàng hóa cần thực hiện những nhiệm vụ gì ghi ở dưới đây?", "nan", a2.getId(),
 				set15.getId(), kn.getId());
 		questionRepo.save(questionA2_141);
 
 		Question questionA2_159 = new Question(9,
 				"Trong đoạn đường hai chiều tại khu đông dân cư đang ùn tắc, người điều khiển xe mô tô hai bánh có văn hóa giao thông sẽ lựa chọn xử lý tình huống nào dưới đây?",
-				true, "", a2.getId(), set15.getId(), vh.getId());
+				"nan", a2.getId(), set15.getId(), vh.getId());
 		questionRepo.save(questionA2_159);
 
 		Question questionA2_177 = new Question(10,
 				"Để đảm bảo an toàn khi tham gia giao thông, người lái xe lái xe mô tô hai bánh cần điều khiển tay ga như thế nào trong các trường hợp dưới đây?",
-				true, "", a2.getId(), set15.getId(), kt.getId());
+				"nan", a2.getId(), set15.getId(), kt.getId());
 		questionRepo.save(questionA2_177);
 
-		Question questionA2_195 = new Question(11, "Biển nào cấm ô tô tải vượt?", true, "a2_195.jpg", a2.getId(),
+		Question questionA2_195 = new Question(11, "Biển nào cấm ô tô tải vượt?", "a2_195.jpg", a2.getId(),
 				set15.getId(), bb.getId());
 		questionRepo.save(questionA2_195);
 
-		Question questionA2_213 = new Question(12, "Gặp biển nào người lái xe không được đỗ xe vào ngày le?", true,
+		Question questionA2_213 = new Question(12, "Gặp biển nào người lái xe không được đỗ xe vào ngày le?",
 				"a2_213.jpg", a2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionA2_213);
 
-		Question questionA2_231 = new Question(13, "Biển này có ý nghĩa gì?", true, "a2_231.jpg", a2.getId(),
+		Question questionA2_231 = new Question(13, "Biển này có ý nghĩa gì?", "a2_231.jpg", a2.getId(),
 				set15.getId(), bb.getId());
 		questionRepo.save(questionA2_231);
 
-		Question questionA2_249 = new Question(14, "Số 50 ghi trên biển báo dưới đây có ý nghĩa gì?", true,
+		Question questionA2_249 = new Question(14, "Số 50 ghi trên biển báo dưới đây có ý nghĩa gì?",
 				"a2_249.jpg", a2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionA2_249);
 
-		Question questionA2_267 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?", true,
+		Question questionA2_267 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?",
 				"a2_267.jpg", a2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionA2_267);
 
 		Question questionA2_285 = new Question(16,
 				"Biển nào chỉ dẫn cho người tham gia giao thông biết vị trí và khoảng cách có làn đường cứu nạn hay làn thoát xe khẩn cấp?",
-				true, "a2_285.jpg", a2.getId(), set15.getId(), bb.getId());
+				"a2_285.jpg", a2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionA2_285);
 
-		Question questionA2_303 = new Question(17, "Biển báo này có ý nghĩa gì?", true, "a2_303.jpg", a2.getId(),
+		Question questionA2_303 = new Question(17, "Biển báo này có ý nghĩa gì?", "a2_303.jpg", a2.getId(),
 				set15.getId(), bb.getId());
 		questionRepo.save(questionA2_303);
 
 		Question questionA2_321 = new Question(18,
-				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?", true,
+				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?",
 				"a2_321.jpg", a2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionA2_321);
 
 		Question questionA2_339 = new Question(19,
-				"Gặp biển báo này, người tham gia giao thông phải xử lý như thế nào?", true, "a2_339.jpg", a2.getId(),
+				"Gặp biển báo này, người tham gia giao thông phải xử lý như thế nào?", "a2_339.jpg", a2.getId(),
 				set15.getId(), bb.getId());
 		questionRepo.save(questionA2_339);
 
 		Question questionA2_357 = new Question(20,
 				"Trên đường cao tốc, gặp biển nào người lái xe phải chú ý đổi hướng đi khi sắp vào đường cong nguy hiểm?",
-				true, "a2_357.jpg", a2.getId(), set15.getId(), bb.getId());
+				"a2_357.jpg", a2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionA2_357);
 
-		Question questionA2_375 = new Question(21, "Xe nào được quyền đi trước trong trường hợp này?", true,
+		Question questionA2_375 = new Question(21, "Xe nào được quyền đi trước trong trường hợp này?",
 				"a2_375.jpg", a2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionA2_375);
 
-		Question questionA2_393 = new Question(22, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionA2_393 = new Question(22, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"a2_393.jpg", a2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionA2_393);
 
 		Question questionA2_411 = new Question(23,
-				"Để điều khiển cho xe đi thẳng, người lái xe phải làm gì là đúng quy tắc giao thông?", true,
+				"Để điều khiển cho xe đi thẳng, người lái xe phải làm gì là đúng quy tắc giao thông?",
 				"a2_411.jpg", a2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionA2_411);
 
 		Question questionA2_429 = new Question(24, "Các xe đi theo thứ tự nào là đúng quy tắc giao thông đường bộ?",
-				true, "a2_429.jpg", a2.getId(), set15.getId(), sh.getId());
+				"a2_429.jpg", a2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionA2_429);
 
 		Question questionA2_447 = new Question(25, "Các xe đi theo thứ tự nào là đúng quy tắc giao thông đường bộ?",
-				true, "a2_447.jpg", a2.getId(), set15.getId(), sh.getId());
+				"a2_447.jpg", a2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionA2_447);
 
-		Question questionA2_16 = new Question(1, "Khái niệm \"đường cao tốc\" được hiểu như thế nào là đúng?", true, "",
+		Question questionA2_16 = new Question(1, "Khái niệm \"đường cao tốc\" được hiểu như thế nào là đúng?", "nan",
 				a2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionA2_16);
 
 		Question questionA2_34 = new Question(2,
 				"Trong trường hợp đặc biệt, để được lắp đặt, sử dụng còi, đèn không đúng với thiết kế của nhà sản xuất đối với từng loại xe cơ giới bạn phải đảm bảo yêu cầu nào dưới đây?",
-				true, "", a2.getId(), set16.getId(), kn.getId());
+				"nan", a2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionA2_34);
 
 		Question questionA2_52 = new Question(3,
 				"Hành vi sử dụng xe mô tô để kéo, đẩy xe mô tô khác bị hết xăng đến trạm mua xăng có được phép hay không?",
-				true, "", a2.getId(), set16.getId(), kn.getId());
+				"nan", a2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionA2_52);
 
 		Question questionA2_70 = new Question(4,
 				"Trên đường có nhiều làn đường cho xe đi cùng chiều được phân biệt bằng vạch kẻ phân làn đường, người điều khiển phương tiện phải cho xe đi như thế nào?",
-				true, "", a2.getId(), set16.getId(), kn.getId());
+				"nan", a2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionA2_70);
 
 		Question questionA2_88 = new Question(5,
 				"Người ngồi trên xe mô tô 2 bánh, xe gắn máy phải đội mũ bảo hiểm có cài quai đúng quy cách khi nào?",
-				true, "", a2.getId(), set16.getId(), kn.getId());
+				"nan", a2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionA2_88);
 
 		Question questionA2_106 = new Question(6,
 				"Trên đường bộ (trừ đường cao tốc) ngoài khu vực đông dân cư, đường đôi có dải phân cách giữa, loại xe nào dưới đây tham gia giao thông với tốc độ tối đa cho phép là 90 km/h?",
-				true, "", a2.getId(), set16.getId(), kn.getId());
+				"nan", a2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionA2_106);
 
 		Question questionA2_124 = new Question(7,
-				"Khi điều khiển phương tiện tham giao giao thông, những hành vi nào dưới đây bị nghiêm cấm?", true, "",
+				"Khi điều khiển phương tiện tham giao giao thông, những hành vi nào dưới đây bị nghiêm cấm?", "nan",
 				a2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionA2_124);
 
 		Question questionA2_142 = new Question(8,
 				"Người lái xe kinh doanh vận tải cần thực hiện những công việc gì ghi ở dưới đây để thường xuyên rèn luyện nâng cao đạo đức nghề nghiệp?",
-				true, "", a2.getId(), set16.getId(), kn.getId());
+				"nan", a2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionA2_142);
 
 		Question questionA2_160 = new Question(9,
 				"Trên đường đang xảy ra ùn tắc những hành vi nào sau đây là thiếu văn hóa khi tham gia giao thông?",
-				true, "", a2.getId(), set16.getId(), vh.getId());
+				"nan", a2.getId(), set16.getId(), vh.getId());
 		questionRepo.save(questionA2_160);
 
 		Question questionA2_178 = new Question(10,
 				"Kỹ thuật cơ bản để giữ thăng bằng khi điều khiển xe mô tô đi trên đường gồ ghề như thế nào trong các trường hợp dưới đây?",
-				true, "", a2.getId(), set16.getId(), kt.getId());
+				"nan", a2.getId(), set16.getId(), kt.getId());
 		questionRepo.save(questionA2_178);
 
-		Question questionA2_196 = new Question(11, "Biển nào cấm xe tải vượt?", true, "a2_196.jpg", a2.getId(),
+		Question questionA2_196 = new Question(11, "Biển nào cấm xe tải vượt?", "a2_196.jpg", a2.getId(),
 				set16.getId(), bb.getId());
 		questionRepo.save(questionA2_196);
 
 		Question questionA2_214 = new Question(12, "Khi gặp biển nào xe ưu tiên theo luật định vẫn phải dùng lại?",
-				true, "a2_214.jpg", a2.getId(), set16.getId(), bb.getId());
+				"a2_214.jpg", a2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionA2_214);
 
-		Question questionA2_232 = new Question(13, "Biển phụ đặt dưới biển cấm bóp còi có ý nghĩa gì?", true,
+		Question questionA2_232 = new Question(13, "Biển phụ đặt dưới biển cấm bóp còi có ý nghĩa gì?",
 				"a2_232.jpg", a2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionA2_232);
 
 		Question questionA2_250 = new Question(14, "Trong các biển dưới đây biển nào chỉ dẫn bắt đầu đường cao tốc?",
-				true, "a2_250.jpg", a2.getId(), set16.getId(), bb.getId());
+				"a2_250.jpg", a2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionA2_250);
 
-		Question questionA2_268 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?", true,
+		Question questionA2_268 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?",
 				"a2_268.jpg", a2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionA2_268);
 
-		Question questionA2_286 = new Question(16, "Biển nào dưới đây là biển \"Cầu hẹp\"?", true, "a2_286.jpg",
+		Question questionA2_286 = new Question(16, "Biển nào dưới đây là biển \"Cầu hẹp\"?", "a2_286.jpg",
 				a2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionA2_286);
 
-		Question questionA2_304 = new Question(17, "Biển báo này có ý nghĩa gì?", true, "a2_304.jpg", a2.getId(),
+		Question questionA2_304 = new Question(17, "Biển báo này có ý nghĩa gì?", "a2_304.jpg", a2.getId(),
 				set16.getId(), bb.getId());
 		questionRepo.save(questionA2_304);
 
 		Question questionA2_322 = new Question(18,
-				"Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối thiểu\" ?", true, "a2_322.jpg", a2.getId(),
+				"Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối thiểu\" ?", "a2_322.jpg", a2.getId(),
 				set16.getId(), bb.getId());
 		questionRepo.save(questionA2_322);
 
 		Question questionA2_340 = new Question(19,
 				"Gặp biển báo dưới đây, người lái xe có bắt buộc phải chạy vòng theo đảo an toàn theo hướng mũi tên khi muốn chuyển hướng hay không?",
-				true, "a2_340.jpg", a2.getId(), set16.getId(), bb.getId());
+				"a2_340.jpg", a2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionA2_340);
 
 		Question questionA2_358 = new Question(20,
-				"Vạch mũi tên chỉ hướng trên mặt đường nào dưới đây cho phép xe chỉ được đi thẳng và rẽ phải?", true,
+				"Vạch mũi tên chỉ hướng trên mặt đường nào dưới đây cho phép xe chỉ được đi thẳng và rẽ phải?",
 				"a2_358.jpg", a2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionA2_358);
 
-		Question questionA2_376 = new Question(21, "Theo tín hiệu đèn, xe nào được phép đi?", true, "a2_376.jpg",
+		Question questionA2_376 = new Question(21, "Theo tín hiệu đèn, xe nào được phép đi?", "a2_376.jpg",
 				a2.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionA2_376);
 
-		Question questionA2_394 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?", true,
+		Question questionA2_394 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?",
 				"a2_394.jpg", a2.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionA2_394);
 
 		Question questionA2_412 = new Question(23,
-				"Người lái xe điều khiển xe chạy theo hướng nào là đúng quy tắc giao thông?", true, "a2_412.jpg",
+				"Người lái xe điều khiển xe chạy theo hướng nào là đúng quy tắc giao thông?", "a2_412.jpg",
 				a2.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionA2_412);
 
-		Question questionA2_430 = new Question(24, "Xe nào phải dừng lại trong trường hợp này?", true, "a2_430.jpg",
+		Question questionA2_430 = new Question(24, "Xe nào phải dừng lại trong trường hợp này?", "a2_430.jpg",
 				a2.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionA2_430);
 
-		Question questionA2_448 = new Question(25, "Để điều khiển xe rẽ trái, bạn chọn hướng đi nào dưới đây?", true,
+		Question questionA2_448 = new Question(25, "Để điều khiển xe rẽ trái, bạn chọn hướng đi nào dưới đây?",
 				"a2_448.jpg", a2.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionA2_448);
 
-		Question questionA2_17 = new Question(1, "Hành vi nào dưới đây bị nghiêm cấm?", true, "", a2.getId(),
+		Question questionA2_17 = new Question(1, "Hành vi nào dưới đây bị nghiêm cấm?", "nan", a2.getId(),
 				set17.getId(), kn.getId());
 		questionRepo.save(questionA2_17);
 
 		Question questionA2_35 = new Question(2,
 				"Việc sản xuất, mua bán, sử dụng biển số xe cơ giới, xe máy chuyên dùng được quy định như thế nào trong Luật Giao thông đường bộ?",
-				true, "", a2.getId(), set17.getId(), kn.getId());
+				"nan", a2.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionA2_35);
 
 		Question questionA2_53 = new Question(3,
 				"Hành vi vận chuyển đồ vật cồng kềnh bằng xe mô tô, xe gắn máy khi tham gia giao thông có được phép hay không?",
-				true, "", a2.getId(), set17.getId(), kn.getId());
+				"nan", a2.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionA2_53);
 
 		Question questionA2_71 = new Question(4,
 				"Trên đường một chiều có vạch kẻ phân làn đường, xe thô sơ và xe cơ giới phải đi như thế nào là đúng quy tắc giao thông?",
-				true, "", a2.getId(), set17.getId(), kn.getId());
+				"nan", a2.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionA2_71);
 
 		Question questionA2_89 = new Question(5,
 				"Người điều khiển xe mô tô hai bánh, xe gắn máy được phép chở tối đa 2 người trong những trường hợp nào?",
-				true, "", a2.getId(), set17.getId(), kn.getId());
+				"nan", a2.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionA2_89);
 
 		Question questionA2_107 = new Question(6,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường đôi có dải phân cách giữa (trừ đường cao tốc), loại xe nào dưới đây tham gia giao thông với tốc độ tối đa cho phép là 80 km/h?",
-				true, "", a2.getId(), set17.getId(), kn.getId());
+				"nan", a2.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionA2_107);
 
 		Question questionA2_125 = new Question(7,
 				"Người lái xe phải nhanh chóng giảm tốc độ, tránh hoặc dùng lại sát lề đường bên phải để nhường đường cho các xe nào nếu dưới đây?",
-				true, "", a2.getId(), set17.getId(), kn.getId());
+				"nan", a2.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionA2_125);
 
 		Question questionA2_143 = new Question(8,
 				"Người lái xe và nhân viên phục vụ trên xe ô tô vận tải hành khách phải có những trách nhiệm gì theo quy định dưới đây?",
-				true, "", a2.getId(), set17.getId(), kn.getId());
+				"nan", a2.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionA2_143);
 
 		Question questionA2_161 = new Question(9,
 				"Khi điều khiển xe mô tô tay ga xuống đường dốc dài, độ dốc cao, người lái xe cần thực hiện các thao tác nào dưới đây để đảm bảo an toàn?",
-				true, "", a2.getId(), set17.getId(), kt.getId());
+				"nan", a2.getId(), set17.getId(), kt.getId());
 		questionRepo.save(questionA2_161);
 
 		Question questionA2_179 = new Question(10,
 				"Chủ phương tiện cơ giới đường bộ có được tự ý thay đổi màu son, nhãn hiệu hoặc các đặc tính kỹ thuật của phương tiện so với chứng nhận đăng ký xe hay không?",
-				true, "", a2.getId(), set17.getId(), kt.getId());
+				"nan", a2.getId(), set17.getId(), kt.getId());
 		questionRepo.save(questionA2_179);
 
-		Question questionA2_197 = new Question(11, "Biển nào xe ô tô con được phép vượt?", true, "a2_197.jpg",
+		Question questionA2_197 = new Question(11, "Biển nào xe ô tô con được phép vượt?", "a2_197.jpg",
 				a2.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionA2_197);
 
 		Question questionA2_215 = new Question(12,
 				"Biển nào cấm tất cả các loại xe cơ giới và thô sơ đi lại trên đường, trừ xe ưu tiên theo luật định (nếu đường vẫn cho xe chạy được)?",
-				true, "a2_215.jpg", a2.getId(), set17.getId(), bb.getId());
+				"a2_215.jpg", a2.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionA2_215);
 
 		Question questionA2_233 = new Question(13,
-				"Chiều dài đoạn đường 500 m từ nơi đặt biển này, người lái xe có được phép bấm còi không?", true,
+				"Chiều dài đoạn đường 500 m từ nơi đặt biển này, người lái xe có được phép bấm còi không?",
 				"a2_233.jpg", a2.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionA2_233);
 
-		Question questionA2_251 = new Question(14, "Biển báo dưới đây có ý nghĩa gì?", true, "a2_251.jpg", a2.getId(),
+		Question questionA2_251 = new Question(14, "Biển báo dưới đây có ý nghĩa gì?", "a2_251.jpg", a2.getId(),
 				set17.getId(), bb.getId());
 		questionRepo.save(questionA2_251);
 
-		Question questionA2_269 = new Question(15, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", true, "a2_269.jpg",
+		Question questionA2_269 = new Question(15, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", "a2_269.jpg",
 				a2.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionA2_269);
 
-		Question questionA2_287 = new Question(16, "Biển nào dưới đây là biển \"Cầu quay – cầu cất\"?", true,
+		Question questionA2_287 = new Question(16, "Biển nào dưới đây là biển \"Cầu quay – cầu cất\"?",
 				"a2_287.jpg", a2.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionA2_287);
 
-		Question questionA2_305 = new Question(17, "Biển báo này có ý nghĩa gì?", true, "a2_305.jpg", a2.getId(),
+		Question questionA2_305 = new Question(17, "Biển báo này có ý nghĩa gì?", "a2_305.jpg", a2.getId(),
 				set17.getId(), bb.getId());
 		questionRepo.save(questionA2_305);
 
-		Question questionA2_323 = new Question(18, "Biển nào dưới đây báo hiệu hết cấm vượt?", true, "a2_323.jpg",
+		Question questionA2_323 = new Question(18, "Biển nào dưới đây báo hiệu hết cấm vượt?", "a2_323.jpg",
 				a2.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionA2_323);
 
 		Question questionA2_341 = new Question(19,
-				"Biển nào dưới đây chỉ dẫn địa giới hành chính giữa các thành phố, tỉnh, huyện?", true, "a2_341.jpg",
+				"Biển nào dưới đây chỉ dẫn địa giới hành chính giữa các thành phố, tỉnh, huyện?", "a2_341.jpg",
 				a2.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionA2_341);
 
 		Question questionA2_359 = new Question(20,
-				"Vạch kẻ đường nào dưới đây là vạch phân chia các làn xe cùng chiều?", true, "a2_359.jpg", a2.getId(),
+				"Vạch kẻ đường nào dưới đây là vạch phân chia các làn xe cùng chiều?", "a2_359.jpg", a2.getId(),
 				set17.getId(), bb.getId());
 		questionRepo.save(questionA2_359);
 
 		Question questionA2_377 = new Question(21,
-				"Theo tín hiệu đèn, xe nào được quyền đi là đúng quy tắc giao thông?", true, "a2_377.jpg", a2.getId(),
+				"Theo tín hiệu đèn, xe nào được quyền đi là đúng quy tắc giao thông?", "a2_377.jpg", a2.getId(),
 				set17.getId(), sh.getId());
 		questionRepo.save(questionA2_377);
 
 		Question questionA2_395 = new Question(22,
-				"Ô tô con đi theo chiều mũi tên có vi phạm quy tắc giao thông không?", true, "a2_395.jpg", a2.getId(),
+				"Ô tô con đi theo chiều mũi tên có vi phạm quy tắc giao thông không?", "a2_395.jpg", a2.getId(),
 				set17.getId(), sh.getId());
 		questionRepo.save(questionA2_395);
 
 		Question questionA2_413 = new Question(23,
-				"Người lái xe điều khiển xe rẽ trái như thế nào là đúng quy tắc giao thông?", true, "a2_413.jpg",
+				"Người lái xe điều khiển xe rẽ trái như thế nào là đúng quy tắc giao thông?", "a2_413.jpg",
 				a2.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionA2_413);
 
-		Question questionA2_431 = new Question(24, "Xe của bạn được đi theo hướng nào trong trường hợp này?", true,
+		Question questionA2_431 = new Question(24, "Xe của bạn được đi theo hướng nào trong trường hợp này?",
 				"a2_431.jpg", a2.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionA2_431);
 
 		Question questionA2_449 = new Question(25,
 				"Xe của bạn đang di chuyển gần đến khu vực giao cắt với đường sắt, khi rào chắn đang dịch chuyển, bạn điều khiển xe như thế nào là đúng quy tắc giao thông?",
-				true, "a2_449.jpg", a2.getId(), set17.getId(), sh.getId());
+				"a2_449.jpg", a2.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionA2_449);
 
 		Question questionA2_18 = new Question(1,
 				"Hành vi đua xe cơ giới, xe máy chuyên dùng không bảo đảm tiêu chuẩn an toàn kỹ thuật và bảo vệ môi trường vào tham gia giao thông đường bộ có bị nghiêm cấm hay không?",
-				true, "", a2.getId(), set18.getId(), kn.getId());
+				"nan", a2.getId(), set18.getId(), kn.getId());
 		questionRepo.save(questionA2_18);
 
 		Question questionA2_36 = new Question(2,
-				"Người lái xe không được vượt xe khác khi gặp trường hợp nào ghi ở dưới đây?", true, "", a2.getId(),
+				"Người lái xe không được vượt xe khác khi gặp trường hợp nào ghi ở dưới đây?", "nan", a2.getId(),
 				set18.getId(), kn.getId());
 		questionRepo.save(questionA2_36);
 
-		Question questionA2_54 = new Question(3, "Người đủ 16 tuổi được điều khiển các loại xe nào dưới đây?", true, "",
+		Question questionA2_54 = new Question(3, "Người đủ 16 tuổi được điều khiển các loại xe nào dưới đây?", "nan",
 				a2.getId(), set18.getId(), kn.getId());
 		questionRepo.save(questionA2_54);
 
 		Question questionA2_72 = new Question(4,
 				"Bạn đang lái xe trong khu vực đô thị từ 22 giờ đến 5 giờ sáng hôm sau và cần vượt một xe khác, bạn cần báo hiệu như thế nào để đảm bảo an toàn giao thông?",
-				true, "", a2.getId(), set18.getId(), kn.getId());
+				"nan", a2.getId(), set18.getId(), kn.getId());
 		questionRepo.save(questionA2_72);
 
 		Question questionA2_90 = new Question(5,
-				"Người điều khiển xe mô tô hai bánh, xe gắn máy không được thực hiện những hành vi nào dưới đây?", true,
+				"Người điều khiển xe mô tô hai bánh, xe gắn máy không được thực hiện những hành vi nào dưới đây?",
 				"", a2.getId(), set18.getId(), kn.getId());
 		questionRepo.save(questionA2_90);
 
 		Question questionA2_108 = new Question(6,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường đôi có dải phân cách giữa (trừ đường cao tốc), loại xe nào dưới đây tham gia giao thông với tốc độ tối đa cho phép là 70 km/h?",
-				true, "", a2.getId(), set18.getId(), kn.getId());
+				"nan", a2.getId(), set18.getId(), kn.getId());
 		questionRepo.save(questionA2_108);
 
 		Question questionA2_126 = new Question(7,
 				"Tại nơi đường giao nhau, người lái xe đang đi trên đường không ưu tiên phải xử lý như thế nào là đúng quy tắc giao thông?",
-				true, "", a2.getId(), set18.getId(), kn.getId());
+				"nan", a2.getId(), set18.getId(), kn.getId());
 		questionRepo.save(questionA2_126);
 
 		Question questionA2_144 = new Question(8, "Khái niệm về văn hóa giao thông được hiểu như thế nào là đúng?",
-				true, "", a2.getId(), set18.getId(), vh.getId());
+				"nan", a2.getId(), set18.getId(), vh.getId());
 		questionRepo.save(questionA2_144);
 
 		Question questionA2_162 = new Question(9,
 				"Khi quay đầu xe, người lái xe cần phải quan sát và thực hiện các thao tác nào để đảm bảo an toàn giao thông?",
-				true, "", a2.getId(), set18.getId(), kt.getId());
+				"nan", a2.getId(), set18.getId(), kt.getId());
 		questionRepo.save(questionA2_162);
 
 		Question questionA2_180 = new Question(10,
 				"Xe mô tô và xe ô tô tham gia giao thông trên đường bộ phải bắt buộc có đủ bộ phận giảm thanh không?",
-				true, "", a2.getId(), set18.getId(), kt.getId());
+				"nan", a2.getId(), set18.getId(), kt.getId());
 		questionRepo.save(questionA2_180);
 
-		Question questionA2_198 = new Question(11, "Biển nào cấm quay đầu xe?", true, "a2_198.jpg", a2.getId(),
+		Question questionA2_198 = new Question(11, "Biển nào cấm quay đầu xe?", "a2_198.jpg", a2.getId(),
 				set18.getId(), bb.getId());
 		questionRepo.save(questionA2_198);
 
-		Question questionA2_216 = new Question(12, "Biển nào là biển \"Cấm xe chở hàng nguy hiểm\"?", true,
+		Question questionA2_216 = new Question(12, "Biển nào là biển \"Cấm xe chở hàng nguy hiểm\"?",
 				"a2_216.jpg", a2.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionA2_216);
 
-		Question questionA2_234 = new Question(13, "Biển nào xe mô tô hai bánh được đi vào?", true, "a2_234.jpg",
+		Question questionA2_234 = new Question(13, "Biển nào xe mô tô hai bánh được đi vào?", "a2_234.jpg",
 				a2.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionA2_234);
 
-		Question questionA2_252 = new Question(14, "Gặp biển nào người lái xe phải nhường đường cho người đi bộ?", true,
+		Question questionA2_252 = new Question(14, "Gặp biển nào người lái xe phải nhường đường cho người đi bộ?",
 				"a2_252.jpg", a2.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionA2_252);
 
 		Question questionA2_270 = new Question(15,
 				"Khi gặp biển nào, người lái xe phải giảm tốc độ, chú ý xe đi ngược chiều, xe đi ở phía đường bị hẹp phải nhường đường cho xe đi ngược chiều?",
-				true, "a2_270.jpg", a2.getId(), set18.getId(), bb.getId());
+				"a2_270.jpg", a2.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionA2_270);
 
-		Question questionA2_288 = new Question(16, "Biển nào dưới đây là biển \"Kè, vực sâu phía trước?", true,
+		Question questionA2_288 = new Question(16, "Biển nào dưới đây là biển \"Kè, vực sâu phía trước?",
 				"a2_288.jpg", a2.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionA2_288);
 
-		Question questionA2_306 = new Question(17, "Biển báo dưới đây có ý nghĩa gì?", true, "a2_306.jpg", a2.getId(),
+		Question questionA2_306 = new Question(17, "Biển báo dưới đây có ý nghĩa gì?", "a2_306.jpg", a2.getId(),
 				set18.getId(), bb.getId());
 		questionRepo.save(questionA2_306);
 
 		Question questionA2_324 = new Question(18, "Trong các biển dưới đây biển nào là biển \"Hết mọi lệnh cấm\"?",
-				true, "a2_324.jpg", a2.getId(), set18.getId(), bb.getId());
+				"a2_324.jpg", a2.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionA2_324);
 
-		Question questionA2_342 = new Question(19, "Biển nào báo hiệu \"Cầu vượt liên thông\"?", true, "a2_342.jpg",
+		Question questionA2_342 = new Question(19, "Biển nào báo hiệu \"Cầu vượt liên thông\"?", "a2_342.jpg",
 				a2.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionA2_342);
 
 		Question questionA2_360 = new Question(20,
 				"Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy (vạch tim đường), xe không được lấn làn, không được đè lên vạch?",
-				true, "a2_360.jpg", a2.getId(), set18.getId(), bb.getId());
+				"a2_360.jpg", a2.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionA2_360);
 
-		Question questionA2_378 = new Question(21, "Trong trường hợp này xe nào được quyền đi trước?", true,
+		Question questionA2_378 = new Question(21, "Trong trường hợp này xe nào được quyền đi trước?",
 				"a2_378.jpg", a2.getId(), set18.getId(), sh.getId());
 		questionRepo.save(questionA2_378);
 
-		Question questionA2_396 = new Question(22, "Xe nào vi phạm quy tắc giao thông?", true, "a2_396.jpg", a2.getId(),
+		Question questionA2_396 = new Question(22, "Xe nào vi phạm quy tắc giao thông?", "a2_396.jpg", a2.getId(),
 				set18.getId(), sh.getId());
 		questionRepo.save(questionA2_396);
 
-		Question questionA2_414 = new Question(23, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?", true,
+		Question questionA2_414 = new Question(23, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?",
 				"a2_414.jpg", a2.getId(), set18.getId(), sh.getId());
 		questionRepo.save(questionA2_414);
 
-		Question questionA2_432 = new Question(24, "Xe của bạn được đi theo hướng nào trong trường hợp này?", true,
+		Question questionA2_432 = new Question(24, "Xe của bạn được đi theo hướng nào trong trường hợp này?",
 				"a2_432.jpg", a2.getId(), set18.getId(), sh.getId());
 		questionRepo.save(questionA2_432);
 
 		Question questionA2_450 = new Question(25,
 				"Trong tình huống dưới đây, xe đầu kéo kéo rơ moóc (xe container) đang rẽ phải, xe con màu xanh và xe máy phía sau xe container đi như thế nào để đảm bảo an toàn?",
-				true, "a2_450.jpg", a2.getId(), set18.getId(), sh.getId());
+				"a2_450.jpg", a2.getId(), set18.getId(), sh.getId());
 		questionRepo.save(questionA2_450);
 	}
 
@@ -4023,2735 +4023,2735 @@ public class DataSeeding implements CommandLineRunner {
 		QuestionSet set20 = questionSetRepo.findByName("Đề 20 - B1");
 
 		Question questionb1_1 = new Question(1,
-				"Phần của đường bộ đươc sử dụng cho các phương tiện giao thông qua lại là gì?", true, "", b1.getId(),
+				"Phần của đường bộ đươc sử dụng cho các phương tiện giao thông qua lại là gì?", "nan", b1.getId(),
 				set1.getId(), kn.getId());
 		questionRepo.save(questionb1_1);
 
 		Question questionb1_21 = new Question(2,
-				"Việc lái xe mô tô, ô tô, máy kéo ngay sai khi uống rượu, bia có được phép không?", true, "",
+				"Việc lái xe mô tô, ô tô, máy kéo ngay sai khi uống rượu, bia có được phép không?", "nan",
 				b1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb1_21);
 
 		Question questionb1_41 = new Question(3,
 				"Bạn đang lái xe trong khu dân cư, có đông xe qua lại, nếu muốn quay đầu xe bạn cần làm gì để tránh lại, nếu muốn quay đầu xe bạn cần làm gì để tránh ùn tắc và đảm bảo an toàn giao thông?",
-				true, "", b1.getId(), set1.getId(), kn.getId());
+				"nan", b1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb1_41);
 
 		Question questionb1_61 = new Question(4,
-				"Người có giấy phép lái xe mô tô hạng A1 được phép điều khiển các loại xe nào dưới đây?", true, "",
+				"Người có giấy phép lái xe mô tô hạng A1 được phép điều khiển các loại xe nào dưới đây?", "nan",
 				b1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb1_61);
 
 		Question questionb1_81 = new Question(5,
 				"Khi sử dụng giấy phép lái xe đã khai báo mất để điều khiển phương tiện cơ giới đường bộ, ngoài việc bị thu hồi giấy phép lái xe, chịu trách nhiệm trước pháp luật, người lái xe không được cấp giấy phép lái xe trong thời gian bao nhiêu năm?",
-				true, "", b1.getId(), set1.getId(), kn.getId());
+				"nan", b1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb1_81);
 
-		Question questionb1_101 = new Question(6, "Người lái xe phải làm gì khi điều khiển xe vào đường cao tốc?", true,
+		Question questionb1_101 = new Question(6, "Người lái xe phải làm gì khi điều khiển xe vào đường cao tốc?",
 				"", b1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb1_101);
 
 		Question questionb1_121 = new Question(7,
 				"Khi xe ô tô bị hỏng tại vị trí giao nhau giữa đường bộ và đường sắt, người lái xe xử lý như thế nào?",
-				true, "", b1.getId(), set1.getId(), kn.getId());
+				"nan", b1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb1_121);
 
 		Question questionb1_141 = new Question(8,
 				"Người lái xe phải giảm tốc độ thấp hơn tốc độ đến mức cần thiết, chú ý quan sát và chuẩn bị sằn sàng những tình huống có thể xảy ra để phòng ngừa tai nạn trong các trường hợp nào dưới đây?",
-				true, "", b1.getId(), set1.getId(), kn.getId());
+				"nan", b1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb1_141);
 
 		Question questionb1_161 = new Question(9,
 				"Khi xe gặp sự cố khỹ thuật trên đường cao tốc, bạn phải xử lý theo thứ tự như thế nào dưới đây để đảm bảo an toàn giao thông?",
-				true, "", b1.getId(), set1.getId(), kn.getId());
+				"nan", b1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb1_161);
 
-		Question questionb1_181 = new Question(10, "Người nhận hàng có các quyền gì dưới đây?", true, "", b1.getId(),
+		Question questionb1_181 = new Question(10, "Người nhận hàng có các quyền gì dưới đây?", "nan", b1.getId(),
 				set1.getId(), nvvt.getId());
 		questionRepo.save(questionb1_181);
 
 		Question questionb1_201 = new Question(11,
-				"Người lái xe có văn hóa khi tham gia giao thông phải đáp ứng các điều kiện nào dưới đây?", true, "",
+				"Người lái xe có văn hóa khi tham gia giao thông phải đáp ứng các điều kiện nào dưới đây?", "nan",
 				b1.getId(), set1.getId(), vh.getId());
 		questionRepo.save(questionb1_201);
 
 		Question questionb1_221 = new Question(12,
 				"Khi điều khiển ô tô xuống dốc cao, người lái xe cần thực hiện các thao tác nào dưới đây để đảm bảo an toàn?",
-				true, "", b1.getId(), set1.getId(), kt.getId());
+				"nan", b1.getId(), set1.getId(), kt.getId());
 		questionRepo.save(questionb1_221);
 
-		Question questionb1_241 = new Question(13, "Các biện pháp tiết kiệm nhiên liệu khi chạy xe?", true, "",
+		Question questionb1_241 = new Question(13, "Các biện pháp tiết kiệm nhiên liệu khi chạy xe?", "nan",
 				b1.getId(), set1.getId(), kt.getId());
 		questionRepo.save(questionb1_241);
 
 		Question questionb1_261 = new Question(14,
 				"Khi đi từ đường nhánh ra đường chính, người lái xe phải xử lý nhưu thế nào là đúng quy tắc giao thông?",
-				true, "", b1.getId(), set1.getId(), kt.getId());
+				"nan", b1.getId(), set1.getId(), kt.getId());
 		questionRepo.save(questionb1_261);
 
-		Question questionb1_281 = new Question(15, "Thế nào là động cơ 4 kỳ?", true, "", b1.getId(), set1.getId(),
+		Question questionb1_281 = new Question(15, "Thế nào là động cơ 4 kỳ?", "nan", b1.getId(), set1.getId(),
 				ctsc.getId());
 		questionRepo.save(questionb1_281);
 
 		Question questionb1_301 = new Question(16,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây không tắt trong thời gian dài, báo hiệu tình trạng như thế nào của ô tô?",
-				true, "b1_301.jpg", b1.getId(), set1.getId(), ctsc.getId());
+				"b1_301.jpg", b1.getId(), set1.getId(), ctsc.getId());
 		questionRepo.save(questionb1_301);
 
-		Question questionb1_321 = new Question(17, "Biển nào cấm các phương tiện giao thông đường bộ rẽ phải?", true,
+		Question questionb1_321 = new Question(17, "Biển nào cấm các phương tiện giao thông đường bộ rẽ phải?",
 				"b1_321.jpg", b1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb1_321);
 
-		Question questionb1_341 = new Question(18, "Biển nào hạn chế chiều cao của xe và hàng?", true, "b1_341.jpg",
+		Question questionb1_341 = new Question(18, "Biển nào hạn chế chiều cao của xe và hàng?", "b1_341.jpg",
 				b1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb1_341);
 
 		Question questionb1_361 = new Question(19,
 				"Xe ô tô chở hàng vượt quá phía trước và sau thùng xe, mỗi phía quá 10% chiều dài toàn bộ than xe, tổng chiều dài xe (cả hàng) từ trước đến sau nhỏ hơn trị số ghi trên biển thì có được phép đi vào không?",
-				true, "b1_361.jpg", b1.getId(), set1.getId(), bb.getId());
+				"b1_361.jpg", b1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb1_361);
 
-		Question questionb1_381 = new Question(20, "Hai biển này có ý nghĩa gì?", true, "b1_381.jpg", b1.getId(),
+		Question questionb1_381 = new Question(20, "Hai biển này có ý nghĩa gì?", "b1_381.jpg", b1.getId(),
 				set1.getId(), bb.getId());
 		questionRepo.save(questionb1_381);
 
-		Question questionb1_401 = new Question(21, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", true,
+		Question questionb1_401 = new Question(21, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?",
 				"b1_401.jpg", b1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb1_401);
 
-		Question questionb1_421 = new Question(22, "Biển Báo Này Có Ý Ngĩa Gì?", true, "b1_421.jpg", b1.getId(),
+		Question questionb1_421 = new Question(22, "Biển Báo Này Có Ý Ngĩa Gì?", "b1_421.jpg", b1.getId(),
 				set1.getId(), bb.getId());
 		questionRepo.save(questionb1_421);
 
 		Question questionb1_441 = new Question(23, "Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối thiểu\"?",
-				true, "b1_441.jpg", b1.getId(), set1.getId(), bb.getId());
+				"b1_441.jpg", b1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb1_441);
 
-		Question questionb1_461 = new Question(24, "Biển nào báo hiệu \"Cầu vượt liên thông\"?", true, "b1_461.jpg",
+		Question questionb1_461 = new Question(24, "Biển nào báo hiệu \"Cầu vượt liên thông\"?", "b1_461.jpg",
 				b1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb1_461);
 
-		Question questionb1_481 = new Question(25, "Các vạch dưới đây có tác dụng gì?", true, "b1_481.jpg", b1.getId(),
+		Question questionb1_481 = new Question(25, "Các vạch dưới đây có tác dụng gì?", "b1_481.jpg", b1.getId(),
 				set1.getId(), bb.getId());
 		questionRepo.save(questionb1_481);
 
-		Question questionb1_501 = new Question(26, "Trong trường hợp này xe nào được quyền đi trước?", true,
+		Question questionb1_501 = new Question(26, "Trong trường hợp này xe nào được quyền đi trước?",
 				"b1_501.jpg", b1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb1_501);
 
-		Question questionb1_521 = new Question(27, "Theo hướng mũi tên, những hướng nào xe tải được phép đi?", true,
+		Question questionb1_521 = new Question(27, "Theo hướng mũi tên, những hướng nào xe tải được phép đi?",
 				"b1_521.jpg", b1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb1_521);
 
-		Question questionb1_541 = new Question(28, "Xe nào phải nhường đường là đúng quy tắc giao thông?", true,
+		Question questionb1_541 = new Question(28, "Xe nào phải nhường đường là đúng quy tắc giao thông?",
 				"b1_541.jpg", b1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb1_541);
 
 		Question questionb1_561 = new Question(29, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
-				true, "b1_561.jpg", b1.getId(), set1.getId(), sh.getId());
+				"b1_561.jpg", b1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb1_561);
 
 		Question questionb1_581 = new Question(30,
-				"Xe tải phía trước có tín hiệu xin chuyển làn đường, bạn xử lý như thế nào trong trường hợp này?", true,
+				"Xe tải phía trước có tín hiệu xin chuyển làn đường, bạn xử lý như thế nào trong trường hợp này?",
 				"b1_581.jpg", b1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb1_581);
 
-		Question questionb1_2 = new Question(1, "\"Làn đường\" là gì?", true, "", b1.getId(), set2.getId(), kn.getId());
+		Question questionb1_2 = new Question(1, "\"Làn đường\" là gì?", "nan", b1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb1_2);
 
 		Question questionb1_22 = new Question(2,
 				"Người điều khiển ô tô, mô tô, máy kéo trên đường mà trong máu hoặc hơi thở có nồng độ cồn có bị nghiêm cấm không?",
-				true, "", b1.getId(), set2.getId(), kn.getId());
+				"nan", b1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb1_22);
 
-		Question questionb1_42 = new Question(3, "Người lái xe không được lùi xe ở những khu vực nào dưới đây?", true,
+		Question questionb1_42 = new Question(3, "Người lái xe không được lùi xe ở những khu vực nào dưới đây?",
 				"", b1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb1_42);
 
 		Question questionb1_62 = new Question(4,
-				"Người có giấy phép lái xe mô tô hạng A2 được phép điều khiển loại xe nào dưới đây?", true, "",
+				"Người có giấy phép lái xe mô tô hạng A2 được phép điều khiển loại xe nào dưới đây?", "nan",
 				b1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb1_62);
 
 		Question questionb1_82 = new Question(5,
 				"Khi gặp hiệu lệnh như dưới đây của cảnh sát giao thông thì người tham gia giao thông phải đi như thế nào là đúng quy tắc giao thông?",
-				true, "b1_82.jpg", b1.getId(), set2.getId(), kn.getId());
+				"b1_82.jpg", b1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb1_82);
 
 		Question questionb1_102 = new Question(6,
-				"Trên đường cao tốc, người lái xe phải dừng xe, đỗ xe như thế nào để đảm bảo an toàn giao thông?", true,
+				"Trên đường cao tốc, người lái xe phải dừng xe, đỗ xe như thế nào để đảm bảo an toàn giao thông?",
 				"", b1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb1_102);
 
 		Question questionb1_122 = new Question(7,
 				"Trong các trường hợp dưới đây, để đảo bảo an toàn khi tham gia giao thông, người lái xe mô tô cần thực hiện như thế nào?",
-				true, "", b1.getId(), set2.getId(), kn.getId());
+				"nan", b1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb1_122);
 
 		Question questionb1_142 = new Question(8,
 				"Người lái xe phải giảm tốc độ, đi sát về bên phải của phần đường xe chạy trong các trường hợp nào dưới đây?",
-				true, "", b1.getId(), set2.getId(), kn.getId());
+				"nan", b1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb1_142);
 
 		Question questionb1_162 = new Question(9,
 				"Khi người lái xe ô tô dừng, đỗ sát theo lề đường, hè phố phía bên phải theo chiều đi của mình, bánh xe gần nhất không được cách va lề đường, hè phố qua bao nhiêu mét trong các trường hợp dưới đây để không gây cản trở, nguy hiểm cho giao thông?",
-				true, "", b1.getId(), set2.getId(), kn.getId());
+				"nan", b1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb1_162);
 
-		Question questionb1_182 = new Question(10, "Người nhận hàng có các nghĩa vụ gì dưới đây?", true, "", b1.getId(),
+		Question questionb1_182 = new Question(10, "Người nhận hàng có các nghĩa vụ gì dưới đây?", "nan", b1.getId(),
 				set2.getId(), nvvt.getId());
 		questionRepo.save(questionb1_182);
 
 		Question questionb1_202 = new Question(11,
-				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?", true,
+				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?",
 				"", b1.getId(), set2.getId(), vh.getId());
 		questionRepo.save(questionb1_202);
 
 		Question questionb1_222 = new Question(12,
-				"Khi xuống dốc, muốn dừng xe, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?", true,
+				"Khi xuống dốc, muốn dừng xe, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?",
 				"", b1.getId(), set2.getId(), kt.getId());
 		questionRepo.save(questionb1_222);
 
 		Question questionb1_242 = new Question(13,
 				"Khi đã đổ xe ô tô sát lề đường bên phải, người lái xe phải thực hiện các thao tác nào dưới đây khi mở cửa xuống xe để đảm bảo an toàn?",
-				true, "", b1.getId(), set2.getId(), kt.getId());
+				"nan", b1.getId(), set2.getId(), kt.getId());
 		questionRepo.save(questionb1_242);
 
 		Question questionb1_262 = new Question(14,
 				"Khi đang lái xe mô tô và ô tô, nếu có nhu cầu sử dụng điện thoại để nhắn tin hoặc gọi điện, người lái xe phải thực hiện như thế nào trong các tình huống dưới đây?",
-				true, "", b1.getId(), set2.getId(), kt.getId());
+				"nan", b1.getId(), set2.getId(), kt.getId());
 		questionRepo.save(questionb1_262);
 
-		Question questionb1_282 = new Question(15, "Công dụng của hệ thống bôi trơn đối với động cơ ô tô?", true, "",
+		Question questionb1_282 = new Question(15, "Công dụng của hệ thống bôi trơn đối với động cơ ô tô?", "nan",
 				b1.getId(), set2.getId(), ctsc.getId());
 		questionRepo.save(questionb1_282);
 
 		Question questionb1_302 = new Question(16, "Trong xe ô tô có trang bị thiết bị như hình vẽ có tác dụng gì?",
-				true, "b1_302.jpg", b1.getId(), set2.getId(), ctsc.getId());
+				"b1_302.jpg", b1.getId(), set2.getId(), ctsc.getId());
 		questionRepo.save(questionb1_302);
 
-		Question questionb1_322 = new Question(17, "Biển nào cấm các phương tiện giao thông đường bộ rẽ trái?", true,
+		Question questionb1_322 = new Question(17, "Biển nào cấm các phương tiện giao thông đường bộ rẽ trái?",
 				"b1_322.jpg", b1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionb1_322);
 
-		Question questionb1_342 = new Question(18, "Biển số 2 có ý nghĩa như thế nào?", true, "b1_342.jpg", b1.getId(),
+		Question questionb1_342 = new Question(18, "Biển số 2 có ý nghĩa như thế nào?", "b1_342.jpg", b1.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionb1_342);
 
-		Question questionb1_362 = new Question(19, "Biển này có ý nghĩa gì?", true, "b1_362.jpg", b1.getId(),
+		Question questionb1_362 = new Question(19, "Biển này có ý nghĩa gì?", "b1_362.jpg", b1.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionb1_362);
 
 		Question questionb1_382 = new Question(20, "Biển nào báo hiệu \"Nơi đường sắt giao vuông góc với đường bộ\"?",
-				true, "b1_382.jpg", b1.getId(), set2.getId(), bb.getId());
+				"b1_382.jpg", b1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionb1_382);
 
-		Question questionb1_402 = new Question(21, "Biển nào báo hiệu \"Chú ý chướng ngại vật\"?", true, "b1_402.jpg",
+		Question questionb1_402 = new Question(21, "Biển nào báo hiệu \"Chú ý chướng ngại vật\"?", "b1_402.jpg",
 				b1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionb1_402);
 
-		Question questionb1_422 = new Question(22, "Biển báo này có ý nghĩa gì?", true, "b1_422.jpg", b1.getId(),
+		Question questionb1_422 = new Question(22, "Biển báo này có ý nghĩa gì?", "b1_422.jpg", b1.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionb1_422);
 
-		Question questionb1_442 = new Question(23, "Biển nào dưới đây báo hiệu hết đường cấm vượt?", true, "b1_442.jpg",
+		Question questionb1_442 = new Question(23, "Biển nào dưới đây báo hiệu hết đường cấm vượt?", "b1_442.jpg",
 				b1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionb1_442);
 
-		Question questionb1_462 = new Question(24, "Biển số 1 có ý nghĩa gì?", true, "b1_462.jpg", b1.getId(),
+		Question questionb1_462 = new Question(24, "Biển số 1 có ý nghĩa gì?", "b1_462.jpg", b1.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionb1_462);
 
-		Question questionb1_482 = new Question(25, "Các vạch dưới đây có tác dụng gì?", true, "b1_482.jpg", b1.getId(),
+		Question questionb1_482 = new Question(25, "Các vạch dưới đây có tác dụng gì?", "b1_482.jpg", b1.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionb1_482);
 
 		Question questionb1_502 = new Question(26,
-				"Theo tín hiệu đèn, xe tải đi theo hướng nào là đúng quy tắc giao thông?", true, "b1_502.jpg",
+				"Theo tín hiệu đèn, xe tải đi theo hướng nào là đúng quy tắc giao thông?", "b1_502.jpg",
 				b1.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionb1_502);
 
-		Question questionb1_522 = new Question(27, "Những hướng nào xe tải được phép đi?", true, "b1_522.jpg",
+		Question questionb1_522 = new Question(27, "Những hướng nào xe tải được phép đi?", "b1_522.jpg",
 				b1.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionb1_522);
 
 		Question questionb1_542 = new Question(28,
-				"Xe con quay đầu đi ngược lại như hình vẽ dưới có vi phạm quy tắc giao thông không?", true,
+				"Xe con quay đầu đi ngược lại như hình vẽ dưới có vi phạm quy tắc giao thông không?",
 				"b1_542.jpg", b1.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionb1_542);
 
 		Question questionb1_562 = new Question(29, "Các xe đi theo hướng mũi tên xe nào vi phạm quy tắc giao thông?",
-				true, "b1_562.jpg", b1.getId(), set2.getId(), sh.getId());
+				"b1_562.jpg", b1.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionb1_562);
 
-		Question questionb1_582 = new Question(30, "Bạn xử lý như thế nào trong trường hợp này?", true, "b1_582.jpg",
+		Question questionb1_582 = new Question(30, "Bạn xử lý như thế nào trong trường hợp này?", "b1_582.jpg",
 				b1.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionb1_582);
 
 		Question questionb1_3 = new Question(1, "Khái niệm \"khổ giới hạn đường bộ\" được hiểu như thế nào là đúng?",
-				true, "", b1.getId(), set3.getId(), kn.getId());
+				"nan", b1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb1_3);
 
 		Question questionb1_23 = new Question(2,
-				"Sử dụng rượu, bia khi lái xe, nếu bị phát hiện thì bị xử lý như thế nào", true, "", b1.getId(),
+				"Sử dụng rượu, bia khi lái xe, nếu bị phát hiện thì bị xử lý như thế nào", "nan", b1.getId(),
 				set3.getId(), kn.getId());
 		questionRepo.save(questionb1_23);
 
 		Question questionb1_43 = new Question(3,
 				"Người điều khiển phương tiện giao thông trên đường phố có được dừng xe, đỗ xe trên miệng cống thoát nước, miệng hầm của đường điện thoại, điện cao thế, chỗ dành riêng cho xe chữa cháy lấy nước hay không?",
-				true, "", b1.getId(), set3.getId(), kn.getId());
+				"nan", b1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb1_43);
 
 		Question questionb1_63 = new Question(4,
-				"Người có giấy phép lái xe mô tô hạng A3 được phép điều khiển loại xe nào dưới đây?", true, "",
+				"Người có giấy phép lái xe mô tô hạng A3 được phép điều khiển loại xe nào dưới đây?", "nan",
 				b1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb1_63);
 
 		Question questionb1_83 = new Question(5,
 				"Khi gặp hiệu lệnh như dưới đây của cảnh sát giao thông thì người tham gia giao thông phải đi như thế nào là đúng quy tắc giao thông?",
-				true, "b1_83.jpg", b1.getId(), set3.getId(), kn.getId());
+				"b1_83.jpg", b1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb1_83);
 
 		Question questionb1_103 = new Question(6,
 				"Những trường hợp nào ghi ở dưới đây không được đi vào đường cao tốc trừ người, phương tiện, thiết bị phục vụ cho việc quản lý, bảo trì đường cao tốc?",
-				true, "", b1.getId(), set3.getId(), kn.getId());
+				"nan", b1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb1_103);
 
 		Question questionb1_123 = new Question(7,
-				"Đường bộ trong khu vực đông dân cư gồm những đoạn đường nào dưới đây?", true, "", b1.getId(),
+				"Đường bộ trong khu vực đông dân cư gồm những đoạn đường nào dưới đây?", "nan", b1.getId(),
 				set3.getId(), kn.getId());
 		questionRepo.save(questionb1_123);
 
 		Question questionb1_143 = new Question(8,
 				"Tại các điểm giao cắt giữa đườn bộ và đường sắt, quyền ưu tiên thuộc về loại phương tiện nào dưới đây?",
-				true, "", b1.getId(), set3.getId(), kn.getId());
+				"nan", b1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb1_143);
 
 		Question questionb1_163 = new Question(9,
 				"Khi dừng, đỗ xe trên đường phố hẹp, người lái xe ô tô phải dừng, đỗ xe ở vị trí cách xe ô tô đang đỗ bên kia đường khoảng cách tối thiểu là bao nhiêu mét trong các trường hợp dưới đây để đảm bảo an toàn giao thông?",
-				true, "", b1.getId(), set3.getId(), kn.getId());
+				"nan", b1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb1_163);
 
-		Question questionb1_183 = new Question(10, "Hàng siêu trường, siêu trọng được hiểu như thế nào là đúng?", true,
+		Question questionb1_183 = new Question(10, "Hàng siêu trường, siêu trọng được hiểu như thế nào là đúng?",
 				"", b1.getId(), set3.getId(), nvvt.getId());
 		questionRepo.save(questionb1_183);
 
 		Question questionb1_203 = new Question(11,
-				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?", true,
+				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?",
 				"", b1.getId(), set3.getId(), vh.getId());
 		questionRepo.save(questionb1_203);
 
 		Question questionb1_223 = new Question(12,
-				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", true, "",
+				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", "nan",
 				b1.getId(), set3.getId(), kt.getId());
 		questionRepo.save(questionb1_223);
 
 		Question questionb1_243 = new Question(13,
 				"Khi lái ô tô qua đường sắt không có rào chắn, không có người điều khiển giao thông, người lái xe phải xử lý như thế nào để đảm bảo an toàn?",
-				true, "", b1.getId(), set3.getId(), kt.getId());
+				"nan", b1.getId(), set3.getId(), kt.getId());
 		questionRepo.save(questionb1_243);
 
 		Question questionb1_263 = new Question(14,
 				"Những thói quen nào dưới đây điều khiển xe mô tô tay gat ham gia giao thông đễ gây tai nạn nguy hiểm?",
-				true, "", b1.getId(), set3.getId(), kt.getId());
+				"nan", b1.getId(), set3.getId(), kt.getId());
 		questionRepo.save(questionb1_263);
 
 		Question questionb1_283 = new Question(15,
-				"Niên hạn sử dụng của ô tô tải (tính bắt đầu từ năm sản xuất) là bao nhiêu năm?", true, "", b1.getId(),
+				"Niên hạn sử dụng của ô tô tải (tính bắt đầu từ năm sản xuất) là bao nhiêu năm?", "nan", b1.getId(),
 				set3.getId(), ctsc.getId());
 		questionRepo.save(questionb1_283);
 
-		Question questionb1_303 = new Question(16, "Trên xe ô tô có trang bị như hình vẽ, dùng để làm gì?", true,
+		Question questionb1_303 = new Question(16, "Trên xe ô tô có trang bị như hình vẽ, dùng để làm gì?",
 				"b1_303.jpg", b1.getId(), set3.getId(), ctsc.getId());
 		questionRepo.save(questionb1_303);
 
-		Question questionb1_323 = new Question(17, "Biển nào cấm ô tô quay đầu?", true, "b1_323.jpg", b1.getId(),
+		Question questionb1_323 = new Question(17, "Biển nào cấm ô tô quay đầu?", "b1_323.jpg", b1.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionb1_323);
 
-		Question questionb1_343 = new Question(18, "Biển 3 có ý nghĩa như thế nào?", true, "b1_343.jpg", b1.getId(),
+		Question questionb1_343 = new Question(18, "Biển 3 có ý nghĩa như thế nào?", "b1_343.jpg", b1.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionb1_343);
 
-		Question questionb1_363 = new Question(19, "Biển này có ý nghĩa gì?", true, "b1_363.jpg", b1.getId(),
+		Question questionb1_363 = new Question(19, "Biển này có ý nghĩa gì?", "b1_363.jpg", b1.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionb1_363);
 
-		Question questionb1_383 = new Question(20, "Các biển này có ý nghĩa gì?", true, "b1_383.jpg", b1.getId(),
+		Question questionb1_383 = new Question(20, "Các biển này có ý nghĩa gì?", "b1_383.jpg", b1.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionb1_383);
 
 		Question questionb1_403 = new Question(21,
 				"Biển nào chỉ dẫn cho người tham gia giao thông biết vị trí và khoảng cách có làn đường cứu nạn hay làn thoát xe khẩn cấp?",
-				true, "b1_403.jpg", b1.getId(), set3.getId(), bb.getId());
+				"b1_403.jpg", b1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionb1_403);
 
-		Question questionb1_423 = new Question(22, "Biển báo này có ý nghĩa gì?", true, "b1_423.jpg", b1.getId(),
+		Question questionb1_423 = new Question(22, "Biển báo này có ý nghĩa gì?", "b1_423.jpg", b1.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionb1_423);
 
 		Question questionb1_443 = new Question(23, "Trong các biển dưới đây biển nào là biển \"Hết mọi lệnh cấm\"?",
-				true, "b1_443.jpg", b1.getId(), set3.getId(), bb.getId());
+				"b1_443.jpg", b1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionb1_443);
 
-		Question questionb1_463 = new Question(24, "Biển nào báo hiệu \"Tuyến đường cầu vượt cắt ngang qua\"?", true,
+		Question questionb1_463 = new Question(24, "Biển nào báo hiệu \"Tuyến đường cầu vượt cắt ngang qua\"?",
 				"b1_463.jpg", b1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionb1_463);
 
-		Question questionb1_483 = new Question(25, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?", true,
+		Question questionb1_483 = new Question(25, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?",
 				"b1_483.jpg", b1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionb1_483);
 
 		Question questionb1_503 = new Question(26, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
-				true, "b1_503.jpg", b1.getId(), set3.getId(), sh.getId());
+				"b1_503.jpg", b1.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionb1_503);
 
-		Question questionb1_523 = new Question(27, "Những hướng nào ô tô tải được phép đi?", true, "b1_523.jpg",
+		Question questionb1_523 = new Question(27, "Những hướng nào ô tô tải được phép đi?", "b1_523.jpg",
 				b1.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionb1_523);
 
-		Question questionb1_543 = new Question(28, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?", true,
+		Question questionb1_543 = new Question(28, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?",
 				"b1_543.jpg", b1.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionb1_543);
 
 		Question questionb1_563 = new Question(29, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
-				true, "b1_563.jpg", b1.getId(), set3.getId(), sh.getId());
+				"b1_563.jpg", b1.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionb1_563);
 
-		Question questionb1_583 = new Question(30, "Các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb1_583 = new Question(30, "Các xe đi như thế nào là đúng quy tắc giao thông?",
 				"b1_583.jpg", b1.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionb1_583);
 
 		Question questionb1_4 = new Question(1,
-				"Trong các khái niệm dưới đây, \"dải phân cách\" được hiểu như thế nào là đúng?", true, "", b1.getId(),
+				"Trong các khái niệm dưới đây, \"dải phân cách\" được hiểu như thế nào là đúng?", "nan", b1.getId(),
 				set4.getId(), kn.getId());
 		questionRepo.save(questionb1_4);
 
 		Question questionb1_24 = new Question(2,
 				"Theo luật phòng chống tác hại của rượu, bia, đối tượng nào dưới đây bị cấm sử dụng rượu bia khi tham gia giao thông?",
-				true, "", b1.getId(), set4.getId(), kn.getId());
+				"nan", b1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionb1_24);
 
 		Question questionb1_44 = new Question(3,
 				"Khi xe đã kéo 1 xe hoặc xe đã kéo 1 rơ moóc, bạn có được phép kéo thêm xe (kể cả xe thô sơ) hoặc rơ moóc thứ hai hay không?",
-				true, "", b1.getId(), set4.getId(), kn.getId());
+				"nan", b1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionb1_44);
 
 		Question questionb1_64 = new Question(4,
-				"Người có giấy phép lái xe hạng B1 số tự động được điều khiển loại xe nào?", true, "", b1.getId(),
+				"Người có giấy phép lái xe hạng B1 số tự động được điều khiển loại xe nào?", "nan", b1.getId(),
 				set4.getId(), kn.getId());
 		questionRepo.save(questionb1_64);
 
 		Question questionb1_84 = new Question(5,
 				"Trên đường giao thông, khi hiệu lệnh của người điều khiển giao thông trí với hiệu kệnh của đèn hoặc biển báo hiệu thì người tham gia giao thông phải chấp hành theo hiệu lệnh nào?",
-				true, "", b1.getId(), set4.getId(), kn.getId());
+				"nan", b1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionb1_84);
 
 		Question questionb1_104 = new Question(6,
 				"Người điều khiển phương tiện tham giao thông trong hầm đường bộ ngoài việc phải tuân thủ các quy tắc giao thông còn phải thực hiện những quy định nào dưới đây?",
-				true, "", b1.getId(), set4.getId(), kn.getId());
+				"nan", b1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionb1_104);
 
 		Question questionb1_124 = new Question(7,
 				"Tốc độ tối đa cho phép đối với xe máy chuyên dùng, xe gắn máy (kể cả xe máy điện) và các loại xe tương tự trên đường bộ (trừ đường cao tốc) không được vượt quá bao nhiêu km/h?",
-				true, "", b1.getId(), set4.getId(), kn.getId());
+				"nan", b1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionb1_124);
 
 		Question questionb1_144 = new Question(8,
 				"Các phương tiện tham gia giao thông đường bộ (kể cả những xe có quyền ưu tiên) đều phải dừng lại bên phải đường của mình và trước vạch \"dừng xe\" tại các địa điểm giao cắt giữa đường bộ và đường sắt khi có báo hiệu dừng nào dưới đây?",
-				true, "", b1.getId(), set4.getId(), kn.getId());
+				"nan", b1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionb1_144);
 
 		Question questionb1_164 = new Question(9,
 				"Trên đường bộ, người lái xe ô tô có được phép dừng xe, đỗ xe song song với một xe khác đang dừng, đỗ hay không?",
-				true, "", b1.getId(), set4.getId(), kn.getId());
+				"nan", b1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionb1_164);
 
 		Question questionb1_184 = new Question(10,
-				"Việc vận chuyển động vật sống phải tuân theo những quy định nào dưới đây?", true, "", b1.getId(),
+				"Việc vận chuyển động vật sống phải tuân theo những quy định nào dưới đây?", "nan", b1.getId(),
 				set4.getId(), nvvt.getId());
 		questionRepo.save(questionb1_184);
 
 		Question questionb1_204 = new Question(11,
-				"Trong các hành vi dưới đây, người lái xe ô tô có văn hóa giao thông phải ứng xử như thế nào?", true,
+				"Trong các hành vi dưới đây, người lái xe ô tô có văn hóa giao thông phải ứng xử như thế nào?",
 				"", b1.getId(), set4.getId(), vh.getId());
 		questionRepo.save(questionb1_204);
 
 		Question questionb1_224 = new Question(12,
 				"Khi điều khiển xe ô tô rẽ phải ở chỗ đường giao nhau, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?",
-				true, "", b1.getId(), set4.getId(), kt.getId());
+				"nan", b1.getId(), set4.getId(), kt.getId());
 		questionRepo.save(questionb1_224);
 
 		Question questionb1_244 = new Question(13,
 				"Khi lái ô tô qua đường sắt không có rào chắn, không có người điều khiển giao thông, người lái xe thực hiện thao tác: tạm dừng xe tại vị trí cách đường sắt tối thiểu 5 mét, hạ kính cửa, tắt các thiết bị âm thanh trên xe, quan sát, nếu không có tàu chạy quá thì về số thấp, tăng ga nhẹ để tránh động cơ chết máy do xe vượt qua để đảm bảo an toàn là đúng hay không?",
-				true, "", b1.getId(), set4.getId(), kt.getId());
+				"nan", b1.getId(), set4.getId(), kt.getId());
 		questionRepo.save(questionb1_244);
 
 		Question questionb1_264 = new Question(14,
 				"Người ngồi trên xe ô tô cần thực hiện những thao tác mở cửa như thế nào để xuống xe một cách an toàn?",
-				true, "", b1.getId(), set4.getId(), kt.getId());
+				"nan", b1.getId(), set4.getId(), kt.getId());
 		questionRepo.save(questionb1_264);
 
 		Question questionb1_284 = new Question(15,
 				"Niên hạn sử dụng của ô tô chở người trên 9 chỗ ngồi (tính bắt đầu từ năm sản xuất) là bao nhiêu năm?",
-				true, "", b1.getId(), set4.getId(), ctsc.getId());
+				"nan", b1.getId(), set4.getId(), ctsc.getId());
 		questionRepo.save(questionb1_284);
 
-		Question questionb1_304 = new Question(16, "Trên xe ô tô có trang bị như hình vẽ, dùng để làm gì?", true,
+		Question questionb1_304 = new Question(16, "Trên xe ô tô có trang bị như hình vẽ, dùng để làm gì?",
 				"b1_304.jpg", b1.getId(), set4.getId(), ctsc.getId());
 		questionRepo.save(questionb1_304);
 
-		Question questionb1_324 = new Question(17, "Biển nào cấm ô tô rẽ phải và quay đầu xe?", true, "b1_324.jpg",
+		Question questionb1_324 = new Question(17, "Biển nào cấm ô tô rẽ phải và quay đầu xe?", "b1_324.jpg",
 				b1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionb1_324);
 
-		Question questionb1_344 = new Question(18, "Biển nào cấm máy kéo kéo theo rơ mooc?", true, "b1_344.jpg",
+		Question questionb1_344 = new Question(18, "Biển nào cấm máy kéo kéo theo rơ mooc?", "b1_344.jpg",
 				b1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionb1_344);
 
-		Question questionb1_364 = new Question(19, "Biển nào là biển \"Tốc độ tối đa cho phép về ban đêm\"?", true,
+		Question questionb1_364 = new Question(19, "Biển nào là biển \"Tốc độ tối đa cho phép về ban đêm\"?",
 				"b1_364.jpg", b1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionb1_364);
 
-		Question questionb1_384 = new Question(20, "Biển nào báo hiệu \"Hết đoạn đường ưu tiên\"?", true, "b1_384.jpg",
+		Question questionb1_384 = new Question(20, "Biển nào báo hiệu \"Hết đoạn đường ưu tiên\"?", "b1_384.jpg",
 				b1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionb1_384);
 
-		Question questionb1_404 = new Question(21, "Biển nào báo hiệu \"Đường hầm\"?", true, "b1_404.jpg", b1.getId(),
+		Question questionb1_404 = new Question(21, "Biển nào báo hiệu \"Đường hầm\"?", "b1_404.jpg", b1.getId(),
 				set4.getId(), bb.getId());
 		questionRepo.save(questionb1_404);
 
-		Question questionb1_424 = new Question(22, "Biển báo này có ý nghĩa gì?", true, "b1_424.jpg", b1.getId(),
+		Question questionb1_424 = new Question(22, "Biển báo này có ý nghĩa gì?", "b1_424.jpg", b1.getId(),
 				set4.getId(), bb.getId());
 		questionRepo.save(questionb1_424);
 
 		Question questionb1_444 = new Question(23,
-				"Biển nào cho phép được quay đầu xe đi theo hướng ngược lại khi đặt biển trước ngã ba, ngã tư?", true,
+				"Biển nào cho phép được quay đầu xe đi theo hướng ngược lại khi đặt biển trước ngã ba, ngã tư?",
 				"b1_444.jpg", b1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionb1_444);
 
-		Question questionb1_464 = new Question(24, "Biển báo dưới đây có ý nghĩa gì?", true, "b1_464.jpg", b1.getId(),
+		Question questionb1_464 = new Question(24, "Biển báo dưới đây có ý nghĩa gì?", "b1_464.jpg", b1.getId(),
 				set4.getId(), bb.getId());
 		questionRepo.save(questionb1_464);
 
-		Question questionb1_484 = new Question(25, "Vạch dưới đây có tác dụng gì?", true, "b1_484.jpg", b1.getId(),
+		Question questionb1_484 = new Question(25, "Vạch dưới đây có tác dụng gì?", "b1_484.jpg", b1.getId(),
 				set4.getId(), bb.getId());
 		questionRepo.save(questionb1_484);
 
-		Question questionb1_504 = new Question(26, "Thứ tự các xe đi nhưu thế nào là đúng quy tắc giao thông?", true,
+		Question questionb1_504 = new Question(26, "Thứ tự các xe đi nhưu thế nào là đúng quy tắc giao thông?",
 				"b1_504.jpg", b1.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionb1_504);
 
-		Question questionb1_524 = new Question(27, "Những hướng nào ô tô tải được phép đi?", true, "b1_524.jpg",
+		Question questionb1_524 = new Question(27, "Những hướng nào ô tô tải được phép đi?", "b1_524.jpg",
 				b1.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionb1_524);
 
 		Question questionb1_544 = new Question(28,
-				"Điều khiển cho xe đi thẳng, người lái xe phải làm gì là đúng quy tắc giao thông?", true, "b1_544.jpg",
+				"Điều khiển cho xe đi thẳng, người lái xe phải làm gì là đúng quy tắc giao thông?", "b1_544.jpg",
 				b1.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionb1_544);
 
 		Question questionb1_564 = new Question(29,
 				"Trong tình huống dưới đây, để tránh xe phía trước bị hỏng đột xuất trên đường, người lái xe phải làm thế nào?",
-				true, "b1_564.jpg", b1.getId(), set4.getId(), sh.getId());
+				"b1_564.jpg", b1.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionb1_564);
 
-		Question questionb1_584 = new Question(30, "Các xe đi như thế nào là đúng quy tắc giao thông đường bộ?", true,
+		Question questionb1_584 = new Question(30, "Các xe đi như thế nào là đúng quy tắc giao thông đường bộ?",
 				"b1_584.jpg", b1.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionb1_584);
 
-		Question questionb1_5 = new Question(1, "\"Dải phân cách\" trên đường bộ gồm những loại nào?", true, "",
+		Question questionb1_5 = new Question(1, "\"Dải phân cách\" trên đường bộ gồm những loại nào?", "nan",
 				b1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb1_5);
 
 		Question questionb1_25 = new Question(2,
 				"Hành vi xe cơ giới, xe máy chuyên dùng cho người không đủ điều kiện để điều khiển xe tham gia giao thông có được phép hay không?",
-				true, "", b1.getId(), set5.getId(), kn.getId());
+				"nan", b1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb1_25);
 
 		Question questionb1_45 = new Question(3,
 				"Người điều khiển xe mô tô hai bánh, ba bánh, xe gắn máy có được phép sử dụng xe để kéo hoặc đẩy các phương tiện khác khi tham gia giao thông không?",
-				true, "", b1.getId(), set5.getId(), kn.getId());
+				"nan", b1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb1_45);
 
-		Question questionb1_65 = new Question(4, "Người có giấy phép lái xe hạng B1 được điều khiển loại xe nào?", true,
+		Question questionb1_65 = new Question(4, "Người có giấy phép lái xe hạng B1 được điều khiển loại xe nào?",
 				"", b1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb1_65);
 
 		Question questionb1_85 = new Question(5,
 				"Tại nơi có biển báo hiệu cố định lại có báo hiệu tạm thời thì người tham gia giao thông phải chấp hành hiệu lệnh của báo hiệu nào?",
-				true, "", b1.getId(), set5.getId(), kn.getId());
+				"nan", b1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb1_85);
 
 		Question questionb1_105 = new Question(6,
-				"Xe quá tải trọng, quá khổ giới hạn tham gia giao thông cần tuân thủ quy định nào ghi dưới đây?", true,
+				"Xe quá tải trọng, quá khổ giới hạn tham gia giao thông cần tuân thủ quy định nào ghi dưới đây?",
 				"", b1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb1_105);
 
 		Question questionb1_125 = new Question(7,
 				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường đôi có dải phân cách giữa, xe mô tô hai bánh, ô tô chở người đến 30 chỗ tham gia giao thông với tốc độ tối đa cho phép là bao nhiêu?",
-				true, "", b1.getId(), set5.getId(), kn.getId());
+				"nan", b1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb1_125);
 
 		Question questionb1_145 = new Question(8,
 				"Trên đoạn đường bộ giao thông nhau đồng mức với đướng sắt, người không có nhiệm vụ có được tự ý mở chắn đường ngang khi chắn đã được đóng hay không?",
-				true, "", b1.getId(), set5.getId(), kn.getId());
+				"nan", b1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb1_145);
 
 		Question questionb1_165 = new Question(9,
 				"Người điều khiển xe mô tô phải giảm tốc độ và hết sức thận trọng khi qua những đoạn đường nào dưới đây?",
-				true, "", b1.getId(), set5.getId(), kn.getId());
+				"nan", b1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb1_165);
 
 		Question questionb1_185 = new Question(10,
-				"Xe vận chuyển hàng nguy hiểm phải chấp hành những quy định nào dưới đây?", true, "", b1.getId(),
+				"Xe vận chuyển hàng nguy hiểm phải chấp hành những quy định nào dưới đây?", "nan", b1.getId(),
 				set5.getId(), nvvt.getId());
 		questionRepo.save(questionb1_185);
 
 		Question questionb1_205 = new Question(11,
 				"Người có văn hóa giao thông khi điều khiển xe cơ giới tham gia giao thông đường bộ phải đảm bảo các điều kiện gì?",
-				true, "", b1.getId(), set5.getId(), vh.getId());
+				"nan", b1.getId(), set5.getId(), vh.getId());
 		questionRepo.save(questionb1_205);
 
 		Question questionb1_225 = new Question(12,
 				"Khi điều khiển xe ô tô rẽ Trái ở chỗ đường giao nhau, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?",
-				true, "", b1.getId(), set5.getId(), kt.getId());
+				"nan", b1.getId(), set5.getId(), kt.getId());
 		questionRepo.save(questionb1_225);
 
 		Question questionb1_245 = new Question(13,
 				"Khi điều khiển ô tô có hộp số tự động đi vào đường trơn trượt, lầy lội, người lái xe phải xử lý như thế nào để đảm bảo an toàn trong các trường hợp dưới đây?",
-				true, "", b1.getId(), set5.getId(), kt.getId());
+				"nan", b1.getId(), set5.getId(), kt.getId());
 		questionRepo.save(questionb1_245);
 
 		Question questionb1_265 = new Question(14,
-				"Khi điều khiển xe mô tô quay đầu người lái xe cần thực hiện như thế nào để đảm bảo an toàn?", true, "",
+				"Khi điều khiển xe mô tô quay đầu người lái xe cần thực hiện như thế nào để đảm bảo an toàn?", "nan",
 				b1.getId(), set5.getId(), kt.getId());
 		questionRepo.save(questionb1_265);
 
-		Question questionb1_285 = new Question(15, "Hãy nêu công dụng của động cơ ô tô?", true, "", b1.getId(),
+		Question questionb1_285 = new Question(15, "Hãy nêu công dụng của động cơ ô tô?", "nan", b1.getId(),
 				set5.getId(), ctsc.getId());
 		questionRepo.save(questionb1_285);
 
 		Question questionb1_305 = new Question(16,
 				"Biển nào cấm các loại xe cơ giới đi vào, trừ xe gắn máy, mô tô hai bánh và các loại xe ưu tiên theo luật định?",
-				true, "b1_305.jpg", b1.getId(), set5.getId(), bb.getId());
+				"b1_305.jpg", b1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb1_305);
 
-		Question questionb1_325 = new Question(17, "Biển nào cấm xe taxi mà không cấm các phương tiện khác?", true,
+		Question questionb1_325 = new Question(17, "Biển nào cấm xe taxi mà không cấm các phương tiện khác?",
 				"b1_325.jpg", b1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb1_325);
 
-		Question questionb1_345 = new Question(18, "Khi gặp biển 1, xe ô tô tải có được phép đi vào không?", true,
+		Question questionb1_345 = new Question(18, "Khi gặp biển 1, xe ô tô tải có được phép đi vào không?",
 				"b1_345.jpg", b1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb1_345);
 
 		Question questionb1_365 = new Question(19,
 				"Biển báo nào báo hiệu bắt đầu đoạn đường vào phạm vi khu dân cư, các phương tiện tham gia giao thông phải tuân thủ các quy định đi đường được áp dụng ở khu đông dân cư?",
-				true, "b1_365.jpg", b1.getId(), set5.getId(), bb.getId());
+				"b1_365.jpg", b1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb1_365);
 
 		Question questionb1_385 = new Question(20,
-				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?", true,
+				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?",
 				"b1_385.jpg", b1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb1_385);
 
-		Question questionb1_405 = new Question(21, "Biển nào dưới đây là biển \"Cầu hẹp\"?", true, "b1_405.jpg",
+		Question questionb1_405 = new Question(21, "Biển nào dưới đây là biển \"Cầu hẹp\"?", "b1_405.jpg",
 				b1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb1_405);
 
-		Question questionb1_425 = new Question(22, "Biển báo này có ý nghĩa gì?", true, "b1_425.jpg", b1.getId(),
+		Question questionb1_425 = new Question(22, "Biển báo này có ý nghĩa gì?", "b1_425.jpg", b1.getId(),
 				set5.getId(), bb.getId());
 		questionRepo.save(questionb1_425);
 
-		Question questionb1_445 = new Question(23, "Biển nào không cho phép rẻ phải?", true, "b1_445.jpg", b1.getId(),
+		Question questionb1_445 = new Question(23, "Biển nào không cho phép rẻ phải?", "b1_445.jpg", b1.getId(),
 				set5.getId(), bb.getId());
 		questionRepo.save(questionb1_445);
 
 		Question questionb1_465 = new Question(24,
 				"Tại đoạn đường có biển \"Làn đường dành riêng cho từng loại xe\", các phương tiện có được phép chuyển sang làn khác để đi theo hành trình mong muốn khi đến gần nơi đường bộ giao nhau hay không?",
-				true, "b1_465.jpg", b1.getId(), set5.getId(), bb.getId());
+				"b1_465.jpg", b1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb1_465);
 
-		Question questionb1_485 = new Question(25, "Vạch dưới đây có ý nghĩa gì?", true, "b1_485.jpg", b1.getId(),
+		Question questionb1_485 = new Question(25, "Vạch dưới đây có ý nghĩa gì?", "b1_485.jpg", b1.getId(),
 				set5.getId(), bb.getId());
 		questionRepo.save(questionb1_485);
 
-		Question questionb1_505 = new Question(26, "Trong trường hợp này xe nào đỗ vi phạm quy tắc giao thông?", true,
+		Question questionb1_505 = new Question(26, "Trong trường hợp này xe nào đỗ vi phạm quy tắc giao thông?",
 				"b1_505.jpg", b1.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionb1_505);
 
-		Question questionb1_525 = new Question(27, "Xe nào được quyền đi trước trong trường hợp này?", true,
+		Question questionb1_525 = new Question(27, "Xe nào được quyền đi trước trong trường hợp này?",
 				"b1_525.jpg", b1.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionb1_525);
 
 		Question questionb1_545 = new Question(28,
-				"Người lái điều khiển xe chạy theo hướng nào là đúng quy tắc giao thông?", true, "b1_545.jpg",
+				"Người lái điều khiển xe chạy theo hướng nào là đúng quy tắc giao thông?", "b1_545.jpg",
 				b1.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionb1_545);
 
 		Question questionb1_565 = new Question(29,
-				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", true, "b1_565.jpg",
+				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", "b1_565.jpg",
 				b1.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionb1_565);
 
-		Question questionb1_585 = new Question(30, "Xe nào phải nhường đường trong trường hợp này?", true, "b1_585.jpg",
+		Question questionb1_585 = new Question(30, "Xe nào phải nhường đường trong trường hợp này?", "b1_585.jpg",
 				b1.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionb1_585);
 
-		Question questionb1_6 = new Question(1, "Người lái xe được hiểu như thế nào trong các khái niệm dưới đây", true,
+		Question questionb1_6 = new Question(1, "Người lái xe được hiểu như thế nào trong các khái niệm dưới đây?",
 				"", b1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb1_6);
 
 		Question questionb1_26 = new Question(2,
 				"Hành vi điều khiển xe cơ giới chạy quá tốc độ quy định, giành đường, vượt ẩu có nghiêm cấm hay không?",
-				true, "", b1.getId(), set6.getId(), kn.getId());
+				"nan", b1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb1_26);
 
 		Question questionb1_46 = new Question(3,
 				"Khi điều khiển xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy, những hành vi buông cả hai tay; sử dụng xe để kéo, đẩy xe khác, vật khác; sử dụng chân chống của xe quệt xuống đường khi xe đang chạy có được phép không?",
-				true, "", b1.getId(), set6.getId(), kn.getId());
+				"nan", b1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb1_46);
 
-		Question questionb1_66 = new Question(4, "Người có giấy phép lái xe hạng B2 được điều khiển loại xe nào?", true,
+		Question questionb1_66 = new Question(4, "Người có giấy phép lái xe hạng B2 được điều khiển loại xe nào?",
 				"", b1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb1_66);
 
 		Question questionb1_86 = new Question(5,
 				"Trên đường có nhiều làn đường cho xe đi cùng chiều được phân biệt bằng vạch kẻ phân làn đường, người điều khiển phương tiện phải cho xe đi như thế nào?",
-				true, "", b1.getId(), set6.getId(), kn.getId());
+				"nan", b1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb1_86);
 
 		Question questionb1_106 = new Question(6,
 				"Việc nối giữa xe kéo với xe được kéo trong trường hợp hệ thống hãm của xe được kéo không còn hiệu lực thì phải dùng cách nào?",
-				true, "", b1.getId(), set6.getId(), kn.getId());
+				"nan", b1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb1_106);
 
 		Question questionb1_126 = new Question(7,
 				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường hai chiều không có dải phân cách giữa, xe mô tô hai bánh, ô tô chở người đến 30 chỗ tham gia giao thông với tốc độ tối đa cho phép là bao nhiêu?",
-				true, "", b1.getId(), set6.getId(), kn.getId());
+				"nan", b1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb1_126);
 
 		Question questionb1_146 = new Question(8,
 				"Tác dụng của mũ bảo hiểm đối với người ngồi trên xe mô tô hai bánh trong trường hợp xảy ra tai nạn giao thông là gì?",
-				true, "", b1.getId(), set6.getId(), kn.getId());
+				"nan", b1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb1_146);
 
 		Question questionb1_166 = new Question(9,
 				"Khi gặp xe buýt đang đừng đón, trả khách, người điều khiển xe mô tô phải xử lý như thế nào dưới đây để đảm bảo an toàn giao thông?",
-				true, "", b1.getId(), set6.getId(), kn.getId());
+				"nan", b1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb1_166);
 
 		Question questionb1_186 = new Question(10,
-				"Trong đo thị, người lái xe buýt, xe chở hàng phải thực hiện những quy định nào dưới đây?", true, "",
+				"Trong đo thị, người lái xe buýt, xe chở hàng phải thực hiện những quy định nào dưới đây?", "nan",
 				b1.getId(), set6.getId(), nvvt.getId());
 		questionRepo.save(questionb1_186);
 
 		Question questionb1_206 = new Question(11,
 				"Khi xảy ra tai nạn giao thông, người lái xe và người có mặt tại hiện trường vụ tai nạn phải thực hiện các công việc gì dưới đây?",
-				true, "", b1.getId(), set6.getId(), vh.getId());
+				"nan", b1.getId(), set6.getId(), vh.getId());
 		questionRepo.save(questionb1_206);
 
 		Question questionb1_226 = new Question(12,
 				"Khi điều khiển xe sử dụng hộp số cơ khí vượt qua rãnh lớn cắt ngang mặt đường, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?",
-				true, "", b1.getId(), set6.getId(), kt.getId());
+				"nan", b1.getId(), set6.getId(), kt.getId());
 		questionRepo.save(questionb1_226);
 
 		Question questionb1_246 = new Question(13,
 				"Khi động cơ ô tô đã khởi động, muốn điều chỉnh ghế của người lái, người lái xe phải điều chỉnh cần số ở vị trí nào?",
-				true, "", b1.getId(), set6.getId(), kt.getId());
+				"nan", b1.getId(), set6.getId(), kt.getId());
 		questionRepo.save(questionb1_246);
 
 		Question questionb1_266 = new Question(14,
-				"Tay ga trên xe ô tô hai bánh có tác dụng gì trong các trường hợp dưới đây?", true, "", b1.getId(),
+				"Tay ga trên xe ô tô hai bánh có tác dụng gì trong các trường hợp dưới đây?", "nan", b1.getId(),
 				set6.getId(), kt.getId());
 		questionRepo.save(questionb1_266);
 
-		Question questionb1_286 = new Question(15, "Hãy nêu công dụng của hệ thống truyền lực của ô tô?", true, "",
+		Question questionb1_286 = new Question(15, "Hãy nêu công dụng của hệ thống truyền lực của ô tô?", "nan",
 				b1.getId(), set6.getId(), ctsc.getId());
 		questionRepo.save(questionb1_286);
 
-		Question questionb1_306 = new Question(16, "Biển nào cấm ô tô tải?", true, "b1_306.jpg", b1.getId(),
+		Question questionb1_306 = new Question(16, "Biển nào cấm ô tô tải?", "b1_306.jpg", b1.getId(),
 				set6.getId(), bb.getId());
 		questionRepo.save(questionb1_306);
 
-		Question questionb1_326 = new Question(17, "Biển nào cho phép xe rẻ trái?", true, "b1_326.jpg", b1.getId(),
+		Question questionb1_326 = new Question(17, "Biển nào cho phép xe rẻ trái?", "b1_326.jpg", b1.getId(),
 				set6.getId(), bb.getId());
 		questionRepo.save(questionb1_326);
 
-		Question questionb1_346 = new Question(18, "Biển nào không có hiệu lực đối với ô tô tải không kéo mooc?", true,
+		Question questionb1_346 = new Question(18, "Biển nào không có hiệu lực đối với ô tô tải không kéo mooc?",
 				"b1_346.jpg", b1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb1_346);
 
 		Question questionb1_366 = new Question(19,
-				"Biển nào báo hiệu hạn chế tốc độ của phương tiện không vượt quá trị số ghi trên biển?", true,
+				"Biển nào báo hiệu hạn chế tốc độ của phương tiện không vượt quá trị số ghi trên biển?",
 				"b1_366.jpg", b1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb1_366);
 
-		Question questionb1_386 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?", true,
+		Question questionb1_386 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?",
 				"b1_386.jpg", b1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb1_386);
 
-		Question questionb1_406 = new Question(21, "Biển nào dưới đây là biển \"Cầu xoay – cầu cất\"?", true,
+		Question questionb1_406 = new Question(21, "Biển nào dưới đây là biển \"Cầu xoay – cầu cất\"?",
 				"b1_406.jpg", b1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb1_406);
 
-		Question questionb1_426 = new Question(22, "Biển báo này có ý nghĩa gì?", true, "b1_426.jpg", b1.getId(),
+		Question questionb1_426 = new Question(22, "Biển báo này có ý nghĩa gì?", "b1_426.jpg", b1.getId(),
 				set6.getId(), bb.getId());
 		questionRepo.save(questionb1_426);
 
 		Question questionb1_446 = new Question(23,
 				"Khi đến chổ giao nhau, gặp biển nào thì người lái xe không được cho xe đi thẳng, phải rẽ sang hướng khác?",
-				true, "b1_446.jpg", b1.getId(), set6.getId(), bb.getId());
+				"b1_446.jpg", b1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb1_446);
 
 		Question questionb1_466 = new Question(24,
-				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?", true,
+				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?",
 				"b1_466.jpg", b1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb1_466);
 
-		Question questionb1_486 = new Question(25, "Vạch dưới đây có ý nghĩa gì?", true, "b1_486.jpg", b1.getId(),
+		Question questionb1_486 = new Question(25, "Vạch dưới đây có ý nghĩa gì?", "b1_486.jpg", b1.getId(),
 				set6.getId(), bb.getId());
 		questionRepo.save(questionb1_486);
 
-		Question questionb1_506 = new Question(26, "Xe nào được quyền đi trước?", true, "b1_506.jpg", b1.getId(),
+		Question questionb1_506 = new Question(26, "Xe nào được quyền đi trước?", "b1_506.jpg", b1.getId(),
 				set6.getId(), sh.getId());
 		questionRepo.save(questionb1_506);
 
 		Question questionb1_526 = new Question(27,
-				"Ô tô con đi theo chiều mũi tên có vi phạm quy tắc giao thông không?", true, "b1_526.jpg", b1.getId(),
+				"Ô tô con đi theo chiều mũi tên có vi phạm quy tắc giao thông không?", "b1_526.jpg", b1.getId(),
 				set6.getId(), sh.getId());
 		questionRepo.save(questionb1_526);
 
-		Question questionb1_546 = new Question(28, "Xe nào phải nhường đường là đúng quy tắc giao thông?", true,
+		Question questionb1_546 = new Question(28, "Xe nào phải nhường đường là đúng quy tắc giao thông?",
 				"b1_546.jpg", b1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionb1_546);
 
-		Question questionb1_566 = new Question(29, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?", true,
+		Question questionb1_566 = new Question(29, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?",
 				"b1_566.jpg", b1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionb1_566);
 
-		Question questionb1_586 = new Question(30, "Xe nào phải nhường đường trong trường hợp này?", true, "b1_586.jpg",
+		Question questionb1_586 = new Question(30, "Xe nào phải nhường đường trong trường hợp này?", "b1_586.jpg",
 				b1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionb1_586);
 
 		Question questionb1_7 = new Question(1,
 				"Đường mà trên đó phương tiện tham gia giao thông được các phương tiện giao thông được các phương tiện giao thông đến từ hướng khác nhường đường khi qua nơi đường giao nhau, được cắm biển báo hiệu đường ưu tiên là loại đường gì?",
-				true, "", b1.getId(), set7.getId(), kn.getId());
+				"nan", b1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb1_7);
 
 		Question questionb1_27 = new Question(2,
-				"Khi lái xe trên đường, người lái xe cần quan sát và bảo đảm tốc độ phương tiện như thé nào?", true, "",
+				"Khi lái xe trên đường, người lái xe cần quan sát và bảo đảm tốc độ phương tiện như thé nào?", "nan",
 				b1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb1_27);
 
 		Question questionb1_47 = new Question(3,
 				"Khi điều khiển xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy, những hành vi nào không được phép?",
-				true, "", b1.getId(), set7.getId(), kn.getId());
+				"nan", b1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb1_47);
 
-		Question questionb1_67 = new Question(4, "Người có giấy phép lái xe hạng C được điều khiển loại xe nào?", true,
+		Question questionb1_67 = new Question(4, "Người có giấy phép lái xe hạng C được điều khiển loại xe nào?",
 				"", b1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb1_67);
 
 		Question questionb1_87 = new Question(5,
 				"Trên đường một chiều có vạch kẻ phân làn đường xe thô sơ và xe cơ giới phải đi như thế nào là đúng quy tắc giao thông?",
-				true, "", b1.getId(), set7.getId(), kn.getId());
+				"nan", b1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb1_87);
 
 		Question questionb1_107 = new Question(6,
-				"Xe kéo rơ moóc khi thao gia giao thông phải tuân thủ điều kiện nào ghi ở dưới đây?", true, "",
+				"Xe kéo rơ moóc khi thao gia giao thông phải tuân thủ điều kiện nào ghi ở dưới đây?", "nan",
 				b1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb1_107);
 
 		Question questionb1_127 = new Question(7,
 				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường hai chiều hoặc đường một chiều có một làn xe cơ giới, loại xe nào tham gia giao thông được đi với tốc độ tối đa cho phép là 50 km/h?",
-				true, "", b1.getId(), set7.getId(), kn.getId());
+				"nan", b1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb1_127);
 
 		Question questionb1_147 = new Question(8,
-				"Khi điểu khiển phương tiện tham gia giao thông, những hành vi nào dưới đây bị nghiêm cấm?", true, "",
+				"Khi điểu khiển phương tiện tham gia giao thông, những hành vi nào dưới đây bị nghiêm cấm?", "nan",
 				b1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb1_147);
 
 		Question questionb1_167 = new Question(9,
-				"Người lái xe khách, xe buýt cần thực hiện những nhiệm vụ gì dưới đây?", true, "", b1.getId(),
+				"Người lái xe khách, xe buýt cần thực hiện những nhiệm vụ gì dưới đây?", "nan", b1.getId(),
 				set7.getId(), kn.getId());
 		questionRepo.save(questionb1_167);
 
 		Question questionb1_187 = new Question(10,
-				"Việc vận chuyển hàng hóa bằng xe ô tô phải chấp hành các quy định nào dưới đây?", true, "", b1.getId(),
+				"Việc vận chuyển hàng hóa bằng xe ô tô phải chấp hành các quy định nào dưới đây?", "nan", b1.getId(),
 				set7.getId(), nvvt.getId());
 		questionRepo.save(questionb1_187);
 
 		Question questionb1_207 = new Question(11,
 				"Khi xảy ra tai nạ giao thông, có người bị thương nghiêm trọng, người lái xe và người có mặt tại hiện trường vụ tai nạn phải thực hiện các công việc gì?",
-				true, "", b1.getId(), set7.getId(), vh.getId());
+				"nan", b1.getId(), set7.getId(), vh.getId());
 		questionRepo.save(questionb1_207);
 
 		Question questionb1_227 = new Question(12,
 				"Khi điều khiển xe qua đường sắt, người lái xe cần phải thực hiện các thao tác nào dưới đây để đảm bảo an toàn?",
-				true, "", b1.getId(), set7.getId(), kt.getId());
+				"nan", b1.getId(), set7.getId(), kt.getId());
 		questionRepo.save(questionb1_227);
 
 		Question questionb1_247 = new Question(13,
 				"Khi điều khiển ô tô có hộp số tự động, người lái xe sử dụng chân như thế nào là đúng để đảm bảo an toàn?",
-				true, "", b1.getId(), set7.getId(), kt.getId());
+				"nan", b1.getId(), set7.getId(), kt.getId());
 		questionRepo.save(questionb1_247);
 
 		Question questionb1_267 = new Question(14,
-				"Gương chiếu hậu của xe mô tô hai bánh, có tác dụng gì trong các trường hợp dưới đây?", true, "",
+				"Gương chiếu hậu của xe mô tô hai bánh, có tác dụng gì trong các trường hợp dưới đây?", "nan",
 				b1.getId(), set7.getId(), kt.getId());
 		questionRepo.save(questionb1_267);
 
-		Question questionb1_287 = new Question(15, "Hãy nêu công dụng ly hợp (côn) của ô tô?", true, "", b1.getId(),
+		Question questionb1_287 = new Question(15, "Hãy nêu công dụng ly hợp (côn) của ô tô?", "nan", b1.getId(),
 				set7.getId(), ctsc.getId());
 		questionRepo.save(questionb1_287);
 
-		Question questionb1_307 = new Question(16, "Biển nào cấm xe máy kéo?", true, "b1_307.jpg", b1.getId(),
+		Question questionb1_307 = new Question(16, "Biển nào cấm xe máy kéo?", "b1_307.jpg", b1.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionb1_307);
 
-		Question questionb1_327 = new Question(17, "Biển nào xe quay đầu không bị cấm?", true, "b1_327.jpg", b1.getId(),
+		Question questionb1_327 = new Question(17, "Biển nào xe quay đầu không bị cấm?", "b1_327.jpg", b1.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionb1_327);
 
-		Question questionb1_347 = new Question(18, "Biển nào cấm máy kéo?", true, "b1_347.jpg", b1.getId(),
+		Question questionb1_347 = new Question(18, "Biển nào cấm máy kéo?", "b1_347.jpg", b1.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionb1_347);
 
 		Question questionb1_367 = new Question(19,
-				"Trong các biển báo dưới đây biển nào báo hiệu \"Hết đường cao tốc\"?", true, "b1_367.jpg", b1.getId(),
+				"Trong các biển báo dưới đây biển nào báo hiệu \"Hết đường cao tốc\"?", "b1_367.jpg", b1.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionb1_367);
 
-		Question questionb1_387 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?", true,
+		Question questionb1_387 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?",
 				"b1_387.jpg", b1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionb1_387);
 
-		Question questionb1_407 = new Question(21, "Biển nào dưới đây là biển \"Kè, vực sâu phía trước\"?", true,
+		Question questionb1_407 = new Question(21, "Biển nào dưới đây là biển \"Kè, vực sâu phía trước\"?",
 				"b1_407.jpg", b1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionb1_407);
 
-		Question questionb1_427 = new Question(22, "Biển báo này có ý nghĩa gì?", true, "b1_427.jpg", b1.getId(),
+		Question questionb1_427 = new Question(22, "Biển báo này có ý nghĩa gì?", "b1_427.jpg", b1.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionb1_427);
 
-		Question questionb1_447 = new Question(23, "Biển nào cho phép quay đầu xe?", true, "b1_447.jpg", b1.getId(),
+		Question questionb1_447 = new Question(23, "Biển nào cho phép quay đầu xe?", "b1_447.jpg", b1.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionb1_447);
 
 		Question questionb1_467 = new Question(24,
-				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?", true,
+				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?",
 				"b1_467.jpg", b1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionb1_467);
 
-		Question questionb1_487 = new Question(25, "Thứ tự đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb1_487 = new Question(25, "Thứ tự đi như thế nào là đúng quy tắc giao thông?",
 				"b1_487.jpg", b1.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionb1_487);
 
-		Question questionb1_507 = new Question(26, "Theo hướng mũi tên, những hướng nào xe gắn máy đi được?", true,
+		Question questionb1_507 = new Question(26, "Theo hướng mũi tên, những hướng nào xe gắn máy đi được?",
 				"b1_507.jpg", b1.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionb1_507);
 
-		Question questionb1_527 = new Question(27, "Xe nào vi phạm quy tắc giao thông?", true, "b1_527.jpg", b1.getId(),
+		Question questionb1_527 = new Question(27, "Xe nào vi phạm quy tắc giao thông?", "b1_527.jpg", b1.getId(),
 				set7.getId(), sh.getId());
 		questionRepo.save(questionb1_527);
 
 		Question questionb1_547 = new Question(28,
-				"Người lái xe điều khiển xe rẽ trái như thế nào là đúng quy tắc giao thông?", true, "b1_547.jpg",
+				"Người lái xe điều khiển xe rẽ trái như thế nào là đúng quy tắc giao thông?", "b1_547.jpg",
 				b1.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionb1_547);
 
 		Question questionb1_567 = new Question(29, "Các xe đi theo thứ tự nào là đúng quy tắc giao thông đường bộ?",
-				true, "b1_567.jpg", b1.getId(), set7.getId(), sh.getId());
+				"b1_567.jpg", b1.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionb1_567);
 
-		Question questionb1_587 = new Question(30, "Bạn xử lý thế nào trong trường hợp này?", true, "b1_587.jpg",
+		Question questionb1_587 = new Question(30, "Bạn xử lý thế nào trong trường hợp này?", "b1_587.jpg",
 				b1.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionb1_587);
 
 		Question questionb1_8 = new Question(1,
-				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", true, "",
+				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", "nan",
 				b1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb1_8);
 
 		Question questionb1_28 = new Question(2,
-				"Phương tiện giao thông đường bộ di chuyển với tốc độ thấp hơn phải đi như thế nào?", true, "",
+				"Phương tiện giao thông đường bộ di chuyển với tốc độ thấp hơn phải đi như thế nào?", "nan",
 				b1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb1_28);
 
 		Question questionb1_48 = new Question(3,
 				"Người ngồi trên xe mô tô hai bánh, ba bánh, xe gắn máy khi tham gia giao thông có được mang, vác vật cồng kềnh hay không?",
-				true, "", b1.getId(), set8.getId(), kn.getId());
+				"nan", b1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb1_48);
 
 		Question questionb1_68 = new Question(4,
-				"Người có giấy phép lái xe hạng D được điều khiển loại xe nào dưới đây?", true, "", b1.getId(),
+				"Người có giấy phép lái xe hạng D được điều khiển loại xe nào dưới đây?", "nan", b1.getId(),
 				set8.getId(), kn.getId());
 		questionRepo.save(questionb1_68);
 
 		Question questionb1_88 = new Question(5,
 				"Bạn đang lái xe trong khu vực đô thị từ 22 giờ đến 5 giờ sáng hôm sau và cần vượt một xe khác, bạn cần báo hiệu như thế nào để đảm bảo an toàn giao thông?",
-				true, "", b1.getId(), set8.getId(), kn.getId());
+				"nan", b1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb1_88);
 
-		Question questionb1_108 = new Question(6, "Xe ô tô kéo xe khác thế nào là đúng quy tắc giao thông?", true, "",
+		Question questionb1_108 = new Question(6, "Xe ô tô kéo xe khác thế nào là đúng quy tắc giao thông?", "nan",
 				b1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb1_108);
 
 		Question questionb1_128 = new Question(7,
 				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường đôi hoặc đường một chiều có từ hai làn xe cơ giới trở lên, loại xe nào tham gia giao thông với tốc độ tối đa cho phép là 60km/h?",
-				true, "", b1.getId(), set8.getId(), kn.getId());
+				"nan", b1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb1_128);
 
 		Question questionb1_148 = new Question(8,
 				"Người lái xe phải nhanh chóng giảm tốc độ, tránh hoặc dừng lại sát lề đường bên phải để nhưỡng đường cho các xe nào nêu dưới đây?",
-				true, "", b1.getId(), set8.getId(), kn.getId());
+				"nan", b1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb1_148);
 
 		Question questionb1_168 = new Question(9,
-				"Trong hoạt động vận tải đường bộ, các hành vi nào sau đây bị nghiêm cấm?", true, "", b1.getId(),
+				"Trong hoạt động vận tải đường bộ, các hành vi nào sau đây bị nghiêm cấm?", "nan", b1.getId(),
 				set8.getId(), nvvt.getId());
 		questionRepo.save(questionb1_168);
 
-		Question questionb1_188 = new Question(10, "Những ký hiệu hàng hóa dưới đây kí hiệu nào chống mưa?", true,
+		Question questionb1_188 = new Question(10, "Những ký hiệu hàng hóa dưới đây kí hiệu nào chống mưa?",
 				"b1_188.jpg", b1.getId(), set8.getId(), nvvt.getId());
 		questionRepo.save(questionb1_188);
 
 		Question questionb1_208 = new Question(11,
 				"Khi sơ cứu ban đầu cho người bị tai nạn giao thông đường bộ không còn hô hấp, người lái xe và người có mặt tại hiện trường vụ tai nạn phải thực hiện các công việc gì?",
-				true, "", b1.getId(), set8.getId(), vh.getId());
+				"nan", b1.getId(), set8.getId(), vh.getId());
 		questionRepo.save(questionb1_208);
 
 		Question questionb1_228 = new Question(12,
-				"Khi điều khiển ô tô tự đổ, người lái xe cần chú ý những điểm gì để đảm bảo an toàn?", true, "",
+				"Khi điều khiển ô tô tự đổ, người lái xe cần chú ý những điểm gì để đảm bảo an toàn?", "nan",
 				b1.getId(), set8.getId(), kt.getId());
 		questionRepo.save(questionb1_228);
 
 		Question questionb1_248 = new Question(13,
-				"Khi tầm nhìn bị hạn chế bởi sương mù hoặc mưa to, người lái xe phải thực hiện các thao tác nào?", true,
+				"Khi tầm nhìn bị hạn chế bởi sương mù hoặc mưa to, người lái xe phải thực hiện các thao tác nào?",
 				"", b1.getId(), set8.getId(), kt.getId());
 		questionRepo.save(questionb1_248);
 
 		Question questionb1_268 = new Question(14,
 				"Để đảm bảo an toàn khi tham gia giao thông, người lái xe lái xe mô tô hai bánh cần điều khiển tay ga như thế nào trong các trường hợp dưới đây?",
-				true, "", b1.getId(), set8.getId(), kt.getId());
+				"nan", b1.getId(), set8.getId(), kt.getId());
 		questionRepo.save(questionb1_268);
 
-		Question questionb1_288 = new Question(15, "Hãy nêu công dụng của hộp số ô tô?", true, "", b1.getId(),
+		Question questionb1_288 = new Question(15, "Hãy nêu công dụng của hộp số ô tô?", "nan", b1.getId(),
 				set8.getId(), ctsc.getId());
 		questionRepo.save(questionb1_288);
 
-		Question questionb1_308 = new Question(16, "Biển nào báo hiệu cấm xe mô tô ba bánh đi vào?", true, "b1_308.jpg",
+		Question questionb1_308 = new Question(16, "Biển nào báo hiệu cấm xe mô tô ba bánh đi vào?", "b1_308.jpg",
 				b1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb1_308);
 
-		Question questionb1_328 = new Question(17, "Biển nào được phép quay đầu nhưng không được rẻ trái?", true,
+		Question questionb1_328 = new Question(17, "Biển nào được phép quay đầu nhưng không được rẻ trái?",
 				"b1_328.jpg", b1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb1_328);
 
 		Question questionb1_348 = new Question(18,
-				"Khi gặp biển này, xe mô tô ba bánh có được phép rẻ trái hoặc rẽ phải hay không?", true, "b1_348.jpg",
+				"Khi gặp biển này, xe mô tô ba bánh có được phép rẻ trái hoặc rẽ phải hay không?", "b1_348.jpg",
 				b1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb1_348);
 
-		Question questionb1_368 = new Question(19, "Số 50 trên biển báo dưới đây có ý nghĩa gì?", true, "b1_368.jpg",
+		Question questionb1_368 = new Question(19, "Số 50 trên biển báo dưới đây có ý nghĩa gì?", "b1_368.jpg",
 				b1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb1_368);
 
-		Question questionb1_388 = new Question(20, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", true, "b1_388.jpg",
+		Question questionb1_388 = new Question(20, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", "b1_388.jpg",
 				b1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb1_388);
 
 		Question questionb1_408 = new Question(21, "Biển nào sau đây là biển \"Kè, vực sâu bên đường phía bên trái\"?",
-				true, "b1_408.jpg", b1.getId(), set8.getId(), bb.getId());
+				"b1_408.jpg", b1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb1_408);
 
-		Question questionb1_428 = new Question(22, "Gặp biển báo này người lái xe phải xử lý thế nào?", true,
+		Question questionb1_428 = new Question(22, "Gặp biển báo này người lái xe phải xử lý thế nào?",
 				"b1_428.jpg", b1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb1_428);
 
-		Question questionb1_448 = new Question(23, "Biển nào chỉ dẫn tên đường trên các tuyến đường đối ngoại?", true,
+		Question questionb1_448 = new Question(23, "Biển nào chỉ dẫn tên đường trên các tuyến đường đối ngoại?",
 				"b1_448.jpg", b1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb1_448);
 
-		Question questionb1_468 = new Question(24, "Biển nào báo hiệu kết thúc đường cao tốc?", true, "b1_468.jpg",
+		Question questionb1_468 = new Question(24, "Biển nào báo hiệu kết thúc đường cao tốc?", "b1_468.jpg",
 				b1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb1_468);
 
-		Question questionb1_488 = new Question(25, "Thứ tự đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb1_488 = new Question(25, "Thứ tự đi như thế nào là đúng quy tắc giao thông?",
 				"b1_488.jpg", b1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb1_488);
 
-		Question questionb1_508 = new Question(26, "Xe nào đỗ vi phạm quy tắc giao thông?", true, "b1_508.jpg",
+		Question questionb1_508 = new Question(26, "Xe nào đỗ vi phạm quy tắc giao thông?", "b1_508.jpg",
 				b1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb1_508);
 
-		Question questionb1_528 = new Question(27, "Các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb1_528 = new Question(27, "Các xe đi như thế nào là đúng quy tắc giao thông?",
 				"b1_528.jpg", b1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb1_528);
 
-		Question questionb1_548 = new Question(28, "Trong hình dưới những xe nào vi phạm quy tắc giao thông?", true,
+		Question questionb1_548 = new Question(28, "Trong hình dưới những xe nào vi phạm quy tắc giao thông?",
 				"b1_548.jpg", b1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb1_548);
 
-		Question questionb1_568 = new Question(29, "Các xe đi theo thứ nào là đúng quy tắc giao thông đường bộ?", true,
+		Question questionb1_568 = new Question(29, "Các xe đi theo thứ nào là đúng quy tắc giao thông đường bộ?",
 				"b1_568.jpg", b1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb1_568);
 
-		Question questionb1_588 = new Question(30, "Xe nào được đi trước trong trường hợp này?", true, "b1_588.jpg",
+		Question questionb1_588 = new Question(30, "Xe nào được đi trước trong trường hợp này?", "b1_588.jpg",
 				b1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb1_588);
 
 		Question questionb1_9 = new Question(1,
-				"Khái niệm \"phương tiện giao thông thô sơ đường bộ\" được hiểu thế nào là đúng?", true, "", b1.getId(),
+				"Khái niệm \"phương tiện giao thông thô sơ đường bộ\" được hiểu thế nào là đúng?", "nan", b1.getId(),
 				set9.getId(), kn.getId());
 		questionRepo.save(questionb1_9);
 
 		Question questionb1_29 = new Question(2,
 				"Trên đường có nhiều làn đường, khi điều khiển phương tiện ở tốc độ chậm bạn phải đi ở làn đường nào?",
-				true, "", b1.getId(), set9.getId(), kn.getId());
+				"nan", b1.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb1_29);
 
 		Question questionb1_49 = new Question(3,
 				"Người ngồi trên xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy khi tham gia giao thông có được bám, kéo hoặc đẩy các phương thiện khác không?",
-				true, "", b1.getId(), set9.getId(), kn.getId());
+				"nan", b1.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb1_49);
 
 		Question questionb1_69 = new Question(4,
-				"Người có giấy pháp lái xe hạng E được điều khiển loại xe nào dưới đây?", true, "", b1.getId(),
+				"Người có giấy pháp lái xe hạng E được điều khiển loại xe nào dưới đây?", "nan", b1.getId(),
 				set9.getId(), kn.getId());
 		questionRepo.save(questionb1_69);
 
 		Question questionb1_89 = new Question(5,
 				"Khi điều khển xe chạy trên đường biết có xe sau xin vượt nếu đủ điều kiện an toàn người lái xe phải làm gì?",
-				true, "", b1.getId(), set9.getId(), kn.getId());
+				"nan", b1.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb1_89);
 
 		Question questionb1_109 = new Question(6,
-				"Người ngồi trên e mô tô 2 bánh, xe gắn máy phải đội mũ bảo hiểm có quai đúng quy cách khi nào?", true,
+				"Người ngồi trên e mô tô 2 bánh, xe gắn máy phải đội mũ bảo hiểm có quai đúng quy cách khi nào?",
 				"", b1.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb1_109);
 
 		Question questionb1_129 = new Question(7,
 				"Trên đường bộ (trừ đường cao tốc) ngoài khu vực đông dân cư, đường đôi có giải phân cách giữa, loại xe nào được tham gia giao thông với tốc độ tối đa cho phép là 90 km/h?",
-				true, "", b1.getId(), set9.getId(), kn.getId());
+				"nan", b1.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb1_129);
 
 		Question questionb1_149 = new Question(8,
 				"Tại nơi đường giao nhua, người lái xe đang đi trên đường không tưu tiên phải xử lý nhưt hế nào là đúng quy tắt giao thông?",
-				true, "", b1.getId(), set9.getId(), kn.getId());
+				"nan", b1.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb1_149);
 
 		Question questionb1_169 = new Question(9,
-				"Trong hoạt động vận tải khách những hàng vi nào dưới đây bị nghiêm cấm?", true, "", b1.getId(),
+				"Trong hoạt động vận tải khách những hàng vi nào dưới đây bị nghiêm cấm?", "nan", b1.getId(),
 				set9.getId(), nvvt.getId());
 		questionRepo.save(questionb1_169);
 
 		Question questionb1_189 = new Question(10,
-				"Ký hiệu chuyên dùng nà biểu hiện hàng chuyên chở phải tránh ánh nắng mặt trời?", true, "b1_189.jpg",
+				"Ký hiệu chuyên dùng nà biểu hiện hàng chuyên chở phải tránh ánh nắng mặt trời?", "b1_189.jpg",
 				b1.getId(), set9.getId(), nvvt.getId());
 		questionRepo.save(questionb1_189);
 
 		Question questionb1_209 = new Question(11,
 				"Hành vi bỏ trốn sau khi gây tai nạn để trốn tránh trách nhiệm hoặc khi có điều kiện mà cố ý không cứu giúp người bị tai nạn giao thông có bị nghiêm cấm hay không?",
-				true, "", b1.getId(), set9.getId(), vh.getId());
+				"nan", b1.getId(), set9.getId(), vh.getId());
 		questionRepo.save(questionb1_209);
 
 		Question questionb1_229 = new Question(12,
-				"Khi điều khiển xe tăng số, người lái xe cần chú ý những điểm gì để đảm bảo an toàn?", true, "",
+				"Khi điều khiển xe tăng số, người lái xe cần chú ý những điểm gì để đảm bảo an toàn?", "nan",
 				b1.getId(), set9.getId(), kt.getId());
 		questionRepo.save(questionb1_229);
 
 		Question questionb1_249 = new Question(13,
 				"Khi đèn pha của xe đi ngược chiều gây chói mắt, làm giản khả năng quan sát trên đường, người lái xe xử lý như thế nào để đảm bảo an toàn?",
-				true, "", b1.getId(), set9.getId(), kt.getId());
+				"nan", b1.getId(), set9.getId(), kt.getId());
 		questionRepo.save(questionb1_249);
 
 		Question questionb1_269 = new Question(14,
 				"Kỹ thuật cơ bản để giữu thăng bằng khi điều khiển xe mô tô đi trên đường gồ ghề như thế nào trong các trường hợp dưới đây?",
-				true, "", b1.getId(), set9.getId(), kt.getId());
+				"nan", b1.getId(), set9.getId(), kt.getId());
 		questionRepo.save(questionb1_269);
 
-		Question questionb1_289 = new Question(15, "Hãy nếu công dụng hệ thống lái ô tô?", true, "", b1.getId(),
+		Question questionb1_289 = new Question(15, "Hãy nếu công dụng hệ thống lái ô tô?", "nan", b1.getId(),
 				set9.getId(), ctsc.getId());
 		questionRepo.save(questionb1_289);
 
-		Question questionb1_309 = new Question(16, "Biển nào dưới đây xe gắn máy được phép đi vào?", true, "b1_309.jpg",
+		Question questionb1_309 = new Question(16, "Biển nào dưới đây xe gắn máy được phép đi vào?", "b1_309.jpg",
 				b1.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb1_309);
 
-		Question questionb1_329 = new Question(17, "Biển nào là biển \"Cấm đi ngược chiều\"?", true, "b1_329.jpg",
+		Question questionb1_329 = new Question(17, "Biển nào là biển \"Cấm đi ngược chiều\"?", "b1_329.jpg",
 				b1.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb1_329);
 
-		Question questionb1_349 = new Question(18, "Biển này có hiệu lực đối với xe mô tô hai, ba bánh không?", true,
+		Question questionb1_349 = new Question(18, "Biển này có hiệu lực đối với xe mô tô hai, ba bánh không?",
 				"b1_349.jpg", b1.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb1_349);
 
 		Question questionb1_369 = new Question(19,
-				"Trong các biển báo dưới đây biển nào chỉ dẫn bắt đầu đường cao tốc?", true, "b1_369.jpg", b1.getId(),
+				"Trong các biển báo dưới đây biển nào chỉ dẫn bắt đầu đường cao tốc?", "b1_369.jpg", b1.getId(),
 				set9.getId(), bb.getId());
 		questionRepo.save(questionb1_369);
 
 		Question questionb1_389 = new Question(20,
 				"Khi gặp biển nào, người lái xe phải giảm tốc độ, chú ý xe đi ngược chiều, xe đi ở phía đường bị hẹp phải nhường đường cho xe đi ngược chiều?",
-				true, "b1_389.jpg", b1.getId(), set9.getId(), bb.getId());
+				"b1_389.jpg", b1.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb1_389);
 
 		Question questionb1_409 = new Question(21, "Biển nào sau đây là biển \"Kè, vực sâu bên đường phía bên phải\"?",
-				true, "b1_409.jpg", b1.getId(), set9.getId(), bb.getId());
+				"b1_409.jpg", b1.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb1_409);
 
-		Question questionb1_429 = new Question(22, "Biển báo này có ý nghĩa gì?", true, "b1_429.jpg", b1.getId(),
+		Question questionb1_429 = new Question(22, "Biển báo này có ý nghĩa gì?", "b1_429.jpg", b1.getId(),
 				set9.getId(), bb.getId());
 		questionRepo.save(questionb1_429);
 
-		Question questionb1_449 = new Question(23, "Biển 1 có ý nghĩa gì?", true, "b1_449.jpg", b1.getId(),
+		Question questionb1_449 = new Question(23, "Biển 1 có ý nghĩa gì?", "b1_449.jpg", b1.getId(),
 				set9.getId(), bb.getId());
 		questionRepo.save(questionb1_449);
 
-		Question questionb1_469 = new Question(24, "Biển này có ý nghĩa gì?", true, "b1_469.jpg", b1.getId(),
+		Question questionb1_469 = new Question(24, "Biển này có ý nghĩa gì?", "b1_469.jpg", b1.getId(),
 				set9.getId(), bb.getId());
 		questionRepo.save(questionb1_469);
 
 		Question questionb1_489 = new Question(25,
-				"Theo hướng mũi tên, thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true, "b1_489.jpg",
+				"Theo hướng mũi tên, thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", "b1_489.jpg",
 				b1.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionb1_489);
 
-		Question questionb1_509 = new Question(26, "Xe nào đỗ vi phạm quy tắc giao thông?", true, "b1_509.jpg",
+		Question questionb1_509 = new Question(26, "Xe nào đỗ vi phạm quy tắc giao thông?", "b1_509.jpg",
 				b1.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionb1_509);
 
-		Question questionb1_529 = new Question(27, "Theo hướng mũi tên, xe nào được phép đi?", true, "b1_529.jpg",
+		Question questionb1_529 = new Question(27, "Theo hướng mũi tên, xe nào được phép đi?", "b1_529.jpg",
 				b1.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionb1_529);
 
-		Question questionb1_549 = new Question(28, "Xe nào đi trước là đúng quy tắc giao thông?", true, "b1_549.jpg",
+		Question questionb1_549 = new Question(28, "Xe nào đi trước là đúng quy tắc giao thông?", "b1_549.jpg",
 				b1.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionb1_549);
 
-		Question questionb1_569 = new Question(29, "Xe nào phải dừng lại trong trường hợp này?", true, "b1_569.jpg",
+		Question questionb1_569 = new Question(29, "Xe nào phải dừng lại trong trường hợp này?", "b1_569.jpg",
 				b1.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionb1_569);
 
 		Question questionb1_589 = new Question(30,
-				"Các xe đi theo thứ tự như thế nào là đúng quy tắc giao thông đường bộ?", true, "b1_589.jpg",
+				"Các xe đi theo thứ tự như thế nào là đúng quy tắc giao thông đường bộ?", "b1_589.jpg",
 				b1.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionb1_589);
 
 		Question questionb1_10 = new Question(1, "\" Phương tiện tham gia giao thông đường bộ\" gồm những loại nào?",
-				true, "", b1.getId(), set10.getId(), kn.getId());
+				"nan", b1.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb1_10);
 
 		Question questionb1_30 = new Question(2,
 				"Hành vi vượt xe tại các vị trí có tầm nhìn hạn chế, đường vòng, đầu dóc có bị nghiêm cấm hay không?",
-				true, "", b1.getId(), set10.getId(), kn.getId());
+				"nan", b1.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb1_30);
 
 		Question questionb1_50 = new Question(3,
-				"Người ngôi trên xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy khi tham gia giao thông có được sử dụng ô khi trười mưa hay không?",
-				true, "", b1.getId(), set10.getId(), kn.getId());
+				"Người ngôi trên xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy khi tham gia giao thông có được sử dụng ô khi trời mưa hay không?",
+				"nan", b1.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb1_50);
 
 		Question questionb1_70 = new Question(4,
-				"Người có giấy phép lái xe hạng FC được điều khiển loại xe nào dưới đây?", true, "", b1.getId(),
+				"Người có giấy phép lái xe hạng FC được điều khiển loại xe nào dưới đây?", "nan", b1.getId(),
 				set10.getId(), kn.getId());
 		questionRepo.save(questionb1_70);
 
 		Question questionb1_90 = new Question(5,
 				"Trong khu dân cư, ở nơi nào cho phép người lái xe, người điều khiển xe máy chuyên dùng được quay đầy xe?",
-				true, "", b1.getId(), set10.getId(), kn.getId());
+				"nan", b1.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb1_90);
 
 		Question questionb1_110 = new Question(6,
 				"Người điều khiển xe mô tô hai bánh, xe gắn máy được phép chở tối đa 2 người trong trường hợp nào?",
-				true, "", b1.getId(), set10.getId(), kn.getId());
+				"nan", b1.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb1_110);
 
 		Question questionb1_130 = new Question(7,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường đôi có dải phân cách giữa (trừ đường cao tốc), loại xe nào tham gia giao thông với tốc độ tối đa cho phép là 80 km/h?",
-				true, "", b1.getId(), set10.getId(), kn.getId());
+				"nan", b1.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb1_130);
 
 		Question questionb1_150 = new Question(8,
 				"Khi xe ô tô, mô tô đến gần vị trí giao nhau giữa đường bộ và đường sắt không có rào chắn, khi đèn tín hiệu màu đỏ đã bật sáng hoặc khi có tiếng chuông báo hiệu, người lái xe xử lý như thế nào??",
-				true, "", b1.getId(), set10.getId(), kn.getId());
+				"nan", b1.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb1_150);
 
 		Question questionb1_170 = new Question(9,
 				"Thời gian làm việc của người lái xe ô tô không được lái xe liên tục quá bao nhiêu giờ trong trường hợp dưới dây?",
-				true, "", b1.getId(), set10.getId(), nvvt.getId());
+				"nan", b1.getId(), set10.getId(), nvvt.getId());
 		questionRepo.save(questionb1_170);
 
 		Question questionb1_190 = new Question(10, "Hình nào dưới đây biểu hiện hàng chuyên chử đễ vỡ phải cẩn thận?",
-				true, "b1_190.jpg", b1.getId(), set10.getId(), nvvt.getId());
+				"b1_190.jpg", b1.getId(), set10.getId(), nvvt.getId());
 		questionRepo.save(questionb1_190);
 
 		Question questionb1_210 = new Question(11,
-				"Khi xảy ra tai nạn giao thông, những hành vi nào dưới đây bị nghiêm cấm?", true, "", b1.getId(),
+				"Khi xảy ra tai nạn giao thông, những hành vi nào dưới đây bị nghiêm cấm?", "nan", b1.getId(),
 				set10.getId(), vh.getId());
 		questionRepo.save(questionb1_210);
 
 		Question questionb1_230 = new Question(12,
-				"Khi điều khiển xe giảm số, người lái xe cần chú ý những điểm gì để đảm bảo an toàn?", true, "",
+				"Khi điều khiển xe giảm số, người lái xe cần chú ý những điểm gì để đảm bảo an toàn?", "nan",
 				b1.getId(), set10.getId(), kt.getId());
 		questionRepo.save(questionb1_230);
 
 		Question questionb1_250 = new Question(13,
 				"Để đạy được hiệu quả phanh cao nhất, người lái xe mô tô phải sử dụng các kỹ năng như thế nào dưới đây?",
-				true, "", b1.getId(), set10.getId(), kt.getId());
+				"nan", b1.getId(), set10.getId(), kt.getId());
 		questionRepo.save(questionb1_250);
 
 		Question questionb1_270 = new Question(14,
 				"Chủ phương tiên cơ giới đường bộ có được tự ý thay đổi màu sơn, nhãn hiệu hoặc các đặc tính kỹ thuật của phương tiện so với chứng nhận đăng ký xe hay không?",
-				true, "", b1.getId(), set10.getId(), ctsc.getId());
+				"nan", b1.getId(), set10.getId(), ctsc.getId());
 		questionRepo.save(questionb1_270);
 
-		Question questionb1_290 = new Question(15, "Hãy nêu công dụng hệ thống phanh ô tô?", true, "", b1.getId(),
+		Question questionb1_290 = new Question(15, "Hãy nêu công dụng hệ thống phanh ô tô?", "nan", b1.getId(),
 				set10.getId(), ctsc.getId());
 		questionRepo.save(questionb1_290);
 
-		Question questionb1_310 = new Question(16, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?", true,
+		Question questionb1_310 = new Question(16, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?",
 				"b1_310.jpg", b1.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb1_310);
 
-		Question questionb1_330 = new Question(17, "Biển nào dưới đây các phương tiện không được phép đi vào?", true,
+		Question questionb1_330 = new Question(17, "Biển nào dưới đây các phương tiện không được phép đi vào?",
 				"b1_330.jpg", b1.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb1_330);
 
-		Question questionb1_350 = new Question(18, "Biển này có ý nghĩa gì?", true, "b1_350.jpg", b1.getId(),
+		Question questionb1_350 = new Question(18, "Biển này có ý nghĩa gì?", "b1_350.jpg", b1.getId(),
 				set10.getId(), bb.getId());
 		questionRepo.save(questionb1_350);
 
-		Question questionb1_370 = new Question(19, "Biển báo náy có ý nghĩa là gì?", true, "b1_370.jpg", b1.getId(),
+		Question questionb1_370 = new Question(19, "Biển báo náy có ý nghĩa là gì?", "b1_370.jpg", b1.getId(),
 				set10.getId(), bb.getId());
 		questionRepo.save(questionb1_370);
 
-		Question questionb1_390 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?", true,
+		Question questionb1_390 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?",
 				"b1_390.jpg", b1.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb1_390);
 
-		Question questionb1_410 = new Question(21, "Biển nào sau đây là biển \"Đường trơn\"?", true, "b1_410.jpg",
+		Question questionb1_410 = new Question(21, "Biển nào sau đây là biển \"Đường trơn\"?", "b1_410.jpg",
 				b1.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb1_410);
 
 		Question questionb1_430 = new Question(22,
 				"Biển nào báo hiệu các phương tiện pải đi đúng làn đường quy định và tuân thủ tốc độ tối đa cho phép?",
-				true, "b1_430.jpg", b1.getId(), set10.getId(), bb.getId());
+				"b1_430.jpg", b1.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb1_430);
 
-		Question questionb1_450 = new Question(23, "Biển 3 có ý nghĩa gì?", true, "b1_450.jpg", b1.getId(),
+		Question questionb1_450 = new Question(23, "Biển 3 có ý nghĩa gì?", "b1_450.jpg", b1.getId(),
 				set10.getId(), bb.getId());
 		questionRepo.save(questionb1_450);
 
-		Question questionb1_470 = new Question(24, "Biển này có ý nghĩa gì?", true, "b1_470.jpg", b1.getId(),
+		Question questionb1_470 = new Question(24, "Biển này có ý nghĩa gì?", "b1_470.jpg", b1.getId(),
 				set10.getId(), bb.getId());
 		questionRepo.save(questionb1_470);
 
-		Question questionb1_490 = new Question(25, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb1_490 = new Question(25, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"b1_490.jpg", b1.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionb1_490);
 
 		Question questionb1_510 = new Question(26, "Xe tải kéo mô tô ba bánh như hình này có đúng quy tắc giao thông?",
-				true, "b1_510.jpg", b1.getId(), set10.getId(), sh.getId());
+				"b1_510.jpg", b1.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionb1_510);
 
-		Question questionb1_530 = new Question(27, "Xe con vượt xe tải như trường hợp này có đúng không?", true,
+		Question questionb1_530 = new Question(27, "Xe con vượt xe tải như trường hợp này có đúng không?",
 				"b1_530.jpg", b1.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionb1_530);
 
 		Question questionb1_550 = new Question(28,
-				"Người lái xe có thể quay đầu xe như thế nào là đúng quy tắc giao thông?", true, "b1_550.jpg",
+				"Người lái xe có thể quay đầu xe như thế nào là đúng quy tắc giao thông?", "b1_550.jpg",
 				b1.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionb1_550);
 
-		Question questionb1_570 = new Question(29, "Xe của bạn được đi theo hướng nào trong trường hợp này?", true,
+		Question questionb1_570 = new Question(29, "Xe của bạn được đi theo hướng nào trong trường hợp này?",
 				"b1_570.jpg", b1.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionb1_570);
 
-		Question questionb1_590 = new Question(30, "Bạn xử lý như thế nào trong trường hợp này?", true, "b1_590.jpg",
+		Question questionb1_590 = new Question(30, "Bạn xử lý như thế nào trong trường hợp này?", "b1_590.jpg",
 				b1.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionb1_590);
 
 		Question questionb1_11 = new Question(1, "\"Người tham gia giao thông đường bộ\" Gồm những đối tượng nào?",
-				true, "", b1.getId(), set11.getId(), kn.getId());
+				"nan", b1.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb1_11);
 
 		Question questionb1_31 = new Question(2,
 				"Khi lái xe trong khu đô thị và đông dân cư trừ các khu vực có biển cấm sử dụng còi, người lái xe được sử dụng còi như thế nào trong các trường hợp dưới đây?",
-				true, "", b1.getId(), set11.getId(), kn.getId());
+				"nan", b1.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb1_31);
 
 		Question questionb1_51 = new Question(3,
 				"Khi đang lên dốc người ngồi trên xe mô tô có được phép kéo theo người đang điều khiển xe đạp hay không?",
-				true, "", b1.getId(), set11.getId(), kn.getId());
+				"nan", b1.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb1_51);
 
 		Question questionb1_71 = new Question(4,
-				"Người có giấy phép lái xe hang FE được điều khiển loại xe nào dưới đây?", true, "", b1.getId(),
+				"Người có giấy phép lái xe hang FE được điều khiển loại xe nào dưới đây?", "nan", b1.getId(),
 				set11.getId(), kn.getId());
 		questionRepo.save(questionb1_71);
 
 		Question questionb1_91 = new Question(5,
 				"Người lái xe phải làm gì khi quay đầu xe trên cầu, đường ngầm hay khu vực đường bộ giao nhau cùng mức với đường sắt?",
-				true, "", b1.getId(), set11.getId(), kn.getId());
+				"nan", b1.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb1_91);
 
 		Question questionb1_111 = new Question(6,
-				"Người điều khiển xe mô tô hai bánh, xe gắn máy không được thực hiện những hành vi nào dưới dây?", true,
+				"Người điều khiển xe mô tô hai bánh, xe gắn máy không được thực hiện những hành vi nào dưới dây?",
 				"", b1.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb1_111);
 
 		Question questionb1_131 = new Question(7,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường đôi có dải phân cách giữa (trừ đường cao tốc), loại xe nào tham gia giao thông với tốc độ tối đa cho phép là 70 km/h",
-				true, "", b1.getId(), set11.getId(), kn.getId());
+				"nan", b1.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb1_131);
 
 		Question questionb1_151 = new Question(8,
 				"Khi điều khiển xe trên đường vòng, khuất tầm nhìn người lái xe cần phải làm gì để đảm bảo an toàn?",
-				true, "", b1.getId(), set11.getId(), kn.getId());
+				"nan", b1.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb1_151);
 
 		Question questionb1_171 = new Question(9,
 				"Thời gain làm việc trong một ngày của người lái xe ô tô không vượt quá bao nhiêu giờ trong trường hợp nào dưới đây?",
-				true, "", b1.getId(), set11.getId(), nvvt.getId());
+				"nan", b1.getId(), set11.getId(), nvvt.getId());
 		questionRepo.save(questionb1_171);
 
 		Question questionb1_191 = new Question(10, "Hình nào dưới đây đòi hỏi hàng phải xếp theo hướng thẳng đứng?",
-				true, "b1_191.jpg", b1.getId(), set11.getId(), nvvt.getId());
+				"b1_191.jpg", b1.getId(), set11.getId(), nvvt.getId());
 		questionRepo.save(questionb1_191);
 
 		Question questionb1_211 = new Question(11,
-				"Khi xảy ra tai nạn giao thông, những hành vi nào dưới đây bị nghiêm cấm?", true, "", b1.getId(),
+				"Khi xảy ra tai nạn giao thông, những hành vi nào dưới đây bị nghiêm cấm?", "nan", b1.getId(),
 				set11.getId(), vh.getId());
 		questionRepo.save(questionb1_211);
 
 		Question questionb1_231 = new Question(12,
 				"Để giảm tốc độ khi ô tô xuống đường dốc dài, người lái xe phải thực hiện các thao tác nào để đảm bảo an toàn?",
-				true, "", b1.getId(), set11.getId(), kt.getId());
+				"nan", b1.getId(), set11.getId(), kt.getId());
 		questionRepo.save(questionb1_231);
 
 		Question questionb1_251 = new Question(13,
 				"Khi lái xe ô tô trên mặt đường có nhiều \"ổ gà\", người lái xe phải thực hiện thao tác như thế nào để đảm bảo an toàn?",
-				true, "", b1.getId(), set11.getId(), kt.getId());
+				"nan", b1.getId(), set11.getId(), kt.getId());
 		questionRepo.save(questionb1_251);
 
 		Question questionb1_271 = new Question(14,
 				"Xe ô tô tham gia giao thông đường bộ phải bảo đảm các quy định về chất lượng, an toàn kỹ thuật và bảo vệ môi trường nào ghi dưới đây?",
-				true, "", b1.getId(), set11.getId(), ctsc.getId());
+				"nan", b1.getId(), set11.getId(), ctsc.getId());
 		questionRepo.save(questionb1_271);
 
-		Question questionb1_291 = new Question(15, "Đèn phanh trên xe ô tô có tác dụng gì?", true, "", b1.getId(),
+		Question questionb1_291 = new Question(15, "Đèn phanh trên xe ô tô có tác dụng gì?", "nan", b1.getId(),
 				set11.getId(), ctsc.getId());
 		questionRepo.save(questionb1_291);
 
-		Question questionb1_311 = new Question(16, "khi gặp biển nào thì xe mô tô hai bánh được đi vào?", true,
+		Question questionb1_311 = new Question(16, "khi gặp biển nào thì xe mô tô hai bánh được đi vào?",
 				"b1_311.jpg", b1.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb1_311);
 
-		Question questionb1_331 = new Question(17, "Gặp biển nào người lái xe không được đổ xe vào ngày chẵn?", true,
+		Question questionb1_331 = new Question(17, "Gặp biển nào người lái xe không được đổ xe vào ngày chẵn?",
 				"b1_331.jpg", b1.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb1_331);
 
-		Question questionb1_351 = new Question(18, "Biển phụ đặt dưới biển cấm bóp còi có ý nghĩa gì?", true,
+		Question questionb1_351 = new Question(18, "Biển phụ đặt dưới biển cấm bóp còi có ý nghĩa gì?",
 				"b1_351.jpg", b1.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb1_351);
 
-		Question questionb1_371 = new Question(19, "Gặp biển nào người lái xe phải nhường đường cho người đi bộ?", true,
+		Question questionb1_371 = new Question(19, "Gặp biển nào người lái xe phải nhường đường cho người đi bộ?",
 				"b1_371.jpg", b1.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb1_371);
 
 		Question questionb1_391 = new Question(20,
-				"Biển nào báo hiệu \"Đường giao nhau\" của các tuyến đường cùng cấp?", true, "b1_391.jpg", b1.getId(),
+				"Biển nào báo hiệu \"Đường giao nhau\" của các tuyến đường cùng cấp?", "b1_391.jpg", b1.getId(),
 				set11.getId(), bb.getId());
 		questionRepo.save(questionb1_391);
 
-		Question questionb1_411 = new Question(21, "Biển nào sau đây là biển \"Lề đường nguy hiểm\"?", true,
+		Question questionb1_411 = new Question(21, "Biển nào sau đây là biển \"Lề đường nguy hiểm\"?",
 				"b1_411.jpg", b1.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb1_411);
 
 		Question questionb1_431 = new Question(22,
-				"Biển nào báo hiệu các phương tiện phải tuân thủ tốc độ tối đa cho phép trên từng làn đường?", true,
+				"Biển nào báo hiệu các phương tiện phải tuân thủ tốc độ tối đa cho phép trên từng làn đường?",
 				"b1_431.jpg", b1.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb1_431);
 
 		Question questionb1_451 = new Question(23,
-				"Biển nào báo hiệu \"Đường phía trước có làn đường dành cho ô tô khách\"?", true, "b1_451.jpg",
+				"Biển nào báo hiệu \"Đường phía trước có làn đường dành cho ô tô khách\"?", "b1_451.jpg",
 				b1.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb1_451);
 
-		Question questionb1_471 = new Question(24, "Ý nghĩa các biểu tượng trên biển chỉ dẫn là gì?", true,
+		Question questionb1_471 = new Question(24, "Ý nghĩa các biểu tượng trên biển chỉ dẫn là gì?",
 				"b1_471.jpg", b1.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb1_471);
 
-		Question questionb1_491 = new Question(25, "Xe nào phải nhường đường trong trường hợp này?", true, "b1_491.jpg",
+		Question questionb1_491 = new Question(25, "Xe nào phải nhường đường trong trường hợp này?", "b1_491.jpg",
 				b1.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb1_491);
 
-		Question questionb1_511 = new Question(26, "Theo hướng mũi tên, hướng nào xe không được phép đi?", true,
+		Question questionb1_511 = new Question(26, "Theo hướng mũi tên, hướng nào xe không được phép đi?",
 				"b1_511.jpg", b1.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb1_511);
 
-		Question questionb1_531 = new Question(27, "Xe nào vượt đúng quy tăc giao thông?", true, "b1_531.jpg",
+		Question questionb1_531 = new Question(27, "Xe nào vượt đúng quy tăc giao thông?", "b1_531.jpg",
 				b1.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb1_531);
 
-		Question questionb1_551 = new Question(28, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb1_551 = new Question(28, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"b1_551.jpg", b1.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb1_551);
 
-		Question questionb1_571 = new Question(29, "Xe của bạn được đi theo hướng nào trong trường hợp này?", true,
+		Question questionb1_571 = new Question(29, "Xe của bạn được đi theo hướng nào trong trường hợp này?",
 				"b1_571.jpg", b1.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb1_571);
 
-		Question questionb1_591 = new Question(30, "Xe nào được đi trước trong trường hợp này?", true, "b1_591.jpg",
+		Question questionb1_591 = new Question(30, "Xe nào được đi trước trong trường hợp này?", "b1_591.jpg",
 				b1.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb1_591);
 
 		Question questionb1_12 = new Question(1,
-				"\"Người điều khiển phương tiện tham gia giao thông đường bộ\" gồm những đối tượng nào dưới đây?", true,
+				"\"Người điều khiển phương tiện tham gia giao thông đường bộ\" gồm những đối tượng nào dưới đây?",
 				"", b1.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb1_12);
 
 		Question questionb1_32 = new Question(2,
-				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?", true,
+				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?",
 				"", b1.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb1_32);
 
 		Question questionb1_52 = new Question(3,
 				"Hành vi sử dụng xe mô tô để kéo, đẩy xe mô tô khác bị hết xăng đến trạm mua xăng có được phép hay không?",
-				true, "", b1.getId(), set12.getId(), kn.getId());
+				"nan", b1.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb1_52);
 
 		Question questionb1_72 = new Question(4,
 				"Biển báo hiệu có dạng hình tròn, viền đỏ, nền trắng, trên nền có hình vẽ dược chữ số, chữ viết màu đen là loại biển gì dưới đây?",
-				true, "b1_72.jpg", b1.getId(), set12.getId(), kn.getId());
+				"b1_72.jpg", b1.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb1_72);
 
 		Question questionb1_92 = new Question(5,
-				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?", true,
+				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?",
 				"", b1.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb1_92);
 
 		Question questionb1_112 = new Question(6,
 				"Người điều khiển xe mô tô hai bánh, xe gắn máy có được đi xe dàn hàng ngang; đi xe vào phần đường dành cho người đi bộ và phương tiện khác; sử dụng ô, điện thoại di động, thiết bị âm thanh (trừ thiết bị trợ thính) hay không?",
-				true, "", b1.getId(), set12.getId(), kn.getId());
+				"nan", b1.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb1_112);
 
 		Question questionb1_132 = new Question(7,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường đôi có dải phân cách giữa (trừ đường cao tốc), loại xe nào tham gia giao thông với tốc độ tối đa cho phép là 60 km/h",
-				true, "", b1.getId(), set12.getId(), kn.getId());
+				"nan", b1.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb1_132);
 
 		Question questionb1_152 = new Question(8,
 				"Người lái xe phải xử lý như thế nào khi quan sát phía trước thấy người đi bộ đang sang đường tại nơi có vạch đường dành cho người đi bộ để đảm bảo an toàn?",
-				true, "", b1.getId(), set12.getId(), kn.getId());
+				"nan", b1.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb1_152);
 
 		Question questionb1_172 = new Question(9, "Người lái xe khách phải chấp hành những quy định nào dưới đây?",
-				true, "", b1.getId(), set12.getId(), nvvt.getId());
+				"nan", b1.getId(), set12.getId(), nvvt.getId());
 		questionRepo.save(questionb1_172);
 
-		Question questionb1_192 = new Question(10, "Hình nào dưới đây biểu hiện hàng chuyên chở là chất lỏng?", true,
+		Question questionb1_192 = new Question(10, "Hình nào dưới đây biểu hiện hàng chuyên chở là chất lỏng?",
 				"b1_192.jpg", b1.getId(), set12.getId(), nvvt.getId());
 		questionRepo.save(questionb1_192);
 
 		Question questionb1_212 = new Question(11,
 				"Trọng đoạn đường hai chiều tại khu đông dân cư đang ùn tắc, người điều khiển xe mô tô hai bánh có văn hóa giao thông sẽ lựa chọn xử lý tình huống nào dưới đây?",
-				true, "", b1.getId(), set12.getId(), vh.getId());
+				"nan", b1.getId(), set12.getId(), vh.getId());
 		questionRepo.save(questionb1_212);
 
 		Question questionb1_232 = new Question(12,
 				"Khi điều khiển ô tô qua đoạn đường ngập nước, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?",
-				true, "", b1.getId(), set12.getId(), kt.getId());
+				"nan", b1.getId(), set12.getId(), kt.getId());
 		questionRepo.save(questionb1_232);
 
 		Question questionb1_252 = new Question(13,
-				"Khi điều khiển ô tô gặp mưa to hoặc sương mù, người lái xe phải làm gì để đảm bảo an toàn?", true, "",
+				"Khi điều khiển ô tô gặp mưa to hoặc sương mù, người lái xe phải làm gì để đảm bảo an toàn?", "nan",
 				b1.getId(), set12.getId(), kt.getId());
 		questionRepo.save(questionb1_252);
 
 		Question questionb1_272 = new Question(14,
-				"Xe mô tô và xe ô tô tham gia giao thông trên đường bộ phải bắt buộc có đủ bộ phận giảm thanh không? ",
-				true, "", b1.getId(), set12.getId(), ctsc.getId());
+				"Xe mô tô và xe ô tô tham gia giao thông trên đường bộ phải bắt buộc có đủ bộ phận giảm thanh không?",
+				"nan", b1.getId(), set12.getId(), ctsc.getId());
 		questionRepo.save(questionb1_272);
 
 		Question questionb1_292 = new Question(15,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của ô tô?",
-				true, "b1_292.jpg", b1.getId(), set12.getId(), ctsc.getId());
+				"b1_292.jpg", b1.getId(), set12.getId(), ctsc.getId());
 		questionRepo.save(questionb1_292);
 
-		Question questionb1_312 = new Question(16, "Biển nào cho phép ô tô con được vượt", true, "b1_312.jpg",
+		Question questionb1_312 = new Question(16, "Biển nào cho phép ô tô con được vượt", "b1_312.jpg",
 				b1.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb1_312);
 
-		Question questionb1_332 = new Question(17, "Gặp biển nào người lái xe được đổ xe vào ngày lẻ?", true,
+		Question questionb1_332 = new Question(17, "Gặp biển nào người lái xe được đổ xe vào ngày lẻ?",
 				"b1_332.jpg", b1.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb1_332);
 
 		Question questionb1_352 = new Question(18,
-				"Chiều dài đoạn đường 500 m từ nơi đặt biển này, người lái xe có được phép bấm còi không?", true,
+				"Chiều dài đoạn đường 500 m từ nơi đặt biển này, người lái xe có được phép bấm còi không?",
 				"b1_352.jpg", b1.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb1_352);
 
 		Question questionb1_372 = new Question(19,
-				"Biển nào chỉ đường dành cho người đi bộ, các loại xe không được đi vào khi gặp biển này?", true,
+				"Biển nào chỉ đường dành cho người đi bộ, các loại xe không được đi vào khi gặp biển này?",
 				"b1_372.jpg", b1.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb1_372);
 
-		Question questionb1_392 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?", true,
+		Question questionb1_392 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?",
 				"b1_392.jpg", b1.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb1_392);
 
 		Question questionb1_412 = new Question(21,
-				"Biển nào sau đây báo trước gần tới đoạn đường đang tiến hành thi công?", true, "b1_412.jpg",
+				"Biển nào sau đây báo trước gần tới đoạn đường đang tiến hành thi công?", "b1_412.jpg",
 				b1.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb1_412);
 
-		Question questionb1_432 = new Question(22, "Biển nào báo hiệu \"Đường dành cho xe ô tô\"?", true, "b1_432.jpg",
+		Question questionb1_432 = new Question(22, "Biển nào báo hiệu \"Đường dành cho xe ô tô\"?", "b1_432.jpg",
 				b1.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb1_432);
 
 		Question questionb1_452 = new Question(23,
-				"Biển nào báo hiệu\" Rẽ ra đường có làn đường dành cho ô tô khách\"?", true, "b1_452.jpg", b1.getId(),
+				"Biển nào báo hiệu\" Rẽ ra đường có làn đường dành cho ô tô khách\"?", "b1_452.jpg", b1.getId(),
 				set12.getId(), bb.getId());
 		questionRepo.save(questionb1_452);
 
-		Question questionb1_472 = new Question(24, "Biển này có ý nghĩa gì?", true, "b1_472.jpg", b1.getId(),
+		Question questionb1_472 = new Question(24, "Biển này có ý nghĩa gì?", "b1_472.jpg", b1.getId(),
 				set12.getId(), bb.getId());
 		questionRepo.save(questionb1_472);
 
-		Question questionb1_492 = new Question(25, "Trường hợp này xe nào được quyền đi trước?", true, "b1_492.jpg",
+		Question questionb1_492 = new Question(25, "Trường hợp này xe nào được quyền đi trước?", "b1_492.jpg",
 				b1.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionb1_492);
 
-		Question questionb1_512 = new Question(26, "Theo hướng mũi tên, những hướng nào ô tô không được phép đi?", true,
+		Question questionb1_512 = new Question(26, "Theo hướng mũi tên, những hướng nào ô tô không được phép đi?",
 				"b1_512.jpg", b1.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionb1_512);
 
-		Question questionb1_532 = new Question(27, "Đi theo hướng mũi tên xe nào vi phạm quy tắc giao thông?", true,
+		Question questionb1_532 = new Question(27, "Đi theo hướng mũi tên xe nào vi phạm quy tắc giao thông?",
 				"b1_532.jpg", b1.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionb1_532);
 
 		Question questionb1_552 = new Question(28,
-				"Khi muốn vượt xe tải, người lái xe làm gì là đúng quy tắc giao thông?", true, "b1_552.jpg", b1.getId(),
+				"Khi muốn vượt xe tải, người lái xe làm gì là đúng quy tắc giao thông?", "b1_552.jpg", b1.getId(),
 				set12.getId(), sh.getId());
 		questionRepo.save(questionb1_552);
 
-		Question questionb1_572 = new Question(29, "Bạn xử lý như thế nào trong trường hợp này?", true, "b1_572.jpg",
+		Question questionb1_572 = new Question(29, "Bạn xử lý như thế nào trong trường hợp này?", "b1_572.jpg",
 				b1.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionb1_572);
 
-		Question questionb1_592 = new Question(30, "Xe nào dừng đúng theo quy tắc giao thông?", true, "b1_592.jpg",
+		Question questionb1_592 = new Question(30, "Xe nào dừng đúng theo quy tắc giao thông?", "b1_592.jpg",
 				b1.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionb1_592);
 
 		Question questionb1_13 = new Question(1,
-				"Khái niệm \"người điều khiển giao thông\" được hiểu như thế nào đúng?", true, "", b1.getId(),
+				"Khái niệm \"người điều khiển giao thông\" được hiểu như thế nào đúng?", "nan", b1.getId(),
 				set13.getId(), kn.getId());
 		questionRepo.save(questionb1_13);
 
 		Question questionb1_33 = new Question(2,
 				"Hành vi lắp đặt, sử dụng còi, đèn không đúng thiết kế của nhà sản xuất đối với từng loại xe cơ giới có được phép hay không?",
-				true, "", b1.getId(), set13.getId(), kn.getId());
+				"nan", b1.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb1_33);
 
 		Question questionb1_53 = new Question(3,
 				"Hành vi vận chuyển đồ vật cồng kềnh bằng xe mô tô, xe gắn máy khi tham gia giao thông có được phép hay không?",
-				true, "", b1.getId(), set13.getId(), kn.getId());
+				"nan", b1.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb1_53);
 
 		Question questionb1_73 = new Question(4,
 				"Biển báo hiệu có dạng hình tròn, viền đỏ, nền trắng trên nền có hình vẽ hoặc chữ số, chữ viết màu đen là loại biển gì dưới đây?",
-				true, "b1_73.jpg", b1.getId(), set13.getId(), kn.getId());
+				"b1_73.jpg", b1.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb1_73);
 
-		Question questionb1_93 = new Question(5, "Khi lùi xe người lái xe phải làm gì để đảo bảo an toàn?", true, "",
+		Question questionb1_93 = new Question(5, "Khi lùi xe người lái xe phải làm gì để đảo bảo an toàn?", "nan",
 				b1.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb1_93);
 
 		Question questionb1_113 = new Question(6,
 				"Người lái xe phải giảm tốc độ thấp hơn tốc độ tối đa cho phép (có thể dừng lại một cách an toàn) trong trường hợp nào dưới đây?",
-				true, "", b1.getId(), set13.getId(), kn.getId());
+				"nan", b1.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb1_113);
 
 		Question questionb1_133 = new Question(7,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường hai chiều không có dải phân cách giữa; đường một chiều có một làn xe cơ giới (trừ đường cao tốc), loại xe nào tham gia giao thông vơi tốc độ tối đa cho phép là 80 km/h",
-				true, "", b1.getId(), set13.getId(), kn.getId());
+				"nan", b1.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb1_133);
 
 		Question questionb1_153 = new Question(8,
-				"Khi muốn lùi xe nhưng không quan sát được phía sau, cần phải làm gì để đảm bảo an toàn?", true, "",
+				"Khi muốn lùi xe nhưng không quan sát được phía sau, cần phải làm gì để đảm bảo an toàn?", "nan",
 				b1.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb1_153);
 
-		Question questionb1_173 = new Question(9, "Lái xe kinh doanh vận tải phải có trách nhiệm gì sau đây?", true, "",
+		Question questionb1_173 = new Question(9, "Lái xe kinh doanh vận tải phải có trách nhiệm gì sau đây?", "nan",
 				b1.getId(), set13.getId(), nvvt.getId());
 		questionRepo.save(questionb1_173);
 
 		Question questionb1_193 = new Question(10,
 				"Người hành nghề lái xe khi thực hiện tốt việc rèn luyện, nâng cao trách nhiệm, đạo đức nghề nghiệp sẽ thu được kết quả như thế nào?",
-				true, "", b1.getId(), set13.getId(), vh.getId());
+				"nan", b1.getId(), set13.getId(), vh.getId());
 		questionRepo.save(questionb1_193);
 
 		Question questionb1_213 = new Question(11,
-				"Trên đường đang xảy ra ùn tắc những hành vi nào sau đây là thiếu văn hóa khi tham gia giao thông? ",
-				true, "", b1.getId(), set13.getId(), vh.getId());
+				"Trên đường đang xảy ra ùn tắc những hành vi nào sau đây là thiếu văn hóa khi tham gia giao thông?",
+				"nan", b1.getId(), set13.getId(), vh.getId());
 		questionRepo.save(questionb1_213);
 
 		Question questionb1_233 = new Question(12,
 				"Khi điều khiển ô tô tới gần xe chạy ngược chiều vào ban đêm, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?",
-				true, "", b1.getId(), set13.getId(), kt.getId());
+				"nan", b1.getId(), set13.getId(), kt.getId());
 		questionRepo.save(questionb1_233);
 
 		Question questionb1_253 = new Question(13,
-				"Điều khiển ô tô trong trời mưa, người lái xe phải xử lý như thế nào để đảm bảo an toàn?", true, "",
+				"Điều khiển ô tô trong trời mưa, người lái xe phải xử lý như thế nào để đảm bảo an toàn?", "nan",
 				b1.getId(), set13.getId(), kt.getId());
 		questionRepo.save(questionb1_253);
 
 		Question questionb1_273 = new Question(14,
-				"Xe ô tô tham gia giao thông trên đường bộ phải có đủ các loại đèn gì?", true, "", b1.getId(),
+				"Xe ô tô tham gia giao thông trên đường bộ phải có đủ các loại đèn gì?", "nan", b1.getId(),
 				set13.getId(), ctsc.getId());
 		questionRepo.save(questionb1_273);
 
 		Question questionb1_293 = new Question(15,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của ô tô?",
-				true, "b1_293.jpg", b1.getId(), set13.getId(), ctsc.getId());
+				"b1_293.jpg", b1.getId(), set13.getId(), ctsc.getId());
 		questionRepo.save(questionb1_293);
 
-		Question questionb1_313 = new Question(16, "Biển nào không cho phép ô tô con vượt?", true, "b1_313.jpg",
+		Question questionb1_313 = new Question(16, "Biển nào không cho phép ô tô con vượt?", "b1_313.jpg",
 				b1.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb1_313);
 
 		Question questionb1_333 = new Question(17, "Khi gặp biển nào xe ưu tiên theo luật định vẫn phải dừng lại?",
-				true, "b1_333.jpg", b1.getId(), set13.getId(), bb.getId());
+				"b1_333.jpg", b1.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb1_333);
 
-		Question questionb1_353 = new Question(18, "Biển nào xe mô tô hai bánh được đi vào?", true, "b1_353.jpg",
+		Question questionb1_353 = new Question(18, "Biển nào xe mô tô hai bánh được đi vào?", "b1_353.jpg",
 				b1.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb1_353);
 
-		Question questionb1_373 = new Question(19, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?", true,
+		Question questionb1_373 = new Question(19, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?",
 				"b1_373.jpg", b1.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb1_373);
 
-		Question questionb1_393 = new Question(20, "Biển nào báo hiệu \"Đường hai chiều\"?", true, "b1_393.jpg",
+		Question questionb1_393 = new Question(20, "Biển nào báo hiệu \"Đường hai chiều\"?", "b1_393.jpg",
 				b1.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb1_393);
 
 		Question questionb1_413 = new Question(21,
-				"Biển nào sau đây cảnh báo nguy hiểm đoạn đường thường xảy ra tai nạn?", true, "b1_413.jpg", b1.getId(),
+				"Biển nào sau đây cảnh báo nguy hiểm đoạn đường thường xảy ra tai nạn?", "b1_413.jpg", b1.getId(),
 				set13.getId(), bb.getId());
 		questionRepo.save(questionb1_413);
 
-		Question questionb1_433 = new Question(22, "Biển nào báo hiệu \"Hết đường dành cho xe ô tô\"?", true,
+		Question questionb1_433 = new Question(22, "Biển nào báo hiệu \"Hết đường dành cho xe ô tô\"?",
 				"b1_433.jpg", b1.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb1_433);
 
 		Question questionb1_453 = new Question(23,
-				"Biển nào đặt trên đường chính trước khi đến nơi đường giao nhau để rẽ vào đường cụt?", true,
+				"Biển nào đặt trên đường chính trước khi đến nơi đường giao nhau để rẽ vào đường cụt?",
 				"b1_453.jpg", b1.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb1_453);
 
 		Question questionb1_473 = new Question(24,
 				"Khi di chuyển trên đường cao tốc, gặp biển nào thì người lái xe đi theo hướng bên trái để tránh chướng ngại vật?",
-				true, "b1_473.jpg", b1.getId(), set13.getId(), bb.getId());
+				"b1_473.jpg", b1.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb1_473);
 
-		Question questionb1_493 = new Question(25, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb1_493 = new Question(25, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"b1_493.jpg", b1.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionb1_493);
 
-		Question questionb1_513 = new Question(26, "Xe nào vượt đúng quy tắc giao thông?", true, "b1_513.jpg",
+		Question questionb1_513 = new Question(26, "Xe nào vượt đúng quy tắc giao thông?", "b1_513.jpg",
 				b1.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionb1_513);
 
-		Question questionb1_533 = new Question(27, "Thứ tự các xe đi như thế nào là đúng quy tắc gaio thông?", true,
+		Question questionb1_533 = new Question(27, "Thứ tự các xe đi như thế nào là đúng quy tắc gaio thông?",
 				"b1_533.jpg", b1.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionb1_533);
 
 		Question questionb1_553 = new Question(28,
-				"Theo tín hiệu đèn, xe nào phải dừng lại là đúng quy tắc giao thông?", true, "b1_553.jpg", b1.getId(),
+				"Theo tín hiệu đèn, xe nào phải dừng lại là đúng quy tắc giao thông?", "b1_553.jpg", b1.getId(),
 				set13.getId(), sh.getId());
 		questionRepo.save(questionb1_553);
 
-		Question questionb1_573 = new Question(29, "Bạn xử lý như thế nào trong trường hợp này?", true, "b1_573.jpg",
+		Question questionb1_573 = new Question(29, "Bạn xử lý như thế nào trong trường hợp này?", "b1_573.jpg",
 				b1.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionb1_573);
 
 		Question questionb1_593 = new Question(30,
-				"Các xe đi theo thứ tự như thế nào là đúng quy tắc giao thông đường bộ?", true, "b1_593.jpg",
+				"Các xe đi theo thứ tự như thế nào là đúng quy tắc giao thông đường bộ?", "b1_593.jpg",
 				b1.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionb1_593);
 
 		Question questionb1_14 = new Question(1,
-				"Trong các khái niệm dưới đây khái niệm \"dừng xe\" được hiểu như thế nào là đúng?", true, "",
+				"Trong các khái niệm dưới đây khái niệm \"dừng xe\" được hiểu như thế nào là đúng?", "nan",
 				b1.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb1_14);
 
 		Question questionb1_34 = new Question(2,
 				"Trong trường hợp đặc biết, để được lắp đặt, sử dụng còi, đèn khác thiết kế của nhà sản xuất đối với từng loại xe cơ giới bạn phải đảm bảo yêu cầu nào dưới đây?",
-				true, "", b1.getId(), set14.getId(), kn.getId());
+				"nan", b1.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb1_34);
 
 		Question questionb1_54 = new Question(3,
 				"Người đủ bao nhiêu tuổi trở lên thì được điều khiển xe ô tô tải, máy kéo có trọng tải từ 3.500kg trở lên; xe hạng B2 kéo rơ moóc(FB2)",
-				true, "", b1.getId(), set14.getId(), kn.getId());
+				"nan", b1.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb1_54);
 
 		Question questionb1_74 = new Question(4,
-				"Biển báo hiện hình tròn có nền xanh lam có hình vẽ màu trắng là loại gì dưới đây?", true, "b1_74.jpg",
+				"Biển báo hiện hình tròn có nền xanh lam có hình vẽ màu trắng là loại gì dưới đây?", "b1_74.jpg",
 				b1.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb1_74);
 
 		Question questionb1_94 = new Question(5,
 				"Khi bạn nhìn thấy đèn phía sau xe ô tô có mày sáng trắng, ô tô đó đang trong tình trạng như thế nào?",
-				true, "", b1.getId(), set14.getId(), kn.getId());
+				"nan", b1.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb1_94);
 
 		Question questionb1_114 = new Question(6,
 				"Khi gặp một đoàn xe, một đoàn xe tang hay gặp một đoàn người có tổ chức theo đội ngữ, người lái xe phải xử lý như thế nào?",
-				true, "", b1.getId(), set14.getId(), kn.getId());
+				"nan", b1.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb1_114);
 
 		Question questionb1_134 = new Question(7,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường hai chiều không có dải phân cách giữa; đường một chiều có một làn xe cơ giới (trừ đường cao tốc), loại xe nào tham gia giao thông vơi tốc độ tối đa cho phép là 70 km/h",
-				true, "", b1.getId(), set14.getId(), kn.getId());
+				"nan", b1.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb1_134);
 
 		Question questionb1_154 = new Question(8,
 				"Người điều khiển phương tiện giao thông tham gia giao thông đường bộ phải giảm tốc độ để có thể dừng lại một cách an toàn trong các trường hợp nào dưới đây?",
-				true, "", b1.getId(), set14.getId(), kn.getId());
+				"nan", b1.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb1_154);
 
 		Question questionb1_174 = new Question(9,
-				"Người kinh doanh vận tải hành khách có những quyền hạn nào dưới đây?", true, "", b1.getId(),
+				"Người kinh doanh vận tải hành khách có những quyền hạn nào dưới đây?", "nan", b1.getId(),
 				set14.getId(), nvvt.getId());
 		questionRepo.save(questionb1_174);
 
 		Question questionb1_194 = new Question(10,
-				"Người lái xe vận tải hàng hóa cần thực hiện những nhiệm vụ gì ghi ở dưới đây?", true, "", b1.getId(),
+				"Người lái xe vận tải hàng hóa cần thực hiện những nhiệm vụ gì ghi ở dưới đây?", "nan", b1.getId(),
 				set14.getId(), vh.getId());
 		questionRepo.save(questionb1_194);
 
 		Question questionb1_214 = new Question(11,
 				"Khi điều khiển xe mô tô tay ga xuống đường dốc dài, độ dốc cao, người lái xe cần thực hiện các thao tác nào dưới đây để đảm bảo an toàn?",
-				true, "", b1.getId(), set14.getId(), kt.getId());
+				"nan", b1.getId(), set14.getId(), kt.getId());
 		questionRepo.save(questionb1_214);
 
 		Question questionb1_234 = new Question(12,
-				"Khi điều khiển xe ô tô trên đường trơn cần chú ý những điểm gì để đảm bảo an toàn?", true, "",
+				"Khi điều khiển xe ô tô trên đường trơn cần chú ý những điểm gì để đảm bảo an toàn?", "nan",
 				b1.getId(), set14.getId(), kt.getId());
 		questionRepo.save(questionb1_234);
 
 		Question questionb1_254 = new Question(13,
-				"Khi lùi xe, người lái xe phải xử lý như thế nào đẻ bảo đảm an toàn giao thông?", true, "", b1.getId(),
+				"Khi lùi xe, người lái xe phải xử lý như thế nào đẻ bảo đảm an toàn giao thông?", "nan", b1.getId(),
 				set14.getId(), kt.getId());
 		questionRepo.save(questionb1_254);
 
-		Question questionb1_274 = new Question(14, "Kính chắn gió của ô tô phải đảm bảo yêu cầu nào dưới đây?", true,
+		Question questionb1_274 = new Question(14, "Kính chắn gió của ô tô phải đảm bảo yêu cầu nào dưới đây?",
 				"", b1.getId(), set14.getId(), ctsc.getId());
 		questionRepo.save(questionb1_274);
 
 		Question questionb1_294 = new Question(15,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của ô tô?",
-				true, "b1_294.jpg", b1.getId(), set14.getId(), ctsc.getId());
+				"b1_294.jpg", b1.getId(), set14.getId(), ctsc.getId());
 		questionRepo.save(questionb1_294);
 
-		Question questionb1_314 = new Question(16, "Biển nào cấm ô tô tái vượt?", true, "b1_314.jpg", b1.getId(),
+		Question questionb1_314 = new Question(16, "Biển nào cấm ô tô tái vượt?", "b1_314.jpg", b1.getId(),
 				set14.getId(), bb.getId());
 		questionRepo.save(questionb1_314);
 
 		Question questionb1_334 = new Question(17,
 				"Biển nào cấm tất cả các loại xe cơ giới và thô sơ đi vào trên đường, trừ xe ưu tiên theo luật định (nếu đường vẫn cho xe chạy được)?",
-				true, "b1_334.jpg", b1.getId(), set14.getId(), bb.getId());
+				"b1_334.jpg", b1.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb1_334);
 
-		Question questionb1_354 = new Question(18, "Biển nào xe mô tô hai bánh không được đi vào?", true, "b1_354.jpg",
+		Question questionb1_354 = new Question(18, "Biển nào xe mô tô hai bánh không được đi vào?", "b1_354.jpg",
 				b1.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb1_354);
 
-		Question questionb1_374 = new Question(19, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?", true,
+		Question questionb1_374 = new Question(19, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?",
 				"b1_374.jpg", b1.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb1_374);
 
 		Question questionb1_394 = new Question(20,
-				"Biển nào báo hiệu phải giảm tốc độ, nhường đường cho xe cơ giới đi ngược chiều qua đường hẹp?", true,
+				"Biển nào báo hiệu phải giảm tốc độ, nhường đường cho xe cơ giới đi ngược chiều qua đường hẹp?",
 				"b1_394.jpg", b1.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb1_394);
 
 		Question questionb1_414 = new Question(21, "Biển nào báo hiệu đoạn đường thường xảy ra ùn tắc giao thông?",
-				true, "b1_414.jpg", b1.getId(), set14.getId(), bb.getId());
+				"b1_414.jpg", b1.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb1_414);
 
 		Question questionb1_434 = new Question(22,
-				"Khi gặp biển nào thì các phương tiện không được đi vào trừ xe ô tô và mô tô?", true, "b1_434.jpg",
+				"Khi gặp biển nào thì các phương tiện không được đi vào trừ xe ô tô và mô tô?", "b1_434.jpg",
 				b1.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb1_434);
 
-		Question questionb1_454 = new Question(23, "Biển nào chỉ dẫn cho người đi bộ sử dụng cầu vượt qua đường?", true,
+		Question questionb1_454 = new Question(23, "Biển nào chỉ dẫn cho người đi bộ sử dụng cầu vượt qua đường?",
 				"b1_454.jpg", b1.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb1_454);
 
 		Question questionb1_474 = new Question(24,
 				"Khi di chuyển trên đường cao tốc, gặp biển nào thì người lái xe đi theo hướng bên phải để tránh chướng ngại vật?",
-				true, "b1_474.jpg", b1.getId(), set14.getId(), bb.getId());
+				"b1_474.jpg", b1.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb1_474);
 
-		Question questionb1_494 = new Question(25, "Thứ tự các xe như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb1_494 = new Question(25, "Thứ tự các xe như thế nào là đúng quy tắc giao thông?",
 				"b1_494.jpg", b1.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb1_494);
 
 		Question questionb1_514 = new Question(26,
 				"Theo hướng mũi tên, gặp biển hướng đi phải theo đặt trước ngã tư, những hướng nào xe được phép đi?",
-				true, "b1_514.jpg", b1.getId(), set14.getId(), sh.getId());
+				"b1_514.jpg", b1.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb1_514);
 
-		Question questionb1_534 = new Question(27, "Thứ tự các xe đi nhưu thế nào là đúng quy tắc giao thông?", true,
+		Question questionb1_534 = new Question(27, "Thứ tự các xe đi nhưu thế nào là đúng quy tắc giao thông?",
 				"b1_534.jpg", b1.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb1_534);
 
-		Question questionb1_554 = new Question(28, "Xe nào phải nhường đường là đúng quy tắc giao thông?", true,
+		Question questionb1_554 = new Question(28, "Xe nào phải nhường đường là đúng quy tắc giao thông?",
 				"b1_554.jpg", b1.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb1_554);
 
-		Question questionb1_574 = new Question(29, "Bạn xử lý như thế nào trong trường hợp này?", true, "b1_574.jpg",
+		Question questionb1_574 = new Question(29, "Bạn xử lý như thế nào trong trường hợp này?", "b1_574.jpg",
 				b1.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb1_574);
 
-		Question questionb1_594 = new Question(30, "Để điều khiển xe rẽ trái, bạn chọn hướng đi nào dưới đây?", true,
+		Question questionb1_594 = new Question(30, "Để điều khiển xe rẽ trái, bạn chọn hướng đi nào dưới đây?",
 				"b1_594.jpg", b1.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb1_594);
 
 		Question questionb1_15 = new Question(1,
-				"Khái niệm \"đỗ xe\" được hiểu như thế nào là đúng quy tắc giao thông?", true, "", b1.getId(),
+				"Khái niệm \"đỗ xe\" được hiểu như thế nào là đúng quy tắc giao thông?", "nan", b1.getId(),
 				set15.getId(), kn.getId());
 		questionRepo.save(questionb1_15);
 
 		Question questionb1_35 = new Question(2,
 				"Việc sản xuất, mau bán, sử dụng biển số xe cơ giới, xe máy chuyên dùng được quy định như thế nào trong Luật Giao thông đường bộ?",
-				true, "", b1.getId(), set15.getId(), kn.getId());
+				"nan", b1.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb1_35);
 
 		Question questionb1_55 = new Question(3,
 				"Người đủ bao nhiêu tuổi trở lên thì được điều khiern xe mô tô hai bánh, xe mô tô ba bánh có dung tích xi lanh từ 50 cm3 trở lên và các loại xe có kết cấu tương tự; xe ô tô tải, máy kéo có trọng tải dưới 3500kg; xe ô tô chở người đến 9 chỗ ngồi?",
-				true, "", b1.getId(), set15.getId(), kn.getId());
+				"nan", b1.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb1_55);
 
 		Question questionb1_75 = new Question(4,
 				"Biển báo hiệu hình chữ nhật hoặc hình vuông hoặc hình mũi tên nền xanh lam là loại biển gì dưới đây?",
-				true, "b1_75.jpg", b1.getId(), set15.getId(), kn.getId());
+				"b1_75.jpg", b1.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb1_75);
 
 		Question questionb1_95 = new Question(5,
-				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?", true,
+				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?",
 				"", b1.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb1_95);
 
 		Question questionb1_115 = new Question(6,
 				"Tại ngã ba hoặc ngã tư không có đảm bảo an toàn, người lái xe phải nhường đường như thế nào là đúng trong các trường hợp dưới đây?",
-				true, "", b1.getId(), set15.getId(), kn.getId());
+				"nan", b1.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb1_115);
 
 		Question questionb1_135 = new Question(7,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường hai chiều không có dải phân cách giữa; đường một chiều có một làn xe cơ giới (trừ đường cao tốc), loại xe nào tham gia giao thông vơi tốc độ tối đa cho phép là 60 km/h",
-				true, "", b1.getId(), set15.getId(), kn.getId());
+				"nan", b1.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb1_135);
 
 		Question questionb1_155 = new Question(8,
 				"Tại những đoạn đường không bố trí biển báo hạn chế tốc độ, không bố trí biển báo khoảng cacshb an toàn tối thiểu giữa hai xe, người điều khiển phương tiện tham gia gaio thông phải thực hiện quy định nào dưới đây để đảm bảo an toàn giao thông?",
-				true, "", b1.getId(), set15.getId(), kn.getId());
+				"nan", b1.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb1_155);
 
 		Question questionb1_175 = new Question(9,
-				"Hành khách có các quyền gì khi đi trên xe ô tô vận tải khách theo tuyến cố định?", true, "",
+				"Hành khách có các quyền gì khi đi trên xe ô tô vận tải khách theo tuyến cố định?", "nan",
 				b1.getId(), set15.getId(), nvvt.getId());
 		questionRepo.save(questionb1_175);
 
 		Question questionb1_195 = new Question(10,
 				"Những lái xe kinh doanh vận tải cần thực hiện những công việc gì ghi ở dưới đây để thường xuyên rèn luyện nâng cao đạo đức nghề nghiệp?",
-				true, "", b1.getId(), set15.getId(), vh.getId());
+				"nan", b1.getId(), set15.getId(), vh.getId());
 		questionRepo.save(questionb1_195);
 
 		Question questionb1_215 = new Question(11,
 				"Khi vào số để khởi hành xe ô tô có số tự động, người lái xe phải thực hiện các thao tác nào để đảm bảo an toàn?",
-				true, "", b1.getId(), set15.getId(), kt.getId());
+				"nan", b1.getId(), set15.getId(), kt.getId());
 		questionRepo.save(questionb1_215);
 
 		Question questionb1_235 = new Question(12,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của xe ô tô?",
-				true, "b1_235.jpg", b1.getId(), set15.getId(), kt.getId());
+				"b1_235.jpg", b1.getId(), set15.getId(), kt.getId());
 		questionRepo.save(questionb1_235);
 
 		Question questionb1_255 = new Question(13,
-				"Điều khiển xe ô tô trong khu vực đông dân cư cần lưu ý điều gì dưới đây?", true, "", b1.getId(),
+				"Điều khiển xe ô tô trong khu vực đông dân cư cần lưu ý điều gì dưới đây?", "nan", b1.getId(),
 				set15.getId(), kt.getId());
 		questionRepo.save(questionb1_255);
 
 		Question questionb1_275 = new Question(14,
-				"Bánh xe lắp cho xe ô tô phải đảm bảo an toàn kỹ thuật như thế nào dưới đây?", true, "", b1.getId(),
+				"Bánh xe lắp cho xe ô tô phải đảm bảo an toàn kỹ thuật như thế nào dưới đây?", "nan", b1.getId(),
 				set15.getId(), ctsc.getId());
 		questionRepo.save(questionb1_275);
 
 		Question questionb1_295 = new Question(15,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của ô tô?",
-				true, "b1_295.jpg", b1.getId(), set15.getId(), ctsc.getId());
+				"b1_295.jpg", b1.getId(), set15.getId(), ctsc.getId());
 		questionRepo.save(questionb1_295);
 
-		Question questionb1_315 = new Question(16, "Biển nào cấm xe tải vượt?", true, "b1_315.jpg", b1.getId(),
+		Question questionb1_315 = new Question(16, "Biển nào cấm xe tải vượt?", "b1_315.jpg", b1.getId(),
 				set15.getId(), bb.getId());
 		questionRepo.save(questionb1_315);
 
-		Question questionb1_335 = new Question(17, "Biển nào là biển \"Cấm xe chở hàng nguy hiểm\"?", true,
+		Question questionb1_335 = new Question(17, "Biển nào là biển \"Cấm xe chở hàng nguy hiểm\"?",
 				"b1_335.jpg", b1.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb1_335);
 
-		Question questionb1_355 = new Question(18, "Ba biển này có hiệu lực như thế nào?", true, "b1_355.jpg",
+		Question questionb1_355 = new Question(18, "Ba biển này có hiệu lực như thế nào?", "b1_355.jpg",
 				b1.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb1_355);
 
-		Question questionb1_375 = new Question(19, "Biển nào báo hiệu \"Giao nhau với đường sắt có rào chắn\"?", true,
+		Question questionb1_375 = new Question(19, "Biển nào báo hiệu \"Giao nhau với đường sắt có rào chắn\"?",
 				"b1_375.jpg", b1.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb1_375);
 
-		Question questionb1_395 = new Question(20, "Biển nào chỉ dẫn \"Được ưu tiên qua đường hẹp\"?", true,
+		Question questionb1_395 = new Question(20, "Biển nào chỉ dẫn \"Được ưu tiên qua đường hẹp\"?",
 				"b1_395.jpg", b1.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb1_395);
 
 		Question questionb1_415 = new Question(21,
 				"Gặp biển nào người tham gia giao thông phải đi chậm và thận trọng đề phòng khả năng xuất hiện và di chuyển bất ngờ của trẻ em trên mặt đường?",
-				true, "b1_415.jpg", b1.getId(), set15.getId(), bb.getId());
+				"b1_415.jpg", b1.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb1_415);
 
-		Question questionb1_435 = new Question(22, "Biển này có ý nghĩa gì?", true, "b1_435.jpg", b1.getId(),
+		Question questionb1_435 = new Question(22, "Biển này có ý nghĩa gì?", "b1_435.jpg", b1.getId(),
 				set15.getId(), bb.getId());
 		questionRepo.save(questionb1_435);
 
-		Question questionb1_455 = new Question(23, "Biển nào chỉ dẫn cho người đi bộ sử dụng hầm chui qua đường?", true,
+		Question questionb1_455 = new Question(23, "Biển nào chỉ dẫn cho người đi bộ sử dụng hầm chui qua đường?",
 				"b1_455.jpg", b1.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb1_455);
 
 		Question questionb1_475 = new Question(24,
 				"Khi di chuyển trên đường cao tốc, gặp biển nào thì người lái xe đi được cả hai hướng ( bên trái hoặc bên phải) để tránh chướng ngại vật?",
-				true, "b1_475.jpg", b1.getId(), set15.getId(), bb.getId());
+				"b1_475.jpg", b1.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb1_475);
 
-		Question questionb1_495 = new Question(25, "Xe nào được quyền ưu tiên đi trước trong trường hợp này?", true,
+		Question questionb1_495 = new Question(25, "Xe nào được quyền ưu tiên đi trước trong trường hợp này?",
 				"b1_495.jpg", b1.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb1_495);
 
 		Question questionb1_515 = new Question(26, "Xe kéo nhau như hình này có vi phạm quy tắc giao thông không?",
-				true, "b1_515.jpg", b1.getId(), set15.getId(), sh.getId());
+				"b1_515.jpg", b1.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb1_515);
 
-		Question questionb1_535 = new Question(27, "Những hướng nào ô tô tải được phép đi?", true, "b1_535.jpg",
+		Question questionb1_535 = new Question(27, "Những hướng nào ô tô tải được phép đi?", "b1_535.jpg",
 				b1.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb1_535);
 
 		Question questionb1_555 = new Question(28,
-				"Người lái xe được phép vượt xe tải để đi thẳng trong trường hợp này không?", true, "b1_555.jpg",
+				"Người lái xe được phép vượt xe tải để đi thẳng trong trường hợp này không?", "b1_555.jpg",
 				b1.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb1_555);
 
-		Question questionb1_575 = new Question(29, "Xe nào phải nhường đường trong trường hợp này?", true, "b1_575.jpg",
+		Question questionb1_575 = new Question(29, "Xe nào phải nhường đường trong trường hợp này?", "b1_575.jpg",
 				b1.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb1_575);
 
 		Question questionb1_595 = new Question(30,
-				"Khi gặp xe ngược chiều bật đèn pha trong tình huống dưới dây, bạn xử lý như thế nào?", true,
+				"Khi gặp xe ngược chiều bật đèn pha trong tình huống dưới dây, bạn xử lý như thế nào?",
 				"b1_595.jpg", b1.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb1_595);
 
-		Question questionb1_16 = new Question(1, "Khái niệm \"đường cao tốc\" được hiểu như thế nào là đúng?", true, "",
+		Question questionb1_16 = new Question(1, "Khái niệm \"đường cao tốc\" được hiểu như thế nào là đúng?", "nan",
 				b1.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb1_16);
 
 		Question questionb1_36 = new Question(2,
-				"Người lái xe không được vượt xe khác khi gặp trường hợp nào ghi ở dưới đây?", true, "", b1.getId(),
+				"Người lái xe không được vượt xe khác khi gặp trường hợp nào ghi ở dưới đây?", "nan", b1.getId(),
 				set16.getId(), kn.getId());
 		questionRepo.save(questionb1_36);
 
 		Question questionb1_56 = new Question(3,
 				"Người lái xe ô tô chở người trên 30 chỗ ngồi (hạng E), lái xe hạng D kéo rơ Moóc (FD) phải đủ bao nhiêu tuổi trở lên?",
-				true, "", b1.getId(), set16.getId(), kn.getId());
+				"nan", b1.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb1_56);
 
 		Question questionb1_76 = new Question(4,
-				"Khi tập lái xe ô tô, người tập lái xe phỉa thực hiện các điều kiện gì dưới đây?", true, "", b1.getId(),
+				"Khi tập lái xe ô tô, người tập lái xe phỉa thực hiện các điều kiện gì dưới đây?", "nan", b1.getId(),
 				set16.getId(), kn.getId());
 		questionRepo.save(questionb1_76);
 
 		Question questionb1_96 = new Question(5,
-				"Bạn đang lái xe trên đường hẹp, xuống dốc và gặp một xe đang lên dốc, bạn cần làm gì?", true, "",
+				"Bạn đang lái xe trên đường hẹp, xuống dốc và gặp một xe đang lên dốc, bạn cần làm gì?", "nan",
 				b1.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb1_96);
 
 		Question questionb1_116 = new Question(6,
 				"Khi điều khển xe cơ giới người lái xe phải bật đèn tín hiệu rẽ nào trong các trườn hợp nào sau đây?",
-				true, "", b1.getId(), set16.getId(), kn.getId());
+				"nan", b1.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb1_116);
 
 		Question questionb1_136 = new Question(7,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường hai chiều không có dải phân cách giữa; đường một chiều có một làn xe cơ giới (trừ đường cao tốc), loại xe nào tham gia giao thông vơi tốc độ tối đa cho phép là 50 km/h",
-				true, "", b1.getId(), set16.getId(), kn.getId());
+				"nan", b1.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb1_136);
 
 		Question questionb1_156 = new Question(8,
 				"Khi tham gia giao thông trên đường cao tốc, người lái xe, người điều khiển xe máy chuyên dùng phải thực hiện các quy định như thế nào là đúng quy tắc giao thông?",
-				true, "", b1.getId(), set16.getId(), kn.getId());
+				"nan", b1.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb1_156);
 
 		Question questionb1_176 = new Question(9,
-				"Hành khách có các nghĩa vụ gì khi đi trên xe ô tô vận tải hành khách?", true, "", b1.getId(),
+				"Hành khách có các nghĩa vụ gì khi đi trên xe ô tô vận tải hành khách?", "nan", b1.getId(),
 				set16.getId(), nvvt.getId());
 		questionRepo.save(questionb1_176);
 
 		Question questionb1_196 = new Question(10,
 				"Người lái xe và nhân viên phục vụ trên xe ô tô vận tải hành khách phải có những trách nhiện gì theo quy định được ghi dưới đây?",
-				true, "", b1.getId(), set16.getId(), vh.getId());
+				"nan", b1.getId(), set16.getId(), vh.getId());
 		questionRepo.save(questionb1_196);
 
 		Question questionb1_216 = new Question(11,
 				"Khi nhả hệ thống phanh dừng cơ khí điều khiển bằng tay (phanh tay), người lái xe cần phải thực hiện các thao tác nào?",
-				true, "", b1.getId(), set16.getId(), kt.getId());
+				"nan", b1.getId(), set16.getId(), kt.getId());
 		questionRepo.save(questionb1_216);
 
 		Question questionb1_236 = new Question(12,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẻ dưới đây, báo hiệu tình trạng như thế nào của xe ô tô?",
-				true, "b1_236.jpg", b1.getId(), set16.getId(), kt.getId());
+				"b1_236.jpg", b1.getId(), set16.getId(), kt.getId());
 		questionRepo.save(questionb1_236);
 
 		Question questionb1_256 = new Question(13,
 				"Khi điều khiển xe ô tô nhập vào đường cao tốc người lái xe cần thực hiện như thế nào để bảo đảm an toàn giao thông?",
-				true, "", b1.getId(), set16.getId(), kt.getId());
+				"nan", b1.getId(), set16.getId(), kt.getId());
 		questionRepo.save(questionb1_256);
 
 		Question questionb1_276 = new Question(14,
 				"Âm lượng của còi điện lắp đặt trên ô tô (đo ở độ cao 1,2 mét với khoảng cách 2 mét tính từ đầu xe) là bao nhiều?",
-				true, "", b1.getId(), set16.getId(), ctsc.getId());
+				"nan", b1.getId(), set16.getId(), ctsc.getId());
 		questionRepo.save(questionb1_276);
 
 		Question questionb1_296 = new Question(15,
 				"Khi động cơ xe số tự động có trang bị chìa khóa thông minh có cần đạp hết hành trình bàn đạp của phanh?",
-				true, "b1_296.jpg", b1.getId(), set16.getId(), ctsc.getId());
+				"b1_296.jpg", b1.getId(), set16.getId(), ctsc.getId());
 		questionRepo.save(questionb1_296);
 
-		Question questionb1_316 = new Question(16, "Biển nào xe ô tô con được phép vượt?", true, "b1_316.jpg",
+		Question questionb1_316 = new Question(16, "Biển nào xe ô tô con được phép vượt?", "b1_316.jpg",
 				b1.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb1_316);
 
-		Question questionb1_336 = new Question(17, "Gặp biển nào xe xích lô được phép đi vào?", true, "b1_336.jpg",
+		Question questionb1_336 = new Question(17, "Gặp biển nào xe xích lô được phép đi vào?", "b1_336.jpg",
 				b1.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb1_336);
 
 		Question questionb1_356 = new Question(18,
-				"Biển nào báo hiệu chiều dài đoạn đường phải giữu cự ly tối thiểu giữa hai xe?", true, "b1_356.jpg",
+				"Biển nào báo hiệu chiều dài đoạn đường phải giữu cự ly tối thiểu giữa hai xe?", "b1_356.jpg",
 				b1.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb1_356);
 
-		Question questionb1_376 = new Question(19, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?", true,
+		Question questionb1_376 = new Question(19, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?",
 				"b1_376.jpg", b1.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb1_376);
 
-		Question questionb1_396 = new Question(20, "Biển nào báo hiệu \"Đường đôi\"?", true, "b1_396.jpg", b1.getId(),
+		Question questionb1_396 = new Question(20, "Biển nào báo hiệu \"Đường đôi\"?", "b1_396.jpg", b1.getId(),
 				set16.getId(), bb.getId());
 		questionRepo.save(questionb1_396);
 
 		Question questionb1_416 = new Question(21, "Biển nào chỉ dẫn nới bắt đầu đoạn đường dành cho người đi bộ?",
-				true, "b1_416.jpg", b1.getId(), set16.getId(), bb.getId());
+				"b1_416.jpg", b1.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb1_416);
 
 		Question questionb1_436 = new Question(22,
-				"Biển nào ( đặt trước ngã ba, ngã tư) co phép xe được rẽ sang dướng khác?", true, "b1_436.jpg",
+				"Biển nào ( đặt trước ngã ba, ngã tư) co phép xe được rẽ sang dướng khác?", "b1_436.jpg",
 				b1.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb1_436);
 
-		Question questionb1_456 = new Question(23, "Biển nào báo hiệu nơi đỗ xe cho người tàn tật?", true, "b1_456.jpg",
+		Question questionb1_456 = new Question(23, "Biển nào báo hiệu nơi đỗ xe cho người tàn tật?", "b1_456.jpg",
 				b1.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb1_456);
 
 		Question questionb1_476 = new Question(24,
 				"Khi di chuyển trên đường cao tốc, gặp biển nào thì người lái xe phải chú ý đổi hướng đi khi sắp vào đường cong nguy hiểm?",
-				true, "b1_476.jpg", b1.getId(), set16.getId(), bb.getId());
+				"b1_476.jpg", b1.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb1_476);
 
-		Question questionb1_496 = new Question(25, "Xe nào phải nhường đường đi cuối cùng qua nơi giao nhau này?", true,
+		Question questionb1_496 = new Question(25, "Xe nào phải nhường đường đi cuối cùng qua nơi giao nhau này?",
 				"b1_496.jpg", b1.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb1_496);
 
-		Question questionb1_516 = new Question(26, "Xe nào phải nhường đường trong trường hợp này?", true, "b1_516.jpg",
+		Question questionb1_516 = new Question(26, "Xe nào phải nhường đường trong trường hợp này?", "b1_516.jpg",
 				b1.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb1_516);
 
-		Question questionb1_536 = new Question(27, "Theo hướng mũi tên thứ tự các xe đi như thế nào là đúng?", true,
+		Question questionb1_536 = new Question(27, "Theo hướng mũi tên thứ tự các xe đi như thế nào là đúng?",
 				"b1_536.jpg", b1.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb1_536);
 
-		Question questionb1_556 = new Question(28, "Bạn có được phép vượt xe mô tô phía trước không?", true,
+		Question questionb1_556 = new Question(28, "Bạn có được phép vượt xe mô tô phía trước không?",
 				"b1_556.jpg", b1.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb1_556);
 
-		Question questionb1_576 = new Question(29, "Xe nào phải nhường đường trong trường hợp này?", true, "b1_576.jpg",
+		Question questionb1_576 = new Question(29, "Xe nào phải nhường đường trong trường hợp này?", "b1_576.jpg",
 				b1.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb1_576);
 
 		Question questionb1_596 = new Question(30,
 				"Xe của bạn dang di chuyển gần đến khu vực giao cắt với đường sắt, khi rào chắn đang dịch chuyển, bạn điều khiển xe như thế nào là đúng quy tắc giao thông?",
-				true, "b1_596.jpg", b1.getId(), set16.getId(), sh.getId());
+				"b1_596.jpg", b1.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb1_596);
 
-		Question questionb1_17 = new Question(1, "Hành vi nào dưới đây bị nghiêm cấm?", true, "", b1.getId(),
+		Question questionb1_17 = new Question(1, "Hành vi nào dưới đây bị nghiêm cấm?", "nan", b1.getId(),
 				set17.getId(), kn.getId());
 		questionRepo.save(questionb1_17);
 
 		Question questionb1_37 = new Question(2,
 				"Ở phần đường dành cho người đi bộ qua đường, trên cầu, đầu cầu, đường cao tốc, đường hẹp, đường dốc, tại nơi đường bộ giao nhau cùng mức với đường sắt có được quay đầu xe hay không?",
-				true, "", b1.getId(), set17.getId(), kn.getId());
+				"nan", b1.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionb1_37);
 
 		Question questionb1_57 = new Question(3,
-				"Tuổi tối đa cửa người lái xe ô tô chở người trên 30 chỗ ngồi (hạng E) là bao nhiêu tuổi?", true, "",
+				"Tuổi tối đa cửa người lái xe ô tô chở người trên 30 chỗ ngồi (hạng E) là bao nhiêu tuổi?", "nan",
 				b1.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionb1_57);
 
 		Question questionb1_77 = new Question(4,
-				"Khi dạy thực hành lái xe, giáo viên phải mang theo các loại giấy tờ gì dưới đây?", true, "",
+				"Khi dạy thực hành lái xe, giáo viên phải mang theo các loại giấy tờ gì dưới đây?", "nan",
 				b1.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionb1_77);
 
 		Question questionb1_97 = new Question(5,
 				"Tại nơi đường giao nhua, người lái xe đang đi trên đường không ưu tiên phải nhường đường như thế nào là đúng quy tắc giao thông?",
-				true, "", b1.getId(), set17.getId(), kn.getId());
+				"nan", b1.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionb1_97);
 
 		Question questionb1_117 = new Question(6,
 				"Trên đoạn đường hai chiều không có giải phân cách giữa, người lái xe không được vượt xe khác trong các trường hợp nào dưới đây?",
-				true, "", b1.getId(), set17.getId(), kn.getId());
+				"nan", b1.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionb1_117);
 
 		Question questionb1_137 = new Question(7,
 				"Khi tham gia giao thông trên đoạn đường không có biển báo \"cự ly tối thiểu giữa hai xe\", với điều kiện mặt đường khô ráo, xe cơ giới đang chạy với tốc độ từ trên 60km/h đến 80km/h, người lái xe phải duy trì ở khoảng cách an toàn với xe đang chạy phía trước tối thiểu là bao nhêu met?",
-				true, "", b1.getId(), set17.getId(), kn.getId());
+				"nan", b1.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionb1_137);
 
 		Question questionb1_157 = new Question(8,
-				"Theo luật giao thông đường bộ, tín hiệu đèn giao thông gồm 3 màu nào dưới đây?", true, "", b1.getId(),
+				"Theo luật giao thông đường bộ, tín hiệu đèn giao thông gồm 3 màu nào dưới đây?", "nan", b1.getId(),
 				set17.getId(), kn.getId());
 		questionRepo.save(questionb1_157);
 
-		Question questionb1_177 = new Question(9, "Người kinh doanh vận tải hàng hóa có các quyền gì ở dưới đây?", true,
+		Question questionb1_177 = new Question(9, "Người kinh doanh vận tải hàng hóa có các quyền gì ở dưới đây?",
 				"", b1.getId(), set17.getId(), nvvt.getId());
 		questionRepo.save(questionb1_177);
 
 		Question questionb1_197 = new Question(10, "Khái niệm về văn hóa giao thông được hiểu như thế nào là đúng?",
-				true, "", b1.getId(), set17.getId(), vh.getId());
+				"nan", b1.getId(), set17.getId(), vh.getId());
 		questionRepo.save(questionb1_197);
 
 		Question questionb1_217 = new Question(11,
 				"Khi khởi hành ô tô sử dụng hộp số cơ khí trên đường bằng, người lái xe cần thực hiện các thao tác nào theo trình tự dưới đây?",
-				true, "", b1.getId(), set17.getId(), kt.getId());
+				"nan", b1.getId(), set17.getId(), kt.getId());
 		questionRepo.save(questionb1_217);
 
 		Question questionb1_237 = new Question(12,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của xe ô tô?",
-				true, "b1_237.jpg", b1.getId(), set17.getId(), kt.getId());
+				"b1_237.jpg", b1.getId(), set17.getId(), kt.getId());
 		questionRepo.save(questionb1_237);
 
 		Question questionb1_257 = new Question(13,
 				"Khi điều khiển xe ô tô ra khỏi đường cao tốc người lái xe cần thực hiện như thế nào để bảo đảm an toàn giao thông?",
-				true, "", b1.getId(), set17.getId(), kt.getId());
+				"nan", b1.getId(), set17.getId(), kt.getId());
 		questionRepo.save(questionb1_257);
 
 		Question questionb1_277 = new Question(14,
-				"Mục đích của bảo dưỡng thường xuyên đối với xe ô tô có tác dụng gì?", true, "", b1.getId(),
+				"Mục đích của bảo dưỡng thường xuyên đối với xe ô tô có tác dụng gì?", "nan", b1.getId(),
 				set17.getId(), ctsc.getId());
 		questionRepo.save(questionb1_277);
 
-		Question questionb1_297 = new Question(15, "Ắc quy được trang bị trên xe ô tô có tác dụng gì?", true, "",
+		Question questionb1_297 = new Question(15, "Ắc quy được trang bị trên xe ô tô có tác dụng gì?", "nan",
 				b1.getId(), set17.getId(), ctsc.getId());
 		questionRepo.save(questionb1_297);
 
-		Question questionb1_317 = new Question(16, "Biển nào cấm quay xe?", true, "b1_317.jpg", b1.getId(),
+		Question questionb1_317 = new Question(16, "Biển nào cấm quay xe?", "b1_317.jpg", b1.getId(),
 				set17.getId(), bb.getId());
 		questionRepo.save(questionb1_317);
 
-		Question questionb1_337 = new Question(17, "Gặp biển nào xe lam, xe xích lô máy được phép đi vào?", true,
+		Question questionb1_337 = new Question(17, "Gặp biển nào xe lam, xe xích lô máy được phép đi vào?",
 				"b1_337.jpg", b1.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionb1_337);
 
 		Question questionb1_357 = new Question(18,
-				"Biển nào báo hiệu khoảng cách thực tế từ nơi đặt biển đến nơi cần cự ly tối thiểu giữa hai xe?", true,
+				"Biển nào báo hiệu khoảng cách thực tế từ nơi đặt biển đến nơi cần cự ly tối thiểu giữa hai xe?",
 				"b1_357.jpg", b1.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionb1_357);
 
-		Question questionb1_377 = new Question(19, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?", true,
+		Question questionb1_377 = new Question(19, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?",
 				"b1_377.jpg", b1.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionb1_377);
 
-		Question questionb1_397 = new Question(20, "Biển nào báo hiệu \"Đường đôi\"?", true, "b1_397.jpg", b1.getId(),
+		Question questionb1_397 = new Question(20, "Biển nào báo hiệu \"Đường đôi\"?", "b1_397.jpg", b1.getId(),
 				set17.getId(), bb.getId());
 		questionRepo.save(questionb1_397);
 
 		Question questionb1_417 = new Question(21,
-				"Biển nào báo hiệu gần đến đoạn đường thường có trẻ em đi ngang qua?", true, "b1_417.jpg", b1.getId(),
+				"Biển nào báo hiệu gần đến đoạn đường thường có trẻ em đi ngang qua?", "b1_417.jpg", b1.getId(),
 				set17.getId(), bb.getId());
 		questionRepo.save(questionb1_417);
 
-		Question questionb1_437 = new Question(22, "Biển nào báo hiệu đường đi thẳng phải theo?", true, "b1_437.jpg",
+		Question questionb1_437 = new Question(22, "Biển nào báo hiệu đường đi thẳng phải theo?", "b1_437.jpg",
 				b1.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionb1_437);
 
-		Question questionb1_457 = new Question(23, "Gặp biển báo này người lái xe phải đỗ xe như thế nào?", true,
+		Question questionb1_457 = new Question(23, "Gặp biển báo này người lái xe phải đỗ xe như thế nào?",
 				"b1_457.jpg", b1.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionb1_457);
 
 		Question questionb1_477 = new Question(24,
-				"Vạch mũi tên chỉ hướng trên mặt đường nào dưới đây cho phép xe chỉ được đi thẳng và rẽ phải?", true,
+				"Vạch mũi tên chỉ hướng trên mặt đường nào dưới đây cho phép xe chỉ được đi thẳng và rẽ phải?",
 				"b1_477.jpg", b1.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionb1_477);
 
-		Question questionb1_497 = new Question(25, "Xe nào phải nhường đường là đúng quy tắc gaio thông?", true,
+		Question questionb1_497 = new Question(25, "Xe nào phải nhường đường là đúng quy tắc gaio thông?",
 				"b1_497.jpg", b1.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionb1_497);
 
-		Question questionb1_517 = new Question(26, "Xe nào được quyền đi trước trong trường hợp này?", true,
+		Question questionb1_517 = new Question(26, "Xe nào được quyền đi trước trong trường hợp này?",
 				"b1_517.jpg", b1.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionb1_517);
 
-		Question questionb1_537 = new Question(27, "Những hướng nào ô tô tải được phép đi?", true, "b1_537.jpg",
+		Question questionb1_537 = new Question(27, "Những hướng nào ô tô tải được phép đi?", "b1_537.jpg",
 				b1.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionb1_537);
 
-		Question questionb1_557 = new Question(28, "Người láu xe dừng tại vị trí nào là đúng quy tắc giao thông?", true,
+		Question questionb1_557 = new Question(28, "Người láu xe dừng tại vị trí nào là đúng quy tắc giao thông?",
 				"b1_557.jpg", b1.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionb1_557);
 
 		Question questionb1_577 = new Question(29,
-				"Bạn xử lý như thế nào khi lái xe ô tô vượt qua đoàn người đi xe đạp có tổ chức?", true, "b1_577.jpg",
+				"Bạn xử lý như thế nào khi lái xe ô tô vượt qua đoàn người đi xe đạp có tổ chức?", "b1_577.jpg",
 				b1.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionb1_577);
 
 		Question questionb1_597 = new Question(30,
 				"Trong tình huống dưới đây xe con màu đỏ nhập làn đường cao tốc theo hướng mũi tên là đúng hay sai?",
-				true, "b1_597.jpg", b1.getId(), set17.getId(), sh.getId());
+				"b1_597.jpg", b1.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionb1_597);
 
 		Question questionb1_18 = new Question(1,
 				"Hành vi đưa xe cơ giới, xe máy chuyên dùng không bảo đảm tiêu chuẩn an toàn kỹ thuật và bảo vệ môi trường vào tham gia giao thông đường bộ có bị nghiêm cấm hay không?",
-				true, "", b1.getId(), set18.getId(), kn.getId());
+				"nan", b1.getId(), set18.getId(), kn.getId());
 		questionRepo.save(questionb1_18);
 
 		Question questionb1_38 = new Question(2,
 				"Bạn đang lái xe phía trước có một xe cảnh sát giao thông không phát tín hiệu ưu tiên bạn có được phép vượt hay không?",
-				true, "", b1.getId(), set18.getId(), kn.getId());
+				"nan", b1.getId(), set18.getId(), kn.getId());
 		questionRepo.save(questionb1_38);
 
 		Question questionb1_58 = new Question(3,
 				"Người lái xe chở từ 10 đến 30 chỗ ngồi (hạng D), lái xe hạng C kéo rơ Moóc(FC) phải đủ bao nhiêu tuổi trở lên?",
-				true, "", b1.getId(), set18.getId(), kn.getId());
+				"nan", b1.getId(), set18.getId(), kn.getId());
 		questionRepo.save(questionb1_58);
 
-		Question questionb1_78 = new Question(4, "Xe ô tô tập lái phải đảm bảo các điều kiện gì dưới đây?", true, "",
+		Question questionb1_78 = new Question(4, "Xe ô tô tập lái phải đảm bảo các điều kiện gì dưới đây?", "nan",
 				b1.getId(), set18.getId(), kn.getId());
 		questionRepo.save(questionb1_78);
 
 		Question questionb1_98 = new Question(5,
 				"Tại nơi đường giao nhau không có báo hiệu đi theo vòng xuyến, người điều khiển phương tiện phải nhường đường như thế nào là đúng quy tắc giao thông?",
-				true, "", b1.getId(), set18.getId(), kn.getId());
+				"nan", b1.getId(), set18.getId(), kn.getId());
 		questionRepo.save(questionb1_98);
 
 		Question questionb1_118 = new Question(6,
 				"Khi lái xe trên đường vắng mà cảm thấy buồn ngủ, người lái xe nên chọn cách xử lý như thế nào cho phù hợp?",
-				true, "", b1.getId(), set18.getId(), kn.getId());
+				"nan", b1.getId(), set18.getId(), kn.getId());
 		questionRepo.save(questionb1_118);
 
 		Question questionb1_138 = new Question(7,
 				"Khi tham gia giao thông trên đoạn đường không có biển báo \"cự ly tối thiểu giữa hai xe\", với điều kiện mặt đường khô ráo, xe cơ giới đang chạy với tốc độ từ trên 80km/h đến 100km/h, người lái xe phải duy trì ở khoảng cách an toàn với xe đang chạy phía trước tối thiểu là bao nhêu met?",
-				true, "", b1.getId(), set18.getId(), kn.getId());
+				"nan", b1.getId(), set18.getId(), kn.getId());
 		questionRepo.save(questionb1_138);
 
 		Question questionb1_158 = new Question(8,
 				"Tại nơi đườn giao nhau, khi đèn điều khiển giao thông có tín hiệu màu vàng, người điều khiển phương tiện giao thông phải chấp hành như thế nào là đúng quy tắc giao thông?",
-				true, "", b1.getId(), set18.getId(), kn.getId());
+				"nan", b1.getId(), set18.getId(), kn.getId());
 		questionRepo.save(questionb1_158);
 
 		Question questionb1_178 = new Question(9, "Người kinh doanh vận tải hàng hóa có các nghĩa vụ gì dưới đây?",
-				true, "", b1.getId(), set18.getId(), nvvt.getId());
+				"nan", b1.getId(), set18.getId(), nvvt.getId());
 		questionRepo.save(questionb1_178);
 
 		Question questionb1_198 = new Question(10,
 				"Trên làn đường dành cho ô tô có vũng nước lớn, có nhiều người đi xe mô tô trên làn đường bên cạnh, người lái xe ô tô xử lý như thế nào là có văn hóa giao thông?",
-				true, "", b1.getId(), set18.getId(), vh.getId());
+				"nan", b1.getId(), set18.getId(), vh.getId());
 		questionRepo.save(questionb1_198);
 
 		Question questionb1_218 = new Question(11,
 				"Khi quay đầu xe, người lái xe cần phải quan sát và thực hiện các thao tác nào để đảm bảo an toàn giao thông?",
-				true, "", b1.getId(), set18.getId(), kt.getId());
+				"nan", b1.getId(), set18.getId(), kt.getId());
 		questionRepo.save(questionb1_218);
 
 		Question questionb1_238 = new Question(12,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của xe ô tô?",
-				true, "b1_238.jpg", b1.getId(), set18.getId(), kt.getId());
+				"b1_238.jpg", b1.getId(), set18.getId(), kt.getId());
 		questionRepo.save(questionb1_238);
 
 		Question questionb1_258 = new Question(13,
 				"Người lái xe được dừng xe, đổ xe trên làn dừng khẩn cấp của đường cao tốc trong trường hợp nào dưới đây?",
-				true, "", b1.getId(), set18.getId(), kt.getId());
+				"nan", b1.getId(), set18.getId(), kt.getId());
 		questionRepo.save(questionb1_258);
 
 		Question questionb1_278 = new Question(14,
-				"Trong các nguyên nhân nếu dưới đây, nguyên nhân nào làm động cơ diesel không nổ?", true, "",
+				"Trong các nguyên nhân nếu dưới đây, nguyên nhân nào làm động cơ diesel không nổ?", "nan",
 				b1.getId(), set18.getId(), ctsc.getId());
 		questionRepo.save(questionb1_278);
 
-		Question questionb1_298 = new Question(15, "Máy phát điện được trang bị trên xe ô tô có tác dụng gì?", true, "",
+		Question questionb1_298 = new Question(15, "Máy phát điện được trang bị trên xe ô tô có tác dụng gì?", "nan",
 				b1.getId(), set18.getId(), ctsc.getId());
 		questionRepo.save(questionb1_298);
 
-		Question questionb1_318 = new Question(16, "Biển nào cấm xe rẽ trái?", true, "b1_318.jpg", b1.getId(),
+		Question questionb1_318 = new Question(16, "Biển nào cấm xe rẽ trái?", "b1_318.jpg", b1.getId(),
 				set18.getId(), bb.getId());
 		questionRepo.save(questionb1_318);
 
-		Question questionb1_338 = new Question(17, "Biển báo này có ý nghĩa gì?", true, "b1_338.jpg", b1.getId(),
+		Question questionb1_338 = new Question(17, "Biển báo này có ý nghĩa gì?", "b1_338.jpg", b1.getId(),
 				set18.getId(), bb.getId());
 		questionRepo.save(questionb1_338);
 
-		Question questionb1_358 = new Question(18, "Biển này có ý nghĩa gì?", true, "b1_358.jpg", b1.getId(),
+		Question questionb1_358 = new Question(18, "Biển này có ý nghĩa gì?", "b1_358.jpg", b1.getId(),
 				set18.getId(), bb.getId());
 		questionRepo.save(questionb1_358);
 
 		Question questionb1_378 = new Question(19,
-				"Biển nào báo hiệu đường sắt giao nhau với đường bộ không có rào chắn?", true, "b1_378.jpg", b1.getId(),
+				"Biển nào báo hiệu đường sắt giao nhau với đường bộ không có rào chắn?", "b1_378.jpg", b1.getId(),
 				set18.getId(), bb.getId());
 		questionRepo.save(questionb1_378);
 
-		Question questionb1_398 = new Question(20, "Biển nào báo hiệu \"Kết thúc đường đôi\"?", true, "b1_398.jpg",
+		Question questionb1_398 = new Question(20, "Biển nào báo hiệu \"Kết thúc đường đôi\"?", "b1_398.jpg",
 				b1.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionb1_398);
 
 		Question questionb1_418 = new Question(21,
 				"Gặp biển nào dưới đây người tham gia giao thông cần phải điều chỉnh tốc độ chạy xe cho thích hợp, đề phòng gió thổi mạnh gây lật xe?",
-				true, "b1_418.jpg", b1.getId(), set18.getId(), bb.getId());
+				"b1_418.jpg", b1.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionb1_418);
 
-		Question questionb1_438 = new Question(22, "Biển nào báo hiệu \"Đường một chiều\"?", true, "b1_438.jpg",
+		Question questionb1_438 = new Question(22, "Biển nào báo hiệu \"Đường một chiều\"?", "b1_438.jpg",
 				b1.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionb1_438);
 
 		Question questionb1_458 = new Question(23, "Gặp biển báo này, người tham gia thông phải xử lý như thế nào?",
-				true, "b1_458.jpg", b1.getId(), set18.getId(), bb.getId());
+				"b1_458.jpg", b1.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionb1_458);
 
 		Question questionb1_478 = new Question(24,
-				"Vạch kẻ đường nào dưới đây là vạch phân chia các làn xe cùng chiều?", true, "b1_478.jpg", b1.getId(),
+				"Vạch kẻ đường nào dưới đây là vạch phân chia các làn xe cùng chiều?", "b1_478.jpg", b1.getId(),
 				set18.getId(), bb.getId());
 		questionRepo.save(questionb1_478);
 
-		Question questionb1_498 = new Question(25, "Xe nào được quyền đi trước trong trường hợp này?", true,
+		Question questionb1_498 = new Question(25, "Xe nào được quyền đi trước trong trường hợp này?",
 				"b1_498.jpg", b1.getId(), set18.getId(), sh.getId());
 		questionRepo.save(questionb1_498);
 
-		Question questionb1_518 = new Question(26, "Xe kéo nhau trong trường hợp này đúng quy định không?", true,
+		Question questionb1_518 = new Question(26, "Xe kéo nhau trong trường hợp này đúng quy định không?",
 				"b1_518.jpg", b1.getId(), set18.getId(), sh.getId());
 		questionRepo.save(questionb1_518);
 
 		Question questionb1_538 = new Question(27, "Trong hình dưới đây, xe nào chấp hành đúng quy tắc giao thông?",
-				true, "b1_538.jpg", b1.getId(), set18.getId(), sh.getId());
+				"b1_538.jpg", b1.getId(), set18.getId(), sh.getId());
 		questionRepo.save(questionb1_538);
 
-		Question questionb1_558 = new Question(28, "Bạn được dừng ở vị trí nào trong tình huống này?", true,
+		Question questionb1_558 = new Question(28, "Bạn được dừng ở vị trí nào trong tình huống này?",
 				"b1_558.jpg", b1.getId(), set18.getId(), sh.getId());
 		questionRepo.save(questionb1_558);
 
 		Question questionb1_578 = new Question(29,
 				"Phía trước có một xe đang lùi vào nơi đỗ, xe con phía trước đang chuyển sang làn đường bên trái, bạn xử lý như thế nào trong trường hợp này?",
-				true, "b1_578.jpg", b1.getId(), set18.getId(), sh.getId());
+				"b1_578.jpg", b1.getId(), set18.getId(), sh.getId());
 		questionRepo.save(questionb1_578);
 
 		Question questionb1_598 = new Question(30,
 				"Trong tình huống dưới đây, xe con màu đỏ có được phép vượt khi xe con màu xanh đang vượt xe tải hay không?",
-				true, "b1_598.jpg", b1.getId(), set18.getId(), sh.getId());
+				"b1_598.jpg", b1.getId(), set18.getId(), sh.getId());
 		questionRepo.save(questionb1_598);
 
-		Question questionb1_19 = new Question(1, "Cuộc đua xe chỉ được thực hiện khi nào?", true, "", b1.getId(),
+		Question questionb1_19 = new Question(1, "Cuộc đua xe chỉ được thực hiện khi nào?", "nan", b1.getId(),
 				set19.getId(), kn.getId());
 		questionRepo.save(questionb1_19);
 
 		Question questionb1_39 = new Question(2,
 				"Bạn đnag lái xe phía trước có một xe cứu thương đang phát tín hiệu ưu tiên có được phép vượt hay không?",
-				true, "", b1.getId(), set19.getId(), kn.getId());
+				"nan", b1.getId(), set19.getId(), kn.getId());
 		questionRepo.save(questionb1_39);
 
-		Question questionb1_59 = new Question(3, "Người đủ 16 tuổi được điều khiển các loại xe nào dưới Đây?", true, "",
+		Question questionb1_59 = new Question(3, "Người đủ 16 tuổi được điều khiển các loại xe nào dưới Đây?", "nan",
 				b1.getId(), set19.getId(), kn.getId());
 		questionRepo.save(questionb1_59);
 
 		Question questionb1_79 = new Question(4,
-				"Việc sát hạch cấp giấy phép lái xe ô tô phải thực hiện ở đâu và như thế nào?", true, "", b1.getId(),
+				"Việc sát hạch cấp giấy phép lái xe ô tô phải thực hiện ở đâu và như thế nào?", "nan", b1.getId(),
 				set19.getId(), kn.getId());
 		questionRepo.save(questionb1_79);
 
 		Question questionb1_99 = new Question(5,
 				"Trên đoạn đường bộ giao nhau cùng mức với đường sắt, cầu đường bộ đi chung với đường sắt thì loại phương tiện nào được quyền ưu tiên đi trước?",
-				true, "", b1.getId(), set19.getId(), kn.getId());
+				"nan", b1.getId(), set19.getId(), kn.getId());
 		questionRepo.save(questionb1_99);
 
 		Question questionb1_119 = new Question(6,
-				"Trên đường cao tốc, người lái xe xử lý như thế nào khi đã vượt quá lối ra của đường định rẽ?", true,
+				"Trên đường cao tốc, người lái xe xử lý như thế nào khi đã vượt quá lối ra của đường định rẽ?",
 				"", b1.getId(), set19.getId(), kn.getId());
 		questionRepo.save(questionb1_119);
 
 		Question questionb1_139 = new Question(7,
 				"Khi tham gia giao thông trên đoạn đường không có biển báo \"cự ly tối thiểu giữa hai xe\", với điều kiện mặt đường khô ráo, xe cơ giới đang chạy với tốc độ từ trên 100km/h đến 120km/h, người lái xe phải duy trì ở khoảng cách an toàn với xe đang chạy phía trước tối thiểu là bao nhêu met?",
-				true, "", b1.getId(), set19.getId(), kn.getId());
+				"nan", b1.getId(), set19.getId(), kn.getId());
 		questionRepo.save(questionb1_139);
 
 		Question questionb1_159 = new Question(8,
 				"Để báo hiệu cho xe phía trước biết x emo tô của bạn muốn vượt, bạn phải có tín hiệu nào dưới đây?",
-				true, "", b1.getId(), set19.getId(), kn.getId());
+				"nan", b1.getId(), set19.getId(), kn.getId());
 		questionRepo.save(questionb1_159);
 
-		Question questionb1_179 = new Question(9, "Ngườ thuê vận tải hàng hóa có các quyền hạn gì dưới đây?", true, "",
+		Question questionb1_179 = new Question(9, "Ngườ thuê vận tải hàng hóa có các quyền hạn gì dưới đây?", "nan",
 				b1.getId(), set19.getId(), nvvt.getId());
 		questionRepo.save(questionb1_179);
 
 		Question questionb1_199 = new Question(10,
 				"Người lái xe cô tình không phân biệt làn đường, vạch phân làn đường, phòng nhanh, vượt ẩu, vượt đèn đỏ, đi vào đường cấm, đường một chiều được coi là hnahf vi nào trong danh sách các hành vi dưới đây?",
-				true, "", b1.getId(), set19.getId(), vh.getId());
+				"nan", b1.getId(), set19.getId(), vh.getId());
 		questionRepo.save(questionb1_199);
 
 		Question questionb1_219 = new Question(11,
 				"Khi tránh nhau trên đường hẹp, người lái xe cần phải chú ý những điểm nào để đảm bảo an toàn giao thông?",
-				true, "", b1.getId(), set19.getId(), kt.getId());
+				"nan", b1.getId(), set19.getId(), kt.getId());
 		questionRepo.save(questionb1_219);
 
 		Question questionb1_239 = new Question(12,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của xe ô tô?",
-				true, "b1_239.jpg", b1.getId(), set19.getId(), kt.getId());
+				"b1_239.jpg", b1.getId(), set19.getId(), kt.getId());
 		questionRepo.save(questionb1_239);
 
 		Question questionb1_259 = new Question(13,
 				"Trong trường hợp bất khả kháng, khi dừng xe, đổ xe trên làn dừng khẩn cấp của đường cao tốc người lái xe phải xử lý như thế nào là đúng quy tắc giao thông?",
-				true, "", b1.getId(), set19.getId(), kt.getId());
+				"nan", b1.getId(), set19.getId(), kt.getId());
 		questionRepo.save(questionb1_259);
 
 		Question questionb1_279 = new Question(14,
-				"Gạt nước lắp trên ô tô đảm bảo yêu cầu an toàn kỹ thuật nào dưới đây?", true, "", b1.getId(),
+				"Gạt nước lắp trên ô tô đảm bảo yêu cầu an toàn kỹ thuật nào dưới đây?", "nan", b1.getId(),
 				set19.getId(), ctsc.getId());
 		questionRepo.save(questionb1_279);
 
-		Question questionb1_299 = new Question(15, "Dây đai an toàn được trang bị trên xe ô tô có tác dụng gì?", true,
+		Question questionb1_299 = new Question(15, "Dây đai an toàn được trang bị trên xe ô tô có tác dụng gì?",
 				"", b1.getId(), set19.getId(), ctsc.getId());
 		questionRepo.save(questionb1_299);
 
-		Question questionb1_319 = new Question(16, "Khi gặp biển nào xe được rẽ trái?", true, "b1_319.jpg", b1.getId(),
+		Question questionb1_319 = new Question(16, "Khi gặp biển nào xe được rẽ trái?", "b1_319.jpg", b1.getId(),
 				set19.getId(), bb.getId());
 		questionRepo.save(questionb1_319);
 
-		Question questionb1_339 = new Question(17, "Biển báo này có ý nghĩa như thế nào?", true, "b1_339.jpg",
+		Question questionb1_339 = new Question(17, "Biển báo này có ý nghĩa như thế nào?", "b1_339.jpg",
 				b1.getId(), set19.getId(), bb.getId());
 		questionRepo.save(questionb1_339);
 
-		Question questionb1_359 = new Question(18, "Theo hướng bên phải có được phép đỗ xe, dừng xe không?", true,
+		Question questionb1_359 = new Question(18, "Theo hướng bên phải có được phép đỗ xe, dừng xe không?",
 				"b1_359.jpg", b1.getId(), set19.getId(), bb.getId());
 		questionRepo.save(questionb1_359);
 
 		Question questionb1_379 = new Question(19,
-				"Biển nào báo hiệu sắp đến chỗ giao nhau giữa đường bộ và đường sắt?", true, "b1_379.jpg", b1.getId(),
+				"Biển nào báo hiệu sắp đến chỗ giao nhau giữa đường bộ và đường sắt?", "b1_379.jpg", b1.getId(),
 				set19.getId(), bb.getId());
 		questionRepo.save(questionb1_379);
 
-		Question questionb1_399 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", true,
+		Question questionb1_399 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?",
 				"b1_399.jpg", b1.getId(), set19.getId(), bb.getId());
 		questionRepo.save(questionb1_399);
 
-		Question questionb1_419 = new Question(21, "Biển nào sau đây là biển \"Dốc xuống nguy hiểm\"? ", true,
+		Question questionb1_419 = new Question(21, "Biển nào sau đây là biển \"Dốc xuống nguy hiểm\"?",
 				"b1_419.jpg", b1.getId(), set19.getId(), bb.getId());
 		questionRepo.save(questionb1_419);
 
 		Question questionb1_439 = new Question(22,
-				"Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối đa cho phép\"?", true, "b1_439.jpg",
+				"Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối đa cho phép\"?", "b1_439.jpg",
 				b1.getId(), set19.getId(), bb.getId());
 		questionRepo.save(questionb1_439);
 
 		Question questionb1_459 = new Question(23,
 				"Gặp biển báo này người lái xe có bắt buộc phải chạy vòng theo đảo an toàn theo hướng mũi tên khi muốn chuyển hướng hay không?",
-				true, "b1_459.jpg", b1.getId(), set19.getId(), bb.getId());
+				"b1_459.jpg", b1.getId(), set19.getId(), bb.getId());
 		questionRepo.save(questionb1_459);
 
 		Question questionb1_479 = new Question(24,
 				"Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy ( vạch tim đường), xe không được lấn làn, không được đè lên vạch?",
-				true, "b1_479.jpg", b1.getId(), set19.getId(), bb.getId());
+				"b1_479.jpg", b1.getId(), set19.getId(), bb.getId());
 		questionRepo.save(questionb1_479);
 
-		Question questionb1_499 = new Question(25, "Theo tín hiệu đèn, xe nào được phép đi?", true, "b1_499.jpg",
+		Question questionb1_499 = new Question(25, "Theo tín hiệu đèn, xe nào được phép đi?", "b1_499.jpg",
 				b1.getId(), set19.getId(), sh.getId());
 		questionRepo.save(questionb1_499);
 
 		Question questionb1_519 = new Question(26, "Theo hướng mũi tên, những hướng đi nào ô tô con được phép đi?",
-				true, "b1_519.jpg", b1.getId(), set19.getId(), sh.getId());
+				"b1_519.jpg", b1.getId(), set19.getId(), sh.getId());
 		questionRepo.save(questionb1_519);
 
-		Question questionb1_539 = new Question(27, "Theo hướng mũi tên, những hướng nào xe mô tô được phép đi?", true,
+		Question questionb1_539 = new Question(27, "Theo hướng mũi tên, những hướng nào xe mô tô được phép đi?",
 				"b1_539.jpg", b1.getId(), set19.getId(), sh.getId());
 		questionRepo.save(questionb1_539);
 
 		Question questionb1_559 = new Question(28,
-				"Theo tín hiệu đèn của xe cơ giới, xe nào vi phạm quy tắc giao thông?", true, "b1_559.jpg", b1.getId(),
+				"Theo tín hiệu đèn của xe cơ giới, xe nào vi phạm quy tắc giao thông?", "b1_559.jpg", b1.getId(),
 				set19.getId(), sh.getId());
 		questionRepo.save(questionb1_559);
 
 		Question questionb1_579 = new Question(29, "Bạn xử lý như thế nào khi xe phía trước đang lùi ra khỏi nới đó?",
-				true, "b1_579.jpg", b1.getId(), set19.getId(), sh.getId());
+				"b1_579.jpg", b1.getId(), set19.getId(), sh.getId());
 		questionRepo.save(questionb1_579);
 
 		Question questionb1_599 = new Question(30,
 				"Trong tình huống dưới đây, xe con màu vàng vượt xe con màu đỏ là đúng quy tắc giao thông hay không?",
-				true, "b1_599.jpg", b1.getId(), set19.getId(), sh.getId());
+				"b1_599.jpg", b1.getId(), set19.getId(), sh.getId());
 		questionRepo.save(questionb1_599);
 
 		Question questionb1_20 = new Question(1,
 				"Người điều khiển phương tiện giao thông đường bộ mà trong cơ thể có chất ma túy có bị nghiêm cấm hay không?",
-				true, "", b1.getId(), set20.getId(), kn.getId());
+				"nan", b1.getId(), set20.getId(), kn.getId());
 		questionRepo.save(questionb1_20);
 
 		Question questionb1_40 = new Question(2,
-				"Người lái xe không được quay đầu xe trong các trường hợp nào dưới đây?", true, "", b1.getId(),
+				"Người lái xe không được quay đầu xe trong các trường hợp nào dưới đây?", "nan", b1.getId(),
 				set20.getId(), kn.getId());
 		questionRepo.save(questionb1_40);
 
 		Question questionb1_60 = new Question(3,
-				"Người có giấy phép lái xe mô tô hạng A1 không được phép điều khiển loại xe nào dưới đây?", true, "",
+				"Người có giấy phép lái xe mô tô hạng A1 không được phép điều khiển loại xe nào dưới đây?", "nan",
 				b1.getId(), set20.getId(), kn.getId());
 		questionRepo.save(questionb1_60);
 
 		Question questionb1_80 = new Question(4,
-				"Khi điều khiển xe chạy trên đường, người lái xe phải mang theo các loại giấy từ gì?", true, "",
+				"Khi điều khiển xe chạy trên đường, người lái xe phải mang theo các loại giấy từ gì?", "nan",
 				b1.getId(), set20.getId(), kn.getId());
 		questionRepo.save(questionb1_80);
 
 		Question questionb1_100 = new Question(5,
 				"Tại nơi đường bộ giao nhau cùng mức với đường sắt chỉ có đèn tín hiệu hoặc chuông báo hiệu, khi đèn tín hiệu màu đỏ đã bất sáng hoặc có tiếng chuông báo hiệu, người tham gia giao thông phải dừng ngay và giữ khoảng cách tối thiểu bao nhiêu mát tính từ ray gần nhất?",
-				true, "", b1.getId(), set20.getId(), kn.getId());
+				"nan", b1.getId(), set20.getId(), kn.getId());
 		questionRepo.save(questionb1_100);
 
 		Question questionb1_120 = new Question(6,
-				"Người lái xe mô tô xử lý như thế nòa khi cho xe mô tô phía sau vượt?", true, "", b1.getId(),
+				"Người lái xe mô tô xử lý như thế nòa khi cho xe mô tô phía sau vượt?", "nan", b1.getId(),
 				set20.getId(), kn.getId());
 		questionRepo.save(questionb1_120);
 
 		Question questionb1_140 = new Question(7,
 				"Khi điêu khiển xe chạy với tốc độ 60km/h người lái xe phải chủ động điều khiển xe như thế nào để đảo bảo an toàn giao thông?",
-				true, "", b1.getId(), set20.getId(), kn.getId());
+				"nan", b1.getId(), set20.getId(), kn.getId());
 		questionRepo.save(questionb1_140);
 
 		Question questionb1_160 = new Question(8,
 				"Khi tham gia giao thông trên đường coa tốc, người điều khiển phương tiện cơ giới có đường dừng, đỗ xe trên phần đường xe chạy hay không?",
-				true, "", b1.getId(), set20.getId(), kn.getId());
+				"nan", b1.getId(), set20.getId(), kn.getId());
 		questionRepo.save(questionb1_160);
 
-		Question questionb1_180 = new Question(9, "Người thuê vận tải hàng hóa có các nghĩa vụ gì dưới đây?", true, "",
+		Question questionb1_180 = new Question(9, "Người thuê vận tải hàng hóa có các nghĩa vụ gì dưới đây?", "nan",
 				b1.getId(), set20.getId(), nvvt.getId());
 		questionRepo.save(questionb1_180);
 
 		Question questionb1_200 = new Question(10,
 				"Khi sơ cưới người tai nạn giao thông đường bộ, có vết thương chảy máu ngoài, màu đỏ tươi phun thành tia và phun mạnh khi mạch đập bạn phải làm gì?",
-				true, "", b1.getId(), set20.getId(), vh.getId());
+				"nan", b1.getId(), set20.getId(), vh.getId());
 		questionRepo.save(questionb1_200);
 
 		Question questionb1_220 = new Question(11,
-				"Khi điều khiển ô tô lên dốc cao, người lái xe cần thực hiện các thao tác nào?", true, "", b1.getId(),
+				"Khi điều khiển ô tô lên dốc cao, người lái xe cần thực hiện các thao tác nào?", "nan", b1.getId(),
 				set20.getId(), kt.getId());
 		questionRepo.save(questionb1_220);
 
 		Question questionb1_240 = new Question(12,
-				"Trong các loại nhiên liệu dưới đây, loại nhiên liệu nào giảm thiểu ô nhiễm môi trường?", true, "",
+				"Trong các loại nhiên liệu dưới đây, loại nhiên liệu nào giảm thiểu ô nhiễm môi trường?", "nan",
 				b1.getId(), set20.getId(), kt.getId());
 		questionRepo.save(questionb1_240);
 
 		Question questionb1_260 = new Question(13,
 				"Khi điều khiển ô tô xuống đường dốc dài, độ dốc cao, người lái xe số tự động cần thực hiện các thao tác nào dưới đây để đảm bảo an toàn?",
-				true, "", b1.getId(), set20.getId(), kt.getId());
+				"nan", b1.getId(), set20.getId(), kt.getId());
 		questionRepo.save(questionb1_260);
 
 		Question questionb1_280 = new Question(14,
-				"Dây đai an toàn lắp trên ô tô phải đảm bảo yêu cầu an toàn kỹ thuật nào dưới đây?", true, "",
+				"Dây đai an toàn lắp trên ô tô phải đảm bảo yêu cầu an toàn kỹ thuật nào dưới đây?", "nan",
 				b1.getId(), set20.getId(), ctsc.getId());
 		questionRepo.save(questionb1_280);
 
-		Question questionb1_300 = new Question(15, "Túi khí được trang bị trên xe ô tô có tác dụng gì?", true, "",
+		Question questionb1_300 = new Question(15, "Túi khí được trang bị trên xe ô tô có tác dụng gì?", "nan",
 				b1.getId(), set20.getId(), ctsc.getId());
 		questionRepo.save(questionb1_300);
 
-		Question questionb1_320 = new Question(16, "Biển nào cấm ô tô rẽ trái?", true, "b1_320.jpg", b1.getId(),
+		Question questionb1_320 = new Question(16, "Biển nào cấm ô tô rẽ trái?", "b1_320.jpg", b1.getId(),
 				set20.getId(), bb.getId());
 		questionRepo.save(questionb1_320);
 
 		Question questionb1_340 = new Question(17,
 				"Khi gặp các biển này xe ưu tiên theo luật định (có tải trọng hay chiều cao toàn bộ vượt quá chỉ số ghi trên biển) có được phép đi qua hay không?",
-				true, "b1_340.jpg", b1.getId(), set20.getId(), bb.getId());
+				"b1_340.jpg", b1.getId(), set20.getId(), bb.getId());
 		questionRepo.save(questionb1_340);
 
 		Question questionb1_360 = new Question(18,
 				"Gặp biển này, xe ô tô sơ mi rơ mooc có chiều dài toàn bộ kể cả xe, mooc và hàng lớn hơn trị sô ghi trên biển có được phép đi vào không?",
-				true, "b1_360.jpg", b1.getId(), set20.getId(), bb.getId());
+				"b1_360.jpg", b1.getId(), set20.getId(), bb.getId());
 		questionRepo.save(questionb1_360);
 
-		Question questionb1_380 = new Question(19, "Biến nào báo hiệu \"Cửa chui\"?", true, "b1_380.jpg", b1.getId(),
+		Question questionb1_380 = new Question(19, "Biến nào báo hiệu \"Cửa chui\"?", "b1_380.jpg", b1.getId(),
 				set20.getId(), bb.getId());
 		questionRepo.save(questionb1_380);
 
-		Question questionb1_400 = new Question(20, "Biển nào báo hiệu \"Đường hai chiều\"?", true, "b1_400.jpg",
+		Question questionb1_400 = new Question(20, "Biển nào báo hiệu \"Đường hai chiều\"?", "b1_400.jpg",
 				b1.getId(), set20.getId(), bb.getId());
 		questionRepo.save(questionb1_400);
 
-		Question questionb1_420 = new Question(21, "Biển nào sau đây là biển \"Dốc lên nguy hiểm\"?", true,
+		Question questionb1_420 = new Question(21, "Biển nào sau đây là biển \"Dốc lên nguy hiểm\"?",
 				"b1_420.jpg", b1.getId(), set20.getId(), bb.getId());
 		questionRepo.save(questionb1_420);
 
 		Question questionb1_440 = new Question(22,
-				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?", true,
+				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?",
 				"b1_440.jpg", b1.getId(), set20.getId(), bb.getId());
 		questionRepo.save(questionb1_440);
 
 		Question questionb1_460 = new Question(23,
-				"Biển nào chỉ dẫn địa giới hành chính giữa các thành phố, tỉnh, huyện?", true, "b1_460.jpg", b1.getId(),
+				"Biển nào chỉ dẫn địa giới hành chính giữa các thành phố, tỉnh, huyện?", "b1_460.jpg", b1.getId(),
 				set20.getId(), bb.getId());
 		questionRepo.save(questionb1_460);
 
 		Question questionb1_480 = new Question(24,
-				"Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy ( vạch tim đường)?", true, "b1_480.jpg",
+				"Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy ( vạch tim đường)?", "b1_480.jpg",
 				b1.getId(), set20.getId(), bb.getId());
 		questionRepo.save(questionb1_480);
 
 		Question questionb1_500 = new Question(25,
-				"Theo tín hiệu đèn, xe nào được quyền đi là đúng quy tắc giao thông?", true, "b1_500.jpg", b1.getId(),
+				"Theo tín hiệu đèn, xe nào được quyền đi là đúng quy tắc giao thông?", "b1_500.jpg", b1.getId(),
 				set20.getId(), sh.getId());
 		questionRepo.save(questionb1_500);
 
-		Question questionb1_520 = new Question(26, "Thứ tự các xe đu như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb1_520 = new Question(26, "Thứ tự các xe đu như thế nào là đúng quy tắc giao thông?",
 				"b1_520.jpg", b1.getId(), set20.getId(), sh.getId());
 		questionRepo.save(questionb1_520);
 
 		Question questionb1_540 = new Question(27,
-				"Trong trường hợp này, thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true, "b1_540.jpg",
+				"Trong trường hợp này, thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", "b1_540.jpg",
 				b1.getId(), set20.getId(), sh.getId());
 		questionRepo.save(questionb1_540);
 
 		Question questionb1_560 = new Question(28, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
-				true, "b1_560.jpg", b1.getId(), set20.getId(), sh.getId());
+				"b1_560.jpg", b1.getId(), set20.getId(), sh.getId());
 		questionRepo.save(questionb1_560);
 
 		Question questionb1_580 = new Question(29,
 				"Phía trước có một xe màu xanh đang vượt xe màu vàng trên làn đường của bạn, bạn xử lý như thế nào trong trường hợp này?",
-				true, "b1_580.jpg", b1.getId(), set20.getId(), sh.getId());
+				"b1_580.jpg", b1.getId(), set20.getId(), sh.getId());
 		questionRepo.save(questionb1_580);
 
 		Question questionb1_600 = new Question(30,
 				"Trong tình huống dưới đây, xe đầu kéo rơ móoc (xe container) đang rẽ phải, xe con màu xanh đi như thế nào để đảm bảo an toàn?",
-				true, "b1_600.jpg", b1.getId(), set20.getId(), sh.getId());
+				"b1_600.jpg", b1.getId(), set20.getId(), sh.getId());
 		questionRepo.save(questionb1_600);
 	}
 
@@ -6785,2711 +6785,2711 @@ public class DataSeeding implements CommandLineRunner {
 		QuestionSet set17 = questionSetRepo.findByName("Đề 17 - B2");
 
 		Question questionb2_1 = new Question(1,
-				"Phần của đường bộ đươc sử dụng cho các phương tiện giao thông qua lại là gì?", true, "", b2.getId(),
+				"Phần của đường bộ đươc sử dụng cho các phương tiện giao thông qua lại là gì?", "nan", b2.getId(),
 				set1.getId(), kn.getId());
 		questionRepo.save(questionb2_1);
 
 		Question questionb2_18 = new Question(2,
 				"Hành vi đưa xe cơ giới, xe máy chuyên dùng không bảo đảm tiêu chuẩn an toàn kỹ thuật và bảo vệ môi trường vào tham gia giao thông đường bộ có bị nghiêm cấm hay không?",
-				true, "", b2.getId(), set1.getId(), kn.getId());
+				"nan", b2.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb2_18);
 
 		Question questionb2_35 = new Question(3,
 				"Việc sản xuất, mau bán, sử dụng biển số xe cơ giới, xe máy chuyên dùng được quy định như thế nào trong Luật Giao thông đường bộ?",
-				true, "", b2.getId(), set1.getId(), kn.getId());
+				"nan", b2.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb2_35);
 
 		Question questionb2_52 = new Question(4,
 				"Hành vi sử dụng xe mô tô để kéo, đẩy xe mô tô khác bị hết xăng đến trạm mua xăng có được phép hay không?",
-				true, "", b2.getId(), set1.getId(), kn.getId());
+				"nan", b2.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb2_52);
 
 		Question questionb2_69 = new Question(5,
-				"Người có giấy pháp lái xe hạng E được điều khiển loại xe nào dưới đây?", true, "", b2.getId(),
+				"Người có giấy pháp lái xe hạng E được điều khiển loại xe nào dưới đây?", "nan", b2.getId(),
 				set1.getId(), kn.getId());
 		questionRepo.save(questionb2_69);
 
 		Question questionb2_86 = new Question(6,
 				"Trên đường có nhiều làn đường cho xe đi cùng chiều được phân biệt bằng vạch kẻ phân làn đường, người điều khiển phương tiện phải cho xe đi như thế nào?",
-				true, "", b2.getId(), set1.getId(), kn.getId());
+				"nan", b2.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb2_86);
 
 		Question questionb2_103 = new Question(7,
 				"Những trường hợp nào ghi ở dưới đây không được đi vào đường cao tốc trừ người, phương tiện, thiết bị phục vụ cho việc quản lý, bảo trì đường cao tốc?",
-				true, "", b2.getId(), set1.getId(), kn.getId());
+				"nan", b2.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb2_103);
 
 		Question questionb2_120 = new Question(8,
-				"Người lái xe mô tô xử lý như thế nòa khi cho xe mô tô phía sau vượt?", true, "", b2.getId(),
+				"Người lái xe mô tô xử lý như thế nòa khi cho xe mô tô phía sau vượt?", "nan", b2.getId(),
 				set1.getId(), kn.getId());
 		questionRepo.save(questionb2_120);
 
 		Question questionb2_137 = new Question(9,
 				"Khi tham gia giao thông trên đoạn đường không có biển báo \"cự ly tối thiểu giữa hai xe\", với điều kiện mặt đường khô ráo, xe cơ giới đang chạy với tốc độ từ trên 60km/h đến 80km/h, người lái xe phải duy trì ở khoảng cách an toàn với xe đang chạy phía trước tối thiểu là bao nhêu met?",
-				true, "", b2.getId(), set1.getId(), kn.getId());
+				"nan", b2.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb2_137);
 
 		Question questionb2_154 = new Question(10,
 				"Người điều khiển phương tiện giao thông tham gia giao thông đường bộ phải giảm tốc độ để có thể dừng lại một cách an toàn trong các trường hợp nào dưới đây?",
-				true, "", b2.getId(), set1.getId(), kn.getId());
+				"nan", b2.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb2_154);
 
 		Question questionb2_171 = new Question(11,
 				"Thời gain làm việc trong một ngày của người lái xe ô tô không vượt quá bao nhiêu giờ trong trường hợp nào dưới đây?",
-				true, "", b2.getId(), set1.getId(), nvvt.getId());
+				"nan", b2.getId(), set1.getId(), nvvt.getId());
 		questionRepo.save(questionb2_171);
 
-		Question questionb2_188 = new Question(12, "Những ký hiệu hàng hóa dưới đây kí hiệu nào chống mưa?", true,
+		Question questionb2_188 = new Question(12, "Những ký hiệu hàng hóa dưới đây kí hiệu nào chống mưa?",
 				"b2_188.jpg", b2.getId(), set1.getId(), nvvt.getId());
 		questionRepo.save(questionb2_188);
 
 		Question questionb2_205 = new Question(13,
 				"Người có văn hóa giao thông khi điều khiển xe cơ giới tham gia giao thông đường bộ phải đảm bảo các điều kiện gì?",
-				true, "", b2.getId(), set1.getId(), vh.getId());
+				"nan", b2.getId(), set1.getId(), vh.getId());
 		questionRepo.save(questionb2_205);
 
 		Question questionb2_222 = new Question(14,
-				"Khi xuống dốc, muốn dừng xe, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?", true,
+				"Khi xuống dốc, muốn dừng xe, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?",
 				"", b2.getId(), set1.getId(), kt.getId());
 		questionRepo.save(questionb2_222);
 
 		Question questionb2_239 = new Question(15,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của xe ô tô?",
-				true, "b2_239.jpg", b2.getId(), set1.getId(), kt.getId());
+				"b2_239.jpg", b2.getId(), set1.getId(), kt.getId());
 		questionRepo.save(questionb2_239);
 
 		Question questionb2_256 = new Question(16,
 				"Khi điều khiển xe ô tô nhập vào đường cao tốc người lái xe cần thực hiện như thế nào để bảo đảm an toàn giao thông?",
-				true, "", b2.getId(), set1.getId(), kt.getId());
+				"nan", b2.getId(), set1.getId(), kt.getId());
 		questionRepo.save(questionb2_256);
 
 		Question questionb2_273 = new Question(17,
-				"Xe ô tô tham gia giao thông trên đường bộ phải có đủ các loại đèn gì?", true, "", b2.getId(),
+				"Xe ô tô tham gia giao thông trên đường bộ phải có đủ các loại đèn gì?", "nan", b2.getId(),
 				set1.getId(), ctsc.getId());
 		questionRepo.save(questionb2_273);
 
-		Question questionb2_290 = new Question(18, "Hãy nêu công dụng hệ thống phanh ô tô?", true, "", b2.getId(),
+		Question questionb2_290 = new Question(18, "Hãy nêu công dụng hệ thống phanh ô tô?", "nan", b2.getId(),
 				set1.getId(), ctsc.getId());
 		questionRepo.save(questionb2_290);
 
-		Question questionb2_307 = new Question(19, "Biển nào cấm xe máy kéo?", true, "b2_307.jpg", b2.getId(),
+		Question questionb2_307 = new Question(19, "Biển nào cấm xe máy kéo?", "b2_307.jpg", b2.getId(),
 				set1.getId(), bb.getId());
 		questionRepo.save(questionb2_307);
 
-		Question questionb2_324 = new Question(20, "Biển nào cấm ô tô rẽ phải và quay đầu xe?", true, "b2_324.jpg",
+		Question questionb2_324 = new Question(20, "Biển nào cấm ô tô rẽ phải và quay đầu xe?", "b2_324.jpg",
 				b2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb2_324);
 
-		Question questionb2_341 = new Question(21, "Biển nào hạn chế chiều cao của xe và hàng?", true, "b2_341.jpg",
+		Question questionb2_341 = new Question(21, "Biển nào hạn chế chiều cao của xe và hàng?", "b2_341.jpg",
 				b2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb2_341);
 
-		Question questionb2_358 = new Question(22, "Theo hướng bên phải có được phép đỗ xe, dừng xe không?", true,
+		Question questionb2_358 = new Question(22, "Theo hướng bên phải có được phép đỗ xe, dừng xe không?",
 				"b2_358.jpg", b2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb2_358);
 
-		Question questionb2_375 = new Question(23, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?", true,
+		Question questionb2_375 = new Question(23, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?",
 				"b2_375.jpg", b2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb2_375);
 
 		Question questionb2_392 = new Question(24,
-				"Biển nào báo hiệu phải giảm tốc độ, nhường đường cho xe cơ giới đi ngược chiều qua đường hẹp?", true,
+				"Biển nào báo hiệu phải giảm tốc độ, nhường đường cho xe cơ giới đi ngược chiều qua đường hẹp?",
 				"b2_392.jpg", b2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb2_392);
 
-		Question questionb2_409 = new Question(25, "Biển nào sau đây là biển \"Lề đường nguy hiểm\"?", true,
+		Question questionb2_409 = new Question(25, "Biển nào sau đây là biển \"Lề đường nguy hiểm\"?",
 				"b2_409.jpg", b2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb2_409);
 
-		Question questionb2_426 = new Question(26, "Gặp biển báo này người lái xe phải xử lý thế nào?", true,
+		Question questionb2_426 = new Question(26, "Gặp biển báo này người lái xe phải xử lý thế nào?",
 				"b2_426.jpg", b2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb2_426);
 
 		Question questionb2_443 = new Question(27,
 				"Khi đến chổ giao nhau, gặp biển nào thì người lái xe không được cho xe đi thẳng, phải rẽ sang hướng khác?",
-				true, "b2_443.jpg", b2.getId(), set1.getId(), bb.getId());
+				"b2_443.jpg", b2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb2_443);
 
-		Question questionb2_460 = new Question(28, "Biển nào báo hiệu \"Tuyến đường cầu vượt cắt ngang qua\"?", true,
+		Question questionb2_460 = new Question(28, "Biển nào báo hiệu \"Tuyến đường cầu vượt cắt ngang qua\"?",
 				"b2_460.jpg", b2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb2_460);
 
 		Question questionb2_477 = new Question(29,
-				"Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy ( vạch tim đường)?", true, "b2_477.jpg",
+				"Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy ( vạch tim đường)?", "b2_477.jpg",
 				b2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb2_477);
 
-		Question questionb2_494 = new Question(30, "Xe nào phải nhường đường là đúng quy tắc gaio thông?", true,
+		Question questionb2_494 = new Question(30, "Xe nào phải nhường đường là đúng quy tắc gaio thông?",
 				"b2_494.jpg", b2.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb2_494);
 
 		Question questionb2_511 = new Question(31,
 				"Theo hướng mũi tên, gặp biển hướng đi phải theo đặt trước ngã tư, những hướng nào xe được phép đi?",
-				true, "b2_511.jpg", b2.getId(), set1.getId(), sh.getId());
+				"b2_511.jpg", b2.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb2_511);
 
-		Question questionb2_528 = new Question(32, "Đi theo hướng mũi tên xe nào vi phạm quy tắc giao thông?", true,
+		Question questionb2_528 = new Question(32, "Đi theo hướng mũi tên xe nào vi phạm quy tắc giao thông?",
 				"b2_528.jpg", b2.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb2_528);
 
-		Question questionb2_545 = new Question(33, "Xe nào đi trước là đúng quy tắc giao thông?", true, "b2_545.jpg",
+		Question questionb2_545 = new Question(33, "Xe nào đi trước là đúng quy tắc giao thông?", "b2_545.jpg",
 				b2.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb2_545);
 
-		Question questionb2_562 = new Question(34, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?", true,
+		Question questionb2_562 = new Question(34, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?",
 				"b2_562.jpg", b2.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb2_562);
 
-		Question questionb2_579 = new Question(35, "Các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb2_579 = new Question(35, "Các xe đi như thế nào là đúng quy tắc giao thông?",
 				"b2_579.jpg", b2.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb2_579);
 
-		Question questionb2_2 = new Question(1, "\"Làn đường\" là gì?", true, "", b2.getId(), set2.getId(), kn.getId());
+		Question questionb2_2 = new Question(1, "\"Làn đường\" là gì?", "nan", b2.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb2_2);
 
-		Question questionb2_19 = new Question(2, "Cuộc đua xe chỉ được thực hiện khi nào?", true, "", b2.getId(),
+		Question questionb2_19 = new Question(2, "Cuộc đua xe chỉ được thực hiện khi nào?", "nan", b2.getId(),
 				set2.getId(), kn.getId());
 		questionRepo.save(questionb2_19);
 
 		Question questionb2_36 = new Question(3,
-				"Người lái xe không được vượt xe khác khi gặp trường hợp nào ghi ở dưới đây?", true, "", b2.getId(),
+				"Người lái xe không được vượt xe khác khi gặp trường hợp nào ghi ở dưới đây?", "nan", b2.getId(),
 				set2.getId(), kn.getId());
 		questionRepo.save(questionb2_36);
 
 		Question questionb2_53 = new Question(4,
 				"Hành vi vận chuyển đồ vật cồng kềnh bằng xe mô tô, xe gắn máy khi tham gia giao thông có được phép hay không?",
-				true, "", b2.getId(), set2.getId(), kn.getId());
+				"nan", b2.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb2_53);
 
 		Question questionb2_70 = new Question(5,
-				"Người có giấy phép lái xe hạng FC được điều khiển loại xe nào dưới đây?", true, "", b2.getId(),
+				"Người có giấy phép lái xe hạng FC được điều khiển loại xe nào dưới đây?", "nan", b2.getId(),
 				set2.getId(), kn.getId());
 		questionRepo.save(questionb2_70);
 
 		Question questionb2_87 = new Question(6,
 				"Trên đường một chiều có vạch kẻ phân làn đường xe thô sơ và xe cơ giới phải đi như thế nào là đúng quy tắc giao thông?",
-				true, "", b2.getId(), set2.getId(), kn.getId());
+				"nan", b2.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb2_87);
 
 		Question questionb2_104 = new Question(7,
 				"Người điều khiển phương tiện tham giao thông trong hầm đường bộ ngoài việc phải tuân thủ các quy tắc giao thông còn phải thực hiện những quy định nào dưới đây?",
-				true, "", b2.getId(), set2.getId(), kn.getId());
+				"nan", b2.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb2_104);
 
 		Question questionb2_121 = new Question(8,
 				"Khi xe ô tô bị hỏng tại vị trí giao nhau giữa đường bộ và đường sắt, người lái xe xử lý như thế nào?",
-				true, "", b2.getId(), set2.getId(), kn.getId());
+				"nan", b2.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb2_121);
 
 		Question questionb2_138 = new Question(9,
 				"Khi tham gia giao thông trên đoạn đường không có biển báo \"cự ly tối thiểu giữa hai xe\", với điều kiện mặt đường khô ráo, xe cơ giới đang chạy với tốc độ từ trên 80km/h đến 100km/h, người lái xe phải duy trì ở khoảng cách an toàn với xe đang chạy phía trước tối thiểu là bao nhêu met?",
-				true, "", b2.getId(), set2.getId(), kn.getId());
+				"nan", b2.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb2_138);
 
 		Question questionb2_155 = new Question(10,
 				"Tại những đoạn đường không bố trí biển báo hạn chế tốc độ, không bố trí biển báo khoảng cacshb an toàn tối thiểu giữa hai xe, người điều khiển phương tiện tham gia gaio thông phải thực hiện quy định nào dưới đây để đảm bảo an toàn giao thông?",
-				true, "", b2.getId(), set2.getId(), kn.getId());
+				"nan", b2.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb2_155);
 
 		Question questionb2_172 = new Question(11, "Người lái xe khách phải chấp hành những quy định nào dưới đây?",
-				true, "", b2.getId(), set2.getId(), nvvt.getId());
+				"nan", b2.getId(), set2.getId(), nvvt.getId());
 		questionRepo.save(questionb2_172);
 
 		Question questionb2_189 = new Question(12,
-				"Ký hiệu chuyên dùng nà biểu hiện hàng chuyên chở phải tránh ánh nắng mặt trời?", true, "b2_189.jpg",
+				"Ký hiệu chuyên dùng nà biểu hiện hàng chuyên chở phải tránh ánh nắng mặt trời?", "b2_189.jpg",
 				b2.getId(), set2.getId(), nvvt.getId());
 		questionRepo.save(questionb2_189);
 
 		Question questionb2_206 = new Question(13,
 				"Khi xảy ra tai nạn giao thông, người lái xe và người có mặt tại hiện trường vụ tai nạn phải thực hiện các công việc gì dưới đây?",
-				true, "", b2.getId(), set2.getId(), vh.getId());
+				"nan", b2.getId(), set2.getId(), vh.getId());
 		questionRepo.save(questionb2_206);
 
 		Question questionb2_223 = new Question(14,
-				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", true, "",
+				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", "nan",
 				b2.getId(), set2.getId(), kt.getId());
 		questionRepo.save(questionb2_223);
 
 		Question questionb2_240 = new Question(15,
-				"Trong các loại nhiên liệu dưới đây, loại nhiên liệu nào giảm thiểu ô nhiễm môi trường?", true, "",
+				"Trong các loại nhiên liệu dưới đây, loại nhiên liệu nào giảm thiểu ô nhiễm môi trường?", "nan",
 				b2.getId(), set2.getId(), kt.getId());
 		questionRepo.save(questionb2_240);
 
 		Question questionb2_257 = new Question(16,
 				"Khi điều khiển xe ô tô ra khỏi đường cao tốc người lái xe cần thực hiện như thế nào để bảo đảm an toàn giao thông?",
-				true, "", b2.getId(), set2.getId(), kt.getId());
+				"nan", b2.getId(), set2.getId(), kt.getId());
 		questionRepo.save(questionb2_257);
 
-		Question questionb2_274 = new Question(17, "Kính chắn gió của ô tô phải đảm bảo yêu cầu nào dưới đây?", true,
+		Question questionb2_274 = new Question(17, "Kính chắn gió của ô tô phải đảm bảo yêu cầu nào dưới đây?",
 				"", b2.getId(), set2.getId(), ctsc.getId());
 		questionRepo.save(questionb2_274);
 
-		Question questionb2_291 = new Question(18, "Đèn phanh trên xe ô tô có tác dụng gì?", true, "", b2.getId(),
+		Question questionb2_291 = new Question(18, "Đèn phanh trên xe ô tô có tác dụng gì?", "nan", b2.getId(),
 				set2.getId(), ctsc.getId());
 		questionRepo.save(questionb2_291);
 
-		Question questionb2_308 = new Question(19, "Biển nào báo hiệu cấm xe mô tô ba bánh đi vào?", true, "b2_308.jpg",
+		Question questionb2_308 = new Question(19, "Biển nào báo hiệu cấm xe mô tô ba bánh đi vào?", "b2_308.jpg",
 				b2.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionb2_308);
 
-		Question questionb2_325 = new Question(20, "Biển nào cấm xe taxi mà không cấm các phương tiện khác?", true,
+		Question questionb2_325 = new Question(20, "Biển nào cấm xe taxi mà không cấm các phương tiện khác?",
 				"b2_325.jpg", b2.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionb2_325);
 
-		Question questionb2_342 = new Question(21, "Biển số 2 có ý nghĩa như thế nào?", true, "b2_342.jpg", b2.getId(),
+		Question questionb2_342 = new Question(21, "Biển số 2 có ý nghĩa như thế nào?", "b2_342.jpg", b2.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionb2_342);
 
 		Question questionb2_359 = new Question(22,
 				"Gặp biển này, xe ô tô sơ mi rơ mooc có chiều dài toàn bộ kể cả xe, mooc và hàng lớn hơn trị sô ghi trên biển có được phép đi vào không?",
-				true, "b2_359.jpg", b2.getId(), set2.getId(), bb.getId());
+				"b2_359.jpg", b2.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionb2_359);
 
 		Question questionb2_376 = new Question(23,
-				"Biển nào báo hiệu đường sắt giao nhau với đường bộ không có rào chắn?", true, "b2_376.jpg", b2.getId(),
+				"Biển nào báo hiệu đường sắt giao nhau với đường bộ không có rào chắn?", "b2_376.jpg", b2.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionb2_376);
 
-		Question questionb2_393 = new Question(24, "Biển nào chỉ dẫn \"Được ưu tiên qua đường hẹp\"?", true,
+		Question questionb2_393 = new Question(24, "Biển nào chỉ dẫn \"Được ưu tiên qua đường hẹp\"?",
 				"b2_393.jpg", b2.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionb2_393);
 
 		Question questionb2_410 = new Question(25,
-				"Biển nào sau đây báo trước gần tới đoạn đường đang tiến hành thi công?", true, "b2_410.jpg",
+				"Biển nào sau đây báo trước gần tới đoạn đường đang tiến hành thi công?", "b2_410.jpg",
 				b2.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionb2_410);
 
-		Question questionb2_427 = new Question(26, "Biển báo này có ý nghĩa gì?", true, "b2_427.jpg", b2.getId(),
+		Question questionb2_427 = new Question(26, "Biển báo này có ý nghĩa gì?", "b2_427.jpg", b2.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionb2_427);
 
-		Question questionb2_444 = new Question(27, "Biển nào cho phép quay đầu xe?", true, "b2_444.jpg", b2.getId(),
+		Question questionb2_444 = new Question(27, "Biển nào cho phép quay đầu xe?", "b2_444.jpg", b2.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionb2_444);
 
-		Question questionb2_461 = new Question(28, "Biển báo dưới đây có ý nghĩa gì?", true, "b2_461.jpg", b2.getId(),
+		Question questionb2_461 = new Question(28, "Biển báo dưới đây có ý nghĩa gì?", "b2_461.jpg", b2.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionb2_461);
 
-		Question questionb2_478 = new Question(29, "Các vạch dưới đây có tác dụng gì?", true, "b2_478.jpg", b2.getId(),
+		Question questionb2_478 = new Question(29, "Các vạch dưới đây có tác dụng gì?", "b2_478.jpg", b2.getId(),
 				set2.getId(), bb.getId());
 		questionRepo.save(questionb2_478);
 
-		Question questionb2_495 = new Question(30, "Xe nào được quyền đi trước trong trường hợp này?", true,
+		Question questionb2_495 = new Question(30, "Xe nào được quyền đi trước trong trường hợp này?",
 				"b2_495.jpg", b2.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionb2_495);
 
 		Question questionb2_512 = new Question(31, "Xe kéo nhau như hình này có vi phạm quy tắc giao thông không?",
-				true, "b2_512.jpg", b2.getId(), set2.getId(), sh.getId());
+				"b2_512.jpg", b2.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionb2_512);
 
-		Question questionb2_529 = new Question(32, "Thứ tự các xe đi như thế nào là đúng quy tắc gaio thông?", true,
+		Question questionb2_529 = new Question(32, "Thứ tự các xe đi như thế nào là đúng quy tắc gaio thông?",
 				"b2_529.jpg", b2.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionb2_529);
 
 		Question questionb2_546 = new Question(33,
-				"Người lái xe có thể quay đầu xe như thế nào là đúng quy tắc giao thông?", true, "b2_546.jpg",
+				"Người lái xe có thể quay đầu xe như thế nào là đúng quy tắc giao thông?", "b2_546.jpg",
 				b2.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionb2_546);
 
 		Question questionb2_563 = new Question(34, "Các xe đi theo thứ tự nào là đúng quy tắc giao thông đường bộ?",
-				true, "b2_563.jpg", b2.getId(), set2.getId(), sh.getId());
+				"b2_563.jpg", b2.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionb2_563);
 
-		Question questionb2_580 = new Question(35, "Các xe đi như thế nào là đúng quy tắc giao thông đường bộ?", true,
+		Question questionb2_580 = new Question(35, "Các xe đi như thế nào là đúng quy tắc giao thông đường bộ?",
 				"b2_580.jpg", b2.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionb2_580);
 
 		Question questionb2_3 = new Question(1, "Khái niệm \"khổ giới hạn đường bộ\" được hiểu như thế nào là đúng?",
-				true, "", b2.getId(), set3.getId(), kn.getId());
+				"nan", b2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb2_3);
 
 		Question questionb2_20 = new Question(2,
 				"Người điều khiển phương tiện giao thông đường bộ mà trong cơ thể có chất ma túy có bị nghiêm cấm hay không?",
-				true, "", b2.getId(), set3.getId(), kn.getId());
+				"nan", b2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb2_20);
 
 		Question questionb2_37 = new Question(3,
 				"Ở phần đường dành cho người đi bộ qua đường, trên cầu, đầu cầu, đường cao tốc, đường hẹp, đường dốc, tại nơi đường bộ giao nhau cùng mức với đường sắt có được quay đầu xe hay không?",
-				true, "", b2.getId(), set3.getId(), kn.getId());
+				"nan", b2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb2_37);
 
 		Question questionb2_54 = new Question(4,
 				"Người đủ bao nhiêu tuổi trở lên thì được điều khiển xe ô tô tải, máy kéo có trọng tải từ 3.500kg trở lên; xe hạng B2 kéo rơ moóc(FB2)",
-				true, "", b2.getId(), set3.getId(), kn.getId());
+				"nan", b2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb2_54);
 
 		Question questionb2_71 = new Question(5,
-				"Người có giấy phép lái xe hang FE được điều khiển loại xe nào dưới đây?", true, "", b2.getId(),
+				"Người có giấy phép lái xe hang FE được điều khiển loại xe nào dưới đây?", "nan", b2.getId(),
 				set3.getId(), kn.getId());
 		questionRepo.save(questionb2_71);
 
 		Question questionb2_88 = new Question(6,
 				"Bạn đang lái xe trong khu vực đô thị từ 22 giờ đến 5 giờ sáng hôm sau và cần vượt một xe khác, bạn cần báo hiệu như thế nào để đảm bảo an toàn giao thông?",
-				true, "", b2.getId(), set3.getId(), kn.getId());
+				"nan", b2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb2_88);
 
 		Question questionb2_105 = new Question(7,
-				"Xe quá tải trọng, quá khổ giới hạn tham gia giao thông cần tuân thủ quy định nào ghi dưới đây?", true,
+				"Xe quá tải trọng, quá khổ giới hạn tham gia giao thông cần tuân thủ quy định nào ghi dưới đây?",
 				"", b2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb2_105);
 
 		Question questionb2_122 = new Question(8,
 				"Trong các trường hợp dưới đây, để đảo bảo an toàn khi tham gia giao thông, người lái xe mô tô cần thực hiện như thế nào?",
-				true, "", b2.getId(), set3.getId(), kn.getId());
+				"nan", b2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb2_122);
 
 		Question questionb2_139 = new Question(9,
 				"Khi tham gia giao thông trên đoạn đường không có biển báo \"cự ly tối thiểu giữa hai xe\", với điều kiện mặt đường khô ráo, xe cơ giới đang chạy với tốc độ từ trên 100km/h đến 120km/h, người lái xe phải duy trì ở khoảng cách an toàn với xe đang chạy phía trước tối thiểu là bao nhêu met?",
-				true, "", b2.getId(), set3.getId(), kn.getId());
+				"nan", b2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb2_139);
 
 		Question questionb2_156 = new Question(10,
 				"Khi tham gia giao thông trên đường cao tốc, người lái xe, người điều khiển xe máy chuyên dùng phải thực hiện các quy định như thế nào là đúng quy tắc giao thông?",
-				true, "", b2.getId(), set3.getId(), kn.getId());
+				"nan", b2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb2_156);
 
-		Question questionb2_173 = new Question(11, "Lái xe kinh doanh vận tải phải có trách nhiệm gì sau đây?", true,
+		Question questionb2_173 = new Question(11, "Lái xe kinh doanh vận tải phải có trách nhiệm gì sau đây?",
 				"", b2.getId(), set3.getId(), nvvt.getId());
 		questionRepo.save(questionb2_173);
 
 		Question questionb2_190 = new Question(12, "Hình nào dưới đây biểu hiện hàng chuyên chử đễ vỡ phải cẩn thận?",
-				true, "b2_190.jpg", b2.getId(), set3.getId(), nvvt.getId());
+				"b2_190.jpg", b2.getId(), set3.getId(), nvvt.getId());
 		questionRepo.save(questionb2_190);
 
 		Question questionb2_207 = new Question(13,
 				"Khi xảy ra tai nạ giao thông, có người bị thương nghiêm trọng, người lái xe và người có mặt tại hiện trường vụ tai nạn phải thực hiện các công việc gì?",
-				true, "", b2.getId(), set3.getId(), vh.getId());
+				"nan", b2.getId(), set3.getId(), vh.getId());
 		questionRepo.save(questionb2_207);
 
 		Question questionb2_224 = new Question(14,
 				"Khi điều khiển xe ô tô rẽ phải ở chỗ đường giao nhau, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?",
-				true, "", b2.getId(), set3.getId(), kt.getId());
+				"nan", b2.getId(), set3.getId(), kt.getId());
 		questionRepo.save(questionb2_224);
 
-		Question questionb2_241 = new Question(15, "Các biện pháp tiết kiệm nhiên liệu khi chạy xe?", true, "",
+		Question questionb2_241 = new Question(15, "Các biện pháp tiết kiệm nhiên liệu khi chạy xe?", "nan",
 				b2.getId(), set3.getId(), kt.getId());
 		questionRepo.save(questionb2_241);
 
 		Question questionb2_258 = new Question(16,
 				"Người lái xe được dừng xe, đổ xe trên làn dừng khẩn cấp của đường cao tốc trong trường hợp nào dưới đây?",
-				true, "", b2.getId(), set3.getId(), kt.getId());
+				"nan", b2.getId(), set3.getId(), kt.getId());
 		questionRepo.save(questionb2_258);
 
 		Question questionb2_275 = new Question(17,
-				"Bánh xe lắp cho xe ô tô phải đảm bảo an toàn kỹ thuật như thế nào dưới đây?", true, "", b2.getId(),
+				"Bánh xe lắp cho xe ô tô phải đảm bảo an toàn kỹ thuật như thế nào dưới đây?", "nan", b2.getId(),
 				set3.getId(), ctsc.getId());
 		questionRepo.save(questionb2_275);
 
 		Question questionb2_292 = new Question(18,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của ô tô?",
-				true, "b2_292.jpg", b2.getId(), set3.getId(), ctsc.getId());
+				"b2_292.jpg", b2.getId(), set3.getId(), ctsc.getId());
 		questionRepo.save(questionb2_292);
 
-		Question questionb2_309 = new Question(19, "Biển nào dưới đây xe gắn máy được phép đi vào?", true, "b2_309.jpg",
+		Question questionb2_309 = new Question(19, "Biển nào dưới đây xe gắn máy được phép đi vào?", "b2_309.jpg",
 				b2.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionb2_309);
 
-		Question questionb2_326 = new Question(20, "Biển nào cho phép xe rẻ trái?", true, "b2_326.jpg", b2.getId(),
+		Question questionb2_326 = new Question(20, "Biển nào cho phép xe rẻ trái?", "b2_326.jpg", b2.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionb2_326);
 
-		Question questionb2_343 = new Question(21, "Biển 3 có ý nghĩa như thế nào?", true, "b2_343.jpg", b2.getId(),
+		Question questionb2_343 = new Question(21, "Biển 3 có ý nghĩa như thế nào?", "b2_343.jpg", b2.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionb2_343);
 
 		Question questionb2_360 = new Question(22,
 				"Xe ô tô chở hàng vượt quá phía trước và sau thùng xe, mỗi phía quá 10% chiều dài toàn bộ than xe, tổng chiều dài xe (cả hàng) từ trước đến sau nhỏ hơn trị số ghi trên biển thì có được phép đi vào không?",
-				true, "b2_360.jpg", b2.getId(), set3.getId(), bb.getId());
+				"b2_360.jpg", b2.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionb2_360);
 
 		Question questionb2_377 = new Question(23,
-				"Biển nào báo hiệu sắp đến chỗ giao nhau giữa đường bộ và đường sắt?", true, "b2_377.jpg", b2.getId(),
+				"Biển nào báo hiệu sắp đến chỗ giao nhau giữa đường bộ và đường sắt?", "b2_377.jpg", b2.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionb2_377);
 
-		Question questionb2_394 = new Question(24, "Biển nào báo hiệu \"Đường đôi\"?", true, "b2_394.jpg", b2.getId(),
+		Question questionb2_394 = new Question(24, "Biển nào báo hiệu \"Đường đôi\"?", "b2_394.jpg", b2.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionb2_394);
 
 		Question questionb2_411 = new Question(25,
-				"Biển nào sau đây cảnh báo nguy hiểm đoạn đường thường xảy ra tai nạn?", true, "b2_411.jpg", b2.getId(),
+				"Biển nào sau đây cảnh báo nguy hiểm đoạn đường thường xảy ra tai nạn?", "b2_411.jpg", b2.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionb2_411);
 
 		Question questionb2_428 = new Question(26,
 				"Biển nào báo hiệu các phương tiện pải đi đúng làn đường quy định và tuân thủ tốc độ tối đa cho phép?",
-				true, "b2_428.jpg", b2.getId(), set3.getId(), bb.getId());
+				"b2_428.jpg", b2.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionb2_428);
 
-		Question questionb2_445 = new Question(27, "Biển nào chỉ dẫn tên đường trên các tuyến đường đối ngoại?", true,
+		Question questionb2_445 = new Question(27, "Biển nào chỉ dẫn tên đường trên các tuyến đường đối ngoại?",
 				"b2_445.jpg", b2.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionb2_445);
 
 		Question questionb2_462 = new Question(28,
 				"Tại đoạn đường có biển \"Làn đường dành riêng cho từng loại xe\", các phương tiện có được phép chuyển sang làn khác để đi theo hành trình mong muốn khi đến gần nơi đường bộ giao nhau hay không?",
-				true, "b2_462.jpg", b2.getId(), set3.getId(), bb.getId());
+				"b2_462.jpg", b2.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionb2_462);
 
-		Question questionb2_479 = new Question(29, "Các vạch dưới đây có tác dụng gì?", true, "b2_479.jpg", b2.getId(),
+		Question questionb2_479 = new Question(29, "Các vạch dưới đây có tác dụng gì?", "b2_479.jpg", b2.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionb2_479);
 
-		Question questionb2_496 = new Question(30, "Theo tín hiệu đèn, xe nào được phép đi?", true, "b2_496.jpg",
+		Question questionb2_496 = new Question(30, "Theo tín hiệu đèn, xe nào được phép đi?", "b2_496.jpg",
 				b2.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionb2_496);
 
-		Question questionb2_513 = new Question(31, "Xe nào phải nhường đường trong trường hợp này?", true, "b2_513.jpg",
+		Question questionb2_513 = new Question(31, "Xe nào phải nhường đường trong trường hợp này?", "b2_513.jpg",
 				b2.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionb2_513);
 
-		Question questionb2_530 = new Question(32, "Thứ tự các xe đi nhưu thế nào là đúng quy tắc giao thông?", true,
+		Question questionb2_530 = new Question(32, "Thứ tự các xe đi nhưu thế nào là đúng quy tắc giao thông?",
 				"b2_530.jpg", b2.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionb2_530);
 
-		Question questionb2_547 = new Question(33, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb2_547 = new Question(33, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"b2_547.jpg", b2.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionb2_547);
 
-		Question questionb2_564 = new Question(34, "Các xe đi theo thứ nào là đúng quy tắc giao thông đường bộ?", true,
+		Question questionb2_564 = new Question(34, "Các xe đi theo thứ nào là đúng quy tắc giao thông đường bộ?",
 				"b2_564.jpg", b2.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionb2_564);
 
-		Question questionb2_581 = new Question(35, "Xe nào phải nhường đường trong trường hợp này?", true, "b2_581.jpg",
+		Question questionb2_581 = new Question(35, "Xe nào phải nhường đường trong trường hợp này?", "b2_581.jpg",
 				b2.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionb2_581);
 
 		Question questionb2_4 = new Question(1,
-				"Trong các khái niệm dưới đây, \"dải phân cách\" được hiểu như thế nào là đúng?", true, "", b2.getId(),
+				"Trong các khái niệm dưới đây, \"dải phân cách\" được hiểu như thế nào là đúng?", "nan", b2.getId(),
 				set4.getId(), kn.getId());
 		questionRepo.save(questionb2_4);
 
 		Question questionb2_21 = new Question(2,
-				"Việc lái xe mô tô, ô tô, máy kéo ngay sai khi uống rượu, bia có được phép không?", true, "",
+				"Việc lái xe mô tô, ô tô, máy kéo ngay sai khi uống rượu, bia có được phép không?", "nan",
 				b2.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionb2_21);
 
 		Question questionb2_38 = new Question(3,
 				"Bạn đang lái xe phía trước có một xe cảnh sát giao thông không phát tín hiệu ưu tiên bạn có được phép vượt hay không?",
-				true, "", b2.getId(), set4.getId(), kn.getId());
+				"nan", b2.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionb2_38);
 
 		Question questionb2_55 = new Question(4,
 				"Người đủ bao nhiêu tuổi trở lên thì được điều khiern xe mô tô hai bánh, xe mô tô ba bánh có dung tích xi lanh từ 50 cm3 trở lên và các loại xe có kết cấu tương tự; xe ô tô tải, máy kéo có trọng tải dưới 3500kg; xe ô tô chở người đến 9 chỗ ngồi?",
-				true, "", b2.getId(), set4.getId(), kn.getId());
+				"nan", b2.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionb2_55);
 
 		Question questionb2_72 = new Question(5,
 				"Biển báo hiệu có dạng hình tròn, viền đỏ, nền trắng, trên nền có hình vẽ dược chữ số, chữ viết màu đen là loại biển gì dưới đây?",
-				true, "b2_72.jpg", b2.getId(), set4.getId(), kn.getId());
+				"b2_72.jpg", b2.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionb2_72);
 
 		Question questionb2_89 = new Question(6,
 				"Khi điều khển xe chạy trên đường biết có xe sau xin vượt nếu đủ điều kiện an toàn người lái xe phải làm gì?",
-				true, "", b2.getId(), set4.getId(), kn.getId());
+				"nan", b2.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionb2_89);
 
 		Question questionb2_106 = new Question(7,
 				"Việc nối giữa xe kéo với xe được kéo trong trường hợp hệ thống hãm của xe được kéo không còn hiệu lực thì phải dùng cách nào?",
-				true, "", b2.getId(), set4.getId(), kn.getId());
+				"nan", b2.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionb2_106);
 
 		Question questionb2_123 = new Question(8,
-				"Đường bộ trong khu vực đông dân cư gồm những đoạn đường nào dưới đây?", true, "", b2.getId(),
+				"Đường bộ trong khu vực đông dân cư gồm những đoạn đường nào dưới đây?", "nan", b2.getId(),
 				set4.getId(), kn.getId());
 		questionRepo.save(questionb2_123);
 
 		Question questionb2_140 = new Question(9,
 				"Khi điêu khiển xe chạy với tốc độ 60km/h người lái xe phải chủ động điều khiển xe như thế nào để đảo bảo an toàn giao thông?",
-				true, "", b2.getId(), set4.getId(), kn.getId());
+				"nan", b2.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionb2_140);
 
 		Question questionb2_157 = new Question(10,
-				"Theo luật giao thông đường bộ, tín hiệu đèn giao thông gồm 3 màu nào dưới đây?", true, "", b2.getId(),
+				"Theo luật giao thông đường bộ, tín hiệu đèn giao thông gồm 3 màu nào dưới đây?", "nan", b2.getId(),
 				set4.getId(), kn.getId());
 		questionRepo.save(questionb2_157);
 
 		Question questionb2_174 = new Question(11,
-				"Người kinh doanh vận tải hành khách có những quyền hạn nào dưới đây?", true, "", b2.getId(),
+				"Người kinh doanh vận tải hành khách có những quyền hạn nào dưới đây?", "nan", b2.getId(),
 				set4.getId(), nvvt.getId());
 		questionRepo.save(questionb2_174);
 
 		Question questionb2_191 = new Question(12, "Hình nào dưới đây đòi hỏi hàng phải xếp theo hướng thẳng đứng?",
-				true, "b2_191.jpg", b2.getId(), set4.getId(), nvvt.getId());
+				"b2_191.jpg", b2.getId(), set4.getId(), nvvt.getId());
 		questionRepo.save(questionb2_191);
 
 		Question questionb2_208 = new Question(13,
 				"Khi sơ cứu ban đầu cho người bị tai nạn giao thông đường bộ không còn hô hấp, người lái xe và người có mặt tại hiện trường vụ tai nạn phải thực hiện các công việc gì?",
-				true, "", b2.getId(), set4.getId(), vh.getId());
+				"nan", b2.getId(), set4.getId(), vh.getId());
 		questionRepo.save(questionb2_208);
 
 		Question questionb2_225 = new Question(14,
 				"Khi điều khiển xe ô tô rẽ Trái ở chỗ đường giao nhau, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?",
-				true, "", b2.getId(), set4.getId(), kt.getId());
+				"nan", b2.getId(), set4.getId(), kt.getId());
 		questionRepo.save(questionb2_225);
 
 		Question questionb2_242 = new Question(15,
 				"Khi đã đổ xe ô tô sát lề đường bên phải, người lái xe phải thực hiện các thao tác nào dưới đây khi mở cửa xuống xe để đảm bảo an toàn?",
-				true, "", b2.getId(), set4.getId(), kt.getId());
+				"nan", b2.getId(), set4.getId(), kt.getId());
 		questionRepo.save(questionb2_242);
 
 		Question questionb2_259 = new Question(16,
 				"Trong trường hợp bất khả kháng, khi dừng xe, đổ xe trên làn dừng khẩn cấp của đường cao tốc người lái xe phải xử lý như thế nào là đúng quy tắc giao thông?",
-				true, "", b2.getId(), set4.getId(), kt.getId());
+				"nan", b2.getId(), set4.getId(), kt.getId());
 		questionRepo.save(questionb2_259);
 
 		Question questionb2_276 = new Question(17,
 				"Âm lượng của còi điện lắp đặt trên ô tô (đo ở độ cao 1,2 mét với khoảng cách 2 mét tính từ đầu xe) là bao nhiều?",
-				true, "", b2.getId(), set4.getId(), ctsc.getId());
+				"nan", b2.getId(), set4.getId(), ctsc.getId());
 		questionRepo.save(questionb2_276);
 
 		Question questionb2_293 = new Question(18,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của ô tô?",
-				true, "b2_293.jpg", b2.getId(), set4.getId(), ctsc.getId());
+				"b2_293.jpg", b2.getId(), set4.getId(), ctsc.getId());
 		questionRepo.save(questionb2_293);
 
-		Question questionb2_310 = new Question(19, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?", true,
+		Question questionb2_310 = new Question(19, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?",
 				"b2_310.jpg", b2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionb2_310);
 
-		Question questionb2_327 = new Question(20, "Biển nào xe quay đầu không bị cấm?", true, "b2_327.jpg", b2.getId(),
+		Question questionb2_327 = new Question(20, "Biển nào xe quay đầu không bị cấm?", "b2_327.jpg", b2.getId(),
 				set4.getId(), bb.getId());
 		questionRepo.save(questionb2_327);
 
-		Question questionb2_344 = new Question(21, "Biển nào cấm máy kéo kéo theo rơ mooc?", true, "b2_344.jpg",
+		Question questionb2_344 = new Question(21, "Biển nào cấm máy kéo kéo theo rơ mooc?", "b2_344.jpg",
 				b2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionb2_344);
 
-		Question questionb2_361 = new Question(22, "Biển này có ý nghĩa gì?", true, "b2_361.jpg", b2.getId(),
+		Question questionb2_361 = new Question(22, "Biển này có ý nghĩa gì?", "b2_361.jpg", b2.getId(),
 				set4.getId(), bb.getId());
 		questionRepo.save(questionb2_361);
 
-		Question questionb2_378 = new Question(23, "Biến nào báo hiệu \"Cửa chui\"?", true, "b2_378.jpg", b2.getId(),
+		Question questionb2_378 = new Question(23, "Biến nào báo hiệu \"Cửa chui\"?", "b2_378.jpg", b2.getId(),
 				set4.getId(), bb.getId());
 		questionRepo.save(questionb2_378);
 
-		Question questionb2_395 = new Question(24, "Biển nào báo hiệu \"Đường đôi\"?", true, "b2_395.jpg", b2.getId(),
+		Question questionb2_395 = new Question(24, "Biển nào báo hiệu \"Đường đôi\"?", "b2_395.jpg", b2.getId(),
 				set4.getId(), bb.getId());
 		questionRepo.save(questionb2_395);
 
 		Question questionb2_412 = new Question(25, "Biển nào báo hiệu đoạn đường thường xảy ra ùn tắc giao thông?",
-				true, "b2_412.jpg", b2.getId(), set4.getId(), bb.getId());
+				"b2_412.jpg", b2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionb2_412);
 
 		Question questionb2_429 = new Question(26,
-				"Biển nào báo hiệu các phương tiện phải tuân thủ tốc độ tối đa cho phép trên từng làn đường?", true,
+				"Biển nào báo hiệu các phương tiện phải tuân thủ tốc độ tối đa cho phép trên từng làn đường?",
 				"b2_429.jpg", b2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionb2_429);
 
-		Question questionb2_446 = new Question(27, "Biển 1 có ý nghĩa gì?", true, "b2_446.jpg", b2.getId(),
+		Question questionb2_446 = new Question(27, "Biển 1 có ý nghĩa gì?", "b2_446.jpg", b2.getId(),
 				set4.getId(), bb.getId());
 		questionRepo.save(questionb2_446);
 
 		Question questionb2_463 = new Question(28,
-				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?", true,
+				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?",
 				"b2_463.jpg", b2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionb2_463);
 
-		Question questionb2_480 = new Question(29, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?", true,
+		Question questionb2_480 = new Question(29, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?",
 				"b2_480.jpg", b2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionb2_480);
 
 		Question questionb2_497 = new Question(30,
-				"Theo tín hiệu đèn, xe nào được quyền đi là đúng quy tắc giao thông?", true, "b2_497.jpg", b2.getId(),
+				"Theo tín hiệu đèn, xe nào được quyền đi là đúng quy tắc giao thông?", "b2_497.jpg", b2.getId(),
 				set4.getId(), sh.getId());
 		questionRepo.save(questionb2_497);
 
-		Question questionb2_514 = new Question(31, "Xe nào được quyền đi trước trong trường hợp này?", true,
+		Question questionb2_514 = new Question(31, "Xe nào được quyền đi trước trong trường hợp này?",
 				"b2_514.jpg", b2.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionb2_514);
 
-		Question questionb2_531 = new Question(32, "Những hướng nào ô tô tải được phép đi?", true, "b2_531.jpg",
+		Question questionb2_531 = new Question(32, "Những hướng nào ô tô tải được phép đi?", "b2_531.jpg",
 				b2.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionb2_531);
 
 		Question questionb2_548 = new Question(33,
-				"Khi muốn vượt xe tải, người lái xe làm gì là đúng quy tắc giao thông?", true, "b2_548.jpg", b2.getId(),
+				"Khi muốn vượt xe tải, người lái xe làm gì là đúng quy tắc giao thông?", "b2_548.jpg", b2.getId(),
 				set4.getId(), sh.getId());
 		questionRepo.save(questionb2_548);
 
-		Question questionb2_565 = new Question(34, "Xe nào phải dừng lại trong trường hợp này?", true, "b2_565.jpg",
+		Question questionb2_565 = new Question(34, "Xe nào phải dừng lại trong trường hợp này?", "b2_565.jpg",
 				b2.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionb2_565);
 
-		Question questionb2_582 = new Question(35, "Xe nào phải nhường đường trong trường hợp này?", true, "b2_582.jpg",
+		Question questionb2_582 = new Question(35, "Xe nào phải nhường đường trong trường hợp này?", "b2_582.jpg",
 				b2.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionb2_582);
 
-		Question questionb2_5 = new Question(1, "\"Dải phân cách\" trên đường bộ gồm những loại nào?", true, "",
+		Question questionb2_5 = new Question(1, "\"Dải phân cách\" trên đường bộ gồm những loại nào?", "nan",
 				b2.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb2_5);
 
 		Question questionb2_22 = new Question(2,
 				"Người điều khiển ô tô, mô tô, máy kéo trên đường mà trong máu hoặc hơi thở có nồng độ cồn có bị nghiêm cấm không?",
-				true, "", b2.getId(), set5.getId(), kn.getId());
+				"nan", b2.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb2_22);
 
 		Question questionb2_39 = new Question(3,
 				"Bạn đnag lái xe phía trước có một xe cứu thương đang phát tín hiệu ưu tiên có được phép vượt hay không?",
-				true, "", b2.getId(), set5.getId(), kn.getId());
+				"nan", b2.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb2_39);
 
 		Question questionb2_56 = new Question(4,
 				"Người lái xe ô tô chở người trên 30 chỗ ngồi (hạng E), lái xe hạng D kéo rơ Moóc (FD) phải đủ bao nhiêu tuổi trở lên?",
-				true, "", b2.getId(), set5.getId(), kn.getId());
+				"nan", b2.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb2_56);
 
 		Question questionb2_73 = new Question(5,
 				"Biển báo hiệu có dạng hình tròn, viền đỏ, nền trắng trên nền có hình vẽ hoặc chữ số, chữ viết màu đen là loại biển gì dưới đây?",
-				true, "b2_73.jpg", b2.getId(), set5.getId(), kn.getId());
+				"b2_73.jpg", b2.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb2_73);
 
 		Question questionb2_90 = new Question(6,
 				"Trong khu dân cư, ở nơi nào cho phép người lái xe, người điều khiển xe máy chuyên dùng được quay đầy xe?",
-				true, "", b2.getId(), set5.getId(), kn.getId());
+				"nan", b2.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb2_90);
 
 		Question questionb2_107 = new Question(7,
-				"Xe kéo rơ moóc khi thao gia giao thông phải tuân thủ điều kiện nào ghi ở dưới đây?", true, "",
+				"Xe kéo rơ moóc khi thao gia giao thông phải tuân thủ điều kiện nào ghi ở dưới đây?", "nan",
 				b2.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb2_107);
 
 		Question questionb2_124 = new Question(8,
 				"Tốc độ tối đa cho phép đối với xe máy chuyên dùng, xe gắn máy (kể cả xe máy điện) và các loại xe tương tự trên đường bộ (trừ đường cao tốc) không được vượt quá bao nhiêu km/h?",
-				true, "", b2.getId(), set5.getId(), kn.getId());
+				"nan", b2.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb2_124);
 
 		Question questionb2_141 = new Question(9,
 				"Người lái xe phải giảm tốc độ thấp hơn tốc độ đến mức cần thiết, chú ý quan sát và chuẩn bị sằn sàng những tình huống có thể xảy ra để phòng ngừa tai nạn trong các trường hợp nào dưới đây?",
-				true, "", b2.getId(), set5.getId(), kn.getId());
+				"nan", b2.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb2_141);
 
 		Question questionb2_158 = new Question(10,
 				"Tại nơi đườn giao nhau, khi đèn điều khiển giao thông có tín hiệu màu vàng, người điều khiển phương tiện giao thông phải chấp hành như thế nào là đúng quy tắc giao thông?",
-				true, "", b2.getId(), set5.getId(), kn.getId());
+				"nan", b2.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb2_158);
 
 		Question questionb2_175 = new Question(11,
-				"Hành khách có các quyền gì khi đi trên xe ô tô vận tải khách theo tuyến cố định?", true, "",
+				"Hành khách có các quyền gì khi đi trên xe ô tô vận tải khách theo tuyến cố định?", "nan",
 				b2.getId(), set5.getId(), nvvt.getId());
 		questionRepo.save(questionb2_175);
 
-		Question questionb2_192 = new Question(12, "Hình nào dưới đây biểu hiện hàng chuyên chở là chất lỏng?", true,
+		Question questionb2_192 = new Question(12, "Hình nào dưới đây biểu hiện hàng chuyên chở là chất lỏng?",
 				"b2_192.jpg", b2.getId(), set5.getId(), nvvt.getId());
 		questionRepo.save(questionb2_192);
 
 		Question questionb2_209 = new Question(13,
 				"Hành vi bỏ trốn sau khi gây tai nạn để trốn tránh trách nhiệm hoặc khi có điều kiện mà cố ý không cứu giúp người bị tai nạn giao thông có bị nghiêm cấm hay không?",
-				true, "", b2.getId(), set5.getId(), vh.getId());
+				"nan", b2.getId(), set5.getId(), vh.getId());
 		questionRepo.save(questionb2_209);
 
 		Question questionb2_226 = new Question(14,
 				"Khi điều khiển xe sử dụng hộp số cơ khí vượt qua rãnh lớn cắt ngang mặt đường, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?",
-				true, "", b2.getId(), set5.getId(), kt.getId());
+				"nan", b2.getId(), set5.getId(), kt.getId());
 		questionRepo.save(questionb2_226);
 
 		Question questionb2_243 = new Question(15,
 				"Khi lái ô tô qua đường sắt không có rào chắn, không có người điều khiển giao thông, người lái xe phải xử lý như thế nào để đảm bảo an toàn?",
-				true, "", b2.getId(), set5.getId(), kt.getId());
+				"nan", b2.getId(), set5.getId(), kt.getId());
 		questionRepo.save(questionb2_243);
 
 		Question questionb2_260 = new Question(16,
 				"Khi điều khiển ô tô xuống đường dốc dài, độ dốc cao, người lái xe số tự động cần thực hiện các thao tác nào dưới đây để đảm bảo an toàn?",
-				true, "", b2.getId(), set5.getId(), kt.getId());
+				"nan", b2.getId(), set5.getId(), kt.getId());
 		questionRepo.save(questionb2_260);
 
 		Question questionb2_277 = new Question(17,
-				"Mục đích của bảo dưỡng thường xuyên đối với xe ô tô có tác dụng gì?", true, "", b2.getId(),
+				"Mục đích của bảo dưỡng thường xuyên đối với xe ô tô có tác dụng gì?", "nan", b2.getId(),
 				set5.getId(), ctsc.getId());
 		questionRepo.save(questionb2_277);
 
 		Question questionb2_294 = new Question(18,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của ô tô?",
-				true, "b2_294.jpg", b2.getId(), set5.getId(), ctsc.getId());
+				"b2_294.jpg", b2.getId(), set5.getId(), ctsc.getId());
 		questionRepo.save(questionb2_294);
 
-		Question questionb2_311 = new Question(19, "khi gặp biển nào thì xe mô tô hai bánh được đi vào?", true,
+		Question questionb2_311 = new Question(19, "khi gặp biển nào thì xe mô tô hai bánh được đi vào?",
 				"b2_311.jpg", b2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb2_311);
 
-		Question questionb2_328 = new Question(20, "Biển nào được phép quay đầu nhưng không được rẻ trái?", true,
+		Question questionb2_328 = new Question(20, "Biển nào được phép quay đầu nhưng không được rẻ trái?",
 				"b2_328.jpg", b2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb2_328);
 
-		Question questionb2_345 = new Question(21, "Khi gặp biển 1, xe ô tô tải có được phép đi vào không?", true,
+		Question questionb2_345 = new Question(21, "Khi gặp biển 1, xe ô tô tải có được phép đi vào không?",
 				"b2_345.jpg", b2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb2_345);
 
-		Question questionb2_362 = new Question(22, "Biển này có ý nghĩa gì?", true, "b2_362.jpg", b2.getId(),
+		Question questionb2_362 = new Question(22, "Biển này có ý nghĩa gì?", "b2_362.jpg", b2.getId(),
 				set5.getId(), bb.getId());
 		questionRepo.save(questionb2_362);
 
-		Question questionb2_379 = new Question(23, "Hai biển này có ý nghĩa gì?", true, "b2_379.jpg", b2.getId(),
+		Question questionb2_379 = new Question(23, "Hai biển này có ý nghĩa gì?", "b2_379.jpg", b2.getId(),
 				set5.getId(), bb.getId());
 		questionRepo.save(questionb2_379);
 
-		Question questionb2_396 = new Question(24, "Biển nào báo hiệu \"Kết thúc đường đôi\"?", true, "b2_396.jpg",
+		Question questionb2_396 = new Question(24, "Biển nào báo hiệu \"Kết thúc đường đôi\"?", "b2_396.jpg",
 				b2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb2_396);
 
 		Question questionb2_413 = new Question(25,
 				"Gặp biển nào người tham gia giao thông phải đi chậm và thận trọng đề phòng khả năng xuất hiện và di chuyển bất ngờ của trẻ em trên mặt đường?",
-				true, "b2_413.jpg", b2.getId(), set5.getId(), bb.getId());
+				"b2_413.jpg", b2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb2_413);
 
-		Question questionb2_430 = new Question(26, "Biển nào báo hiệu \"Đường dành cho xe ô tô\"?", true, "b2_430.jpg",
+		Question questionb2_430 = new Question(26, "Biển nào báo hiệu \"Đường dành cho xe ô tô\"?", "b2_430.jpg",
 				b2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb2_430);
 
-		Question questionb2_447 = new Question(27, "Biển 3 có ý nghĩa gì?", true, "b2_447.jpg", b2.getId(),
+		Question questionb2_447 = new Question(27, "Biển 3 có ý nghĩa gì?", "b2_447.jpg", b2.getId(),
 				set5.getId(), bb.getId());
 		questionRepo.save(questionb2_447);
 
 		Question questionb2_464 = new Question(28,
-				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?", true,
+				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?",
 				"b2_464.jpg", b2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb2_464);
 
-		Question questionb2_481 = new Question(29, "Vạch dưới đây có tác dụng gì?", true, "b2_481.jpg", b2.getId(),
+		Question questionb2_481 = new Question(29, "Vạch dưới đây có tác dụng gì?", "b2_481.jpg", b2.getId(),
 				set5.getId(), bb.getId());
 		questionRepo.save(questionb2_481);
 
-		Question questionb2_498 = new Question(30, "Trong trường hợp này xe nào được quyền đi trước?", true,
+		Question questionb2_498 = new Question(30, "Trong trường hợp này xe nào được quyền đi trước?",
 				"b2_498.jpg", b2.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionb2_498);
 
-		Question questionb2_515 = new Question(31, "Xe kéo nhau trong trường hợp này đúng quy định không?", true,
+		Question questionb2_515 = new Question(31, "Xe kéo nhau trong trường hợp này đúng quy định không?",
 				"b2_515.jpg", b2.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionb2_515);
 
-		Question questionb2_532 = new Question(32, "Theo hướng mũi tên thứ tự các xe đi như thế nào là đúng?", true,
+		Question questionb2_532 = new Question(32, "Theo hướng mũi tên thứ tự các xe đi như thế nào là đúng?",
 				"b2_532.jpg", b2.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionb2_532);
 
 		Question questionb2_549 = new Question(33,
-				"Theo tín hiệu đèn, xe nào phải dừng lại là đúng quy tắc giao thông?", true, "b2_549.jpg", b2.getId(),
+				"Theo tín hiệu đèn, xe nào phải dừng lại là đúng quy tắc giao thông?", "b2_549.jpg", b2.getId(),
 				set5.getId(), sh.getId());
 		questionRepo.save(questionb2_549);
 
-		Question questionb2_566 = new Question(34, "Xe của bạn được đi theo hướng nào trong trường hợp này?", true,
+		Question questionb2_566 = new Question(34, "Xe của bạn được đi theo hướng nào trong trường hợp này?",
 				"b2_566.jpg", b2.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionb2_566);
 
-		Question questionb2_583 = new Question(35, "Bạn xử lý thế nào trong trường hợp này?", true, "b2_583.jpg",
+		Question questionb2_583 = new Question(35, "Bạn xử lý thế nào trong trường hợp này?", "b2_583.jpg",
 				b2.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionb2_583);
 
-		Question questionb2_6 = new Question(1, "Người lái xe được hiểu như thế nào trong các khái niệm dưới đây", true,
+		Question questionb2_6 = new Question(1, "Người lái xe được hiểu như thế nào trong các khái niệm dưới đây?",
 				"", b2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb2_6);
 
 		Question questionb2_23 = new Question(2,
-				"Sử dụng rượu, bia khi lái xe, nếu bị phát hiện thì bị xử lý như thế nào", true, "", b2.getId(),
+				"Sử dụng rượu, bia khi lái xe, nếu bị phát hiện thì bị xử lý như thế nào", "nan", b2.getId(),
 				set6.getId(), kn.getId());
 		questionRepo.save(questionb2_23);
 
 		Question questionb2_40 = new Question(3,
-				"Người lái xe không được quay đầu xe trong các trường hợp nào dưới đây?", true, "", b2.getId(),
+				"Người lái xe không được quay đầu xe trong các trường hợp nào dưới đây?", "nan", b2.getId(),
 				set6.getId(), kn.getId());
 		questionRepo.save(questionb2_40);
 
 		Question questionb2_57 = new Question(4,
-				"Tuổi tối đa cửa người lái xe ô tô chở người trên 30 chỗ ngồi (hạng E) là bao nhiêu tuổi?", true, "",
+				"Tuổi tối đa cửa người lái xe ô tô chở người trên 30 chỗ ngồi (hạng E) là bao nhiêu tuổi?", "nan",
 				b2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb2_57);
 
 		Question questionb2_74 = new Question(5,
-				"Biển báo hiện hình tròn có nền xanh lam có hình vẽ màu trắng là loại gì dưới đây?", true, "b2_74.jpg",
+				"Biển báo hiện hình tròn có nền xanh lam có hình vẽ màu trắng là loại gì dưới đây?", "b2_74.jpg",
 				b2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb2_74);
 
 		Question questionb2_91 = new Question(6,
 				"Người lái xe phải làm gì khi quay đầu xe trên cầu, đường ngầm hay khu vực đường bộ giao nhau cùng mức với đường sắt?",
-				true, "", b2.getId(), set6.getId(), kn.getId());
+				"nan", b2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb2_91);
 
-		Question questionb2_108 = new Question(7, "Xe ô tô kéo xe khác thế nào là đúng quy tắc giao thông?", true, "",
+		Question questionb2_108 = new Question(7, "Xe ô tô kéo xe khác thế nào là đúng quy tắc giao thông?", "nan",
 				b2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb2_108);
 
 		Question questionb2_125 = new Question(8,
 				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường đôi có dải phân cách giữa, xe mô tô hai bánh, ô tô chở người đến 30 chỗ tham gia giao thông với tốc độ tối đa cho phép là bao nhiêu?",
-				true, "", b2.getId(), set6.getId(), kn.getId());
+				"nan", b2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb2_125);
 
 		Question questionb2_142 = new Question(9,
 				"Người lái xe phải giảm tốc độ, đi sát về bên phải của phần đường xe chạy trong các trường hợp nào dưới đây?",
-				true, "", b2.getId(), set6.getId(), kn.getId());
+				"nan", b2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb2_142);
 
 		Question questionb2_159 = new Question(10,
 				"Để báo hiệu cho xe phía trước biết x emo tô của bạn muốn vượt, bạn phải có tín hiệu nào dưới đây?",
-				true, "", b2.getId(), set6.getId(), kn.getId());
+				"nan", b2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb2_159);
 
 		Question questionb2_176 = new Question(11,
-				"Hành khách có các nghĩa vụ gì khi đi trên xe ô tô vận tải hành khách?", true, "", b2.getId(),
+				"Hành khách có các nghĩa vụ gì khi đi trên xe ô tô vận tải hành khách?", "nan", b2.getId(),
 				set6.getId(), nvvt.getId());
 		questionRepo.save(questionb2_176);
 
 		Question questionb2_193 = new Question(12,
 				"Người hành nghề lái xe khi thực hiện tốt việc rèn luyện, nâng cao trách nhiệm, đạo đức nghề nghiệp sẽ thu được kết quả như thế nào?",
-				true, "", b2.getId(), set6.getId(), vh.getId());
+				"nan", b2.getId(), set6.getId(), vh.getId());
 		questionRepo.save(questionb2_193);
 
 		Question questionb2_210 = new Question(13,
-				"Khi xảy ra tai nạn giao thông, những hành vi nào dưới đây bị nghiêm cấm?", true, "", b2.getId(),
+				"Khi xảy ra tai nạn giao thông, những hành vi nào dưới đây bị nghiêm cấm?", "nan", b2.getId(),
 				set6.getId(), vh.getId());
 		questionRepo.save(questionb2_210);
 
 		Question questionb2_227 = new Question(14,
 				"Khi điều khiển xe qua đường sắt, người lái xe cần phải thực hiện các thao tác nào dưới đây để đảm bảo an toàn?",
-				true, "", b2.getId(), set6.getId(), kt.getId());
+				"nan", b2.getId(), set6.getId(), kt.getId());
 		questionRepo.save(questionb2_227);
 
 		Question questionb2_244 = new Question(15,
 				"Khi lái ô tô qua đường sắt không có rào chắn, không có người điều khiển giao thông, người lái xe thực hiện thao tác: tạm dừng xe tại vị trí cách đường sắt tối thiểu 5 mét, hạ kính cửa, tắt các thiết bị âm thanh trên xe, quan sát, nếu không có tàu chạy quá thì về số thấp, tăng ga nhẹ để tránh động cơ chết máy do xe vượt qua để đảm bảo an toàn là đúng hay không?",
-				true, "", b2.getId(), set6.getId(), kt.getId());
+				"nan", b2.getId(), set6.getId(), kt.getId());
 		questionRepo.save(questionb2_244);
 
 		Question questionb2_261 = new Question(16,
 				"Khi đi từ đường nhánh ra đường chính, người lái xe phải xử lý nhưu thế nào là đúng quy tắc giao thông?",
-				true, "", b2.getId(), set6.getId(), kt.getId());
+				"nan", b2.getId(), set6.getId(), kt.getId());
 		questionRepo.save(questionb2_261);
 
 		Question questionb2_278 = new Question(17,
-				"Trong các nguyên nhân nếu dưới đây, nguyên nhân nào làm động cơ diesel không nổ?", true, "",
+				"Trong các nguyên nhân nếu dưới đây, nguyên nhân nào làm động cơ diesel không nổ?", "nan",
 				b2.getId(), set6.getId(), ctsc.getId());
 		questionRepo.save(questionb2_278);
 
 		Question questionb2_295 = new Question(18,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của ô tô?",
-				true, "b2_295.jpg", b2.getId(), set6.getId(), ctsc.getId());
+				"b2_295.jpg", b2.getId(), set6.getId(), ctsc.getId());
 		questionRepo.save(questionb2_295);
 
-		Question questionb2_312 = new Question(19, "Biển nào cho phép ô tô con được vượt", true, "b2_312.jpg",
+		Question questionb2_312 = new Question(19, "Biển nào cho phép ô tô con được vượt", "b2_312.jpg",
 				b2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb2_312);
 
-		Question questionb2_329 = new Question(20, "Biển nào là biển \"Cấm đi ngược chiều\"?", true, "b2_329.jpg",
+		Question questionb2_329 = new Question(20, "Biển nào là biển \"Cấm đi ngược chiều\"?", "b2_329.jpg",
 				b2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb2_329);
 
-		Question questionb2_346 = new Question(21, "Biển nào không có hiệu lực đối với ô tô tải không kéo mooc?", true,
+		Question questionb2_346 = new Question(21, "Biển nào không có hiệu lực đối với ô tô tải không kéo mooc?",
 				"b2_346.jpg", b2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb2_346);
 
-		Question questionb2_363 = new Question(22, "Biển nào là biển \"Tốc độ tối đa cho phép về ban đêm\"?", true,
+		Question questionb2_363 = new Question(22, "Biển nào là biển \"Tốc độ tối đa cho phép về ban đêm\"?",
 				"b2_363.jpg", b2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb2_363);
 
 		Question questionb2_380 = new Question(23, "Biển nào báo hiệu \"Nơi đường sắt giao vuông góc với đường bộ\"?",
-				true, "b2_380.jpg", b2.getId(), set6.getId(), bb.getId());
+				"b2_380.jpg", b2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb2_380);
 
-		Question questionb2_397 = new Question(24, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", true,
+		Question questionb2_397 = new Question(24, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?",
 				"b2_397.jpg", b2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb2_397);
 
 		Question questionb2_414 = new Question(25, "Biển nào chỉ dẫn nới bắt đầu đoạn đường dành cho người đi bộ?",
-				true, "b2_414.jpg", b2.getId(), set6.getId(), bb.getId());
+				"b2_414.jpg", b2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb2_414);
 
-		Question questionb2_431 = new Question(26, "Biển nào báo hiệu \"Hết đường dành cho xe ô tô\"?", true,
+		Question questionb2_431 = new Question(26, "Biển nào báo hiệu \"Hết đường dành cho xe ô tô\"?",
 				"b2_431.jpg", b2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb2_431);
 
 		Question questionb2_448 = new Question(27,
-				"Biển nào báo hiệu \"Đường phía trước có làn đường dành cho ô tô khách\"?", true, "b2_448.jpg",
+				"Biển nào báo hiệu \"Đường phía trước có làn đường dành cho ô tô khách\"?", "b2_448.jpg",
 				b2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb2_448);
 
-		Question questionb2_465 = new Question(28, "Biển nào báo hiệu kết thúc đường cao tốc?", true, "b2_465.jpg",
+		Question questionb2_465 = new Question(28, "Biển nào báo hiệu kết thúc đường cao tốc?", "b2_465.jpg",
 				b2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb2_465);
 
-		Question questionb2_482 = new Question(29, "Vạch dưới đây có ý nghĩa gì?", true, "b2_482.jpg", b2.getId(),
+		Question questionb2_482 = new Question(29, "Vạch dưới đây có ý nghĩa gì?", "b2_482.jpg", b2.getId(),
 				set6.getId(), bb.getId());
 		questionRepo.save(questionb2_482);
 
 		Question questionb2_499 = new Question(30,
-				"Theo tín hiệu đèn, xe tải đi theo hướng nào là đúng quy tắc giao thông?", true, "b2_499.jpg",
+				"Theo tín hiệu đèn, xe tải đi theo hướng nào là đúng quy tắc giao thông?", "b2_499.jpg",
 				b2.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionb2_499);
 
 		Question questionb2_516 = new Question(31, "Theo hướng mũi tên, những hướng đi nào ô tô con được phép đi?",
-				true, "b2_516.jpg", b2.getId(), set6.getId(), sh.getId());
+				"b2_516.jpg", b2.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionb2_516);
 
-		Question questionb2_533 = new Question(32, "Những hướng nào ô tô tải được phép đi?", true, "b2_533.jpg",
+		Question questionb2_533 = new Question(32, "Những hướng nào ô tô tải được phép đi?", "b2_533.jpg",
 				b2.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionb2_533);
 
-		Question questionb2_550 = new Question(33, "Xe nào phải nhường đường là đúng quy tắc giao thông?", true,
+		Question questionb2_550 = new Question(33, "Xe nào phải nhường đường là đúng quy tắc giao thông?",
 				"b2_550.jpg", b2.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionb2_550);
 
-		Question questionb2_567 = new Question(34, "Xe của bạn được đi theo hướng nào trong trường hợp này?", true,
+		Question questionb2_567 = new Question(34, "Xe của bạn được đi theo hướng nào trong trường hợp này?",
 				"b2_567.jpg", b2.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionb2_567);
 
-		Question questionb2_584 = new Question(35, "Xe nào được đi trước trong trường hợp này?", true, "b2_584.jpg",
+		Question questionb2_584 = new Question(35, "Xe nào được đi trước trong trường hợp này?", "b2_584.jpg",
 				b2.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionb2_584);
 
 		Question questionb2_7 = new Question(1,
 				"Đường mà trên đó phương tiện tham gia giao thông được các phương tiện giao thông được các phương tiện giao thông đến từ hướng khác nhường đường khi qua nơi đường giao nhau, được cắm biển báo hiệu đường ưu tiên là loại đường gì?",
-				true, "", b2.getId(), set7.getId(), kn.getId());
+				"nan", b2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb2_7);
 
 		Question questionb2_24 = new Question(2,
 				"Theo luật phòng chống tác hại của rượu, bia, đối tượng nào dưới đây bị cấm sử dụng rượu bia khi tham gia giao thông?",
-				true, "", b2.getId(), set7.getId(), kn.getId());
+				"nan", b2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb2_24);
 
 		Question questionb2_41 = new Question(3,
 				"Bạn đang lái xe trong khu dân cư, có đông xe qua lại, nếu muốn quay đầu xe bạn cần làm gì để tránh lại, nếu muốn quay đầu xe bạn cần làm gì để tránh ùn tắc và đảm bảo an toàn giao thông?",
-				true, "", b2.getId(), set7.getId(), kn.getId());
+				"nan", b2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb2_41);
 
 		Question questionb2_58 = new Question(4,
 				"Người lái xe chở từ 10 đến 30 chỗ ngồi (hạng D), lái xe hạng C kéo rơ Moóc(FC) phải đủ bao nhiêu tuổi trở lên?",
-				true, "", b2.getId(), set7.getId(), kn.getId());
+				"nan", b2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb2_58);
 
 		Question questionb2_75 = new Question(5,
 				"Biển báo hiệu hình chữ nhật hoặc hình vuông hoặc hình mũi tên nền xanh lam là loại biển gì dưới đây?",
-				true, "b2_75.jpg", b2.getId(), set7.getId(), kn.getId());
+				"b2_75.jpg", b2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb2_75);
 
 		Question questionb2_92 = new Question(6,
-				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?", true,
+				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?",
 				"", b2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb2_92);
 
 		Question questionb2_109 = new Question(7,
-				"Người ngồi trên e mô tô 2 bánh, xe gắn máy phải đội mũ bảo hiểm có quai đúng quy cách khi nào?", true,
+				"Người ngồi trên e mô tô 2 bánh, xe gắn máy phải đội mũ bảo hiểm có quai đúng quy cách khi nào?",
 				"", b2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb2_109);
 
 		Question questionb2_126 = new Question(8,
 				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường hai chiều không có dải phân cách giữa, xe mô tô hai bánh, ô tô chở người đến 30 chỗ tham gia giao thông với tốc độ tối đa cho phép là bao nhiêu?",
-				true, "", b2.getId(), set7.getId(), kn.getId());
+				"nan", b2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb2_126);
 
 		Question questionb2_143 = new Question(9,
 				"Tại các điểm giao cắt giữa đườn bộ và đường sắt, quyền ưu tiên thuộc về loại phương tiện nào dưới đây?",
-				true, "", b2.getId(), set7.getId(), kn.getId());
+				"nan", b2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb2_143);
 
 		Question questionb2_160 = new Question(10,
 				"Khi tham gia giao thông trên đường coa tốc, người điều khiển phương tiện cơ giới có đường dừng, đỗ xe trên phần đường xe chạy hay không?",
-				true, "", b2.getId(), set7.getId(), kn.getId());
+				"nan", b2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb2_160);
 
 		Question questionb2_177 = new Question(11, "Người kinh doanh vận tải hàng hóa có các quyền gì ở dưới đây?",
-				true, "", b2.getId(), set7.getId(), nvvt.getId());
+				"nan", b2.getId(), set7.getId(), nvvt.getId());
 		questionRepo.save(questionb2_177);
 
 		Question questionb2_194 = new Question(12,
-				"Người lái xe vận tải hàng hóa cần thực hiện những nhiệm vụ gì ghi ở dưới đây?", true, "", b2.getId(),
+				"Người lái xe vận tải hàng hóa cần thực hiện những nhiệm vụ gì ghi ở dưới đây?", "nan", b2.getId(),
 				set7.getId(), vh.getId());
 		questionRepo.save(questionb2_194);
 
 		Question questionb2_211 = new Question(13,
-				"Khi xảy ra tai nạn giao thông, những hành vi nào dưới đây bị nghiêm cấm?", true, "", b2.getId(),
+				"Khi xảy ra tai nạn giao thông, những hành vi nào dưới đây bị nghiêm cấm?", "nan", b2.getId(),
 				set7.getId(), vh.getId());
 		questionRepo.save(questionb2_211);
 
 		Question questionb2_228 = new Question(14,
-				"Khi điều khiển ô tô tự đổ, người lái xe cần chú ý những điểm gì để đảm bảo an toàn?", true, "",
+				"Khi điều khiển ô tô tự đổ, người lái xe cần chú ý những điểm gì để đảm bảo an toàn?", "nan",
 				b2.getId(), set7.getId(), kt.getId());
 		questionRepo.save(questionb2_228);
 
 		Question questionb2_245 = new Question(15,
 				"Khi điều khiển ô tô có hộp số tự động đi vào đường trơn trượt, lầy lội, người lái xe phải xử lý như thế nào để đảm bảo an toàn trong các trường hợp dưới đây?",
-				true, "", b2.getId(), set7.getId(), kt.getId());
+				"nan", b2.getId(), set7.getId(), kt.getId());
 		questionRepo.save(questionb2_245);
 
 		Question questionb2_262 = new Question(16,
 				"Khi đang lái xe mô tô và ô tô, nếu có nhu cầu sử dụng điện thoại để nhắn tin hoặc gọi điện, người lái xe phải thực hiện như thế nào trong các tình huống dưới đây?",
-				true, "", b2.getId(), set7.getId(), kt.getId());
+				"nan", b2.getId(), set7.getId(), kt.getId());
 		questionRepo.save(questionb2_262);
 
 		Question questionb2_279 = new Question(17,
-				"Gạt nước lắp trên ô tô đảm bảo yêu cầu an toàn kỹ thuật nào dưới đây?", true, "", b2.getId(),
+				"Gạt nước lắp trên ô tô đảm bảo yêu cầu an toàn kỹ thuật nào dưới đây?", "nan", b2.getId(),
 				set7.getId(), ctsc.getId());
 		questionRepo.save(questionb2_279);
 
 		Question questionb2_296 = new Question(18,
 				"Khi động cơ xe số tự động có trang bị chìa khóa thông minh có cần đạp hết hành trình bàn đạp của phanh?",
-				true, "b2_296.jpg", b2.getId(), set7.getId(), ctsc.getId());
+				"b2_296.jpg", b2.getId(), set7.getId(), ctsc.getId());
 		questionRepo.save(questionb2_296);
 
-		Question questionb2_313 = new Question(19, "Biển nào không cho phép ô tô con vượt?", true, "b2_313.jpg",
+		Question questionb2_313 = new Question(19, "Biển nào không cho phép ô tô con vượt?", "b2_313.jpg",
 				b2.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionb2_313);
 
-		Question questionb2_330 = new Question(20, "Biển nào dưới đây các phương tiện không được phép đi vào?", true,
+		Question questionb2_330 = new Question(20, "Biển nào dưới đây các phương tiện không được phép đi vào?",
 				"b2_330.jpg", b2.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionb2_330);
 
-		Question questionb2_347 = new Question(21, "Biển nào cấm máy kéo?", true, "b2_347.jpg", b2.getId(),
+		Question questionb2_347 = new Question(21, "Biển nào cấm máy kéo?", "b2_347.jpg", b2.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionb2_347);
 
 		Question questionb2_364 = new Question(22,
-				"Biển nào báo hiệu hạn chế tốc độ của phương tiện không vượt quá trị số ghi trên biển?", true,
+				"Biển nào báo hiệu hạn chế tốc độ của phương tiện không vượt quá trị số ghi trên biển?",
 				"b2_364.jpg", b2.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionb2_364);
 
-		Question questionb2_381 = new Question(23, "Các biển này có ý nghĩa gì?", true, "b2_381.jpg", b2.getId(),
+		Question questionb2_381 = new Question(23, "Các biển này có ý nghĩa gì?", "b2_381.jpg", b2.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionb2_381);
 
-		Question questionb2_398 = new Question(24, "Biển nào báo hiệu \"Đường hai chiều\"?", true, "b2_398.jpg",
+		Question questionb2_398 = new Question(24, "Biển nào báo hiệu \"Đường hai chiều\"?", "b2_398.jpg",
 				b2.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionb2_398);
 
 		Question questionb2_415 = new Question(25,
-				"Biển nào báo hiệu gần đến đoạn đường thường có trẻ em đi ngang qua?", true, "b2_415.jpg", b2.getId(),
+				"Biển nào báo hiệu gần đến đoạn đường thường có trẻ em đi ngang qua?", "b2_415.jpg", b2.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionb2_415);
 
 		Question questionb2_432 = new Question(26,
-				"Khi gặp biển nào thì các phương tiện không được đi vào trừ xe ô tô và mô tô?", true, "b2_432.jpg",
+				"Khi gặp biển nào thì các phương tiện không được đi vào trừ xe ô tô và mô tô?", "b2_432.jpg",
 				b2.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionb2_432);
 
 		Question questionb2_449 = new Question(27,
-				"Biển nào báo hiệu\" Rẽ ra đường có làn đường dành cho ô tô khách\"?", true, "b2_449.jpg", b2.getId(),
+				"Biển nào báo hiệu\" Rẽ ra đường có làn đường dành cho ô tô khách\"?", "b2_449.jpg", b2.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionb2_449);
 
-		Question questionb2_466 = new Question(28, "Biển này có ý nghĩa gì?", true, "b2_466.jpg", b2.getId(),
+		Question questionb2_466 = new Question(28, "Biển này có ý nghĩa gì?", "b2_466.jpg", b2.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionb2_466);
 
-		Question questionb2_483 = new Question(29, "Vạch dưới đây có ý nghĩa gì?", true, "b2_483.jpg", b2.getId(),
+		Question questionb2_483 = new Question(29, "Vạch dưới đây có ý nghĩa gì?", "b2_483.jpg", b2.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionb2_483);
 
 		Question questionb2_500 = new Question(30, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
-				true, "b2_500.jpg", b2.getId(), set7.getId(), sh.getId());
+				"b2_500.jpg", b2.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionb2_500);
 
-		Question questionb2_517 = new Question(31, "Theo hướng mũi tên, những hướng nào xe tải được phép đi?", true,
+		Question questionb2_517 = new Question(31, "Theo hướng mũi tên, những hướng nào xe tải được phép đi?",
 				"b2_517.jpg", b2.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionb2_517);
 
 		Question questionb2_534 = new Question(32, "Trong hình dưới đây, xe nào chấp hành đúng quy tắc giao thông?",
-				true, "b2_534.jpg", b2.getId(), set7.getId(), sh.getId());
+				"b2_534.jpg", b2.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionb2_534);
 
 		Question questionb2_551 = new Question(33,
-				"Người lái xe được phép vượt xe tải để đi thẳng trong trường hợp này không?", true, "b2_551.jpg",
+				"Người lái xe được phép vượt xe tải để đi thẳng trong trường hợp này không?", "b2_551.jpg",
 				b2.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionb2_551);
 
-		Question questionb2_568 = new Question(34, "Bạn xử lý như thế nào trong trường hợp này?", true, "b2_568.jpg",
+		Question questionb2_568 = new Question(34, "Bạn xử lý như thế nào trong trường hợp này?", "b2_568.jpg",
 				b2.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionb2_568);
 
 		Question questionb2_585 = new Question(35,
-				"Các xe đi theo thứ tự như thế nào là đúng quy tắc giao thông đường bộ?", true, "b2_585.jpg",
+				"Các xe đi theo thứ tự như thế nào là đúng quy tắc giao thông đường bộ?", "b2_585.jpg",
 				b2.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionb2_585);
 
 		Question questionb2_8 = new Question(1,
-				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", true, "",
+				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", "nan",
 				b2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb2_8);
 
 		Question questionb2_25 = new Question(2,
 				"Hành vi xe cơ giới, xe máy chuyên dùng cho người không đủ điều kiện để điều khiển xe tham gia giao thông có được phép hay không?",
-				true, "", b2.getId(), set8.getId(), kn.getId());
+				"nan", b2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb2_25);
 
-		Question questionb2_42 = new Question(3, "Người lái xe không được lùi xe ở những khu vực nào dưới đây?", true,
+		Question questionb2_42 = new Question(3, "Người lái xe không được lùi xe ở những khu vực nào dưới đây?",
 				"", b2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb2_42);
 
-		Question questionb2_59 = new Question(4, "Người đủ 16 tuổi được điều khiển các loại xe nào dưới Đây?", true, "",
+		Question questionb2_59 = new Question(4, "Người đủ 16 tuổi được điều khiển các loại xe nào dưới Đây?", "nan",
 				b2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb2_59);
 
 		Question questionb2_76 = new Question(5,
-				"Khi tập lái xe ô tô, người tập lái xe phỉa thực hiện các điều kiện gì dưới đây?", true, "", b2.getId(),
+				"Khi tập lái xe ô tô, người tập lái xe phỉa thực hiện các điều kiện gì dưới đây?", "nan", b2.getId(),
 				set8.getId(), kn.getId());
 		questionRepo.save(questionb2_76);
 
-		Question questionb2_93 = new Question(6, "Khi lùi xe người lái xe phải làm gì để đảo bảo an toàn?", true, "",
+		Question questionb2_93 = new Question(6, "Khi lùi xe người lái xe phải làm gì để đảo bảo an toàn?", "nan",
 				b2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb2_93);
 
 		Question questionb2_110 = new Question(7,
 				"Người điều khiển xe mô tô hai bánh, xe gắn máy được phép chở tối đa 2 người trong trường hợp nào?",
-				true, "", b2.getId(), set8.getId(), kn.getId());
+				"nan", b2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb2_110);
 
 		Question questionb2_127 = new Question(8,
 				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường hai chiều hoặc đường một chiều có một làn xe cơ giới, loại xe nào tham gia giao thông được đi với tốc độ tối đa cho phép là 50 km/h?",
-				true, "", b2.getId(), set8.getId(), kn.getId());
+				"nan", b2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb2_127);
 
 		Question questionb2_144 = new Question(9,
 				"Các phương tiện tham gia giao thông đường bộ (kể cả những xe có quyền ưu tiên) đều phải dừng lại bên phải đường của mình và trước vạch \"dừng xe\" tại các địa điểm giao cắt giữa đường bộ và đường sắt khi có báo hiệu dừng nào dưới đây?",
-				true, "", b2.getId(), set8.getId(), kn.getId());
+				"nan", b2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb2_144);
 
 		Question questionb2_161 = new Question(10,
 				"Khi xe gặp sự cố khỹ thuật trên đường cao tốc, bạn phải xử lý theo thứ tự như thế nào dưới đây để đảm bảo an toàn giao thông?",
-				true, "", b2.getId(), set8.getId(), kn.getId());
+				"nan", b2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb2_161);
 
 		Question questionb2_178 = new Question(11, "Người kinh doanh vận tải hàng hóa có các nghĩa vụ gì dưới đây?",
-				true, "", b2.getId(), set8.getId(), nvvt.getId());
+				"nan", b2.getId(), set8.getId(), nvvt.getId());
 		questionRepo.save(questionb2_178);
 
 		Question questionb2_195 = new Question(12,
 				"Những lái xe kinh doanh vận tải cần thực hiện những công việc gì ghi ở dưới đây để thường xuyên rèn luyện nâng cao đạo đức nghề nghiệp?",
-				true, "", b2.getId(), set8.getId(), vh.getId());
+				"nan", b2.getId(), set8.getId(), vh.getId());
 		questionRepo.save(questionb2_195);
 
 		Question questionb2_212 = new Question(13,
 				"Trọng đoạn đường hai chiều tại khu đông dân cư đang ùn tắc, người điều khiển xe mô tô hai bánh có văn hóa giao thông sẽ lựa chọn xử lý tình huống nào dưới đây?",
-				true, "", b2.getId(), set8.getId(), vh.getId());
+				"nan", b2.getId(), set8.getId(), vh.getId());
 		questionRepo.save(questionb2_212);
 
 		Question questionb2_229 = new Question(14,
-				"Khi điều khiển xe tăng số, người lái xe cần chú ý những điểm gì để đảm bảo an toàn?", true, "",
+				"Khi điều khiển xe tăng số, người lái xe cần chú ý những điểm gì để đảm bảo an toàn?", "nan",
 				b2.getId(), set8.getId(), kt.getId());
 		questionRepo.save(questionb2_229);
 
 		Question questionb2_246 = new Question(15,
 				"Khi động cơ ô tô đã khởi động, muốn điều chỉnh ghế của người lái, người lái xe phải điều chỉnh cần số ở vị trí nào?",
-				true, "", b2.getId(), set8.getId(), kt.getId());
+				"nan", b2.getId(), set8.getId(), kt.getId());
 		questionRepo.save(questionb2_246);
 
 		Question questionb2_263 = new Question(16,
 				"Những thói quen nào dưới đây điều khiển xe mô tô tay gat ham gia giao thông đễ gây tai nạn nguy hiểm?",
-				true, "", b2.getId(), set8.getId(), kt.getId());
+				"nan", b2.getId(), set8.getId(), kt.getId());
 		questionRepo.save(questionb2_263);
 
 		Question questionb2_280 = new Question(17,
-				"Dây đai an toàn lắp trên ô tô phải đảm bảo yêu cầu an toàn kỹ thuật nào dưới đây?", true, "",
+				"Dây đai an toàn lắp trên ô tô phải đảm bảo yêu cầu an toàn kỹ thuật nào dưới đây?", "nan",
 				b2.getId(), set8.getId(), ctsc.getId());
 		questionRepo.save(questionb2_280);
 
-		Question questionb2_297 = new Question(18, "Ắc quy được trang bị trên xe ô tô có tác dụng gì?", true, "",
+		Question questionb2_297 = new Question(18, "Ắc quy được trang bị trên xe ô tô có tác dụng gì?", "nan",
 				b2.getId(), set8.getId(), ctsc.getId());
 		questionRepo.save(questionb2_297);
 
-		Question questionb2_314 = new Question(19, "Biển nào cấm ô tô tái vượt?", true, "b2_314.jpg", b2.getId(),
+		Question questionb2_314 = new Question(19, "Biển nào cấm ô tô tái vượt?", "b2_314.jpg", b2.getId(),
 				set8.getId(), bb.getId());
 		questionRepo.save(questionb2_314);
 
-		Question questionb2_331 = new Question(20, "Gặp biển nào người lái xe không được đổ xe vào ngày chẵn?", true,
+		Question questionb2_331 = new Question(20, "Gặp biển nào người lái xe không được đổ xe vào ngày chẵn?",
 				"b2_331.jpg", b2.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb2_331);
 
 		Question questionb2_348 = new Question(21,
-				"Khi gặp biển này, xe mô tô ba bánh có được phép rẻ trái hoặc rẽ phải hay không?", true, "b2_348.jpg",
+				"Khi gặp biển này, xe mô tô ba bánh có được phép rẻ trái hoặc rẽ phải hay không?", "b2_348.jpg",
 				b2.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb2_348);
 
 		Question questionb2_365 = new Question(22,
-				"Trong các biển báo dưới đây biển nào báo hiệu \"Hết đường cao tốc\"?", true, "b2_365.jpg", b2.getId(),
+				"Trong các biển báo dưới đây biển nào báo hiệu \"Hết đường cao tốc\"?", "b2_365.jpg", b2.getId(),
 				set8.getId(), bb.getId());
 		questionRepo.save(questionb2_365);
 
-		Question questionb2_382 = new Question(23, "Biển nào báo hiệu \"Hết đoạn đường ưu tiên\"?", true, "b2_382.jpg",
+		Question questionb2_382 = new Question(23, "Biển nào báo hiệu \"Hết đoạn đường ưu tiên\"?", "b2_382.jpg",
 				b2.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb2_382);
 
-		Question questionb2_399 = new Question(24, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", true,
+		Question questionb2_399 = new Question(24, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?",
 				"b2_399.jpg", b2.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb2_399);
 
 		Question questionb2_416 = new Question(25,
 				"Gặp biển nào dưới đây người tham gia giao thông cần phải điều chỉnh tốc độ chạy xe cho thích hợp, đề phòng gió thổi mạnh gây lật xe?",
-				true, "b2_416.jpg", b2.getId(), set8.getId(), bb.getId());
+				"b2_416.jpg", b2.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb2_416);
 
-		Question questionb2_433 = new Question(26, "Biển này có ý nghĩa gì?", true, "b2_433.jpg", b2.getId(),
+		Question questionb2_433 = new Question(26, "Biển này có ý nghĩa gì?", "b2_433.jpg", b2.getId(),
 				set8.getId(), bb.getId());
 		questionRepo.save(questionb2_433);
 
 		Question questionb2_450 = new Question(27,
-				"Biển nào đặt trên đường chính trước khi đến nơi đường giao nhau để rẽ vào đường cụt?", true,
+				"Biển nào đặt trên đường chính trước khi đến nơi đường giao nhau để rẽ vào đường cụt?",
 				"b2_450.jpg", b2.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb2_450);
 
-		Question questionb2_467 = new Question(28, "Biển này có ý nghĩa gì?", true, "b2_467.jpg", b2.getId(),
+		Question questionb2_467 = new Question(28, "Biển này có ý nghĩa gì?", "b2_467.jpg", b2.getId(),
 				set8.getId(), bb.getId());
 		questionRepo.save(questionb2_467);
 
-		Question questionb2_484 = new Question(29, "Thứ tự đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb2_484 = new Question(29, "Thứ tự đi như thế nào là đúng quy tắc giao thông?",
 				"b2_484.jpg", b2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb2_484);
 
-		Question questionb2_501 = new Question(30, "Thứ tự các xe đi nhưu thế nào là đúng quy tắc giao thông?", true,
+		Question questionb2_501 = new Question(30, "Thứ tự các xe đi nhưu thế nào là đúng quy tắc giao thông?",
 				"b2_501.jpg", b2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb2_501);
 
-		Question questionb2_518 = new Question(31, "Những hướng nào xe tải được phép đi?", true, "b2_518.jpg",
+		Question questionb2_518 = new Question(31, "Những hướng nào xe tải được phép đi?", "b2_518.jpg",
 				b2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb2_518);
 
-		Question questionb2_535 = new Question(32, "Theo hướng mũi tên, những hướng nào xe mô tô được phép đi?", true,
+		Question questionb2_535 = new Question(32, "Theo hướng mũi tên, những hướng nào xe mô tô được phép đi?",
 				"b2_535.jpg", b2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb2_535);
 
-		Question questionb2_552 = new Question(33, "Bạn có được phép vượt xe mô tô phía trước không?", true,
+		Question questionb2_552 = new Question(33, "Bạn có được phép vượt xe mô tô phía trước không?",
 				"b2_552.jpg", b2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb2_552);
 
-		Question questionb2_569 = new Question(34, "Bạn xử lý như thế nào trong trường hợp này?", true, "b2_569.jpg",
+		Question questionb2_569 = new Question(34, "Bạn xử lý như thế nào trong trường hợp này?", "b2_569.jpg",
 				b2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb2_569);
 
-		Question questionb2_586 = new Question(35, "Bạn xử lý như thế nào trong trường hợp này?", true, "b2_586.jpg",
+		Question questionb2_586 = new Question(35, "Bạn xử lý như thế nào trong trường hợp này?", "b2_586.jpg",
 				b2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb2_586);
 
 		Question questionb2_9 = new Question(1,
-				"Khái niệm \"phương tiện giao thông thô sơ đường bộ\" được hiểu thế nào là đúng?", true, "", b2.getId(),
+				"Khái niệm \"phương tiện giao thông thô sơ đường bộ\" được hiểu thế nào là đúng?", "nan", b2.getId(),
 				set9.getId(), kn.getId());
 		questionRepo.save(questionb2_9);
 
 		Question questionb2_26 = new Question(2,
 				"Hành vi điều khiển xe cơ giới chạy quá tốc độ quy định, giành đường, vượt ẩu có nghiêm cấm hay không?",
-				true, "", b2.getId(), set9.getId(), kn.getId());
+				"nan", b2.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb2_26);
 
 		Question questionb2_43 = new Question(3,
 				"Người điều khiển phương tiện giao thông trên đường phố có được dừng xe, đỗ xe trên miệng cống thoát nước, miệng hầm của đường điện thoại, điện cao thế, chỗ dành riêng cho xe chữa cháy lấy nước hay không?",
-				true, "", b2.getId(), set9.getId(), kn.getId());
+				"nan", b2.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb2_43);
 
 		Question questionb2_60 = new Question(4,
-				"Người có giấy phép lái xe mô tô hạng A1 không được phép điều khiển loại xe nào dưới đây?", true, "",
+				"Người có giấy phép lái xe mô tô hạng A1 không được phép điều khiển loại xe nào dưới đây?", "nan",
 				b2.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb2_60);
 
 		Question questionb2_77 = new Question(5,
-				"Khi dạy thực hành lái xe, giáo viên phải mang theo các loại giấy tờ gì dưới đây?", true, "",
+				"Khi dạy thực hành lái xe, giáo viên phải mang theo các loại giấy tờ gì dưới đây?", "nan",
 				b2.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb2_77);
 
 		Question questionb2_94 = new Question(6,
 				"Khi bạn nhìn thấy đèn phía sau xe ô tô có mày sáng trắng, ô tô đó đang trong tình trạng như thế nào?",
-				true, "", b2.getId(), set9.getId(), kn.getId());
+				"nan", b2.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb2_94);
 
 		Question questionb2_111 = new Question(7,
-				"Người điều khiển xe mô tô hai bánh, xe gắn máy không được thực hiện những hành vi nào dưới dây?", true,
+				"Người điều khiển xe mô tô hai bánh, xe gắn máy không được thực hiện những hành vi nào dưới dây?",
 				"", b2.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb2_111);
 
 		Question questionb2_128 = new Question(8,
 				"Trên đường bộ (trừ đường cao tốc) trong khu vực đông dân cư, đường đôi hoặc đường một chiều có từ hai làn xe cơ giới trở lên, loại xe nào tham gia giao thông với tốc độ tối đa cho phép là 60km/h?",
-				true, "", b2.getId(), set9.getId(), kn.getId());
+				"nan", b2.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb2_128);
 
 		Question questionb2_145 = new Question(9,
 				"Trên đoạn đường bộ giao thông nhau đồng mức với đướng sắt, người không có nhiệm vụ có được tự ý mở chắn đường ngang khi chắn đã được đóng hay không?",
-				true, "", b2.getId(), set9.getId(), kn.getId());
+				"nan", b2.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb2_145);
 
 		Question questionb2_162 = new Question(10,
 				"Khi người lái xe ô tô dừng, đỗ sát theo lề đường, hè phố phía bên phải theo chiều đi của mình, bánh xe gần nhất không được cách va lề đường, hè phố qua bao nhiêu mét trong các trường hợp dưới đây để không gây cản trở, nguy hiểm cho giao thông?",
-				true, "", b2.getId(), set9.getId(), kn.getId());
+				"nan", b2.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb2_162);
 
-		Question questionb2_179 = new Question(11, "Ngườ thuê vận tải hàng hóa có các quyền hạn gì dưới đây?", true, "",
+		Question questionb2_179 = new Question(11, "Ngườ thuê vận tải hàng hóa có các quyền hạn gì dưới đây?", "nan",
 				b2.getId(), set9.getId(), nvvt.getId());
 		questionRepo.save(questionb2_179);
 
 		Question questionb2_196 = new Question(12,
 				"Người lái xe và nhân viên phục vụ trên xe ô tô vận tải hành khách phải có những trách nhiện gì theo quy định được ghi dưới đây?",
-				true, "", b2.getId(), set9.getId(), vh.getId());
+				"nan", b2.getId(), set9.getId(), vh.getId());
 		questionRepo.save(questionb2_196);
 
 		Question questionb2_213 = new Question(13,
-				"Trên đường đang xảy ra ùn tắc những hành vi nào sau đây là thiếu văn hóa khi tham gia giao thông? ",
-				true, "", b2.getId(), set9.getId(), vh.getId());
+				"Trên đường đang xảy ra ùn tắc những hành vi nào sau đây là thiếu văn hóa khi tham gia giao thông?",
+				"nan", b2.getId(), set9.getId(), vh.getId());
 		questionRepo.save(questionb2_213);
 
 		Question questionb2_230 = new Question(14,
-				"Khi điều khiển xe giảm số, người lái xe cần chú ý những điểm gì để đảm bảo an toàn?", true, "",
+				"Khi điều khiển xe giảm số, người lái xe cần chú ý những điểm gì để đảm bảo an toàn?", "nan",
 				b2.getId(), set9.getId(), kt.getId());
 		questionRepo.save(questionb2_230);
 
 		Question questionb2_247 = new Question(15,
 				"Khi điều khiển ô tô có hộp số tự động, người lái xe sử dụng chân như thế nào là đúng để đảm bảo an toàn?",
-				true, "", b2.getId(), set9.getId(), kt.getId());
+				"nan", b2.getId(), set9.getId(), kt.getId());
 		questionRepo.save(questionb2_247);
 
 		Question questionb2_264 = new Question(16,
 				"Người ngồi trên xe ô tô cần thực hiện những thao tác mở cửa như thế nào để xuống xe một cách an toàn?",
-				true, "", b2.getId(), set9.getId(), kt.getId());
+				"nan", b2.getId(), set9.getId(), kt.getId());
 		questionRepo.save(questionb2_264);
 
-		Question questionb2_281 = new Question(17, "Thế nào là động cơ 4 kỳ?", true, "", b2.getId(), set9.getId(),
+		Question questionb2_281 = new Question(17, "Thế nào là động cơ 4 kỳ?", "nan", b2.getId(), set9.getId(),
 				ctsc.getId());
 		questionRepo.save(questionb2_281);
 
-		Question questionb2_298 = new Question(18, "Máy phát điện được trang bị trên xe ô tô có tác dụng gì?", true, "",
+		Question questionb2_298 = new Question(18, "Máy phát điện được trang bị trên xe ô tô có tác dụng gì?", "nan",
 				b2.getId(), set9.getId(), ctsc.getId());
 		questionRepo.save(questionb2_298);
 
-		Question questionb2_315 = new Question(19, "Biển nào cấm xe tải vượt?", true, "b2_315.jpg", b2.getId(),
+		Question questionb2_315 = new Question(19, "Biển nào cấm xe tải vượt?", "b2_315.jpg", b2.getId(),
 				set9.getId(), bb.getId());
 		questionRepo.save(questionb2_315);
 
-		Question questionb2_332 = new Question(20, "Gặp biển nào người lái xe được đổ xe vào ngày lẻ?", true,
+		Question questionb2_332 = new Question(20, "Gặp biển nào người lái xe được đổ xe vào ngày lẻ?",
 				"b2_332.jpg", b2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb2_332);
 
-		Question questionb2_349 = new Question(21, "Biển này có hiệu lực đối với xe mô tô hai, ba bánh không?", true,
+		Question questionb2_349 = new Question(21, "Biển này có hiệu lực đối với xe mô tô hai, ba bánh không?",
 				"b2_349.jpg", b2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb2_349);
 
-		Question questionb2_366 = new Question(22, "Số 50 trên biển báo dưới đây có ý nghĩa gì?", true, "b2_366.jpg",
+		Question questionb2_366 = new Question(22, "Số 50 trên biển báo dưới đây có ý nghĩa gì?", "b2_366.jpg",
 				b2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb2_366);
 
 		Question questionb2_383 = new Question(23,
-				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?", true,
+				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?",
 				"b2_383.jpg", b2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb2_383);
 
-		Question questionb2_400 = new Question(24, "Biển nào báo hiệu \"Chú ý chướng ngại vật\"?", true, "b2_400.jpg",
+		Question questionb2_400 = new Question(24, "Biển nào báo hiệu \"Chú ý chướng ngại vật\"?", "b2_400.jpg",
 				b2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb2_400);
 
-		Question questionb2_417 = new Question(25, "Biển nào sau đây là biển \"Dốc xuống nguy hiểm\"? ", true,
+		Question questionb2_417 = new Question(25, "Biển nào sau đây là biển \"Dốc xuống nguy hiểm\"?",
 				"b2_417.jpg", b2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb2_417);
 
 		Question questionb2_434 = new Question(26,
-				"Biển nào ( đặt trước ngã ba, ngã tư) co phép xe được rẽ sang dướng khác?", true, "b2_434.jpg",
+				"Biển nào ( đặt trước ngã ba, ngã tư) co phép xe được rẽ sang dướng khác?", "b2_434.jpg",
 				b2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb2_434);
 
-		Question questionb2_451 = new Question(27, "Biển nào chỉ dẫn cho người đi bộ sử dụng cầu vượt qua đường?", true,
+		Question questionb2_451 = new Question(27, "Biển nào chỉ dẫn cho người đi bộ sử dụng cầu vượt qua đường?",
 				"b2_451.jpg", b2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb2_451);
 
-		Question questionb2_468 = new Question(28, "Ý nghĩa các biểu tượng trên biển chỉ dẫn là gì?", true,
+		Question questionb2_468 = new Question(28, "Ý nghĩa các biểu tượng trên biển chỉ dẫn là gì?",
 				"b2_468.jpg", b2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb2_468);
 
-		Question questionb2_485 = new Question(29, "Thứ tự đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb2_485 = new Question(29, "Thứ tự đi như thế nào là đúng quy tắc giao thông?",
 				"b2_485.jpg", b2.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionb2_485);
 
-		Question questionb2_502 = new Question(30, "Trong trường hợp này xe nào đỗ vi phạm quy tắc giao thông?", true,
+		Question questionb2_502 = new Question(30, "Trong trường hợp này xe nào đỗ vi phạm quy tắc giao thông?",
 				"b2_502.jpg", b2.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionb2_502);
 
-		Question questionb2_519 = new Question(31, "Những hướng nào ô tô tải được phép đi?", true, "b2_519.jpg",
+		Question questionb2_519 = new Question(31, "Những hướng nào ô tô tải được phép đi?", "b2_519.jpg",
 				b2.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionb2_519);
 
 		Question questionb2_536 = new Question(32,
-				"Trong trường hợp này, thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true, "b2_536.jpg",
+				"Trong trường hợp này, thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", "b2_536.jpg",
 				b2.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionb2_536);
 
-		Question questionb2_553 = new Question(33, "Người láu xe dừng tại vị trí nào là đúng quy tắc giao thông?", true,
+		Question questionb2_553 = new Question(33, "Người láu xe dừng tại vị trí nào là đúng quy tắc giao thông?",
 				"b2_553.jpg", b2.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionb2_553);
 
-		Question questionb2_570 = new Question(34, "Bạn xử lý như thế nào trong trường hợp này?", true, "b2_570.jpg",
+		Question questionb2_570 = new Question(34, "Bạn xử lý như thế nào trong trường hợp này?", "b2_570.jpg",
 				b2.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionb2_570);
 
-		Question questionb2_587 = new Question(35, "Xe nào được đi trước trong trường hợp này?", true, "b2_587.jpg",
+		Question questionb2_587 = new Question(35, "Xe nào được đi trước trong trường hợp này?", "b2_587.jpg",
 				b2.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionb2_587);
 
 		Question questionb2_10 = new Question(1, "\" Phương tiện tham gia giao thông đường bộ\" gồm những loại nào?",
-				true, "", b2.getId(), set10.getId(), kn.getId());
+				"nan", b2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb2_10);
 
 		Question questionb2_27 = new Question(2,
-				"Khi lái xe trên đường, người lái xe cần quan sát và bảo đảm tốc độ phương tiện như thé nào?", true, "",
+				"Khi lái xe trên đường, người lái xe cần quan sát và bảo đảm tốc độ phương tiện như thé nào?", "nan",
 				b2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb2_27);
 
 		Question questionb2_44 = new Question(3,
 				"Khi xe đã kéo 1 xe hoặc xe đã kéo 1 rơ moóc, bạn có được phép kéo thêm xe (kể cả xe thô sơ) hoặc rơ moóc thứ hai hay không?",
-				true, "", b2.getId(), set10.getId(), kn.getId());
+				"nan", b2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb2_44);
 
 		Question questionb2_61 = new Question(4,
-				"Người có giấy phép lái xe mô tô hạng A1 được phép điều khiển các loại xe nào dưới đây?", true, "",
+				"Người có giấy phép lái xe mô tô hạng A1 được phép điều khiển các loại xe nào dưới đây?", "nan",
 				b2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb2_61);
 
-		Question questionb2_78 = new Question(5, "Xe ô tô tập lái phải đảm bảo các điều kiện gì dưới đây?", true, "",
+		Question questionb2_78 = new Question(5, "Xe ô tô tập lái phải đảm bảo các điều kiện gì dưới đây?", "nan",
 				b2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb2_78);
 
 		Question questionb2_95 = new Question(6,
-				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?", true,
+				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?",
 				"", b2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb2_95);
 
 		Question questionb2_112 = new Question(7,
 				"Người điều khiển xe mô tô hai bánh, xe gắn máy có được đi xe dàn hàng ngang; đi xe vào phần đường dành cho người đi bộ và phương tiện khác; sử dụng ô, điện thoại di động, thiết bị âm thanh (trừ thiết bị trợ thính) hay không?",
-				true, "", b2.getId(), set10.getId(), kn.getId());
+				"nan", b2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb2_112);
 
 		Question questionb2_129 = new Question(8,
 				"Trên đường bộ (trừ đường cao tốc) ngoài khu vực đông dân cư, đường đôi có giải phân cách giữa, loại xe nào được tham gia giao thông với tốc độ tối đa cho phép là 90 km/h?",
-				true, "", b2.getId(), set10.getId(), kn.getId());
+				"nan", b2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb2_129);
 
 		Question questionb2_146 = new Question(9,
 				"Tác dụng của mũ bảo hiểm đối với người ngồi trên xe mô tô hai bánh trong trường hợp xảy ra tai nạn giao thông là gì?",
-				true, "", b2.getId(), set10.getId(), kn.getId());
+				"nan", b2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb2_146);
 
 		Question questionb2_163 = new Question(10,
 				"Khi dừng, đỗ xe trên đường phố hẹp, người lái xe ô tô phải dừng, đỗ xe ở vị trí cách xe ô tô đang đỗ bên kia đường khoảng cách tối thiểu là bao nhiêu mét trong các trường hợp dưới đây để đảm bảo an toàn giao thông?",
-				true, "", b2.getId(), set10.getId(), kn.getId());
+				"nan", b2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb2_163);
 
-		Question questionb2_180 = new Question(11, "Người thuê vận tải hàng hóa có các nghĩa vụ gì dưới đây?", true, "",
+		Question questionb2_180 = new Question(11, "Người thuê vận tải hàng hóa có các nghĩa vụ gì dưới đây?", "nan",
 				b2.getId(), set10.getId(), nvvt.getId());
 		questionRepo.save(questionb2_180);
 
 		Question questionb2_197 = new Question(12, "Khái niệm về văn hóa giao thông được hiểu như thế nào là đúng?",
-				true, "", b2.getId(), set10.getId(), vh.getId());
+				"nan", b2.getId(), set10.getId(), vh.getId());
 		questionRepo.save(questionb2_197);
 
 		Question questionb2_214 = new Question(13,
 				"Khi điều khiển xe mô tô tay ga xuống đường dốc dài, độ dốc cao, người lái xe cần thực hiện các thao tác nào dưới đây để đảm bảo an toàn?",
-				true, "", b2.getId(), set10.getId(), kt.getId());
+				"nan", b2.getId(), set10.getId(), kt.getId());
 		questionRepo.save(questionb2_214);
 
 		Question questionb2_231 = new Question(14,
 				"Để giảm tốc độ khi ô tô xuống đường dốc dài, người lái xe phải thực hiện các thao tác nào để đảm bảo an toàn?",
-				true, "", b2.getId(), set10.getId(), kt.getId());
+				"nan", b2.getId(), set10.getId(), kt.getId());
 		questionRepo.save(questionb2_231);
 
 		Question questionb2_248 = new Question(15,
-				"Khi tầm nhìn bị hạn chế bởi sương mù hoặc mưa to, người lái xe phải thực hiện các thao tác nào?", true,
+				"Khi tầm nhìn bị hạn chế bởi sương mù hoặc mưa to, người lái xe phải thực hiện các thao tác nào?",
 				"", b2.getId(), set10.getId(), kt.getId());
 		questionRepo.save(questionb2_248);
 
 		Question questionb2_265 = new Question(16,
-				"Khi điều khiển xe mô tô quay đầu người lái xe cần thực hiện như thế nào để đảm bảo an toàn?", true, "",
+				"Khi điều khiển xe mô tô quay đầu người lái xe cần thực hiện như thế nào để đảm bảo an toàn?", "nan",
 				b2.getId(), set10.getId(), kt.getId());
 		questionRepo.save(questionb2_265);
 
-		Question questionb2_282 = new Question(17, "Công dụng của hệ thống bôi trơn đối với động cơ ô tô?", true, "",
+		Question questionb2_282 = new Question(17, "Công dụng của hệ thống bôi trơn đối với động cơ ô tô?", "nan",
 				b2.getId(), set10.getId(), ctsc.getId());
 		questionRepo.save(questionb2_282);
 
-		Question questionb2_299 = new Question(18, "Dây đai an toàn được trang bị trên xe ô tô có tác dụng gì?", true,
+		Question questionb2_299 = new Question(18, "Dây đai an toàn được trang bị trên xe ô tô có tác dụng gì?",
 				"", b2.getId(), set10.getId(), ctsc.getId());
 		questionRepo.save(questionb2_299);
 
-		Question questionb2_316 = new Question(19, "Biển nào xe ô tô con được phép vượt?", true, "b2_316.jpg",
+		Question questionb2_316 = new Question(19, "Biển nào xe ô tô con được phép vượt?", "b2_316.jpg",
 				b2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb2_316);
 
 		Question questionb2_333 = new Question(20, "Khi gặp biển nào xe ưu tiên theo luật định vẫn phải dừng lại?",
-				true, "b2_333.jpg", b2.getId(), set10.getId(), bb.getId());
+				"b2_333.jpg", b2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb2_333);
 
-		Question questionb2_350 = new Question(21, "Biển này có ý nghĩa gì?", true, "b2_350.jpg", b2.getId(),
+		Question questionb2_350 = new Question(21, "Biển này có ý nghĩa gì?", "b2_350.jpg", b2.getId(),
 				set10.getId(), bb.getId());
 		questionRepo.save(questionb2_350);
 
 		Question questionb2_367 = new Question(22,
-				"Trong các biển báo dưới đây biển nào chỉ dẫn bắt đầu đường cao tốc?", true, "b2_367.jpg", b2.getId(),
+				"Trong các biển báo dưới đây biển nào chỉ dẫn bắt đầu đường cao tốc?", "b2_367.jpg", b2.getId(),
 				set10.getId(), bb.getId());
 		questionRepo.save(questionb2_367);
 
-		Question questionb2_384 = new Question(23, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?", true,
+		Question questionb2_384 = new Question(23, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?",
 				"b2_384.jpg", b2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb2_384);
 
 		Question questionb2_401 = new Question(24,
 				"Biển nào chỉ dẫn cho người tham gia giao thông biết vị trí và khoảng cách có làn đường cứu nạn hay làn thoát xe khẩn cấp?",
-				true, "b2_401.jpg", b2.getId(), set10.getId(), bb.getId());
+				"b2_401.jpg", b2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb2_401);
 
-		Question questionb2_418 = new Question(25, "Biển nào sau đây là biển \"Dốc lên nguy hiểm\"?", true,
+		Question questionb2_418 = new Question(25, "Biển nào sau đây là biển \"Dốc lên nguy hiểm\"?",
 				"b2_418.jpg", b2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb2_418);
 
-		Question questionb2_435 = new Question(26, "Biển nào báo hiệu đường đi thẳng phải theo?", true, "b2_435.jpg",
+		Question questionb2_435 = new Question(26, "Biển nào báo hiệu đường đi thẳng phải theo?", "b2_435.jpg",
 				b2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb2_435);
 
-		Question questionb2_452 = new Question(27, "Biển nào chỉ dẫn cho người đi bộ sử dụng hầm chui qua đường?", true,
+		Question questionb2_452 = new Question(27, "Biển nào chỉ dẫn cho người đi bộ sử dụng hầm chui qua đường?",
 				"b2_452.jpg", b2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb2_452);
 
-		Question questionb2_469 = new Question(28, "Biển này có ý nghĩa gì?", true, "b2_469.jpg", b2.getId(),
+		Question questionb2_469 = new Question(28, "Biển này có ý nghĩa gì?", "b2_469.jpg", b2.getId(),
 				set10.getId(), bb.getId());
 		questionRepo.save(questionb2_469);
 
 		Question questionb2_486 = new Question(29,
-				"Theo hướng mũi tên, thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true, "b2_486.jpg",
+				"Theo hướng mũi tên, thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", "b2_486.jpg",
 				b2.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionb2_486);
 
-		Question questionb2_503 = new Question(30, "Xe nào được quyền đi trước?", true, "b2_503.jpg", b2.getId(),
+		Question questionb2_503 = new Question(30, "Xe nào được quyền đi trước?", "b2_503.jpg", b2.getId(),
 				set10.getId(), sh.getId());
 		questionRepo.save(questionb2_503);
 
-		Question questionb2_520 = new Question(31, "Những hướng nào ô tô tải được phép đi?", true, "b2_520.jpg",
+		Question questionb2_520 = new Question(31, "Những hướng nào ô tô tải được phép đi?", "b2_520.jpg",
 				b2.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionb2_520);
 
-		Question questionb2_537 = new Question(32, "Xe nào phải nhường đường là đúng quy tắc giao thông?", true,
+		Question questionb2_537 = new Question(32, "Xe nào phải nhường đường là đúng quy tắc giao thông?",
 				"b2_537.jpg", b2.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionb2_537);
 
-		Question questionb2_554 = new Question(33, "Bạn được dừng ở vị trí nào trong tình huống này?", true,
+		Question questionb2_554 = new Question(33, "Bạn được dừng ở vị trí nào trong tình huống này?",
 				"b2_554.jpg", b2.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionb2_554);
 
-		Question questionb2_571 = new Question(34, "Xe nào phải nhường đường trong trường hợp này?", true, "b2_571.jpg",
+		Question questionb2_571 = new Question(34, "Xe nào phải nhường đường trong trường hợp này?", "b2_571.jpg",
 				b2.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionb2_571);
 
-		Question questionb2_588 = new Question(35, "Xe nào dừng đúng theo quy tắc giao thông?", true, "b2_588.jpg",
+		Question questionb2_588 = new Question(35, "Xe nào dừng đúng theo quy tắc giao thông?", "b2_588.jpg",
 				b2.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionb2_588);
 
 		Question questionb2_11 = new Question(1, "\"Người tham gia giao thông đường bộ\" Gồm những đối tượng nào?",
-				true, "", b2.getId(), set11.getId(), kn.getId());
+				"nan", b2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb2_11);
 
 		Question questionb2_28 = new Question(2,
-				"Phương tiện giao thông đường bộ di chuyển với tốc độ thấp hơn phải đi như thế nào?", true, "",
+				"Phương tiện giao thông đường bộ di chuyển với tốc độ thấp hơn phải đi như thế nào?", "nan",
 				b2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb2_28);
 
 		Question questionb2_45 = new Question(3,
 				"Người điều khiển xe mô tô hai bánh, ba bánh, xe gắn máy có được phép sử dụng xe để kéo hoặc đẩy các phương tiện khác khi tham gia giao thông không?",
-				true, "", b2.getId(), set11.getId(), kn.getId());
+				"nan", b2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb2_45);
 
 		Question questionb2_62 = new Question(4,
-				"Người có giấy phép lái xe mô tô hạng A2 được phép điều khiển loại xe nào dưới đây?", true, "",
+				"Người có giấy phép lái xe mô tô hạng A2 được phép điều khiển loại xe nào dưới đây?", "nan",
 				b2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb2_62);
 
 		Question questionb2_79 = new Question(5,
-				"Việc sát hạch cấp giấy phép lái xe ô tô phải thực hiện ở đâu và như thế nào?", true, "", b2.getId(),
+				"Việc sát hạch cấp giấy phép lái xe ô tô phải thực hiện ở đâu và như thế nào?", "nan", b2.getId(),
 				set11.getId(), kn.getId());
 		questionRepo.save(questionb2_79);
 
 		Question questionb2_96 = new Question(6,
-				"Bạn đang lái xe trên đường hẹp, xuống dốc và gặp một xe đang lên dốc, bạn cần làm gì?", true, "",
+				"Bạn đang lái xe trên đường hẹp, xuống dốc và gặp một xe đang lên dốc, bạn cần làm gì?", "nan",
 				b2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb2_96);
 
 		Question questionb2_113 = new Question(7,
 				"Người lái xe phải giảm tốc độ thấp hơn tốc độ tối đa cho phép (có thể dừng lại một cách an toàn) trong trường hợp nào dưới đây?",
-				true, "", b2.getId(), set11.getId(), kn.getId());
+				"nan", b2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb2_113);
 
 		Question questionb2_130 = new Question(8,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường đôi có dải phân cách giữa (trừ đường cao tốc), loại xe nào tham gia giao thông với tốc độ tối đa cho phép là 80 km/h?",
-				true, "", b2.getId(), set11.getId(), kn.getId());
+				"nan", b2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb2_130);
 
 		Question questionb2_147 = new Question(9,
-				"Khi điểu khiển phương tiện tham gia giao thông, những hành vi nào dưới đây bị nghiêm cấm?", true, "",
+				"Khi điểu khiển phương tiện tham gia giao thông, những hành vi nào dưới đây bị nghiêm cấm?", "nan",
 				b2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb2_147);
 
 		Question questionb2_164 = new Question(10,
 				"Trên đường bộ, người lái xe ô tô có được phép dừng xe, đỗ xe song song với một xe khác đang dừng, đỗ hay không?",
-				true, "", b2.getId(), set11.getId(), kn.getId());
+				"nan", b2.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb2_164);
 
-		Question questionb2_181 = new Question(11, "Người nhận hàng có các quyền gì dưới đây?", true, "", b2.getId(),
+		Question questionb2_181 = new Question(11, "Người nhận hàng có các quyền gì dưới đây?", "nan", b2.getId(),
 				set11.getId(), nvvt.getId());
 		questionRepo.save(questionb2_181);
 
 		Question questionb2_198 = new Question(12,
 				"Trên làn đường dành cho ô tô có vũng nước lớn, có nhiều người đi xe mô tô trên làn đường bên cạnh, người lái xe ô tô xử lý như thế nào là có văn hóa giao thông?",
-				true, "", b2.getId(), set11.getId(), vh.getId());
+				"nan", b2.getId(), set11.getId(), vh.getId());
 		questionRepo.save(questionb2_198);
 
 		Question questionb2_215 = new Question(13,
 				"Khi vào số để khởi hành xe ô tô có số tự động, người lái xe phải thực hiện các thao tác nào để đảm bảo an toàn?",
-				true, "", b2.getId(), set11.getId(), kt.getId());
+				"nan", b2.getId(), set11.getId(), kt.getId());
 		questionRepo.save(questionb2_215);
 
 		Question questionb2_232 = new Question(14,
 				"Khi điều khiển ô tô qua đoạn đường ngập nước, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?",
-				true, "", b2.getId(), set11.getId(), kt.getId());
+				"nan", b2.getId(), set11.getId(), kt.getId());
 		questionRepo.save(questionb2_232);
 
 		Question questionb2_249 = new Question(15,
 				"Khi đèn pha của xe đi ngược chiều gây chói mắt, làm giản khả năng quan sát trên đường, người lái xe xử lý như thế nào để đảm bảo an toàn?",
-				true, "", b2.getId(), set11.getId(), kt.getId());
+				"nan", b2.getId(), set11.getId(), kt.getId());
 		questionRepo.save(questionb2_249);
 
 		Question questionb2_266 = new Question(16,
-				"Tay ga trên xe ô tô hai bánh có tác dụng gì trong các trường hợp dưới đây?", true, "", b2.getId(),
+				"Tay ga trên xe ô tô hai bánh có tác dụng gì trong các trường hợp dưới đây?", "nan", b2.getId(),
 				set11.getId(), kt.getId());
 		questionRepo.save(questionb2_266);
 
 		Question questionb2_283 = new Question(17,
-				"Niên hạn sử dụng của ô tô tải (tính bắt đầu từ năm sản xuất) là bao nhiêu năm?", true, "", b2.getId(),
+				"Niên hạn sử dụng của ô tô tải (tính bắt đầu từ năm sản xuất) là bao nhiêu năm?", "nan", b2.getId(),
 				set11.getId(), ctsc.getId());
 		questionRepo.save(questionb2_283);
 
-		Question questionb2_300 = new Question(18, "Túi khí được trang bị trên xe ô tô có tác dụng gì?", true, "",
+		Question questionb2_300 = new Question(18, "Túi khí được trang bị trên xe ô tô có tác dụng gì?", "nan",
 				b2.getId(), set11.getId(), ctsc.getId());
 		questionRepo.save(questionb2_300);
 
-		Question questionb2_317 = new Question(19, "Biển nào cấm quay xe?", true, "b2_317.jpg", b2.getId(),
+		Question questionb2_317 = new Question(19, "Biển nào cấm quay xe?", "b2_317.jpg", b2.getId(),
 				set11.getId(), bb.getId());
 		questionRepo.save(questionb2_317);
 
 		Question questionb2_334 = new Question(20,
 				"Biển nào cấm tất cả các loại xe cơ giới và thô sơ đi vào trên đường, trừ xe ưu tiên theo luật định (nếu đường vẫn cho xe chạy được)?",
-				true, "b2_334.jpg", b2.getId(), set11.getId(), bb.getId());
+				"b2_334.jpg", b2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb2_334);
 
 		Question questionb2_351 = new Question(21,
-				"Chiều dài đoạn đường 500 m từ nơi đặt biển này, người lái xe có được phép bấm còi không?", true,
+				"Chiều dài đoạn đường 500 m từ nơi đặt biển này, người lái xe có được phép bấm còi không?",
 				"b2_351.jpg", b2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb2_351);
 
-		Question questionb2_368 = new Question(22, "Biển báo náy có ý nghĩa là gì?", true, "b2_368.jpg", b2.getId(),
+		Question questionb2_368 = new Question(22, "Biển báo náy có ý nghĩa là gì?", "b2_368.jpg", b2.getId(),
 				set11.getId(), bb.getId());
 		questionRepo.save(questionb2_368);
 
-		Question questionb2_385 = new Question(23, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?", true,
+		Question questionb2_385 = new Question(23, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?",
 				"b2_385.jpg", b2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb2_385);
 
-		Question questionb2_402 = new Question(24, "Biển nào báo hiệu \"Đường hầm\"?", true, "b2_402.jpg", b2.getId(),
+		Question questionb2_402 = new Question(24, "Biển nào báo hiệu \"Đường hầm\"?", "b2_402.jpg", b2.getId(),
 				set11.getId(), bb.getId());
 		questionRepo.save(questionb2_402);
 
-		Question questionb2_419 = new Question(25, "Biển Báo Này Có Ý Ngĩa Gì?", true, "b2_419.jpg", b2.getId(),
+		Question questionb2_419 = new Question(25, "Biển Báo Này Có Ý Ngĩa Gì?", "b2_419.jpg", b2.getId(),
 				set11.getId(), bb.getId());
 		questionRepo.save(questionb2_419);
 
-		Question questionb2_436 = new Question(26, "Biển nào báo hiệu \"Đường một chiều\"?", true, "b2_436.jpg",
+		Question questionb2_436 = new Question(26, "Biển nào báo hiệu \"Đường một chiều\"?", "b2_436.jpg",
 				b2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb2_436);
 
-		Question questionb2_453 = new Question(27, "Biển nào báo hiệu nơi đỗ xe cho người tàn tật?", true, "b2_453.jpg",
+		Question questionb2_453 = new Question(27, "Biển nào báo hiệu nơi đỗ xe cho người tàn tật?", "b2_453.jpg",
 				b2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb2_453);
 
 		Question questionb2_470 = new Question(28,
 				"Khi di chuyển trên đường cao tốc, gặp biển nào thì người lái xe đi theo hướng bên trái để tránh chướng ngại vật?",
-				true, "b2_470.jpg", b2.getId(), set11.getId(), bb.getId());
+				"b2_470.jpg", b2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb2_470);
 
-		Question questionb2_487 = new Question(29, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb2_487 = new Question(29, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"b2_487.jpg", b2.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb2_487);
 
-		Question questionb2_504 = new Question(30, "Theo hướng mũi tên, những hướng nào xe gắn máy đi được?", true,
+		Question questionb2_504 = new Question(30, "Theo hướng mũi tên, những hướng nào xe gắn máy đi được?",
 				"b2_504.jpg", b2.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb2_504);
 
-		Question questionb2_521 = new Question(31, "Xe nào được quyền đi trước trong trường hợp này?", true,
+		Question questionb2_521 = new Question(31, "Xe nào được quyền đi trước trong trường hợp này?",
 				"b2_521.jpg", b2.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb2_521);
 
 		Question questionb2_538 = new Question(32,
-				"Xe con quay đầu đi ngược lại như hình vẽ dưới có vi phạm quy tắc giao thông không?", true,
+				"Xe con quay đầu đi ngược lại như hình vẽ dưới có vi phạm quy tắc giao thông không?",
 				"b2_538.jpg", b2.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb2_538);
 
 		Question questionb2_555 = new Question(33,
-				"Theo tín hiệu đèn của xe cơ giới, xe nào vi phạm quy tắc giao thông?", true, "b2_555.jpg", b2.getId(),
+				"Theo tín hiệu đèn của xe cơ giới, xe nào vi phạm quy tắc giao thông?", "b2_555.jpg", b2.getId(),
 				set11.getId(), sh.getId());
 		questionRepo.save(questionb2_555);
 
-		Question questionb2_572 = new Question(34, "Xe nào phải nhường đường trong trường hợp này?", true, "b2_572.jpg",
+		Question questionb2_572 = new Question(34, "Xe nào phải nhường đường trong trường hợp này?", "b2_572.jpg",
 				b2.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb2_572);
 
-		Question questionb2_589 = new Question(35, "Để điều khiển xe rẽ trái, bạn chọn hướng đi nào dưới đây?", true,
+		Question questionb2_589 = new Question(35, "Để điều khiển xe rẽ trái, bạn chọn hướng đi nào dưới đây?",
 				"b2_589.jpg", b2.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb2_589);
 
 		Question questionb2_12 = new Question(1,
-				"\"Người điều khiển phương tiện tham gia giao thông đường bộ\" gồm những đối tượng nào dưới đây?", true,
+				"\"Người điều khiển phương tiện tham gia giao thông đường bộ\" gồm những đối tượng nào dưới đây?",
 				"", b2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb2_12);
 
 		Question questionb2_29 = new Question(2,
 				"Trên đường có nhiều làn đường, khi điều khiển phương tiện ở tốc độ chậm bạn phải đi ở làn đường nào?",
-				true, "", b2.getId(), set12.getId(), kn.getId());
+				"nan", b2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb2_29);
 
 		Question questionb2_46 = new Question(3,
 				"Khi điều khiển xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy, những hành vi buông cả hai tay; sử dụng xe để kéo, đẩy xe khác, vật khác; sử dụng chân chống của xe quệt xuống đường khi xe đang chạy có được phép không?",
-				true, "", b2.getId(), set12.getId(), kn.getId());
+				"nan", b2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb2_46);
 
 		Question questionb2_63 = new Question(4,
-				"Người có giấy phép lái xe mô tô hạng A3 được phép điều khiển loại xe nào dưới đây?", true, "",
+				"Người có giấy phép lái xe mô tô hạng A3 được phép điều khiển loại xe nào dưới đây?", "nan",
 				b2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb2_63);
 
 		Question questionb2_80 = new Question(5,
-				"Khi điều khiển xe chạy trên đường, người lái xe phải mang theo các loại giấy từ gì?", true, "",
+				"Khi điều khiển xe chạy trên đường, người lái xe phải mang theo các loại giấy từ gì?", "nan",
 				b2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb2_80);
 
 		Question questionb2_97 = new Question(6,
 				"Tại nơi đường giao nhua, người lái xe đang đi trên đường không ưu tiên phải nhường đường như thế nào là đúng quy tắc giao thông?",
-				true, "", b2.getId(), set12.getId(), kn.getId());
+				"nan", b2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb2_97);
 
 		Question questionb2_114 = new Question(7,
 				"Khi gặp một đoàn xe, một đoàn xe tang hay gặp một đoàn người có tổ chức theo đội ngữ, người lái xe phải xử lý như thế nào?",
-				true, "", b2.getId(), set12.getId(), kn.getId());
+				"nan", b2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb2_114);
 
 		Question questionb2_131 = new Question(8,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường đôi có dải phân cách giữa (trừ đường cao tốc), loại xe nào tham gia giao thông với tốc độ tối đa cho phép là 70 km/h",
-				true, "", b2.getId(), set12.getId(), kn.getId());
+				"nan", b2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb2_131);
 
 		Question questionb2_148 = new Question(9,
 				"Người lái xe phải nhanh chóng giảm tốc độ, tránh hoặc dừng lại sát lề đường bên phải để nhưỡng đường cho các xe nào nêu dưới đây?",
-				true, "", b2.getId(), set12.getId(), kn.getId());
+				"nan", b2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb2_148);
 
 		Question questionb2_165 = new Question(10,
 				"Người điều khiển xe mô tô phải giảm tốc độ và hết sức thận trọng khi qua những đoạn đường nào dưới đây?",
-				true, "", b2.getId(), set12.getId(), kn.getId());
+				"nan", b2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb2_165);
 
-		Question questionb2_182 = new Question(11, "Người nhận hàng có các nghĩa vụ gì dưới đây?", true, "", b2.getId(),
+		Question questionb2_182 = new Question(11, "Người nhận hàng có các nghĩa vụ gì dưới đây?", "nan", b2.getId(),
 				set12.getId(), nvvt.getId());
 		questionRepo.save(questionb2_182);
 
 		Question questionb2_199 = new Question(12,
 				"Người lái xe cô tình không phân biệt làn đường, vạch phân làn đường, phòng nhanh, vượt ẩu, vượt đèn đỏ, đi vào đường cấm, đường một chiều được coi là hnahf vi nào trong danh sách các hành vi dưới đây?",
-				true, "", b2.getId(), set12.getId(), vh.getId());
+				"nan", b2.getId(), set12.getId(), vh.getId());
 		questionRepo.save(questionb2_199);
 
 		Question questionb2_216 = new Question(13,
 				"Khi nhả hệ thống phanh dừng cơ khí điều khiển bằng tay (phanh tay), người lái xe cần phải thực hiện các thao tác nào?",
-				true, "", b2.getId(), set12.getId(), kt.getId());
+				"nan", b2.getId(), set12.getId(), kt.getId());
 		questionRepo.save(questionb2_216);
 
 		Question questionb2_233 = new Question(14,
 				"Khi điều khiển ô tô tới gần xe chạy ngược chiều vào ban đêm, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?",
-				true, "", b2.getId(), set12.getId(), kt.getId());
+				"nan", b2.getId(), set12.getId(), kt.getId());
 		questionRepo.save(questionb2_233);
 
 		Question questionb2_250 = new Question(15,
 				"Để đạy được hiệu quả phanh cao nhất, người lái xe mô tô phải sử dụng các kỹ năng như thế nào dưới đây?",
-				true, "", b2.getId(), set12.getId(), kt.getId());
+				"nan", b2.getId(), set12.getId(), kt.getId());
 		questionRepo.save(questionb2_250);
 
 		Question questionb2_267 = new Question(16,
-				"Gương chiếu hậu của xe mô tô hai bánh, có tác dụng gì trong các trường hợp dưới đây?", true, "",
+				"Gương chiếu hậu của xe mô tô hai bánh, có tác dụng gì trong các trường hợp dưới đây?", "nan",
 				b2.getId(), set12.getId(), kt.getId());
 		questionRepo.save(questionb2_267);
 
 		Question questionb2_284 = new Question(17,
 				"Niên hạn sử dụng của ô tô chở người trên 9 chỗ ngồi (tính bắt đầu từ năm sản xuất) là bao nhiêu năm?",
-				true, "", b2.getId(), set12.getId(), ctsc.getId());
+				"nan", b2.getId(), set12.getId(), ctsc.getId());
 		questionRepo.save(questionb2_284);
 
 		Question questionb2_301 = new Question(18,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây không tắt trong thời gian dài, báo hiệu tình trạng như thế nào của ô tô?",
-				true, "b2_301.jpg", b2.getId(), set12.getId(), ctsc.getId());
+				"b2_301.jpg", b2.getId(), set12.getId(), ctsc.getId());
 		questionRepo.save(questionb2_301);
 
-		Question questionb2_318 = new Question(19, "Biển nào cấm xe rẽ trái?", true, "b2_318.jpg", b2.getId(),
+		Question questionb2_318 = new Question(19, "Biển nào cấm xe rẽ trái?", "b2_318.jpg", b2.getId(),
 				set12.getId(), bb.getId());
 		questionRepo.save(questionb2_318);
 
-		Question questionb2_335 = new Question(20, "Biển nào là biển \"Cấm xe chở hàng nguy hiểm\"?", true,
+		Question questionb2_335 = new Question(20, "Biển nào là biển \"Cấm xe chở hàng nguy hiểm\"?",
 				"b2_335.jpg", b2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb2_335);
 
-		Question questionb2_352 = new Question(21, "Biển nào xe mô tô hai bánh được đi vào?", true, "b2_352.jpg",
+		Question questionb2_352 = new Question(21, "Biển nào xe mô tô hai bánh được đi vào?", "b2_352.jpg",
 				b2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb2_352);
 
-		Question questionb2_369 = new Question(22, "Gặp biển nào người lái xe phải nhường đường cho người đi bộ?", true,
+		Question questionb2_369 = new Question(22, "Gặp biển nào người lái xe phải nhường đường cho người đi bộ?",
 				"b2_369.jpg", b2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb2_369);
 
-		Question questionb2_386 = new Question(23, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", true, "b2_386.jpg",
+		Question questionb2_386 = new Question(23, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", "b2_386.jpg",
 				b2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb2_386);
 
-		Question questionb2_403 = new Question(24, "Biển nào dưới đây là biển \"Cầu hẹp\"?", true, "b2_403.jpg",
+		Question questionb2_403 = new Question(24, "Biển nào dưới đây là biển \"Cầu hẹp\"?", "b2_403.jpg",
 				b2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb2_403);
 
-		Question questionb2_420 = new Question(25, "Biển báo này có ý nghĩa gì?", true, "b2_420.jpg", b2.getId(),
+		Question questionb2_420 = new Question(25, "Biển báo này có ý nghĩa gì?", "b2_420.jpg", b2.getId(),
 				set12.getId(), bb.getId());
 		questionRepo.save(questionb2_420);
 
 		Question questionb2_437 = new Question(26,
-				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?", true,
+				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?",
 				"b2_437.jpg", b2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb2_437);
 
-		Question questionb2_454 = new Question(27, "Gặp biển báo này người lái xe phải đỗ xe như thế nào?", true,
+		Question questionb2_454 = new Question(27, "Gặp biển báo này người lái xe phải đỗ xe như thế nào?",
 				"b2_454.jpg", b2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb2_454);
 
 		Question questionb2_471 = new Question(28,
 				"Khi di chuyển trên đường cao tốc, gặp biển nào thì người lái xe đi theo hướng bên phải để tránh chướng ngại vật?",
-				true, "b2_471.jpg", b2.getId(), set12.getId(), bb.getId());
+				"b2_471.jpg", b2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb2_471);
 
-		Question questionb2_488 = new Question(29, "Xe nào phải nhường đường trong trường hợp này?", true, "b2_488.jpg",
+		Question questionb2_488 = new Question(29, "Xe nào phải nhường đường trong trường hợp này?", "b2_488.jpg",
 				b2.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionb2_488);
 
-		Question questionb2_505 = new Question(30, "Xe nào đỗ vi phạm quy tắc giao thông?", true, "b2_505.jpg",
+		Question questionb2_505 = new Question(30, "Xe nào đỗ vi phạm quy tắc giao thông?", "b2_505.jpg",
 				b2.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionb2_505);
 
 		Question questionb2_522 = new Question(31,
-				"Ô tô con đi theo chiều mũi tên có vi phạm quy tắc giao thông không?", true, "b2_522.jpg", b2.getId(),
+				"Ô tô con đi theo chiều mũi tên có vi phạm quy tắc giao thông không?", "b2_522.jpg", b2.getId(),
 				set12.getId(), sh.getId());
 		questionRepo.save(questionb2_522);
 
-		Question questionb2_539 = new Question(32, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?", true,
+		Question questionb2_539 = new Question(32, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?",
 				"b2_539.jpg", b2.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionb2_539);
 
 		Question questionb2_556 = new Question(33, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
-				true, "b2_556.jpg", b2.getId(), set12.getId(), sh.getId());
+				"b2_556.jpg", b2.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionb2_556);
 
 		Question questionb2_573 = new Question(34,
-				"Bạn xử lý như thế nào khi lái xe ô tô vượt qua đoàn người đi xe đạp có tổ chức?", true, "b2_573.jpg",
+				"Bạn xử lý như thế nào khi lái xe ô tô vượt qua đoàn người đi xe đạp có tổ chức?", "b2_573.jpg",
 				b2.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionb2_573);
 
 		Question questionb2_590 = new Question(35,
-				"Khi gặp xe ngược chiều bật đèn pha trong tình huống dưới dây, bạn xử lý như thế nào?", true,
+				"Khi gặp xe ngược chiều bật đèn pha trong tình huống dưới dây, bạn xử lý như thế nào?",
 				"b2_590.jpg", b2.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionb2_590);
 
-		Question questionb2_13 = new Question(1, "Khái niệm \"người điều khiển giao thông\" được hiểu như thế nà", true,
+		Question questionb2_13 = new Question(1, "Khái niệm \"người điều khiển giao thông\" được hiểu như thế nào?",
 				"", b2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb2_13);
 
 		Question questionb2_30 = new Question(2,
 				"Hành vi vượt xe tại các vị trí có tầm nhìn hạn chế, đường vòng, đầu dóc có bị nghiêm cấm hay không?",
-				true, "", b2.getId(), set13.getId(), kn.getId());
+				"nan", b2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb2_30);
 
 		Question questionb2_47 = new Question(3,
 				"Khi điều khiển xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy, những hành vi nào không được phép?",
-				true, "", b2.getId(), set13.getId(), kn.getId());
+				"nan", b2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb2_47);
 
 		Question questionb2_64 = new Question(4,
-				"Người có giấy phép lái xe hạng B1 số tự động được điều khiển loại xe nào?", true, "", b2.getId(),
+				"Người có giấy phép lái xe hạng B1 số tự động được điều khiển loại xe nào?", "nan", b2.getId(),
 				set13.getId(), kn.getId());
 		questionRepo.save(questionb2_64);
 
 		Question questionb2_81 = new Question(5,
 				"Khi sử dụng giấy phép lái xe đã khai báo mất để điều khiển phương tiện cơ giới đường bộ, ngoài việc bị thu hồi giấy phép lái xe, chịu trách nhiệm trước pháp luật, người lái xe không được cấp giấy phép lái xe trong thời gian bao nhiêu năm?",
-				true, "", b2.getId(), set13.getId(), kn.getId());
+				"nan", b2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb2_81);
 
 		Question questionb2_98 = new Question(6,
 				"Tại nơi đường giao nhau không có báo hiệu đi theo vòng xuyến, người điều khiển phương tiện phải nhường đường như thế nào là đúng quy tắc giao thông?",
-				true, "", b2.getId(), set13.getId(), kn.getId());
+				"nan", b2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb2_98);
 
 		Question questionb2_115 = new Question(7,
 				"Tại ngã ba hoặc ngã tư không có đảm bảo an toàn, người lái xe phải nhường đường như thế nào là đúng trong các trường hợp dưới đây?",
-				true, "", b2.getId(), set13.getId(), kn.getId());
+				"nan", b2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb2_115);
 
 		Question questionb2_132 = new Question(8,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường đôi có dải phân cách giữa (trừ đường cao tốc), loại xe nào tham gia giao thông với tốc độ tối đa cho phép là 60 km/h",
-				true, "", b2.getId(), set13.getId(), kn.getId());
+				"nan", b2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb2_132);
 
 		Question questionb2_149 = new Question(9,
 				"Tại nơi đường giao nhua, người lái xe đang đi trên đường không tưu tiên phải xử lý nhưt hế nào là đúng quy tắt giao thông?",
-				true, "", b2.getId(), set13.getId(), kn.getId());
+				"nan", b2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb2_149);
 
 		Question questionb2_166 = new Question(10,
 				"Khi gặp xe buýt đang đừng đón, trả khách, người điều khiển xe mô tô phải xử lý như thế nào dưới đây để đảm bảo an toàn giao thông?",
-				true, "", b2.getId(), set13.getId(), kn.getId());
+				"nan", b2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb2_166);
 
-		Question questionb2_183 = new Question(11, "Hàng siêu trường, siêu trọng được hiểu như thế nào là đúng?", true,
+		Question questionb2_183 = new Question(11, "Hàng siêu trường, siêu trọng được hiểu như thế nào là đúng?",
 				"", b2.getId(), set13.getId(), nvvt.getId());
 		questionRepo.save(questionb2_183);
 
 		Question questionb2_200 = new Question(12,
 				"Khi sơ cưới người tai nạn giao thông đường bộ, có vết thương chảy máu ngoài, màu đỏ tươi phun thành tia và phun mạnh khi mạch đập bạn phải làm gì?",
-				true, "", b2.getId(), set13.getId(), vh.getId());
+				"nan", b2.getId(), set13.getId(), vh.getId());
 		questionRepo.save(questionb2_200);
 
 		Question questionb2_217 = new Question(13,
 				"Khi khởi hành ô tô sử dụng hộp số cơ khí trên đường bằng, người lái xe cần thực hiện các thao tác nào theo trình tự dưới đây?",
-				true, "", b2.getId(), set13.getId(), kt.getId());
+				"nan", b2.getId(), set13.getId(), kt.getId());
 		questionRepo.save(questionb2_217);
 
 		Question questionb2_234 = new Question(14,
-				"Khi điều khiển xe ô tô trên đường trơn cần chú ý những điểm gì để đảm bảo an toàn?", true, "",
+				"Khi điều khiển xe ô tô trên đường trơn cần chú ý những điểm gì để đảm bảo an toàn?", "nan",
 				b2.getId(), set13.getId(), kt.getId());
 		questionRepo.save(questionb2_234);
 
 		Question questionb2_251 = new Question(15,
 				"Khi lái xe ô tô trên mặt đường có nhiều \"ổ gà\", người lái xe phải thực hiện thao tác như thế nào để đảm bảo an toàn?",
-				true, "", b2.getId(), set13.getId(), kt.getId());
+				"nan", b2.getId(), set13.getId(), kt.getId());
 		questionRepo.save(questionb2_251);
 
 		Question questionb2_268 = new Question(16,
 				"Để đảm bảo an toàn khi tham gia giao thông, người lái xe lái xe mô tô hai bánh cần điều khiển tay ga như thế nào trong các trường hợp dưới đây?",
-				true, "", b2.getId(), set13.getId(), kt.getId());
+				"nan", b2.getId(), set13.getId(), kt.getId());
 		questionRepo.save(questionb2_268);
 
-		Question questionb2_285 = new Question(17, "Hãy nêu công dụng của động cơ ô tô?", true, "", b2.getId(),
+		Question questionb2_285 = new Question(17, "Hãy nêu công dụng của động cơ ô tô?", "nan", b2.getId(),
 				set13.getId(), ctsc.getId());
 		questionRepo.save(questionb2_285);
 
 		Question questionb2_302 = new Question(18, "Trong xe ô tô có trang bị thiết bị như hình vẽ có tác dụng gì?",
-				true, "b2_302.jpg", b2.getId(), set13.getId(), ctsc.getId());
+				"b2_302.jpg", b2.getId(), set13.getId(), ctsc.getId());
 		questionRepo.save(questionb2_302);
 
-		Question questionb2_319 = new Question(19, "Khi gặp biển nào xe được rẽ trái?", true, "b2_319.jpg", b2.getId(),
+		Question questionb2_319 = new Question(19, "Khi gặp biển nào xe được rẽ trái?", "b2_319.jpg", b2.getId(),
 				set13.getId(), bb.getId());
 		questionRepo.save(questionb2_319);
 
-		Question questionb2_336 = new Question(20, "Gặp biển nào xe xích lô được phép đi vào?", true, "b2_336.jpg",
+		Question questionb2_336 = new Question(20, "Gặp biển nào xe xích lô được phép đi vào?", "b2_336.jpg",
 				b2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb2_336);
 
-		Question questionb2_353 = new Question(21, "Biển nào xe mô tô hai bánh không được đi vào?", true, "b2_353.jpg",
+		Question questionb2_353 = new Question(21, "Biển nào xe mô tô hai bánh không được đi vào?", "b2_353.jpg",
 				b2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb2_353);
 
 		Question questionb2_370 = new Question(22,
-				"Biển nào chỉ đường dành cho người đi bộ, các loại xe không được đi vào khi gặp biển này?", true,
+				"Biển nào chỉ đường dành cho người đi bộ, các loại xe không được đi vào khi gặp biển này?",
 				"b2_370.jpg", b2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb2_370);
 
 		Question questionb2_387 = new Question(23,
 				"Khi gặp biển nào, người lái xe phải giảm tốc độ, chú ý xe đi ngược chiều, xe đi ở phía đường bị hẹp phải nhường đường cho xe đi ngược chiều?",
-				true, "b2_387.jpg", b2.getId(), set13.getId(), bb.getId());
+				"b2_387.jpg", b2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb2_387);
 
-		Question questionb2_404 = new Question(24, "Biển nào dưới đây là biển \"Cầu xoay – cầu cất\"?", true,
+		Question questionb2_404 = new Question(24, "Biển nào dưới đây là biển \"Cầu xoay – cầu cất\"?",
 				"b2_404.jpg", b2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb2_404);
 
-		Question questionb2_421 = new Question(25, "Biển báo này có ý nghĩa gì?", true, "b2_421.jpg", b2.getId(),
+		Question questionb2_421 = new Question(25, "Biển báo này có ý nghĩa gì?", "b2_421.jpg", b2.getId(),
 				set13.getId(), bb.getId());
 		questionRepo.save(questionb2_421);
 
 		Question questionb2_438 = new Question(26, "Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối thiểu\"?",
-				true, "b2_438.jpg", b2.getId(), set13.getId(), bb.getId());
+				"b2_438.jpg", b2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb2_438);
 
 		Question questionb2_455 = new Question(27, "Gặp biển báo này, người tham gia thông phải xử lý như thế nào?",
-				true, "b2_455.jpg", b2.getId(), set13.getId(), bb.getId());
+				"b2_455.jpg", b2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb2_455);
 
 		Question questionb2_472 = new Question(28,
 				"Khi di chuyển trên đường cao tốc, gặp biển nào thì người lái xe đi được cả hai hướng ( bên trái hoặc bên phải) để tránh chướng ngại vật?",
-				true, "b2_472.jpg", b2.getId(), set13.getId(), bb.getId());
+				"b2_472.jpg", b2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb2_472);
 
-		Question questionb2_489 = new Question(29, "Trường hợp này xe nào được quyền đi trước?", true, "b2_489.jpg",
+		Question questionb2_489 = new Question(29, "Trường hợp này xe nào được quyền đi trước?", "b2_489.jpg",
 				b2.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionb2_489);
 
-		Question questionb2_506 = new Question(30, "Xe nào đỗ vi phạm quy tắc giao thông?", true, "b2_506.jpg",
+		Question questionb2_506 = new Question(30, "Xe nào đỗ vi phạm quy tắc giao thông?", "b2_506.jpg",
 				b2.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionb2_506);
 
-		Question questionb2_523 = new Question(31, "Xe nào vi phạm quy tắc giao thông?", true, "b2_523.jpg", b2.getId(),
+		Question questionb2_523 = new Question(31, "Xe nào vi phạm quy tắc giao thông?", "b2_523.jpg", b2.getId(),
 				set13.getId(), sh.getId());
 		questionRepo.save(questionb2_523);
 
 		Question questionb2_540 = new Question(32,
-				"Điều khiển cho xe đi thẳng, người lái xe phải làm gì là đúng quy tắc giao thông?", true, "b2_540.jpg",
+				"Điều khiển cho xe đi thẳng, người lái xe phải làm gì là đúng quy tắc giao thông?", "b2_540.jpg",
 				b2.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionb2_540);
 
 		Question questionb2_557 = new Question(33, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
-				true, "b2_557.jpg", b2.getId(), set13.getId(), sh.getId());
+				"b2_557.jpg", b2.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionb2_557);
 
 		Question questionb2_574 = new Question(34,
 				"Phía trước có một xe đang lùi vào nơi đỗ, xe con phía trước đang chuyển sang làn đường bên trái, bạn xử lý như thế nào trong trường hợp này?",
-				true, "b2_574.jpg", b2.getId(), set13.getId(), sh.getId());
+				"b2_574.jpg", b2.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionb2_574);
 
 		Question questionb2_591 = new Question(35,
 				"Xe của bạn dang di chuyển gần đến khu vực giao cắt với đường sắt, khi rào chắn đang dịch chuyển, bạn điều khiển xe như thế nào là đúng quy tắc giao thông?",
-				true, "b2_591.jpg", b2.getId(), set13.getId(), sh.getId());
+				"b2_591.jpg", b2.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionb2_591);
 
 		Question questionb2_14 = new Question(1,
-				"Trong các khái niệm dưới đây khái niệm \"dừng xe\" được hiểu như thế nào là đúng?", true, "",
+				"Trong các khái niệm dưới đây khái niệm \"dừng xe\" được hiểu như thế nào là đúng?", "nan",
 				b2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb2_14);
 
 		Question questionb2_31 = new Question(2,
 				"Khi lái xe trong khu đô thị và đông dân cư trừ các khu vực có biển cấm sử dụng còi, người lái xe được sử dụng còi như thế nào trong các trường hợp dưới đây?",
-				true, "", b2.getId(), set14.getId(), kn.getId());
+				"nan", b2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb2_31);
 
 		Question questionb2_48 = new Question(3,
 				"Người ngồi trên xe mô tô hai bánh, ba bánh, xe gắn máy khi tham gia giao thông có được mang, vác vật cồng kềnh hay không?",
-				true, "", b2.getId(), set14.getId(), kn.getId());
+				"nan", b2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb2_48);
 
-		Question questionb2_65 = new Question(4, "Người có giấy phép lái xe hạng B1 được điều khiển loại xe nào?", true,
+		Question questionb2_65 = new Question(4, "Người có giấy phép lái xe hạng B1 được điều khiển loại xe nào?",
 				"", b2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb2_65);
 
 		Question questionb2_82 = new Question(5,
 				"Khi gặp hiệu lệnh như dưới đây của cảnh sát giao thông thì người tham gia giao thông phải đi như thế nào là đúng quy tắc giao thông?",
-				true, "b2_82.jpg", b2.getId(), set14.getId(), kn.getId());
+				"b2_82.jpg", b2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb2_82);
 
 		Question questionb2_99 = new Question(6,
 				"Trên đoạn đường bộ giao nhau cùng mức với đường sắt, cầu đường bộ đi chung với đường sắt thì loại phương tiện nào được quyền ưu tiên đi trước?",
-				true, "", b2.getId(), set14.getId(), kn.getId());
+				"nan", b2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb2_99);
 
 		Question questionb2_116 = new Question(7,
 				"Khi điều khển xe cơ giới người lái xe phải bật đèn tín hiệu rẽ nào trong các trườn hợp nào sau đây?",
-				true, "", b2.getId(), set14.getId(), kn.getId());
+				"nan", b2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb2_116);
 
 		Question questionb2_133 = new Question(8,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường hai chiều không có dải phân cách giữa; đường một chiều có một làn xe cơ giới (trừ đường cao tốc), loại xe nào tham gia giao thông vơi tốc độ tối đa cho phép là 80 km/h",
-				true, "", b2.getId(), set14.getId(), kn.getId());
+				"nan", b2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb2_133);
 
 		Question questionb2_150 = new Question(9,
 				"Khi xe ô tô, mô tô đến gần vị trí giao nhau giữa đường bộ và đường sắt không có rào chắn, khi đèn tín hiệu màu đỏ đã bật sáng hoặc khi có tiếng chuông báo hiệu, người lái xe xử lý như thế nào??",
-				true, "", b2.getId(), set14.getId(), kn.getId());
+				"nan", b2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb2_150);
 
 		Question questionb2_167 = new Question(10,
-				"Người lái xe khách, xe buýt cần thực hiện những nhiệm vụ gì dưới đây?", true, "", b2.getId(),
+				"Người lái xe khách, xe buýt cần thực hiện những nhiệm vụ gì dưới đây?", "nan", b2.getId(),
 				set14.getId(), kn.getId());
 		questionRepo.save(questionb2_167);
 
 		Question questionb2_184 = new Question(11,
-				"Việc vận chuyển động vật sống phải tuân theo những quy định nào dưới đây?", true, "", b2.getId(),
+				"Việc vận chuyển động vật sống phải tuân theo những quy định nào dưới đây?", "nan", b2.getId(),
 				set14.getId(), nvvt.getId());
 		questionRepo.save(questionb2_184);
 
 		Question questionb2_201 = new Question(12,
-				"Người lái xe có văn hóa khi tham gia giao thông phải đáp ứng các điều kiện nào dưới đây?", true, "",
+				"Người lái xe có văn hóa khi tham gia giao thông phải đáp ứng các điều kiện nào dưới đây?", "nan",
 				b2.getId(), set14.getId(), vh.getId());
 		questionRepo.save(questionb2_201);
 
 		Question questionb2_218 = new Question(13,
 				"Khi quay đầu xe, người lái xe cần phải quan sát và thực hiện các thao tác nào để đảm bảo an toàn giao thông?",
-				true, "", b2.getId(), set14.getId(), kt.getId());
+				"nan", b2.getId(), set14.getId(), kt.getId());
 		questionRepo.save(questionb2_218);
 
 		Question questionb2_235 = new Question(14,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của xe ô tô?",
-				true, "b2_235.jpg", b2.getId(), set14.getId(), kt.getId());
+				"b2_235.jpg", b2.getId(), set14.getId(), kt.getId());
 		questionRepo.save(questionb2_235);
 
 		Question questionb2_252 = new Question(15,
-				"Khi điều khiển ô tô gặp mưa to hoặc sương mù, người lái xe phải làm gì để đảm bảo an toàn?", true, "",
+				"Khi điều khiển ô tô gặp mưa to hoặc sương mù, người lái xe phải làm gì để đảm bảo an toàn?", "nan",
 				b2.getId(), set14.getId(), kt.getId());
 		questionRepo.save(questionb2_252);
 
 		Question questionb2_269 = new Question(16,
 				"Kỹ thuật cơ bản để giữu thăng bằng khi điều khiển xe mô tô đi trên đường gồ ghề như thế nào trong các trường hợp dưới đây?",
-				true, "", b2.getId(), set14.getId(), kt.getId());
+				"nan", b2.getId(), set14.getId(), kt.getId());
 		questionRepo.save(questionb2_269);
 
-		Question questionb2_286 = new Question(17, "Hãy nêu công dụng của hệ thống truyền lực của ô tô?", true, "",
+		Question questionb2_286 = new Question(17, "Hãy nêu công dụng của hệ thống truyền lực của ô tô?", "nan",
 				b2.getId(), set14.getId(), ctsc.getId());
 		questionRepo.save(questionb2_286);
 
-		Question questionb2_303 = new Question(18, "Trên xe ô tô có trang bị như hình vẽ, dùng để làm gì?", true,
+		Question questionb2_303 = new Question(18, "Trên xe ô tô có trang bị như hình vẽ, dùng để làm gì?",
 				"b2_303.jpg", b2.getId(), set14.getId(), ctsc.getId());
 		questionRepo.save(questionb2_303);
 
-		Question questionb2_320 = new Question(19, "Biển nào cấm ô tô rẽ trái?", true, "b2_320.jpg", b2.getId(),
+		Question questionb2_320 = new Question(19, "Biển nào cấm ô tô rẽ trái?", "b2_320.jpg", b2.getId(),
 				set14.getId(), bb.getId());
 		questionRepo.save(questionb2_320);
 
-		Question questionb2_337 = new Question(20, "Gặp biển nào xe lam, xe xích lô máy được phép đi vào?", true,
+		Question questionb2_337 = new Question(20, "Gặp biển nào xe lam, xe xích lô máy được phép đi vào?",
 				"b2_337.jpg", b2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb2_337);
 
-		Question questionb2_354 = new Question(21, "Ba biển này có hiệu lực như thế nào?", true, "b2_354.jpg",
+		Question questionb2_354 = new Question(21, "Ba biển này có hiệu lực như thế nào?", "b2_354.jpg",
 				b2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb2_354);
 
-		Question questionb2_371 = new Question(22, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?", true,
+		Question questionb2_371 = new Question(22, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?",
 				"b2_371.jpg", b2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb2_371);
 
-		Question questionb2_388 = new Question(23, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?", true,
+		Question questionb2_388 = new Question(23, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?",
 				"b2_388.jpg", b2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb2_388);
 
-		Question questionb2_405 = new Question(24, "Biển nào dưới đây là biển \"Kè, vực sâu phía trước\"?", true,
+		Question questionb2_405 = new Question(24, "Biển nào dưới đây là biển \"Kè, vực sâu phía trước\"?",
 				"b2_405.jpg", b2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb2_405);
 
-		Question questionb2_422 = new Question(25, "Biển báo này có ý nghĩa gì?", true, "b2_422.jpg", b2.getId(),
+		Question questionb2_422 = new Question(25, "Biển báo này có ý nghĩa gì?", "b2_422.jpg", b2.getId(),
 				set14.getId(), bb.getId());
 		questionRepo.save(questionb2_422);
 
-		Question questionb2_439 = new Question(26, "Biển nào dưới đây báo hiệu hết đường cấm vượt?", true, "b2_439.jpg",
+		Question questionb2_439 = new Question(26, "Biển nào dưới đây báo hiệu hết đường cấm vượt?", "b2_439.jpg",
 				b2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb2_439);
 
 		Question questionb2_456 = new Question(27,
 				"Gặp biển báo này người lái xe có bắt buộc phải chạy vòng theo đảo an toàn theo hướng mũi tên khi muốn chuyển hướng hay không?",
-				true, "b2_456.jpg", b2.getId(), set14.getId(), bb.getId());
+				"b2_456.jpg", b2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb2_456);
 
 		Question questionb2_473 = new Question(28,
 				"Khi di chuyển trên đường cao tốc, gặp biển nào thì người lái xe phải chú ý đổi hướng đi khi sắp vào đường cong nguy hiểm?",
-				true, "b2_473.jpg", b2.getId(), set14.getId(), bb.getId());
+				"b2_473.jpg", b2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb2_473);
 
-		Question questionb2_490 = new Question(29, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb2_490 = new Question(29, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
 				"b2_490.jpg", b2.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb2_490);
 
 		Question questionb2_507 = new Question(30, "Xe tải kéo mô tô ba bánh như hình này có đúng quy tắc giao thông?",
-				true, "b2_507.jpg", b2.getId(), set14.getId(), sh.getId());
+				"b2_507.jpg", b2.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb2_507);
 
-		Question questionb2_524 = new Question(31, "Các xe đi như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb2_524 = new Question(31, "Các xe đi như thế nào là đúng quy tắc giao thông?",
 				"b2_524.jpg", b2.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb2_524);
 
 		Question questionb2_541 = new Question(32,
-				"Người lái điều khiển xe chạy theo hướng nào là đúng quy tắc giao thông?", true, "b2_541.jpg",
+				"Người lái điều khiển xe chạy theo hướng nào là đúng quy tắc giao thông?", "b2_541.jpg",
 				b2.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb2_541);
 
 		Question questionb2_558 = new Question(33, "Các xe đi theo hướng mũi tên xe nào vi phạm quy tắc giao thông?",
-				true, "b2_558.jpg", b2.getId(), set14.getId(), sh.getId());
+				"b2_558.jpg", b2.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb2_558);
 
 		Question questionb2_575 = new Question(34, "Bạn xử lý như thế nào khi xe phía trước đang lùi ra khỏi nới đó?",
-				true, "b2_575.jpg", b2.getId(), set14.getId(), sh.getId());
+				"b2_575.jpg", b2.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb2_575);
 
 		Question questionb2_592 = new Question(35,
 				"Trong tình huống dưới đây xe con màu đỏ nhập làn đường cao tốc theo hướng mũi tên là đúng hay sai?",
-				true, "b2_592.jpg", b2.getId(), set14.getId(), sh.getId());
+				"b2_592.jpg", b2.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb2_592);
 
 		Question questionb2_15 = new Question(1,
-				"Khái niệm \"đỗ xe\" được hiểu như thế nào là đúng quy tắc giao thông?", true, "", b2.getId(),
+				"Khái niệm \"đỗ xe\" được hiểu như thế nào là đúng quy tắc giao thông?", "nan", b2.getId(),
 				set15.getId(), kn.getId());
 		questionRepo.save(questionb2_15);
 
 		Question questionb2_32 = new Question(2,
-				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?", true,
+				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?",
 				"", b2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb2_32);
 
 		Question questionb2_49 = new Question(3,
 				"Người ngồi trên xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy khi tham gia giao thông có được bám, kéo hoặc đẩy các phương thiện khác không?",
-				true, "", b2.getId(), set15.getId(), kn.getId());
+				"nan", b2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb2_49);
 
-		Question questionb2_66 = new Question(4, "Người có giấy phép lái xe hạng B2 được điều khiển loại xe nào?", true,
+		Question questionb2_66 = new Question(4, "Người có giấy phép lái xe hạng B2 được điều khiển loại xe nào?",
 				"", b2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb2_66);
 
 		Question questionb2_83 = new Question(5,
 				"Khi gặp hiệu lệnh như dưới đây của cảnh sát giao thông thì người tham gia giao thông phải đi như thế nào là đúng quy tắc giao thông?",
-				true, "b2_83.jpg", b2.getId(), set15.getId(), kn.getId());
+				"b2_83.jpg", b2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb2_83);
 
 		Question questionb2_100 = new Question(6,
 				"Tại nơi đường bộ giao nhau cùng mức với đường sắt chỉ có đèn tín hiệu hoặc chuông báo hiệu, khi đèn tín hiệu màu đỏ đã bất sáng hoặc có tiếng chuông báo hiệu, người tham gia giao thông phải dừng ngay và giữ khoảng cách tối thiểu bao nhiêu mát tính từ ray gần nhất?",
-				true, "", b2.getId(), set15.getId(), kn.getId());
+				"nan", b2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb2_100);
 
 		Question questionb2_117 = new Question(7,
 				"Trên đoạn đường hai chiều không có giải phân cách giữa, người lái xe không được vượt xe khác trong các trường hợp nào dưới đây?",
-				true, "", b2.getId(), set15.getId(), kn.getId());
+				"nan", b2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb2_117);
 
 		Question questionb2_134 = new Question(8,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường hai chiều không có dải phân cách giữa; đường một chiều có một làn xe cơ giới (trừ đường cao tốc), loại xe nào tham gia giao thông vơi tốc độ tối đa cho phép là 70 km/h",
-				true, "", b2.getId(), set15.getId(), kn.getId());
+				"nan", b2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb2_134);
 
 		Question questionb2_151 = new Question(9,
 				"Khi điều khiển xe trên đường vòng, khuất tầm nhìn người lái xe cần phải làm gì để đảm bảo an toàn?",
-				true, "", b2.getId(), set15.getId(), kn.getId());
+				"nan", b2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb2_151);
 
 		Question questionb2_168 = new Question(10,
-				"Trong hoạt động vận tải đường bộ, các hành vi nào sau đây bị nghiêm cấm?", true, "", b2.getId(),
+				"Trong hoạt động vận tải đường bộ, các hành vi nào sau đây bị nghiêm cấm?", "nan", b2.getId(),
 				set15.getId(), nvvt.getId());
 		questionRepo.save(questionb2_168);
 
 		Question questionb2_185 = new Question(11,
-				"Xe vận chuyển hàng nguy hiểm phải chấp hành những quy định nào dưới đây?", true, "", b2.getId(),
+				"Xe vận chuyển hàng nguy hiểm phải chấp hành những quy định nào dưới đây?", "nan", b2.getId(),
 				set15.getId(), nvvt.getId());
 		questionRepo.save(questionb2_185);
 
 		Question questionb2_202 = new Question(12,
-				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?", true,
+				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?",
 				"", b2.getId(), set15.getId(), vh.getId());
 		questionRepo.save(questionb2_202);
 
 		Question questionb2_219 = new Question(13,
 				"Khi tránh nhau trên đường hẹp, người lái xe cần phải chú ý những điểm nào để đảm bảo an toàn giao thông?",
-				true, "", b2.getId(), set15.getId(), kt.getId());
+				"nan", b2.getId(), set15.getId(), kt.getId());
 		questionRepo.save(questionb2_219);
 
 		Question questionb2_236 = new Question(14,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẻ dưới đây, báo hiệu tình trạng như thế nào của xe ô tô?",
-				true, "b2_236.jpg", b2.getId(), set15.getId(), kt.getId());
+				"b2_236.jpg", b2.getId(), set15.getId(), kt.getId());
 		questionRepo.save(questionb2_236);
 
 		Question questionb2_253 = new Question(15,
-				"Điều khiển ô tô trong trời mưa, người lái xe phải xử lý như thế nào để đảm bảo an toàn?", true, "",
+				"Điều khiển ô tô trong trời mưa, người lái xe phải xử lý như thế nào để đảm bảo an toàn?", "nan",
 				b2.getId(), set15.getId(), kt.getId());
 		questionRepo.save(questionb2_253);
 
 		Question questionb2_270 = new Question(16,
 				"Chủ phương tiên cơ giới đường bộ có được tự ý thay đổi màu sơn, nhãn hiệu hoặc các đặc tính kỹ thuật của phương tiện so với chứng nhận đăng ký xe hay không?",
-				true, "", b2.getId(), set15.getId(), ctsc.getId());
+				"nan", b2.getId(), set15.getId(), ctsc.getId());
 		questionRepo.save(questionb2_270);
 
-		Question questionb2_287 = new Question(17, "Hãy nêu công dụng ly hợp (côn) của ô tô?", true, "", b2.getId(),
+		Question questionb2_287 = new Question(17, "Hãy nêu công dụng ly hợp (côn) của ô tô?", "nan", b2.getId(),
 				set15.getId(), ctsc.getId());
 		questionRepo.save(questionb2_287);
 
-		Question questionb2_304 = new Question(18, "Trên xe ô tô có trang bị như hình vẽ, dùng để làm gì?", true,
+		Question questionb2_304 = new Question(18, "Trên xe ô tô có trang bị như hình vẽ, dùng để làm gì?",
 				"b2_304.jpg", b2.getId(), set15.getId(), ctsc.getId());
 		questionRepo.save(questionb2_304);
 
-		Question questionb2_321 = new Question(19, "Biển nào cấm các phương tiện giao thông đường bộ rẽ phải?", true,
+		Question questionb2_321 = new Question(19, "Biển nào cấm các phương tiện giao thông đường bộ rẽ phải?",
 				"b2_321.jpg", b2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb2_321);
 
-		Question questionb2_338 = new Question(20, "Biển báo này có ý nghĩa gì?", true, "b2_338.jpg", b2.getId(),
+		Question questionb2_338 = new Question(20, "Biển báo này có ý nghĩa gì?", "b2_338.jpg", b2.getId(),
 				set15.getId(), bb.getId());
 		questionRepo.save(questionb2_338);
 
 		Question questionb2_355 = new Question(21,
-				"Biển nào báo hiệu chiều dài đoạn đường phải giữu cự ly tối thiểu giữa hai xe?", true, "b2_355.jpg",
+				"Biển nào báo hiệu chiều dài đoạn đường phải giữu cự ly tối thiểu giữa hai xe?", "b2_355.jpg",
 				b2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb2_355);
 
-		Question questionb2_372 = new Question(22, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?", true,
+		Question questionb2_372 = new Question(22, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?",
 				"b2_372.jpg", b2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb2_372);
 
 		Question questionb2_389 = new Question(23,
-				"Biển nào báo hiệu \"Đường giao nhau\" của các tuyến đường cùng cấp?", true, "b2_389.jpg", b2.getId(),
+				"Biển nào báo hiệu \"Đường giao nhau\" của các tuyến đường cùng cấp?", "b2_389.jpg", b2.getId(),
 				set15.getId(), bb.getId());
 		questionRepo.save(questionb2_389);
 
 		Question questionb2_406 = new Question(24, "Biển nào sau đây là biển \"Kè, vực sâu bên đường phía bên trái\"?",
-				true, "b2_406.jpg", b2.getId(), set15.getId(), bb.getId());
+				"b2_406.jpg", b2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb2_406);
 
-		Question questionb2_423 = new Question(25, "Biển báo này có ý nghĩa gì?", true, "b2_423.jpg", b2.getId(),
+		Question questionb2_423 = new Question(25, "Biển báo này có ý nghĩa gì?", "b2_423.jpg", b2.getId(),
 				set15.getId(), bb.getId());
 		questionRepo.save(questionb2_423);
 
 		Question questionb2_440 = new Question(26, "Trong các biển dưới đây biển nào là biển \"Hết mọi lệnh cấm\"?",
-				true, "b2_440.jpg", b2.getId(), set15.getId(), bb.getId());
+				"b2_440.jpg", b2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb2_440);
 
 		Question questionb2_457 = new Question(27,
-				"Biển nào chỉ dẫn địa giới hành chính giữa các thành phố, tỉnh, huyện?", true, "b2_457.jpg", b2.getId(),
+				"Biển nào chỉ dẫn địa giới hành chính giữa các thành phố, tỉnh, huyện?", "b2_457.jpg", b2.getId(),
 				set15.getId(), bb.getId());
 		questionRepo.save(questionb2_457);
 
 		Question questionb2_474 = new Question(28,
-				"Vạch mũi tên chỉ hướng trên mặt đường nào dưới đây cho phép xe chỉ được đi thẳng và rẽ phải?", true,
+				"Vạch mũi tên chỉ hướng trên mặt đường nào dưới đây cho phép xe chỉ được đi thẳng và rẽ phải?",
 				"b2_474.jpg", b2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb2_474);
 
-		Question questionb2_491 = new Question(29, "Thứ tự các xe như thế nào là đúng quy tắc giao thông?", true,
+		Question questionb2_491 = new Question(29, "Thứ tự các xe như thế nào là đúng quy tắc giao thông?",
 				"b2_491.jpg", b2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb2_491);
 
-		Question questionb2_508 = new Question(30, "Theo hướng mũi tên, hướng nào xe không được phép đi?", true,
+		Question questionb2_508 = new Question(30, "Theo hướng mũi tên, hướng nào xe không được phép đi?",
 				"b2_508.jpg", b2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb2_508);
 
-		Question questionb2_525 = new Question(31, "Theo hướng mũi tên, xe nào được phép đi?", true, "b2_525.jpg",
+		Question questionb2_525 = new Question(31, "Theo hướng mũi tên, xe nào được phép đi?", "b2_525.jpg",
 				b2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb2_525);
 
-		Question questionb2_542 = new Question(32, "Xe nào phải nhường đường là đúng quy tắc giao thông?", true,
+		Question questionb2_542 = new Question(32, "Xe nào phải nhường đường là đúng quy tắc giao thông?",
 				"b2_542.jpg", b2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb2_542);
 
 		Question questionb2_559 = new Question(33, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
-				true, "b2_559.jpg", b2.getId(), set15.getId(), sh.getId());
+				"b2_559.jpg", b2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb2_559);
 
 		Question questionb2_576 = new Question(34,
 				"Phía trước có một xe màu xanh đang vượt xe màu vàng trên làn đường của bạn, bạn xử lý như thế nào trong trường hợp này?",
-				true, "b2_576.jpg", b2.getId(), set15.getId(), sh.getId());
+				"b2_576.jpg", b2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb2_576);
 
 		Question questionb2_593 = new Question(35,
 				"Trong tình huống dưới đây, xe con màu đỏ có được phép vượt khi xe con màu xanh đang vượt xe tải hay không?",
-				true, "b2_593.jpg", b2.getId(), set15.getId(), sh.getId());
+				"b2_593.jpg", b2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb2_593);
 
-		Question questionb2_16 = new Question(1, "Khái niệm \"đường cao tốc\" được hiểu như thế nào là đúng?", true, "",
+		Question questionb2_16 = new Question(1, "Khái niệm \"đường cao tốc\" được hiểu như thế nào là đúng?", "nan",
 				b2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb2_16);
 
 		Question questionb2_33 = new Question(2,
 				"Hành vi lắp đặt, sử dụng còi, đèn không đúng thiết kế của nhà sản xuất đối với từng loại xe cơ giới có được phép hay không?",
-				true, "", b2.getId(), set16.getId(), kn.getId());
+				"nan", b2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb2_33);
 
 		Question questionb2_50 = new Question(3,
-				"Người ngôi trên xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy khi tham gia giao thông có được sử dụng ô khi trười mưa hay không?",
-				true, "", b2.getId(), set16.getId(), kn.getId());
+				"Người ngôi trên xe mô tô hai bánh, xe mô tô ba bánh, xe gắn máy khi tham gia giao thông có được sử dụng ô khi trời mưa hay không?",
+				"nan", b2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb2_50);
 
-		Question questionb2_67 = new Question(4, "Người có giấy phép lái xe hạng C được điều khiển loại xe nào?", true,
+		Question questionb2_67 = new Question(4, "Người có giấy phép lái xe hạng C được điều khiển loại xe nào?",
 				"", b2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb2_67);
 
 		Question questionb2_84 = new Question(5,
 				"Trên đường giao thông, khi hiệu lệnh của người điều khiển giao thông trí với hiệu kệnh của đèn hoặc biển báo hiệu thì người tham gia giao thông phải chấp hành theo hiệu lệnh nào?",
-				true, "", b2.getId(), set16.getId(), kn.getId());
+				"nan", b2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb2_84);
 
-		Question questionb2_101 = new Question(6, "Người lái xe phải làm gì khi điều khiển xe vào đường cao tốc?", true,
+		Question questionb2_101 = new Question(6, "Người lái xe phải làm gì khi điều khiển xe vào đường cao tốc?",
 				"", b2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb2_101);
 
 		Question questionb2_118 = new Question(7,
 				"Khi lái xe trên đường vắng mà cảm thấy buồn ngủ, người lái xe nên chọn cách xử lý như thế nào cho phù hợp?",
-				true, "", b2.getId(), set16.getId(), kn.getId());
+				"nan", b2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb2_118);
 
 		Question questionb2_135 = new Question(8,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường hai chiều không có dải phân cách giữa; đường một chiều có một làn xe cơ giới (trừ đường cao tốc), loại xe nào tham gia giao thông vơi tốc độ tối đa cho phép là 60 km/h",
-				true, "", b2.getId(), set16.getId(), kn.getId());
+				"nan", b2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb2_135);
 
 		Question questionb2_152 = new Question(9,
 				"Người lái xe phải xử lý như thế nào khi quan sát phía trước thấy người đi bộ đang sang đường tại nơi có vạch đường dành cho người đi bộ để đảm bảo an toàn?",
-				true, "", b2.getId(), set16.getId(), kn.getId());
+				"nan", b2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb2_152);
 
 		Question questionb2_169 = new Question(10,
-				"Trong hoạt động vận tải khách những hàng vi nào dưới đây bị nghiêm cấm?", true, "", b2.getId(),
+				"Trong hoạt động vận tải khách những hàng vi nào dưới đây bị nghiêm cấm?", "nan", b2.getId(),
 				set16.getId(), nvvt.getId());
 		questionRepo.save(questionb2_169);
 
 		Question questionb2_186 = new Question(11,
-				"Trong đo thị, người lái xe buýt, xe chở hàng phải thực hiện những quy định nào dưới đây?", true, "",
+				"Trong đo thị, người lái xe buýt, xe chở hàng phải thực hiện những quy định nào dưới đây?", "nan",
 				b2.getId(), set16.getId(), nvvt.getId());
 		questionRepo.save(questionb2_186);
 
 		Question questionb2_203 = new Question(12,
-				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?", true,
+				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?",
 				"", b2.getId(), set16.getId(), vh.getId());
 		questionRepo.save(questionb2_203);
 
 		Question questionb2_220 = new Question(13,
-				"Khi điều khiển ô tô lên dốc cao, người lái xe cần thực hiện các thao tác nào?", true, "", b2.getId(),
+				"Khi điều khiển ô tô lên dốc cao, người lái xe cần thực hiện các thao tác nào?", "nan", b2.getId(),
 				set16.getId(), kt.getId());
 		questionRepo.save(questionb2_220);
 
 		Question questionb2_237 = new Question(14,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của xe ô tô?",
-				true, "b2_237.jpg", b2.getId(), set16.getId(), kt.getId());
+				"b2_237.jpg", b2.getId(), set16.getId(), kt.getId());
 		questionRepo.save(questionb2_237);
 
 		Question questionb2_254 = new Question(15,
-				"Khi lùi xe, người lái xe phải xử lý như thế nào đẻ bảo đảm an toàn giao thông?", true, "", b2.getId(),
+				"Khi lùi xe, người lái xe phải xử lý như thế nào đẻ bảo đảm an toàn giao thông?", "nan", b2.getId(),
 				set16.getId(), kt.getId());
 		questionRepo.save(questionb2_254);
 
 		Question questionb2_271 = new Question(16,
 				"Xe ô tô tham gia giao thông đường bộ phải bảo đảm các quy định về chất lượng, an toàn kỹ thuật và bảo vệ môi trường nào ghi dưới đây?",
-				true, "", b2.getId(), set16.getId(), ctsc.getId());
+				"nan", b2.getId(), set16.getId(), ctsc.getId());
 		questionRepo.save(questionb2_271);
 
-		Question questionb2_288 = new Question(17, "Hãy nêu công dụng của hộp số ô tô?", true, "", b2.getId(),
+		Question questionb2_288 = new Question(17, "Hãy nêu công dụng của hộp số ô tô?", "nan", b2.getId(),
 				set16.getId(), ctsc.getId());
 		questionRepo.save(questionb2_288);
 
 		Question questionb2_305 = new Question(18,
 				"Biển nào cấm các loại xe cơ giới đi vào, trừ xe gắn máy, mô tô hai bánh và các loại xe ưu tiên theo luật định?",
-				true, "b2_305.jpg", b2.getId(), set16.getId(), bb.getId());
+				"b2_305.jpg", b2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb2_305);
 
-		Question questionb2_322 = new Question(19, "Biển nào cấm các phương tiện giao thông đường bộ rẽ trái?", true,
+		Question questionb2_322 = new Question(19, "Biển nào cấm các phương tiện giao thông đường bộ rẽ trái?",
 				"b2_322.jpg", b2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb2_322);
 
-		Question questionb2_339 = new Question(20, "Biển báo này có ý nghĩa như thế nào?", true, "b2_339.jpg",
+		Question questionb2_339 = new Question(20, "Biển báo này có ý nghĩa như thế nào?", "b2_339.jpg",
 				b2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb2_339);
 
 		Question questionb2_356 = new Question(21,
-				"Biển nào báo hiệu khoảng cách thực tế từ nơi đặt biển đến nơi cần cự ly tối thiểu giữa hai xe?", true,
+				"Biển nào báo hiệu khoảng cách thực tế từ nơi đặt biển đến nơi cần cự ly tối thiểu giữa hai xe?",
 				"b2_356.jpg", b2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb2_356);
 
-		Question questionb2_373 = new Question(22, "Biển nào báo hiệu \"Giao nhau với đường sắt có rào chắn\"?", true,
+		Question questionb2_373 = new Question(22, "Biển nào báo hiệu \"Giao nhau với đường sắt có rào chắn\"?",
 				"b2_373.jpg", b2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb2_373);
 
-		Question questionb2_390 = new Question(23, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?", true,
+		Question questionb2_390 = new Question(23, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?",
 				"b2_390.jpg", b2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb2_390);
 
 		Question questionb2_407 = new Question(24, "Biển nào sau đây là biển \"Kè, vực sâu bên đường phía bên phải\"?",
-				true, "b2_407.jpg", b2.getId(), set16.getId(), bb.getId());
+				"b2_407.jpg", b2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb2_407);
 
-		Question questionb2_424 = new Question(25, "Biển báo này có ý nghĩa gì?", true, "b2_424.jpg", b2.getId(),
+		Question questionb2_424 = new Question(25, "Biển báo này có ý nghĩa gì?", "b2_424.jpg", b2.getId(),
 				set16.getId(), bb.getId());
 		questionRepo.save(questionb2_424);
 
 		Question questionb2_441 = new Question(26,
-				"Biển nào cho phép được quay đầu xe đi theo hướng ngược lại khi đặt biển trước ngã ba, ngã tư?", true,
+				"Biển nào cho phép được quay đầu xe đi theo hướng ngược lại khi đặt biển trước ngã ba, ngã tư?",
 				"b2_441.jpg", b2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb2_441);
 
-		Question questionb2_458 = new Question(27, "Biển nào báo hiệu \"Cầu vượt liên thông\"?", true, "b2_458.jpg",
+		Question questionb2_458 = new Question(27, "Biển nào báo hiệu \"Cầu vượt liên thông\"?", "b2_458.jpg",
 				b2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb2_458);
 
 		Question questionb2_475 = new Question(28,
-				"Vạch kẻ đường nào dưới đây là vạch phân chia các làn xe cùng chiều?", true, "b2_475.jpg", b2.getId(),
+				"Vạch kẻ đường nào dưới đây là vạch phân chia các làn xe cùng chiều?", "b2_475.jpg", b2.getId(),
 				set16.getId(), bb.getId());
 		questionRepo.save(questionb2_475);
 
-		Question questionb2_492 = new Question(29, "Xe nào được quyền ưu tiên đi trước trong trường hợp này?", true,
+		Question questionb2_492 = new Question(29, "Xe nào được quyền ưu tiên đi trước trong trường hợp này?",
 				"b2_492.jpg", b2.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb2_492);
 
-		Question questionb2_509 = new Question(30, "Theo hướng mũi tên, những hướng nào ô tô không được phép đi?", true,
+		Question questionb2_509 = new Question(30, "Theo hướng mũi tên, những hướng nào ô tô không được phép đi?",
 				"b2_509.jpg", b2.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb2_509);
 
-		Question questionb2_526 = new Question(31, "Xe con vượt xe tải như trường hợp này có đúng không?", true,
+		Question questionb2_526 = new Question(31, "Xe con vượt xe tải như trường hợp này có đúng không?",
 				"b2_526.jpg", b2.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb2_526);
 
 		Question questionb2_543 = new Question(32,
-				"Người lái xe điều khiển xe rẽ trái như thế nào là đúng quy tắc giao thông?", true, "b2_543.jpg",
+				"Người lái xe điều khiển xe rẽ trái như thế nào là đúng quy tắc giao thông?", "b2_543.jpg",
 				b2.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb2_543);
 
 		Question questionb2_560 = new Question(33,
 				"Trong tình huống dưới đây, để tránh xe phía trước bị hỏng đột xuất trên đường, người lái xe phải làm thế nào?",
-				true, "b2_560.jpg", b2.getId(), set16.getId(), sh.getId());
+				"b2_560.jpg", b2.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb2_560);
 
 		Question questionb2_577 = new Question(34,
-				"Xe tải phía trước có tín hiệu xin chuyển làn đường, bạn xử lý như thế nào trong trường hợp này?", true,
+				"Xe tải phía trước có tín hiệu xin chuyển làn đường, bạn xử lý như thế nào trong trường hợp này?",
 				"b2_577.jpg", b2.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb2_577);
 
 		Question questionb2_594 = new Question(35,
 				"Trong tình huống dưới đây, xe con màu vàng vượt xe con màu đỏ là đúng quy tắc giao thông hay không?",
-				true, "b2_594.jpg", b2.getId(), set16.getId(), sh.getId());
+				"b2_594.jpg", b2.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb2_594);
 
-		Question questionb2_17 = new Question(1, "Hành vi nào dưới đây bị nghiêm cấm?", true, "", b2.getId(),
+		Question questionb2_17 = new Question(1, "Hành vi nào dưới đây bị nghiêm cấm?", "nan", b2.getId(),
 				set17.getId(), kn.getId());
 		questionRepo.save(questionb2_17);
 
 		Question questionb2_34 = new Question(2,
 				"Trong trường hợp đặc biết, để được lắp đặt, sử dụng còi, đèn khác thiết kế của nhà sản xuất đối với từng loại xe cơ giới bạn phải đảm bảo yêu cầu nào dưới đây?",
-				true, "", b2.getId(), set17.getId(), kn.getId());
+				"nan", b2.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionb2_34);
 
 		Question questionb2_51 = new Question(3,
 				"Khi đang lên dốc người ngồi trên xe mô tô có được phép kéo theo người đang điều khiển xe đạp hay không?",
-				true, "", b2.getId(), set17.getId(), kn.getId());
+				"nan", b2.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionb2_51);
 
 		Question questionb2_68 = new Question(4,
-				"Người có giấy phép lái xe hạng D được điều khiển loại xe nào dưới đây?", true, "", b2.getId(),
+				"Người có giấy phép lái xe hạng D được điều khiển loại xe nào dưới đây?", "nan", b2.getId(),
 				set17.getId(), kn.getId());
 		questionRepo.save(questionb2_68);
 
 		Question questionb2_85 = new Question(5,
 				"Tại nơi có biển báo hiệu cố định lại có báo hiệu tạm thời thì người tham gia giao thông phải chấp hành hiệu lệnh của báo hiệu nào?",
-				true, "", b2.getId(), set17.getId(), kn.getId());
+				"nan", b2.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionb2_85);
 
 		Question questionb2_102 = new Question(6,
-				"Trên đường cao tốc, người lái xe phải dừng xe, đỗ xe như thế nào để đảm bảo an toàn giao thông?", true,
+				"Trên đường cao tốc, người lái xe phải dừng xe, đỗ xe như thế nào để đảm bảo an toàn giao thông?",
 				"", b2.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionb2_102);
 
 		Question questionb2_119 = new Question(7,
-				"Trên đường cao tốc, người lái xe xử lý như thế nào khi đã vượt quá lối ra của đường định rẽ?", true,
+				"Trên đường cao tốc, người lái xe xử lý như thế nào khi đã vượt quá lối ra của đường định rẽ?",
 				"", b2.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionb2_119);
 
 		Question questionb2_136 = new Question(8,
 				"Trên đường bộ ngoài khu vực đông dân cư, đường hai chiều không có dải phân cách giữa; đường một chiều có một làn xe cơ giới (trừ đường cao tốc), loại xe nào tham gia giao thông vơi tốc độ tối đa cho phép là 50 km/h",
-				true, "", b2.getId(), set17.getId(), kn.getId());
+				"nan", b2.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionb2_136);
 
 		Question questionb2_153 = new Question(9,
-				"Khi muốn lùi xe nhưng không quan sát được phía sau, cần phải làm gì để đảm bảo an toàn?", true, "",
+				"Khi muốn lùi xe nhưng không quan sát được phía sau, cần phải làm gì để đảm bảo an toàn?", "nan",
 				b2.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionb2_153);
 
 		Question questionb2_170 = new Question(10,
 				"Thời gian làm việc của người lái xe ô tô không được lái xe liên tục quá bao nhiêu giờ trong trường hợp dưới dây?",
-				true, "", b2.getId(), set17.getId(), nvvt.getId());
+				"nan", b2.getId(), set17.getId(), nvvt.getId());
 		questionRepo.save(questionb2_170);
 
 		Question questionb2_187 = new Question(11,
-				"Việc vận chuyển hàng hóa bằng xe ô tô phải chấp hành các quy định nào dưới đây?", true, "", b2.getId(),
+				"Việc vận chuyển hàng hóa bằng xe ô tô phải chấp hành các quy định nào dưới đây?", "nan", b2.getId(),
 				set17.getId(), nvvt.getId());
 		questionRepo.save(questionb2_187);
 
 		Question questionb2_204 = new Question(12,
-				"Trong các hành vi dưới đây, người lái xe ô tô có văn hóa giao thông phải ứng xử như thế nào?", true,
+				"Trong các hành vi dưới đây, người lái xe ô tô có văn hóa giao thông phải ứng xử như thế nào?",
 				"", b2.getId(), set17.getId(), vh.getId());
 		questionRepo.save(questionb2_204);
 
 		Question questionb2_221 = new Question(13,
 				"Khi điều khiển ô tô xuống dốc cao, người lái xe cần thực hiện các thao tác nào dưới đây để đảm bảo an toàn?",
-				true, "", b2.getId(), set17.getId(), kt.getId());
+				"nan", b2.getId(), set17.getId(), kt.getId());
 		questionRepo.save(questionb2_221);
 
 		Question questionb2_238 = new Question(14,
 				"Khi động cơ ô tô đã khởi động, bảng đồng hồ xuất hiện ký hiệu như hình vẽ dưới đây, báo hiệu tình trạng như thế nào của xe ô tô?",
-				true, "b2_238.jpg", b2.getId(), set17.getId(), kt.getId());
+				"b2_238.jpg", b2.getId(), set17.getId(), kt.getId());
 		questionRepo.save(questionb2_238);
 
 		Question questionb2_255 = new Question(15,
-				"Điều khiển xe ô tô trong khu vực đông dân cư cần lưu ý điều gì dưới đây?", true, "", b2.getId(),
+				"Điều khiển xe ô tô trong khu vực đông dân cư cần lưu ý điều gì dưới đây?", "nan", b2.getId(),
 				set17.getId(), kt.getId());
 		questionRepo.save(questionb2_255);
 
 		Question questionb2_272 = new Question(16,
-				"Xe mô tô và xe ô tô tham gia giao thông trên đường bộ phải bắt buộc có đủ bộ phận giảm thanh không? ",
-				true, "", b2.getId(), set17.getId(), ctsc.getId());
+				"Xe mô tô và xe ô tô tham gia giao thông trên đường bộ phải bắt buộc có đủ bộ phận giảm thanh không?",
+				"nan", b2.getId(), set17.getId(), ctsc.getId());
 		questionRepo.save(questionb2_272);
 
-		Question questionb2_289 = new Question(17, "Hãy nếu công dụng hệ thống lái ô tô?", true, "", b2.getId(),
+		Question questionb2_289 = new Question(17, "Hãy nếu công dụng hệ thống lái ô tô?", "nan", b2.getId(),
 				set17.getId(), ctsc.getId());
 		questionRepo.save(questionb2_289);
 
-		Question questionb2_306 = new Question(18, "Biển nào cấm ô tô tải?", true, "b2_306.jpg", b2.getId(),
+		Question questionb2_306 = new Question(18, "Biển nào cấm ô tô tải?", "b2_306.jpg", b2.getId(),
 				set17.getId(), bb.getId());
 		questionRepo.save(questionb2_306);
 
-		Question questionb2_323 = new Question(19, "Biển nào cấm ô tô quay đầu?", true, "b2_323.jpg", b2.getId(),
+		Question questionb2_323 = new Question(19, "Biển nào cấm ô tô quay đầu?", "b2_323.jpg", b2.getId(),
 				set17.getId(), bb.getId());
 		questionRepo.save(questionb2_323);
 
 		Question questionb2_340 = new Question(20,
 				"Khi gặp các biển này xe ưu tiên theo luật định (có tải trọng hay chiều cao toàn bộ vượt quá chỉ số ghi trên biển) có được phép đi qua hay không?",
-				true, "b2_340.jpg", b2.getId(), set17.getId(), bb.getId());
+				"b2_340.jpg", b2.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionb2_340);
 
-		Question questionb2_357 = new Question(21, "Biển này có ý nghĩa gì?", true, "b2_357.jpg", b2.getId(),
+		Question questionb2_357 = new Question(21, "Biển này có ý nghĩa gì?", "b2_357.jpg", b2.getId(),
 				set17.getId(), bb.getId());
 		questionRepo.save(questionb2_357);
 
-		Question questionb2_374 = new Question(22, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?", true,
+		Question questionb2_374 = new Question(22, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?",
 				"b2_374.jpg", b2.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionb2_374);
 
-		Question questionb2_391 = new Question(23, "Biển nào báo hiệu \"Đường hai chiều\"?", true, "b2_391.jpg",
+		Question questionb2_391 = new Question(23, "Biển nào báo hiệu \"Đường hai chiều\"?", "b2_391.jpg",
 				b2.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionb2_391);
 
-		Question questionb2_408 = new Question(24, "Biển nào sau đây là biển \"Đường trơn\"?", true, "b2_408.jpg",
+		Question questionb2_408 = new Question(24, "Biển nào sau đây là biển \"Đường trơn\"?", "b2_408.jpg",
 				b2.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionb2_408);
 
-		Question questionb2_425 = new Question(25, "Biển báo này có ý nghĩa gì?", true, "b2_425.jpg", b2.getId(),
+		Question questionb2_425 = new Question(25, "Biển báo này có ý nghĩa gì?", "b2_425.jpg", b2.getId(),
 				set17.getId(), bb.getId());
 		questionRepo.save(questionb2_425);
 
-		Question questionb2_442 = new Question(26, "Biển nào không cho phép rẻ phải?", true, "b2_442.jpg", b2.getId(),
+		Question questionb2_442 = new Question(26, "Biển nào không cho phép rẻ phải?", "b2_442.jpg", b2.getId(),
 				set17.getId(), bb.getId());
 		questionRepo.save(questionb2_442);
 
-		Question questionb2_459 = new Question(27, "Biển số 1 có ý nghĩa gì?", true, "b2_459.jpg", b2.getId(),
+		Question questionb2_459 = new Question(27, "Biển số 1 có ý nghĩa gì?", "b2_459.jpg", b2.getId(),
 				set17.getId(), bb.getId());
 		questionRepo.save(questionb2_459);
 
 		Question questionb2_476 = new Question(28,
 				"Vạch kẻ đường nào dưới đây là vạch phân chia hai chiều xe chạy ( vạch tim đường), xe không được lấn làn, không được đè lên vạch?",
-				true, "b2_476.jpg", b2.getId(), set17.getId(), bb.getId());
+				"b2_476.jpg", b2.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionb2_476);
 
-		Question questionb2_493 = new Question(29, "Xe nào phải nhường đường đi cuối cùng qua nơi giao nhau này?", true,
+		Question questionb2_493 = new Question(29, "Xe nào phải nhường đường đi cuối cùng qua nơi giao nhau này?",
 				"b2_493.jpg", b2.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionb2_493);
 
-		Question questionb2_510 = new Question(30, "Xe nào vượt đúng quy tắc giao thông?", true, "b2_510.jpg",
+		Question questionb2_510 = new Question(30, "Xe nào vượt đúng quy tắc giao thông?", "b2_510.jpg",
 				b2.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionb2_510);
 
-		Question questionb2_527 = new Question(31, "Xe nào vượt đúng quy tăc giao thông?", true, "b2_527.jpg",
+		Question questionb2_527 = new Question(31, "Xe nào vượt đúng quy tăc giao thông?", "b2_527.jpg",
 				b2.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionb2_527);
 
-		Question questionb2_544 = new Question(32, "Trong hình dưới những xe nào vi phạm quy tắc giao thông?", true,
+		Question questionb2_544 = new Question(32, "Trong hình dưới những xe nào vi phạm quy tắc giao thông?",
 				"b2_544.jpg", b2.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionb2_544);
 
 		Question questionb2_561 = new Question(33,
-				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", true, "b2_561.jpg",
+				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", "b2_561.jpg",
 				b2.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionb2_561);
 
-		Question questionb2_578 = new Question(34, "Bạn xử lý như thế nào trong trường hợp này?", true, "b2_578.jpg",
+		Question questionb2_578 = new Question(34, "Bạn xử lý như thế nào trong trường hợp này?", "b2_578.jpg",
 				b2.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionb2_578);
 
 		Question questionb2_595 = new Question(35,
 				"Trong tình huống dưới đây, xe đầu kéo rơ móoc (xe container) đang rẽ phải, xe con màu xanh đi như thế nào để đảm bảo an toàn?",
-				true, "b2_595.jpg", b2.getId(), set17.getId(), sh.getId());
+				"b2_595.jpg", b2.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionb2_595);
 
 	}

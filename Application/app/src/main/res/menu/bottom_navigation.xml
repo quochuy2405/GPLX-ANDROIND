@@ -5,12 +5,7 @@
         android:icon="@drawable/home"
         android:title="NHÀ"
         />
-    <item
-        android:id="@+id/page_category"
-        android:enabled="true"
-        android:icon="@drawable/board"
-        android:title="BIỂN CẤM"
-        />
+
 
     <item
         android:id="@+id/page_notice"
@@ -19,7 +14,12 @@
         android:title="LỊCH SỬ"
         />
 
-
+    <item
+        android:id="@+id/page_category"
+        android:enabled="true"
+        android:icon="@drawable/tutorial"
+        android:title="QUY ĐỊNH"
+        />
     <item
         android:id="@+id/page_profile"
         android:enabled="true"

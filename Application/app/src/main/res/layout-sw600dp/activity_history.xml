@@ -23,7 +23,15 @@
 
 
     </ListView>
-
+    <TextView
+        android:id="@+id/no_history"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Không có lịch sử"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textSize="0.2in"
+        android:textColor="@color/black"></TextView>
     <include
         android:id="@+id/bottom_bar"
         layout="@layout/activity_navigation" />

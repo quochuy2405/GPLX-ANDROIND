@@ -4,6 +4,7 @@ public class QuestionCountByType {
     private String name;
     private String type;
     private int num;
+
     public String getName() {
         return name;
     }
