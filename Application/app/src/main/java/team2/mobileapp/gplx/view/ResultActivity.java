@@ -11,14 +11,11 @@ import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.LicenseByIdCallBackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.LicenseController;
 import team2.mobileapp.gplx.Retrofit.models.License;
-import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 import team2.mobileapp.gplx.Volley.model.Answer;
 import team2.mobileapp.gplx.Volley.model.CheckRadioButton;
 import team2.mobileapp.gplx.Volley.model.Question;
 import team2.mobileapp.gplx.Volley.model.dto.DtoQuestionSet;
 
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -80,8 +77,8 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
         if(license != null){
             if(license.getName().equals("A1")){
                 int minPx = 24;
-                int rightPx = (int) (minPx * rightAns)/(4/3);
-                int wrongPx = (int) (minPx * wrongAns)/(4/3);
+                int rightPx = (int) (minPx * rightAns)/(2)+9*rightAns;
+                int wrongPx = (int) (minPx * wrongAns)/(2)+9*wrongAns;
                 correct.getLayoutParams().height = rightPx;
                 incorrect.getLayoutParams().height = wrongPx;
                 if(rightAns < 21){
@@ -97,8 +94,8 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
             }
             if(license.getName().equals("A2")){
                 int minPx = 24;
-                int rightPx = (int) (minPx * rightAns)/(4/3);
-                int wrongPx = (int) (minPx * wrongAns)/(4/3);
+                int rightPx = (int) (minPx * rightAns)/(2)+9*rightAns;
+                int wrongPx = (int) (minPx * wrongAns)/(2)+9*wrongAns;
                 correct.getLayoutParams().height = rightPx;
                 incorrect.getLayoutParams().height = wrongPx;
                 if(rightAns < 23){
@@ -113,25 +110,25 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
             }
             if(license.getName().equals("B1")){
                 int minPx = 20;
-                int rightPx = (int) (minPx * rightAns)/(4/3);
-                int wrongPx = (int) (minPx * wrongAns)/(4/3);
+                int rightPx = (int) (minPx * rightAns)/(2)+9*rightAns;
+                int wrongPx = (int) (minPx * wrongAns)/(2)+9*wrongAns;
                 correct.getLayoutParams().height = rightPx;
                 incorrect.getLayoutParams().height = wrongPx;
                 if(rightAns < 27){
                     iv_result.setImageResource(R.drawable.result_failed);
                     result_layout.setBackgroundColor(Color.RED);
-                    tv_result_show.setText("Không đạt");
+                    tv_result_show.setText("KHÔNG ĐẠT");
                 }
                 else{
                     iv_result.setImageResource(R.drawable.result_pass);
                     result_layout.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.green_main)));
-                    tv_result_show.setText("Đạt");
+                    tv_result_show.setText("ĐẠT");
                 }
             }
             if(license.getName().equals("B2")){
                 int minPx = 17;
-                int rightPx = (int) (minPx * rightAns)/(4/3);
-                int wrongPx = (int) (minPx * wrongAns)/(4/3);
+                int rightPx = (int) (minPx * rightAns)/(2)+9*rightAns;
+                int wrongPx = (int) (minPx * wrongAns)/(2)+9*wrongAns;
                 correct.getLayoutParams().height = rightPx;
                 incorrect.getLayoutParams().height = wrongPx;
                 if(rightAns < 32){

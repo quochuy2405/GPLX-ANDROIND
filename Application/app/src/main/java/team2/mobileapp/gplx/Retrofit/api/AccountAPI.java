@@ -1,5 +1,7 @@
 package team2.mobileapp.gplx.Retrofit.api;
 
+import androidx.annotation.Nullable;
+
 import retrofit2.Call;
 import retrofit2.http.*;
 import team2.mobileapp.gplx.Retrofit.dto.ChangePassword;
@@ -13,6 +15,8 @@ public interface AccountAPI {
     Call<Account> updateAccount(@Path("id") String id, @Body Account account);
     @GET("account/forgotpass/{email}")
     Call<VerificationCode> forgotPass(@Path("email") String email);
+    @GET("account/checkemail/{email}")
+    Call<Void> checkEmail(@Path("email") String email);
     @PUT("api/account/changepass/{email}")
     Call<Account> changePass(@Path("email") String email, @Body ChangePassword password);
 }

@@ -110,7 +110,7 @@ public class AccountController {
 
         // Send Message!
         this.emailSender.send(message);
-
+       
         return "Email Sent!";
     }
 	
@@ -122,12 +122,24 @@ public class AccountController {
         message.setTo(email);
         message.setSubject("Verification code");
         int randomNum = ThreadLocalRandom.current().nextInt(100000, 1000000);
-        VerificationCode code = new VerificationCode(String.valueOf(randomNum));
+        VerificationCode code = new VerificationCode();
         message.setText("This is your verification code: " + randomNum);
-
-        // Send Message!
+        code.setCode(String.valueOf(randomNum));
         this.emailSender.send(message);
-		return new ResponseEntity<>(code, HttpStatus.OK);
+    	return new ResponseEntity<>(code, HttpStatus.OK);
+        // Send Message!
+       
+	
+	}
+	@GetMapping("api/account/checkemail/{email}")
+	public ResponseEntity<String> CheckEmail(@PathVariable("email") String email) {
+		
+		Account acc = service.findByEmail(email);
+		if(acc == null) return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    	return new ResponseEntity<>(HttpStatus.OK	);
+        // Send Message!
+       
+	
 	}
 	
 	@PutMapping("api/account/changepass/{email}")

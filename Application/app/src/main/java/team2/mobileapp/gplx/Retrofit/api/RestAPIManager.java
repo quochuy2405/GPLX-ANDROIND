@@ -84,7 +84,9 @@ public class RestAPIManager {
         if (historicalExamAPI == null) {
             historicalExamAPI = new Retrofit.Builder()
                     .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl(BASE_URL).build().create(HistoricalExamAPI.class);
+                    .baseUrl(BASE_URL)
+                    .build()
+                    .create(HistoricalExamAPI.class);
         }
         return historicalExamAPI;
     }

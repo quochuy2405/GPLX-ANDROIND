@@ -52,7 +52,6 @@ public class TestService {
                             set.getInt("Quantity"), set.getString("LicenseId"));
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                         dto.setQuestionSet(questionSet);
-                        Log.i("Question Set", dto.getQuestionSet().toString());
                     }
                     JSONArray questList = response.getJSONArray("questList");
                     for(int i = 0; i < questList.length(); i++){
@@ -66,9 +65,6 @@ public class TestService {
                         newQuestion.setLicenseId(eachQuestion.getString("LicenseId"));
                         newQuestion.setQuestionSetId(eachQuestion.getString("QuestionSetId"));
                         newQuestion.setQuestionTypeId(eachQuestion.getString("QuestionTypeId"));
-
-                        Log.i("Each Question", newQuestion.toString());
-
                         questionList.add(newQuestion);
                     }
 
@@ -82,15 +78,13 @@ public class TestService {
                         newAnswer.setResult(eachAnswer.getInt("Result"));
                         newAnswer.setQuestionId(eachAnswer.getString("QuestionId"));
 
-                        List<Answer> AnswerList = new ArrayList<>();
                         JSONArray eachAnswerName = eachAnswer.getJSONArray("AnswerName");
                         String[] arrayAnswerName = new String[eachAnswerName.length()];
                         for(int j = 0; j < eachAnswerName.length(); j++){
                             arrayAnswerName[j] = (String) eachAnswerName.get(j);
-                            Log.i("Array Answer Name", arrayAnswerName[j]);
+
                         }
                         newAnswer.setAnswerList(arrayAnswerName);
-                        Log.i("Each Answer", newAnswer.toString());
                         answerList.add(newAnswer);
                     }
                     dto.setQuestList(questionList);

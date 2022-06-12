@@ -55,9 +55,10 @@
                 android:textSize="30dp"
                 android:imeOptions="actionGo"
                 android:inputType="text"
+                android:textFontWeight="@integer/material_motion_duration_medium_1"
                 android:padding="10dp"
                 android:textColor="@color/green_main"
-                android:textColorHint="@color/gray_milk" />
+                android:textColorHint="#C9A8A7A7" />
         </LinearLayout>
     </RelativeLayout>
 

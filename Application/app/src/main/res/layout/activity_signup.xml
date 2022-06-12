@@ -171,7 +171,7 @@
         app:loopCount="1"
         android:padding="90dp"
         android:background="#83F8F8F8"
-        android:visibility="invisible"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@raw/animation_done"

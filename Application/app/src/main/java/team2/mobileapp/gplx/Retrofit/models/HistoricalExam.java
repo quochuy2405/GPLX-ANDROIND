@@ -1,11 +1,26 @@
 package team2.mobileapp.gplx.Retrofit.models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class HistoricalExam {
+    @SerializedName("userid")
+    @Expose
     private String userid;
+    @SerializedName("license")
+    @Expose
     private String license;
+    @SerializedName("setname")
+    @Expose
     private String setname;
+    @SerializedName("date")
+    @Expose
     private String date;
+    @SerializedName("correct")
+    @Expose
     private int correct;
+    @SerializedName("total")
+    @Expose
     private int total;
 
     public HistoricalExam() {
@@ -66,5 +81,17 @@ public class HistoricalExam {
 
     public void setTotal(int total) {
         this.total = total;
+    }
+
+    @Override
+    public String toString() {
+        return "HistoricalExam{" +
+                "userid='" + userid + '\'' +
+                ", license='" + license + '\'' +
+                ", setname='" + setname + '\'' +
+                ", date='" + date + '\'' +
+                ", correct=" + correct +
+                ", total=" + total +
+                '}';
     }
 }

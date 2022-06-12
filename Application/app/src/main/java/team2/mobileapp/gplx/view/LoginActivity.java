@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.AccountCallbackListener;
@@ -189,12 +188,16 @@ public class LoginActivity extends AppCompatActivity implements AccountCallbackL
 
     @Override
     public void onFetchAccountProgress(Account account) {
-        if (!account.getId().isEmpty()) {
-            VariableGlobal.idUser = account.getId();
-            category.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(category);
+        if(account!=null){
+            if (!account.getId().isEmpty()) {
+                VariableGlobal.idUser = account.getId();
+                category.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(category);
 
+            }
         }
+
+
     }
 
     @Override

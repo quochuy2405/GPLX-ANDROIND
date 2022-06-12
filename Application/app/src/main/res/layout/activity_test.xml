@@ -78,6 +78,7 @@
             android:id="@+id/iv_question"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
+            android:minHeight="170dp"
             android:layout_below="@+id/tv_question"
             android:scaleType="fitXY"
              android:visibility="gone"

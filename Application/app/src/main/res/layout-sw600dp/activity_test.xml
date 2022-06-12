@@ -81,7 +81,8 @@
         <ImageView
 
             android:id="@+id/iv_question"
-            android:layout_width="280dp"
+            android:layout_width="320dp"
+            android:minHeight="230dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_question"
             android:scaleType="fitXY"

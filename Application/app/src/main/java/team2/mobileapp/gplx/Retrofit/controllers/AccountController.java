@@ -1,7 +1,8 @@
 package team2.mobileapp.gplx.Retrofit.controllers;
 
 import android.util.Log;
-import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -13,7 +14,6 @@ import team2.mobileapp.gplx.Retrofit.callbacks.ForgotPassCallBackListener;
 import team2.mobileapp.gplx.Retrofit.dto.ChangePassword;
 import team2.mobileapp.gplx.Retrofit.dto.VerificationCode;
 import team2.mobileapp.gplx.Retrofit.models.Account;
-import team2.mobileapp.gplx.view.SetNewPasswordActivity;
 
 public class AccountController {
     private AccountCallbackListener accountCallbackListener;
@@ -90,7 +90,6 @@ public class AccountController {
                 try {
                     message = response.code() == 200 ? "Successfully fetched" : "Failed to fetch";
                     VerificationCode code = response.body();
-
                     forgotPassCallBackListener.onFetchForgotPassProgress(code);
                 } catch (Exception e) {
                     Log.d("Error: ", e.getMessage());
@@ -104,14 +103,35 @@ public class AccountController {
             }
         });
     }
+    public void CheckEmail(String email){
 
-    // Chưa dùng được
+        restAPI.getAccountAPI().checkEmail(email).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                try {
+                    message = response.code() == 200 ? "Successfully fetched" : "Failed to fetch";
+                    int code=response.code();
+                    forgotPassCallBackListener.onFetchCheckEmailProgress(code);
+                } catch (Exception e) {
+                    Log.d("Error: ", e.getMessage());
+                }
+                forgotPassCallBackListener.onFetchComplete(message);
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.d("FAIL", t.getMessage());
+            }
+        });
+    }
+
     public void ChangePassword(String email, ChangePassword password) {
         restAPI.getAccountAPI().changePass(email, password).enqueue(new Callback<Account>() {
             @Override
             public void onResponse(Call<Account> call, Response<Account> response) {
                 try {
                     message = response.code() == 200 ? "Successfully fetched" : "Failed to fetch";
+
                     Account account = response.body();
 
                     changePassCallBackListener.onFetchChangePassProgress(account);

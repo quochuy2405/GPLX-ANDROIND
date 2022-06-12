@@ -11,12 +11,12 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/radius"
-        app:labelVisibilityMode="unlabeled"
-        app:itemTextColor="@color/green_main"
         app:itemIconTint="@menu/active_navigation"
+        app:itemTextColor="@color/green_main"
+        app:labelVisibilityMode="unlabeled"
         app:menu="@menu/bottom_navigation"></com.google.android.material.bottomnavigation.BottomNavigationView>
 
 

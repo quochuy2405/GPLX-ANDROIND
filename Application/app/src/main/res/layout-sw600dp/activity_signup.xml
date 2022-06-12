@@ -183,6 +183,6 @@
         android:background="#83F8F8F8"
         android:padding="90dp"
         android:src="@raw/animation_done"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:loopCount="1" />
 </RelativeLayout>

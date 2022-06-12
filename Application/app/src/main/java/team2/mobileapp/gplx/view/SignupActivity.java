@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -19,13 +18,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import pl.droidsonroids.gif.GifImageView;
 import team2.mobileapp.gplx.R;
+import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 import team2.mobileapp.gplx.Volley.model.Account;
 import team2.mobileapp.gplx.Volley.model.dto.RegisterResponse;
 import team2.mobileapp.gplx.Volley.service.AuthenService;
 
 public class SignupActivity extends AppCompatActivity {
 
-    EditText firstName, fullName, Email, userName, Password, confirmPassword;
+    EditText  fullName, Email, userName, Password, confirmPassword;
     Button btnSignup;
     TextView textLogin;
     GifImageView gifDone;
@@ -93,57 +93,73 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 hideKeyboard();
-                if (fullName.getText().toString().isEmpty())
-                    Toast.makeText(SignupActivity.this, "Hãy nhập Tên", Toast.LENGTH_LONG).show();
-                else if (Email.getText().toString().isEmpty())
-                    Toast.makeText(SignupActivity.this, "Hãy nhập Email", Toast.LENGTH_LONG).show();
-                else if (userName.getText().toString().isEmpty())
-                    Toast.makeText(SignupActivity.this, "Hãy nhập tên đăng nhập", Toast.LENGTH_LONG).show();
-                else if (Password.getText().toString().isEmpty())
-                    Toast.makeText(SignupActivity.this, "Hãy nhập mật khẩu", Toast.LENGTH_LONG).show();
-                else if (confirmPassword.getText().toString().isEmpty())
-                    Toast.makeText(SignupActivity.this, "Hãy nhập xác nhận mật khẩu", Toast.LENGTH_LONG).show();
-                else if (!Password.getText().toString().equals(confirmPassword.getText().toString()))
-                    Toast.makeText(SignupActivity.this, "Hãy xác nhận lại mật khẩu", Toast.LENGTH_LONG).show();
-                else {
-                    Account account = new Account();
-                    account.setFullName(fullName.getText().toString());
-                    account.setEmail(Email.getText().toString());
-                    account.setUsername(userName.getText().toString());
-                    account.setPassword(Password.getText().toString());
-                    Log.i("fullname", fullName.getText().toString());
-                    authenService.Register(account, new AuthenService.SignupCallBack() {
-                        @Override
-                        public void onError(String message) {
-                            Toast.makeText(SignupActivity.this, "Có lỗi xảy ra!", Toast.LENGTH_LONG).show();
-                        }
+                if (fullName.getText().toString().isEmpty()) {
+                    VariableGlobal.showToast(SignupActivity.this, "Hãy nhập Tên");
+                } else if (Email.getText().toString().isEmpty()) {
+                    VariableGlobal.showToast(SignupActivity.this, "Hãy nhập Email");
+                } else {
+                    if (!VariableGlobal.validateEmail(Email.getText().toString())) {
+                        VariableGlobal.showToast(SignupActivity.this, "Email định dạng sai");
+                    } else if (userName.getText().toString().isEmpty()) {
+                        VariableGlobal.showToast(SignupActivity.this, "Hãy nhập tên đăng nhập");
+                    } else {
+                        if (Password.getText().toString().isEmpty()) {
+                            VariableGlobal.showToast(SignupActivity.this, "Hãy nhập mật khẩu");
+                        } else {
 
-                        @Override
-                        public void onResponse(RegisterResponse registerResponse) {
-
-                            if (registerResponse.getEmail().equals("Email") && registerResponse.getUsername().equals("Username"))
-                                Toast.makeText(SignupActivity.this, "This email and username has already been taken", Toast.LENGTH_LONG).show();
-                            else if (registerResponse.getEmail().equals("Email"))
-                                Toast.makeText(SignupActivity.this, "This email has already been taken", Toast.LENGTH_LONG).show();
-                            else if (registerResponse.getUsername().equals("Username"))
-                                Toast.makeText(SignupActivity.this, "This username has already been taken", Toast.LENGTH_LONG).show();
-                            else {
-                                gifDone.setVisibility(View.VISIBLE);
-                                Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-                                if (vibrator.hasVibrator()) {
-                                    vibrator.vibrate(500); // for 500 ms
-                                }
-                                Handler handler = new Handler();
-                                handler.postDelayed(new Runnable() {
+                            if (Password.getText().toString().length() < 8) {
+                                VariableGlobal.showToast(SignupActivity.this, "Mật khẩu phải dài ít nhất 8 ký tự");
+                            } else if (confirmPassword.getText().toString().isEmpty()) {
+                                VariableGlobal.showToast(SignupActivity.this, "Hãy nhập xác nhận mật khẩu");
+                            } else if (!Password.getText().toString().equals(confirmPassword.getText().toString())) {
+                                VariableGlobal.showToast(SignupActivity.this, "Hãy xác nhận lại mật khẩu");
+                            } else {
+                                Account account = new Account();
+                                account.setFullName(fullName.getText().toString());
+                                account.setEmail(Email.getText().toString());
+                                account.setUsername(userName.getText().toString());
+                                account.setPassword(Password.getText().toString());
+                                authenService.Register(account, new AuthenService.SignupCallBack() {
                                     @Override
-                                    public void run() {
-                                        startActivity(login);
+                                    public void onError(String message) {
+                                        Toast.makeText(SignupActivity.this, "Có lỗi xảy ra!", Toast.LENGTH_LONG).show();
                                     }
-                                }, 3000);
+
+                                    @Override
+                                    public void onResponse(RegisterResponse registerResponse) {
+
+                                        if (registerResponse.getEmail().equals("Email") && registerResponse.getUsername().equals("Username"))
+                                            Toast.makeText(SignupActivity.this, "This email and username has already been taken", Toast.LENGTH_LONG).show();
+                                        else if (registerResponse.getEmail().equals("Email"))
+                                            Toast.makeText(SignupActivity.this, "This email has already been taken", Toast.LENGTH_LONG).show();
+                                        else if (registerResponse.getUsername().equals("Username"))
+                                            Toast.makeText(SignupActivity.this, "This username has already been taken", Toast.LENGTH_LONG).show();
+                                        else {
+                                            gifDone.setVisibility(View.VISIBLE);
+                                            Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                                            if (vibrator.hasVibrator()) {
+                                                vibrator.vibrate(500); // for 500 ms
+                                            }
+                                            Handler handler = new Handler();
+                                            handler.postDelayed(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    startActivity(login);
+                                                }
+                                            }, 3000);
+                                        }
+                                    }
+                                });
                             }
+
+
                         }
-                    });
+
+                    }
+
+
                 }
+
             }
         });
     }

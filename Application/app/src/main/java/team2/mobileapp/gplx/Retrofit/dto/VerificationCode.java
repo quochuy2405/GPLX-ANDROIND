@@ -4,11 +4,10 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class VerificationCode {
-    @SerializedName("Code")
-    @Expose
     private String code;
 
-    public VerificationCode() {}
+    public VerificationCode() {
+    }
 
     public VerificationCode(String code) {
         this.code = code;

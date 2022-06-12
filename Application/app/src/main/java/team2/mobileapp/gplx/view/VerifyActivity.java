@@ -5,14 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.api.SMSAPI;
@@ -27,6 +25,7 @@ public class VerifyActivity extends AppCompatActivity implements ForgotPassCallB
     EditText etVerifyCode;
     TextView tvResend;
     Button btnVerifyCode;
+
     RelativeLayout checkOutFocus;
     SMSAPI sms = new SMSAPI();
     @Override
@@ -62,15 +61,16 @@ public class VerifyActivity extends AppCompatActivity implements ForgotPassCallB
             @Override
             public void onClick(View view) {
                 hideKeyboard();
-                if(etVerifyCode.getText().toString().isEmpty())
-                   Toast .makeText(VerifyActivity.this, "Please enter verification code", Toast.LENGTH_LONG).show();
+                if(etVerifyCode.getText().toString().isEmpty()){
+                VariableGlobal.showToast(VerifyActivity.this, "Hãy nhập mã CODE");
+                }
                 else{
                     if(etVerifyCode.getText().toString().equals(VariableGlobal.verificationCode.getCode())){
                         setNewPass.putExtra("Email", email);
                         startActivity(setNewPass);
                     }
                     else {
-                        Toast .makeText(VerifyActivity.this, "Your verification code is invalid!!!", Toast.LENGTH_LONG).show();
+                        VariableGlobal.showToast(VerifyActivity.this, "Mã xác nhận không đúng!!!");
                     }
                 }
             }
@@ -138,4 +138,12 @@ public class VerifyActivity extends AppCompatActivity implements ForgotPassCallB
     public void onFetchComplete(String message) {
 
     }
+
+    @Override
+    public void onFetchCheckEmailProgress(int code) {
+
+    }
+
+
+
 }

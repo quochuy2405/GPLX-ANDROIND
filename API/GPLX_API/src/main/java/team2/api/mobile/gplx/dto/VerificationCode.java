@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class VerificationCode {
 	
-	@JsonProperty("Code")
+	@JsonProperty("code")
 	private String code;
 
 	public String getCode() {

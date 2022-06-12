@@ -64,38 +64,38 @@ public class DataSeeding implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		historicalExamRepo.deleteAll();
-		licenseTypeRepo.deleteAll();
-		licenseRepo.deleteAll();
-		roleRepo.deleteAll();
-		accountRepo.deleteAll();
-		trafficSignTypeRepo.deleteAll();
-		trafficSignRepo.deleteAll();
-		questionTypeRepo.deleteAll();
-		questionRepo.deleteAll();
-		questionSetRepo.deleteAll();
-		answerRepo.deleteAll();
-		LoadRole();
-		LoadAccount();
-		LoadLicenseType();
-		LoadLicense();
-		LoadTrafficSignType();
-		LoadTrafficSign();
-		LoadQuestionSet();
-		LoadQuestionType();
-		LoadQuestionA1();
-		LoadQuestionA2();
-		LoadQuestionB1();
-		LoadQuestionB2();
-		LoadAnswerA1();
-		LoadAnswerA2();
-		LoadAnswerB1();
-		LoadAnswerB2();
+//		historicalExamRepo.deleteAll();
+//		licenseTypeRepo.deleteAll();
+//		licenseRepo.deleteAll();
+//		roleRepo.deleteAll();
+//		accountRepo.deleteAll();
+//		trafficSignTypeRepo.deleteAll();
+//		trafficSignRepo.deleteAll();
+//		questionTypeRepo.deleteAll();
+//		questionRepo.deleteAll();
+//		questionSetRepo.deleteAll();
+//		answerRepo.deleteAll();
+//		LoadRole();
+//		LoadAccount();
+//		LoadLicenseType();
+//		LoadLicense();
+//		LoadTrafficSignType();
+//		LoadTrafficSign();
+//		LoadQuestionSet();
+//		LoadQuestionType();
+//		LoadQuestionA1();
+//		LoadQuestionA2();
+//		LoadQuestionB1();
+//		LoadQuestionB2();
+//		LoadAnswerA1();
+//		LoadAnswerA2();
+//		LoadAnswerB1();
+//		LoadAnswerB2();
 //		LoadHistoricalExam();
 	}
 
 	private void LoadHistoricalExam() {
-		Account account = accountRepo.findByUsername("admin").get();
+		Account account = accountRepo.findByUsername("user5").get();
 		QuestionSet setA1_1 = questionSetRepo.findByName("Đề 1 - A1");
 		String[] setAndLicense = setA1_1.getName().split(" - ");
  		String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
