@@ -133,7 +133,7 @@ public class AccountController {
                     message = response.code() == 200 ? "Successfully fetched" : "Failed to fetch";
 
                     Account account = response.body();
-
+                    Log.d("account", ""+response.code());
                     changePassCallBackListener.onFetchChangePassProgress(account);
                 } catch (Exception e) {
                     Log.d("Error: ", e.getMessage());

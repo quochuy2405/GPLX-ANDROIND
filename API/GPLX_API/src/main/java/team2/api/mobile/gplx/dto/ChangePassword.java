@@ -3,14 +3,8 @@ package team2.api.mobile.gplx.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ChangePassword {
+	@JsonProperty("newPassword")
 	private String newPassword;
-
-	public ChangePassword() {}
-	
-	public ChangePassword(String newPassword) {
-		super();
-		this.newPassword = newPassword;
-	}
 
 	public String getNewPassword() {
 		return newPassword;

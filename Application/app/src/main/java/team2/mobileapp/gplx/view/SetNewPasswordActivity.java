@@ -2,14 +2,18 @@ package team2.mobileapp.gplx.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
+import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import pl.droidsonroids.gif.GifImageView;
@@ -28,6 +32,7 @@ public class SetNewPasswordActivity extends AppCompatActivity implements ChangeP
     Button btn_accept;
     String email;
     GifImageView gifDone;
+    RelativeLayout relativeLayout ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +43,16 @@ public class SetNewPasswordActivity extends AppCompatActivity implements ChangeP
         email = getIntent().getStringExtra("Email");
 
         InitialVariable();
-
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                hideKeyboard();
+            }
+        });
         btn_accept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                hideKeyboard();
                 if(et_new_password.getText().toString().isEmpty()){
                     VariableGlobal.showToast(SetNewPasswordActivity.this, "Nhập mật khẩu mới");
                 }
@@ -67,14 +78,21 @@ public class SetNewPasswordActivity extends AppCompatActivity implements ChangeP
             }
         });
     }
+    public void hideKeyboard() {
+        View view = this.getCurrentFocus();
+        if(view  !=null){
+            InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
 
+    }
 
     public void InitialVariable() {
         et_new_password = findViewById(R.id.set_new_pass);
         et_confirm_password = findViewById(R.id.confirm_set_new_pass);
         btn_accept = findViewById(R.id.btn_send_new_pass);
         gifDone= findViewById(R.id.gif_done_setpass);
-
+        relativeLayout=findViewById(R.id.layout_setnewpass);
     }
 
     @Override

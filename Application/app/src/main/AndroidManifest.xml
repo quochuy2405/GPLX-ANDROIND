@@ -78,9 +78,6 @@
             android:name=".view.ForgotPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".view.TestAPIActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.BoardingActivity"
             android:exported="true">
             <intent-filter>

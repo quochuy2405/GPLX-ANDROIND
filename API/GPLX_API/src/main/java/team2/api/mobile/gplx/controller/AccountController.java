@@ -142,8 +142,9 @@ public class AccountController {
 	
 	}
 	
-	@PutMapping("api/account/changepass/{email}")
+	@PatchMapping("api/account/changepass/{email}")
 	public ResponseEntity<Object> ChangePass(@PathVariable("email") String email, @RequestBody ChangePassword pass) {
+		System.out.println(pass.toString()+email);
 		Account acc = service.changePass(email, pass);
 		if(acc == null) return new ResponseEntity<>(acc, HttpStatus.BAD_REQUEST);
 		return new ResponseEntity<>(acc, HttpStatus.OK);
