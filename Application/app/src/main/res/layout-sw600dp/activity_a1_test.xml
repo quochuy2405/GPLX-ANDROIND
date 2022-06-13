@@ -78,7 +78,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:paddingBottom="20dp"
-                    android:text="Hướng dẫn trà lời "
+                    android:text="Hướng dẫn"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="28dp"
@@ -92,10 +92,10 @@
                 style="@style/AroundButton"
                 android:layout_width="220dp"
                 android:layout_height="300dp"
-                android:padding="10dp"
                 android:layout_toEndOf="@+id/btn_radom"
                 android:background="@drawable/button_radius_10"
-                android:backgroundTint="@color/green_main">
+                android:backgroundTint="@color/green_main"
+                android:padding="10dp">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -110,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:paddingBottom="20dp"
-                    android:text="Thi theo bộ đề"
+                    android:text="Bộ đề thi"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="28dp"
@@ -143,7 +143,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:paddingBottom="20dp"
-                    android:text="Các loại biển báo"
+                    android:text="Biển báo"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="28dp"
@@ -176,7 +176,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:paddingBottom="20dp"
-                    android:text="Ôn tập câu hỏi"
+                    android:text="Ôn tập"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="28dp"

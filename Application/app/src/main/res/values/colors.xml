@@ -19,4 +19,5 @@
     <color name="background_guide">#C9515151</color>
     <color name="description_guide">#414141</color>
     <color name="line_guide">#2673D1</color>
+    <color name="failure">#FA113D</color>
 </resources>

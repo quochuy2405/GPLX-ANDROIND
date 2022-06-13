@@ -1,6 +1,7 @@
 package team2.mobileapp.gplx.view;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -31,7 +32,6 @@ public class HistoryActivity extends AppCompatActivity implements HistoricalExam
 
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_history);
-
 
         heController = new HistoricalExamController(HistoryActivity.this);
         noHistory= findViewById(R.id.no_history);
@@ -75,10 +75,7 @@ public class HistoryActivity extends AppCompatActivity implements HistoricalExam
         super.onDestroy();
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-    }
+
 
     @Override
     public void onFetchProgress(ArrayList<HistoricalExam> histories) {
@@ -92,7 +89,13 @@ public class HistoryActivity extends AppCompatActivity implements HistoricalExam
                 noHistory.setVisibility(View.VISIBLE);
         }
     }
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        VariableGlobal.IdNavigation=R.id.page_history;
+        VariableGlobal.SetNavigationBar(this);
+        Log.d("Call", "onRestart: ");
+    }
     @Override
     public void onFetchComplete(String message) {
 

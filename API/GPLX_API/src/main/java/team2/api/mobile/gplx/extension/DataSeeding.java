@@ -98,8 +98,9 @@ public class DataSeeding implements CommandLineRunner {
 		Account account = accountRepo.findByUsername("user5").get();
 		QuestionSet setA1_1 = questionSetRepo.findByName("Đề 1 - A1");
 		String[] setAndLicense = setA1_1.getName().split(" - ");
- 		String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-		HistoricalExam result1 = new HistoricalExam(account.getId(), setAndLicense[1], setAndLicense[0], date, 25, setA1_1.getQuantity());
+		String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+		HistoricalExam result1 = new HistoricalExam(account.getId(), setAndLicense[1], setAndLicense[0], date, 25,
+				setA1_1.getQuantity());
 		historicalExamRepo.save(result1);
 	}
 
@@ -113,14 +114,14 @@ public class DataSeeding implements CommandLineRunner {
 		Account account1 = new Account("user1", "nhatvh123", "nhatvh@gmail.com", "Võ Hoàng Nhật", "",
 				AccountStatus.ACTIVE, user.getId());
 		accountRepo.save(account1);
-		Account account2 = new Account("user2", "hubq123", "huybq@gmail.com", "Bùi Quốc Huy", "",
-				AccountStatus.ACTIVE, user.getId());
+		Account account2 = new Account("user2", "hubq123", "huybq@gmail.com", "Bùi Quốc Huy", "", AccountStatus.ACTIVE,
+				user.getId());
 		accountRepo.save(account2);
 		Account account3 = new Account("user3", "khoalta123", "khoalta@gmail.com", "Lưu Trần Anh Khoa", "",
 				AccountStatus.ACTIVE, user.getId());
 		accountRepo.save(account3);
-		Account account4 = new Account("user4", "huyhn123", "huyhn@gmail.com", "Hồ Nhật Huy", "",
-				AccountStatus.ACTIVE, user.getId());
+		Account account4 = new Account("user4", "huyhn123", "huyhn@gmail.com", "Hồ Nhật Huy", "", AccountStatus.ACTIVE,
+				user.getId());
 		accountRepo.save(account4);
 		Account account5 = new Account("user5", "hoangnb123", "hoangnb@gmail.com", "Nguyễn Bá Hoàng", "",
 				AccountStatus.ACTIVE, user.getId());
@@ -1078,8 +1079,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", a1.getId(), set1.getId(), kt.getId());
 		questionRepo.save(questionA1_97);
 
-		Question questionA1_105 = new Question(14, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?",
-				"a1_105.jpg", a1.getId(), set1.getId(), bb.getId());
+		Question questionA1_105 = new Question(14, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?", "a1_105.jpg",
+				a1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA1_105);
 
 		Question questionA1_113 = new Question(15, "Biển nào báo hiệu \"Đường đôi\"?", "a1_113.jpg", a1.getId(),
@@ -1094,13 +1095,13 @@ public class DataSeeding implements CommandLineRunner {
 				"a1_129.jpg", a1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA1_129);
 
-		Question questionA1_137 = new Question(18, "Biển báo này có ý nghĩa như thế nào?", "a1_137.jpg",
-				a1.getId(), set1.getId(), bb.getId());
+		Question questionA1_137 = new Question(18, "Biển báo này có ý nghĩa như thế nào?", "a1_137.jpg", a1.getId(),
+				set1.getId(), bb.getId());
 		questionRepo.save(questionA1_137);
 
 		Question questionA1_145 = new Question(19,
-				"Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối đa cho phép\"?", "a1_145.jpg",
-				a1.getId(), set1.getId(), bb.getId());
+				"Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối đa cho phép\"?", "a1_145.jpg", a1.getId(),
+				set1.getId(), bb.getId());
 		questionRepo.save(questionA1_145);
 
 		Question questionA1_153 = new Question(20,
@@ -1113,8 +1114,8 @@ public class DataSeeding implements CommandLineRunner {
 				"a1_161.jpg", a1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA1_161);
 
-		Question questionA1_169 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?",
-				"a1_169.jpg", a1.getId(), set1.getId(), sh.getId());
+		Question questionA1_169 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?", "a1_169.jpg",
+				a1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionA1_169);
 
 		Question questionA1_177 = new Question(23, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
@@ -1183,8 +1184,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA1_82);
 
 		Question questionA1_90 = new Question(12,
-				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", "nan",
-				a1.getId(), set2.getId(), kt.getId());
+				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", "nan", a1.getId(),
+				set2.getId(), kt.getId());
 		questionRepo.save(questionA1_90);
 
 		Question questionA1_98 = new Question(13,
@@ -1192,8 +1193,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", a1.getId(), set2.getId(), kt.getId());
 		questionRepo.save(questionA1_98);
 
-		Question questionA1_106 = new Question(14, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?",
-				"a1_106.jpg", a1.getId(), set2.getId(), bb.getId());
+		Question questionA1_106 = new Question(14, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?", "a1_106.jpg",
+				a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_106);
 
 		Question questionA1_114 = new Question(15, "Biển nào báo hiệu \"Đường đôi\"?", "a1_114.jpg", a1.getId(),
@@ -1214,12 +1215,12 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA1_138);
 
 		Question questionA1_146 = new Question(19,
-				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?",
-				"a1_146.jpg", a1.getId(), set2.getId(), bb.getId());
+				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?", "a1_146.jpg",
+				a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_146);
 
-		Question questionA1_154 = new Question(20, "Biển nào báo hiệu \"Hướng đi thẳng phải theo\"?",
-				"a1_154.jpg", a1.getId(), set2.getId(), bb.getId());
+		Question questionA1_154 = new Question(20, "Biển nào báo hiệu \"Hướng đi thẳng phải theo\"?", "a1_154.jpg",
+				a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_154);
 
 		Question questionA1_162 = new Question(21,
@@ -1227,8 +1228,8 @@ public class DataSeeding implements CommandLineRunner {
 				a1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA1_162);
 
-		Question questionA1_170 = new Question(22, "Theo tín hiệu đèn, xe nào được phép đi?", "a1_170.jpg",
-				a1.getId(), set2.getId(), sh.getId());
+		Question questionA1_170 = new Question(22, "Theo tín hiệu đèn, xe nào được phép đi?", "a1_170.jpg", a1.getId(),
+				set2.getId(), sh.getId());
 		questionRepo.save(questionA1_170);
 
 		Question questionA1_178 = new Question(23, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
@@ -1254,8 +1255,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA1_11);
 
 		Question questionA1_19 = new Question(3,
-				"Trong các khái niệm dưới đây, \"dải phân cách\" được hiểu như thế nào là đúng?", "nan",
-				a1.getId(), set3.getId(), kn.getId());
+				"Trong các khái niệm dưới đây, \"dải phân cách\" được hiểu như thế nào là đúng?", "nan", a1.getId(),
+				set3.getId(), kn.getId());
 		questionRepo.save(questionA1_19);
 
 		Question questionA1_27 = new Question(4, "Khái niệm \"đỗ xe\" được hiểu như thế nào là đúng?", "nan",
@@ -1310,16 +1311,16 @@ public class DataSeeding implements CommandLineRunner {
 				"a1_107.jpg", a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_107);
 
-		Question questionA1_115 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?",
-				"a1_115.jpg", a1.getId(), set3.getId(), bb.getId());
+		Question questionA1_115 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", "a1_115.jpg",
+				a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_115);
 
-		Question questionA1_123 = new Question(16, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?",
-				"a1_123.jpg", a1.getId(), set3.getId(), bb.getId());
+		Question questionA1_123 = new Question(16, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?", "a1_123.jpg",
+				a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_123);
 
-		Question questionA1_131 = new Question(17, "Biển nào là biển \"Cấm đi ngược chiều\"?", "a1_131.jpg",
-				a1.getId(), set3.getId(), bb.getId());
+		Question questionA1_131 = new Question(17, "Biển nào là biển \"Cấm đi ngược chiều\"?", "a1_131.jpg", a1.getId(),
+				set3.getId(), bb.getId());
 		questionRepo.save(questionA1_131);
 
 		Question questionA1_139 = new Question(18, "Biển nào xe mô tô hai bánh không được đi vào?", "a1_139.jpg",
@@ -1330,20 +1331,20 @@ public class DataSeeding implements CommandLineRunner {
 				"a1_147.jpg", a1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA1_147);
 
-		Question questionA1_155 = new Question(20, "Biển nào báo hiệu \"Đường một chiều\"?", "a1_155.jpg",
-				a1.getId(), set3.getId(), bb.getId());
+		Question questionA1_155 = new Question(20, "Biển nào báo hiệu \"Đường một chiều\"?", "a1_155.jpg", a1.getId(),
+				set3.getId(), bb.getId());
 		questionRepo.save(questionA1_155);
 
 		Question questionA1_163 = new Question(21, "Các vạch dưới đây có tác dụng gì?", "a1_163.jpg", a1.getId(),
 				set3.getId(), bb.getId());
 		questionRepo.save(questionA1_163);
 
-		Question questionA1_171 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?",
-				"a1_171.jpg", a1.getId(), set3.getId(), sh.getId());
+		Question questionA1_171 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?", "a1_171.jpg",
+				a1.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionA1_171);
 
-		Question questionA1_179 = new Question(23, "Xe nào được quyền đi trước trong trường hợp này?",
-				"a1_179.jpg", a1.getId(), set3.getId(), sh.getId());
+		Question questionA1_179 = new Question(23, "Xe nào được quyền đi trước trong trường hợp này?", "a1_179.jpg",
+				a1.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionA1_179);
 
 		Question questionA1_187 = new Question(24, "Theo hướng mũi tên, những hướng nào xe gắn máy đi được?",
@@ -1369,12 +1370,12 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA1_20);
 
 		Question questionA1_28 = new Question(4,
-				"Trong các khái niệm dưới đây, khái niệm \"dừng xe\" được hiểu như thế nào là đúng?", "nan",
-				a1.getId(), set4.getId(), kn.getId());
+				"Trong các khái niệm dưới đây, khái niệm \"dừng xe\" được hiểu như thế nào là đúng?", "nan", a1.getId(),
+				set4.getId(), kn.getId());
 		questionRepo.save(questionA1_28);
 
-		Question questionA1_36 = new Question(5, "Người đủ 16 tuổi được điều khiển các loại xe nào dưới đây?",
-				"nan", a1.getId(), set4.getId(), kn.getId());
+		Question questionA1_36 = new Question(5, "Người đủ 16 tuổi được điều khiển các loại xe nào dưới đây?", "nan",
+				a1.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA1_36);
 
 		Question questionA1_44 = new Question(6,
@@ -1417,41 +1418,41 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", a1.getId(), set4.getId(), kt.getId());
 		questionRepo.save(questionA1_100);
 
-		Question questionA1_108 = new Question(14, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?",
-				"a1_108.jpg", a1.getId(), set4.getId(), bb.getId());
+		Question questionA1_108 = new Question(14, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?", "a1_108.jpg",
+				a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_108);
 
-		Question questionA1_116 = new Question(15, "Biển nào báo hiệu \"Đường hai chiều\"?", "a1_116.jpg",
-				a1.getId(), set4.getId(), bb.getId());
+		Question questionA1_116 = new Question(15, "Biển nào báo hiệu \"Đường hai chiều\"?", "a1_116.jpg", a1.getId(),
+				set4.getId(), bb.getId());
 		questionRepo.save(questionA1_116);
 
-		Question questionA1_124 = new Question(16, "khi gặp biển nào thì xe mô tô hai bánh được đi vào?",
-				"a1_124.jpg", a1.getId(), set4.getId(), bb.getId());
+		Question questionA1_124 = new Question(16, "khi gặp biển nào thì xe mô tô hai bánh được đi vào?", "a1_124.jpg",
+				a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_124);
 
 		Question questionA1_132 = new Question(17, "Biển nào dưới đây các phương tiện không được phép đi vào?",
 				"a1_132.jpg", a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_132);
 
-		Question questionA1_140 = new Question(18, "Biển nào xe mô tô hai bánh được đi vào?", "a1_140.jpg",
-				a1.getId(), set4.getId(), bb.getId());
+		Question questionA1_140 = new Question(18, "Biển nào xe mô tô hai bánh được đi vào?", "a1_140.jpg", a1.getId(),
+				set4.getId(), bb.getId());
 		questionRepo.save(questionA1_140);
 
-		Question questionA1_148 = new Question(19, "Biển nào dưới đây báo hiệu hết cấm vượt?", "a1_148.jpg",
-				a1.getId(), set4.getId(), bb.getId());
+		Question questionA1_148 = new Question(19, "Biển nào dưới đây báo hiệu hết cấm vượt?", "a1_148.jpg", a1.getId(),
+				set4.getId(), bb.getId());
 		questionRepo.save(questionA1_148);
 
 		Question questionA1_156 = new Question(20, "Biển nào chỉ dẫn cho người đi bộ sử dụng cầu vượt qua đường?",
 				"a1_156.jpg", a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_156);
 
-		Question questionA1_164 = new Question(21, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?",
-				"a1_164.jpg", a1.getId(), set4.getId(), bb.getId());
+		Question questionA1_164 = new Question(21, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?", "a1_164.jpg",
+				a1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA1_164);
 
 		Question questionA1_172 = new Question(22,
-				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", "a1_172.jpg",
-				a1.getId(), set4.getId(), sh.getId());
+				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", "a1_172.jpg", a1.getId(),
+				set4.getId(), sh.getId());
 		questionRepo.save(questionA1_172);
 
 		Question questionA1_180 = new Question(23, "Các xe đi theo thứ tự nào là đúng quy tắc giao thông đường bộ?",
@@ -1477,8 +1478,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA1_13);
 
 		Question questionA1_21 = new Question(3,
-				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", "nan",
-				a1.getId(), set5.getId(), kn.getId());
+				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", "nan", a1.getId(),
+				set5.getId(), kn.getId());
 		questionRepo.save(questionA1_21);
 
 		Question questionA1_29 = new Question(4, "Cuộc đua xe chỉ được thực hiện khi nào?", "nan", a1.getId(),
@@ -1496,8 +1497,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA1_45);
 
 		Question questionA1_53 = new Question(7,
-				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?",
-				"nan", a1.getId(), set5.getId(), kn.getId());
+				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?", "nan",
+				a1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionA1_53);
 
 		Question questionA1_61 = new Question(8,
@@ -1516,8 +1517,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA1_77);
 
 		Question questionA1_85 = new Question(11,
-				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?",
-				"nan", a1.getId(), set5.getId(), vh.getId());
+				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?", "nan",
+				a1.getId(), set5.getId(), vh.getId());
 		questionRepo.save(questionA1_85);
 
 		Question questionA1_93 = new Question(12,
@@ -1535,12 +1536,12 @@ public class DataSeeding implements CommandLineRunner {
 				set5.getId(), bb.getId());
 		questionRepo.save(questionA1_109);
 
-		Question questionA1_117 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?",
-				"a1_117.jpg", a1.getId(), set5.getId(), bb.getId());
+		Question questionA1_117 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", "a1_117.jpg",
+				a1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA1_117);
 
-		Question questionA1_125 = new Question(16, "Biển nào cấm quay đầu xe?", "a1_125.jpg", a1.getId(),
-				set5.getId(), bb.getId());
+		Question questionA1_125 = new Question(16, "Biển nào cấm quay đầu xe?", "a1_125.jpg", a1.getId(), set5.getId(),
+				bb.getId());
 		questionRepo.save(questionA1_125);
 
 		Question questionA1_133 = new Question(17, "Khi gặp biển nào xe ưu tiên theo luật định vẫn phải dừng lại?",
@@ -1590,8 +1591,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA1_14);
 
 		Question questionA1_22 = new Question(3,
-				"Khái niệm \"phương tiện giao thông thô sơ đường bộ\" được hiểu thế nào là đúng?", "nan",
-				a1.getId(), set6.getId(), kn.getId());
+				"Khái niệm \"phương tiện giao thông thô sơ đường bộ\" được hiểu thế nào là đúng?", "nan", a1.getId(),
+				set6.getId(), kn.getId());
 		questionRepo.save(questionA1_22);
 
 		Question questionA1_30 = new Question(4,
@@ -1610,8 +1611,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA1_46);
 
 		Question questionA1_54 = new Question(7,
-				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?",
-				"nan", a1.getId(), set6.getId(), kn.getId());
+				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?", "nan",
+				a1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA1_54);
 
 		Question questionA1_62 = new Question(8,
@@ -1635,8 +1636,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA1_86);
 
 		Question questionA1_94 = new Question(12,
-				"Khi điều khiển xe mô tô quay đầu người lái xe cần thực hiện như thế nào để đảm bảo an toàn?",
-				"nan", a1.getId(), set6.getId(), kt.getId());
+				"Khi điều khiển xe mô tô quay đầu người lái xe cần thực hiện như thế nào để đảm bảo an toàn?", "nan",
+				a1.getId(), set6.getId(), kt.getId());
 		questionRepo.save(questionA1_94);
 
 		Question questionA1_102 = new Question(13, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?",
@@ -1652,8 +1653,8 @@ public class DataSeeding implements CommandLineRunner {
 				a1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA1_118);
 
-		Question questionA1_126 = new Question(16, "Biển nào cấm xe rẽ trái?", "a1_126.jpg", a1.getId(),
-				set6.getId(), bb.getId());
+		Question questionA1_126 = new Question(16, "Biển nào cấm xe rẽ trái?", "a1_126.jpg", a1.getId(), set6.getId(),
+				bb.getId());
 		questionRepo.save(questionA1_126);
 
 		Question questionA1_134 = new Question(17,
@@ -1666,8 +1667,8 @@ public class DataSeeding implements CommandLineRunner {
 				"a1_142.jpg", a1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA1_142);
 
-		Question questionA1_150 = new Question(19, "Biển nào báo hiệu \"Nơi đỗ xe cho người tàn tật\"?",
-				"a1_150.jpg", a1.getId(), set6.getId(), bb.getId());
+		Question questionA1_150 = new Question(19, "Biển nào báo hiệu \"Nơi đỗ xe cho người tàn tật\"?", "a1_150.jpg",
+				a1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA1_150);
 
 		Question questionA1_158 = new Question(20,
@@ -1675,20 +1676,20 @@ public class DataSeeding implements CommandLineRunner {
 				set6.getId(), bb.getId());
 		questionRepo.save(questionA1_158);
 
-		Question questionA1_166 = new Question(21, "Các xe đi như thế nào là đúng quy tắc giao thông?",
-				"a1_166.jpg", a1.getId(), set6.getId(), sh.getId());
+		Question questionA1_166 = new Question(21, "Các xe đi như thế nào là đúng quy tắc giao thông?", "a1_166.jpg",
+				a1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA1_166);
 
 		Question questionA1_174 = new Question(22, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
 				"a1_174.jpg", a1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA1_174);
 
-		Question questionA1_182 = new Question(23, "Xe nào đỗ vi phạm quy tắc giao thông?", "a1_182.jpg",
-				a1.getId(), set6.getId(), sh.getId());
+		Question questionA1_182 = new Question(23, "Xe nào đỗ vi phạm quy tắc giao thông?", "a1_182.jpg", a1.getId(),
+				set6.getId(), sh.getId());
 		questionRepo.save(questionA1_182);
 
-		Question questionA1_190 = new Question(24, "Bạn có được phép vượt xe mô tô phía trước không?",
-				"a1_190.jpg", a1.getId(), set6.getId(), sh.getId());
+		Question questionA1_190 = new Question(24, "Bạn có được phép vượt xe mô tô phía trước không?", "a1_190.jpg",
+				a1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA1_190);
 
 		Question questionA1_198 = new Question(25, "Xe nào dừng đúng theo quy tắc giao thông?", "a1_198.jpg",
@@ -1710,8 +1711,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA1_23);
 
 		Question questionA1_31 = new Question(4,
-				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?",
-				"nan", a1.getId(), set7.getId(), kn.getId());
+				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?", "nan",
+				a1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA1_31);
 
 		Question questionA1_39 = new Question(5,
@@ -1754,12 +1755,12 @@ public class DataSeeding implements CommandLineRunner {
 				set7.getId(), kt.getId());
 		questionRepo.save(questionA1_95);
 
-		Question questionA1_103 = new Question(13, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?",
-				"a1_103.jpg", a1.getId(), set7.getId(), bb.getId());
+		Question questionA1_103 = new Question(13, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?", "a1_103.jpg",
+				a1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA1_103);
 
-		Question questionA1_111 = new Question(14, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", "a1_111.jpg",
-				a1.getId(), set7.getId(), bb.getId());
+		Question questionA1_111 = new Question(14, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", "a1_111.jpg", a1.getId(),
+				set7.getId(), bb.getId());
 		questionRepo.save(questionA1_111);
 
 		Question questionA1_119 = new Question(15,
@@ -1775,28 +1776,28 @@ public class DataSeeding implements CommandLineRunner {
 				a1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA1_135);
 
-		Question questionA1_143 = new Question(18, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?",
-				"a1_143.jpg", a1.getId(), set7.getId(), bb.getId());
+		Question questionA1_143 = new Question(18, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?", "a1_143.jpg",
+				a1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA1_143);
 
 		Question questionA1_151 = new Question(19, "Biển nào cho phép xe rẽ trái?", "a1_151.jpg", a1.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionA1_151);
 
-		Question questionA1_159 = new Question(20, "Biển số 1 có ý nghĩa gì?", "a1_159.jpg", a1.getId(),
-				set7.getId(), bb.getId());
+		Question questionA1_159 = new Question(20, "Biển số 1 có ý nghĩa gì?", "a1_159.jpg", a1.getId(), set7.getId(),
+				bb.getId());
 		questionRepo.save(questionA1_159);
 
-		Question questionA1_167 = new Question(21, "Theo hướng mũi tên, xe nào được phép đi?", "a1_167.jpg",
-				a1.getId(), set7.getId(), sh.getId());
+		Question questionA1_167 = new Question(21, "Theo hướng mũi tên, xe nào được phép đi?", "a1_167.jpg", a1.getId(),
+				set7.getId(), sh.getId());
 		questionRepo.save(questionA1_167);
 
 		Question questionA1_175 = new Question(22, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
 				"a1_175.jpg", a1.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionA1_175);
 
-		Question questionA1_183 = new Question(23, "Xe nào đỗ vi phạm quy tắc giao thông?", "a1_183.jpg",
-				a1.getId(), set7.getId(), sh.getId());
+		Question questionA1_183 = new Question(23, "Xe nào đỗ vi phạm quy tắc giao thông?", "a1_183.jpg", a1.getId(),
+				set7.getId(), sh.getId());
 		questionRepo.save(questionA1_183);
 
 		Question questionA1_191 = new Question(24,
@@ -1814,8 +1815,7 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_8);
 
-		Question questionA1_16 = new Question(2, "\"Làn đường\" là gì?", "nan", a1.getId(), set8.getId(),
-				kn.getId());
+		Question questionA1_16 = new Question(2, "\"Làn đường\" là gì?", "nan", a1.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionA1_16);
 
 		Question questionA1_24 = new Question(3,
@@ -1868,8 +1868,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA1_96);
 
 		Question questionA1_104 = new Question(13,
-				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?",
-				"a1_104.jpg", a1.getId(), set8.getId(), bb.getId());
+				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?", "a1_104.jpg",
+				a1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionA1_104);
 
 		Question questionA1_112 = new Question(14,
@@ -1890,8 +1890,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA1_136);
 
 		Question questionA1_144 = new Question(18,
-				"Biển nào (đặt trước ngã ba, ngã tư) cho phép xe được rẽ sang hướng khác?", "a1_144.jpg",
-				a1.getId(), set8.getId(), bb.getId());
+				"Biển nào (đặt trước ngã ba, ngã tư) cho phép xe được rẽ sang hướng khác?", "a1_144.jpg", a1.getId(),
+				set8.getId(), bb.getId());
 		questionRepo.save(questionA1_144);
 
 		Question questionA1_152 = new Question(19, "Biển nào xe quay đầu không bị cấm?", "a1_152.jpg", a1.getId(),
@@ -1917,8 +1917,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA1_184);
 
 		Question questionA1_192 = new Question(24,
-				"Xe tải kéo mô tô ba bánh như hình này có đúng quy tắc giao thông không?", "a1_192.jpg",
-				a1.getId(), set8.getId(), sh.getId());
+				"Xe tải kéo mô tô ba bánh như hình này có đúng quy tắc giao thông không?", "a1_192.jpg", a1.getId(),
+				set8.getId(), sh.getId());
 		questionRepo.save(questionA1_192);
 
 		Question questionA1_200 = new Question(25,
@@ -2009,8 +2009,8 @@ public class DataSeeding implements CommandLineRunner {
 				kt.getId());
 		questionRepo.save(questionA2_181);
 
-		Question questionA2_199 = new Question(12, "Biển nào cấm xe rẽ trái?", "a2_199.jpg", a2.getId(),
-				set1.getId(), bb.getId());
+		Question questionA2_199 = new Question(12, "Biển nào cấm xe rẽ trái?", "a2_199.jpg", a2.getId(), set1.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_199);
 
 		Question questionA2_217 = new Question(13, "Gặp biển nào xe xích lô được phép đi vào?", "a2_217.jpg",
@@ -2026,8 +2026,8 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_253.jpg", a2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA2_253);
 
-		Question questionA2_271 = new Question(16, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?",
-				"a2_271.jpg", a2.getId(), set1.getId(), bb.getId());
+		Question questionA2_271 = new Question(16, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?", "a2_271.jpg",
+				a2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA2_271);
 
 		Question questionA2_289 = new Question(17, "Biển nào sau đây là biển \"Kè, vực sâu bên đường phía bên trái\"?",
@@ -2043,8 +2043,8 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_325.jpg", a2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionA2_325);
 
-		Question questionA2_343 = new Question(20, "Biển số 1 có ý nghĩa gì?", "a2_343.jpg", a2.getId(),
-				set1.getId(), bb.getId());
+		Question questionA2_343 = new Question(20, "Biển số 1 có ý nghĩa gì?", "a2_343.jpg", a2.getId(), set1.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_343);
 
 		Question questionA2_361 = new Question(21,
@@ -2053,12 +2053,12 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_361);
 
 		Question questionA2_379 = new Question(22,
-				"Theo tín hiệu đèn, xe tải đi theo hướng nào là đúng quy tắc giao thông?", "a2_379.jpg",
-				a2.getId(), set1.getId(), sh.getId());
+				"Theo tín hiệu đèn, xe tải đi theo hướng nào là đúng quy tắc giao thông?", "a2_379.jpg", a2.getId(),
+				set1.getId(), sh.getId());
 		questionRepo.save(questionA2_379);
 
-		Question questionA2_397 = new Question(23, "Các xe đi như thế nào là đúng quy tắc giao thông?",
-				"a2_397.jpg", a2.getId(), set1.getId(), sh.getId());
+		Question questionA2_397 = new Question(23, "Các xe đi như thế nào là đúng quy tắc giao thông?", "a2_397.jpg",
+				a2.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionA2_397);
 
 		Question questionA2_415 = new Question(24, "Xe nào đi trước là đúng quy tắc giao thông?", "a2_415.jpg",
@@ -2082,8 +2082,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", a2.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionA2_38);
 
-		Question questionA2_56 = new Question(4, "Người có giấy phép lái xe mô tô hạ", "nan", a2.getId(),
-				set2.getId(), kn.getId());
+		Question questionA2_56 = new Question(4, "Người có giấy phép lái xe mô tô hạ", "nan", a2.getId(), set2.getId(),
+				kn.getId());
 		questionRepo.save(questionA2_56);
 
 		Question questionA2_74 = new Question(5,
@@ -2112,8 +2112,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_146);
 
 		Question questionA2_164 = new Question(10,
-				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", "nan",
-				a2.getId(), set2.getId(), kt.getId());
+				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", "nan", a2.getId(),
+				set2.getId(), kt.getId());
 		questionRepo.save(questionA2_164);
 
 		Question questionA2_182 = new Question(11, "Đèn phanh trên xe ô tô có tác dụng gì?", "nan", a2.getId(),
@@ -2128,12 +2128,12 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_218.jpg", a2.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA2_218);
 
-		Question questionA2_236 = new Question(14, "Ba biển này có hiệu lực như thế nào?", "a2_236.jpg",
-				a2.getId(), set2.getId(), bb.getId());
+		Question questionA2_236 = new Question(14, "Ba biển này có hiệu lực như thế nào?", "a2_236.jpg", a2.getId(),
+				set2.getId(), bb.getId());
 		questionRepo.save(questionA2_236);
 
-		Question questionA2_254 = new Question(15, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?",
-				"a2_254.jpg", a2.getId(), set2.getId(), bb.getId());
+		Question questionA2_254 = new Question(15, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?", "a2_254.jpg",
+				a2.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA2_254);
 
 		Question questionA2_272 = new Question(16,
@@ -2153,8 +2153,8 @@ public class DataSeeding implements CommandLineRunner {
 				set2.getId(), bb.getId());
 		questionRepo.save(questionA2_326);
 
-		Question questionA2_344 = new Question(20, "Biển nào báo hiệu \"Tuyến đường cầu vượt cắt qua\"?",
-				"a2_344.jpg", a2.getId(), set2.getId(), bb.getId());
+		Question questionA2_344 = new Question(20, "Biển nào báo hiệu \"Tuyến đường cầu vượt cắt qua\"?", "a2_344.jpg",
+				a2.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionA2_344);
 
 		Question questionA2_362 = new Question(21, "Các vạch dưới đây có tác dụng gì?", "a2_362.jpg", a2.getId(),
@@ -2165,13 +2165,13 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_380.jpg", a2.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionA2_380);
 
-		Question questionA2_398 = new Question(23, "Theo hướng mũi tên, xe nào được phép đi?", "a2_398.jpg",
-				a2.getId(), set2.getId(), sh.getId());
+		Question questionA2_398 = new Question(23, "Theo hướng mũi tên, xe nào được phép đi?", "a2_398.jpg", a2.getId(),
+				set2.getId(), sh.getId());
 		questionRepo.save(questionA2_398);
 
 		Question questionA2_416 = new Question(24,
-				"Người lái xe có thể quay đầu xe như thế nào là đúng quy tắc giao thông?", "a2_416.jpg",
-				a2.getId(), set2.getId(), sh.getId());
+				"Người lái xe có thể quay đầu xe như thế nào là đúng quy tắc giao thông?", "a2_416.jpg", a2.getId(),
+				set2.getId(), sh.getId());
 		questionRepo.save(questionA2_416);
 
 		Question questionA2_434 = new Question(25, "Bạn xử lý như thế nào trong trường hợp này?", "a2_434.jpg",
@@ -2194,8 +2194,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_39);
 
 		Question questionA2_57 = new Question(4,
-				"Người có giấy phép lái xe mô tô hạng A2 được phép điều khiển loại xe nào dưới đây?", "nan",
-				a2.getId(), set3.getId(), kn.getId());
+				"Người có giấy phép lái xe mô tô hạng A2 được phép điều khiển loại xe nào dưới đây?", "nan", a2.getId(),
+				set3.getId(), kn.getId());
 		questionRepo.save(questionA2_57);
 
 		Question questionA2_75 = new Question(5,
@@ -2229,12 +2229,12 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_165);
 
 		Question questionA2_183 = new Question(11,
-				"Trên xe ô tô có trang bị thiết bị như hình vẽ có tác dụng gì dưới đây?", "a2_183.jpg",
-				a2.getId(), set3.getId(), kt.getId());
+				"Trên xe ô tô có trang bị thiết bị như hình vẽ có tác dụng gì dưới đây?", "a2_183.jpg", a2.getId(),
+				set3.getId(), kt.getId());
 		questionRepo.save(questionA2_183);
 
-		Question questionA2_201 = new Question(12, "Biển nào cấm ô tô rẽ trái?", "a2_201.jpg", a2.getId(),
-				set3.getId(), bb.getId());
+		Question questionA2_201 = new Question(12, "Biển nào cấm ô tô rẽ trái?", "a2_201.jpg", a2.getId(), set3.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_201);
 
 		Question questionA2_219 = new Question(13, "Biển báo này có ý nghĩa gì?", "a2_219.jpg", a2.getId(),
@@ -2246,20 +2246,20 @@ public class DataSeeding implements CommandLineRunner {
 				a2.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA2_237);
 
-		Question questionA2_255 = new Question(15, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?",
-				"a2_255.jpg", a2.getId(), set3.getId(), bb.getId());
+		Question questionA2_255 = new Question(15, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?", "a2_255.jpg",
+				a2.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA2_255);
 
 		Question questionA2_273 = new Question(16, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?",
 				"a2_273.jpg", a2.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA2_273);
 
-		Question questionA2_291 = new Question(17, "Biển nào sau đây là biển \"Đường trơn\"?", "a2_291.jpg",
-				a2.getId(), set3.getId(), bb.getId());
+		Question questionA2_291 = new Question(17, "Biển nào sau đây là biển \"Đường trơn\"?", "a2_291.jpg", a2.getId(),
+				set3.getId(), bb.getId());
 		questionRepo.save(questionA2_291);
 
-		Question questionA2_309 = new Question(18, "Gặp biển báo này người lái xe phải xử lý thế nào?",
-				"a2_309.jpg", a2.getId(), set3.getId(), bb.getId());
+		Question questionA2_309 = new Question(18, "Gặp biển báo này người lái xe phải xử lý thế nào?", "a2_309.jpg",
+				a2.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionA2_309);
 
 		Question questionA2_327 = new Question(19,
@@ -2279,8 +2279,8 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_381.jpg", a2.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionA2_381);
 
-		Question questionA2_399 = new Question(23, "Xe con vượt xe tải như trường hợp này có đúng không?",
-				"a2_399.jpg", a2.getId(), set3.getId(), sh.getId());
+		Question questionA2_399 = new Question(23, "Xe con vượt xe tải như trường hợp này có đúng không?", "a2_399.jpg",
+				a2.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionA2_399);
 
 		Question questionA2_417 = new Question(24, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
@@ -2307,13 +2307,13 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_40);
 
 		Question questionA2_58 = new Question(4,
-				"Người có giấy phép lái xe mô tô hạng A3 được phép điều khiển loại xe nào dưới đây?", "nan",
-				a2.getId(), set4.getId(), kn.getId());
+				"Người có giấy phép lái xe mô tô hạng A3 được phép điều khiển loại xe nào dưới đây?", "nan", a2.getId(),
+				set4.getId(), kn.getId());
 		questionRepo.save(questionA2_58);
 
 		Question questionA2_76 = new Question(5,
-				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?",
-				"", a2.getId(), set4.getId(), kn.getId());
+				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?", "",
+				a2.getId(), set4.getId(), kn.getId());
 		questionRepo.save(questionA2_76);
 
 		Question questionA2_94 = new Question(6,
@@ -2336,8 +2336,8 @@ public class DataSeeding implements CommandLineRunner {
 				a2.getId(), set4.getId(), vh.getId());
 		questionRepo.save(questionA2_148);
 
-		Question questionA2_166 = new Question(10, "Các biện pháp tiết kiệm nhiên liệu khi chạy xe?", "nan",
-				a2.getId(), set4.getId(), kt.getId());
+		Question questionA2_166 = new Question(10, "Các biện pháp tiết kiệm nhiên liệu khi chạy xe?", "nan", a2.getId(),
+				set4.getId(), kt.getId());
 		questionRepo.save(questionA2_166);
 
 		Question questionA2_184 = new Question(11, "Trên xe ô tô có trang bị thiết bị như hình vẽ, dùng để làm gì?",
@@ -2348,8 +2348,8 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_202.jpg", a2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA2_202);
 
-		Question questionA2_220 = new Question(13, "Biển báo này có ý nghĩa như thế nào?", "a2_220.jpg",
-				a2.getId(), set4.getId(), bb.getId());
+		Question questionA2_220 = new Question(13, "Biển báo này có ý nghĩa như thế nào?", "a2_220.jpg", a2.getId(),
+				set4.getId(), bb.getId());
 		questionRepo.save(questionA2_220);
 
 		Question questionA2_238 = new Question(14,
@@ -2361,12 +2361,12 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_256.jpg", a2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA2_256);
 
-		Question questionA2_274 = new Question(16, "Biển nào báo hiệu \"Đường hai chiều\"?", "a2_274.jpg",
-				a2.getId(), set4.getId(), bb.getId());
+		Question questionA2_274 = new Question(16, "Biển nào báo hiệu \"Đường hai chiều\"?", "a2_274.jpg", a2.getId(),
+				set4.getId(), bb.getId());
 		questionRepo.save(questionA2_274);
 
-		Question questionA2_292 = new Question(17, "Biển nào sau đây là biển \"Lề đường nguy hiểm\"?",
-				"a2_292.jpg", a2.getId(), set4.getId(), bb.getId());
+		Question questionA2_292 = new Question(17, "Biển nào sau đây là biển \"Lề đường nguy hiểm\"?", "a2_292.jpg",
+				a2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA2_292);
 
 		Question questionA2_310 = new Question(18, "Biển báo này có ý nghĩa gì?", "a2_310.jpg", a2.getId(),
@@ -2382,16 +2382,16 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_346.jpg", a2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA2_346);
 
-		Question questionA2_364 = new Question(21, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?",
-				"a2_364.jpg", a2.getId(), set4.getId(), bb.getId());
+		Question questionA2_364 = new Question(21, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?", "a2_364.jpg",
+				a2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionA2_364);
 
 		Question questionA2_382 = new Question(22, "Trong trường hợp này xe nào đỗ vi phạm quy tắc giao thông?",
 				"a2_382.jpg", a2.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionA2_382);
 
-		Question questionA2_400 = new Question(23, "Xe nào vượt đúng quy tắc giao thông?", "a2_400.jpg",
-				a2.getId(), set4.getId(), sh.getId());
+		Question questionA2_400 = new Question(23, "Xe nào vượt đúng quy tắc giao thông?", "a2_400.jpg", a2.getId(),
+				set4.getId(), sh.getId());
 		questionRepo.save(questionA2_400);
 
 		Question questionA2_418 = new Question(24,
@@ -2442,13 +2442,13 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_131);
 
 		Question questionA2_149 = new Question(9,
-				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?",
-				"", a2.getId(), set5.getId(), vh.getId());
+				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?", "",
+				a2.getId(), set5.getId(), vh.getId());
 		questionRepo.save(questionA2_149);
 
 		Question questionA2_167 = new Question(10,
-				"Khi tầm nhìn bị hạn chế bởi sương mù hoặc mưa to, người lái xe phải thực hiện các thao tác nào?",
-				"", a2.getId(), set5.getId(), kt.getId());
+				"Khi tầm nhìn bị hạn chế bởi sương mù hoặc mưa to, người lái xe phải thực hiện các thao tác nào?", "",
+				a2.getId(), set5.getId(), kt.getId());
 		questionRepo.save(questionA2_167);
 
 		Question questionA2_185 = new Question(11, "Trên xe ô tô có trang bị thiết bị như hình vẽ, dùng để làm gì?",
@@ -2464,12 +2464,12 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_221.jpg", a2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA2_221);
 
-		Question questionA2_239 = new Question(14, "Biển này có ý nghĩa gì?", "a2_239.jpg", a2.getId(),
-				set5.getId(), bb.getId());
+		Question questionA2_239 = new Question(14, "Biển này có ý nghĩa gì?", "a2_239.jpg", a2.getId(), set5.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_239);
 
-		Question questionA2_257 = new Question(15, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?",
-				"a2_257.jpg", a2.getId(), set5.getId(), bb.getId());
+		Question questionA2_257 = new Question(15, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?", "a2_257.jpg",
+				a2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA2_257);
 
 		Question questionA2_275 = new Question(16,
@@ -2478,8 +2478,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_275);
 
 		Question questionA2_293 = new Question(17,
-				"Biển nào sau đây báo trước gần tới đoạn đường đang tiến hành thi công?", "a2_293.jpg",
-				a2.getId(), set5.getId(), bb.getId());
+				"Biển nào sau đây báo trước gần tới đoạn đường đang tiến hành thi công?", "a2_293.jpg", a2.getId(),
+				set5.getId(), bb.getId());
 		questionRepo.save(questionA2_293);
 
 		Question questionA2_311 = new Question(18,
@@ -2492,8 +2492,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_329);
 
 		Question questionA2_347 = new Question(20,
-				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?",
-				"a2_347.jpg", a2.getId(), set5.getId(), bb.getId());
+				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?", "a2_347.jpg",
+				a2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionA2_347);
 
 		Question questionA2_365 = new Question(21, "Vạch dưới đây có tác dụng gì?", "a2_365.jpg", a2.getId(),
@@ -2508,8 +2508,8 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_401.jpg", a2.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionA2_401);
 
-		Question questionA2_419 = new Question(24, "Xe nào phải nhường đường là đúng quy tắc giao thông?",
-				"a2_419.jpg", a2.getId(), set5.getId(), sh.getId());
+		Question questionA2_419 = new Question(24, "Xe nào phải nhường đường là đúng quy tắc giao thông?", "a2_419.jpg",
+				a2.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionA2_419);
 
 		Question questionA2_437 = new Question(25,
@@ -2526,8 +2526,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", a2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA2_24);
 
-		Question questionA2_42 = new Question(3, "Người lái xe không được lùi xe ở những khu vực nào dưới đây?",
-				"", a2.getId(), set6.getId(), kn.getId());
+		Question questionA2_42 = new Question(3, "Người lái xe không được lùi xe ở những khu vực nào dưới đây?", "",
+				a2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA2_42);
 
 		Question questionA2_60 = new Question(4,
@@ -2536,8 +2536,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_60);
 
 		Question questionA2_78 = new Question(5,
-				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?",
-				"", a2.getId(), set6.getId(), kn.getId());
+				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?", "",
+				a2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionA2_78);
 
 		Question questionA2_96 = new Question(6,
@@ -2556,8 +2556,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_132);
 
 		Question questionA2_150 = new Question(9,
-				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?",
-				"", a2.getId(), set6.getId(), vh.getId());
+				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?", "",
+				a2.getId(), set6.getId(), vh.getId());
 		questionRepo.save(questionA2_150);
 
 		Question questionA2_168 = new Question(10,
@@ -2570,8 +2570,8 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_186.jpg", a2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA2_186);
 
-		Question questionA2_204 = new Question(12, "Biển nào dưới đây cấm ô tô quay đầu?", "a2_204.jpg",
-				a2.getId(), set6.getId(), bb.getId());
+		Question questionA2_204 = new Question(12, "Biển nào dưới đây cấm ô tô quay đầu?", "a2_204.jpg", a2.getId(),
+				set6.getId(), bb.getId());
 		questionRepo.save(questionA2_204);
 
 		Question questionA2_222 = new Question(13, "Biển nào hạn chế chiều cao của xe và hàng?", "a2_222.jpg",
@@ -2582,12 +2582,12 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_240.jpg", a2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA2_240);
 
-		Question questionA2_258 = new Question(15, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?",
-				"a2_258.jpg", a2.getId(), set6.getId(), bb.getId());
+		Question questionA2_258 = new Question(15, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?", "a2_258.jpg",
+				a2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA2_258);
 
-		Question questionA2_276 = new Question(16, "Biển nào chỉ dẫn \"Được ưu tiên qua đường hẹp\"?",
-				"a2_276.jpg", a2.getId(), set6.getId(), bb.getId());
+		Question questionA2_276 = new Question(16, "Biển nào chỉ dẫn \"Được ưu tiên qua đường hẹp\"?", "a2_276.jpg",
+				a2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA2_276);
 
 		Question questionA2_294 = new Question(17,
@@ -2600,13 +2600,13 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_312.jpg", a2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA2_312);
 
-		Question questionA2_330 = new Question(19, "Biển số 1 có ý nghĩa gì?", "a2_330.jpg", a2.getId(),
-				set6.getId(), bb.getId());
+		Question questionA2_330 = new Question(19, "Biển số 1 có ý nghĩa gì?", "a2_330.jpg", a2.getId(), set6.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_330);
 
 		Question questionA2_348 = new Question(20,
-				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?",
-				"a2_348.jpg", a2.getId(), set6.getId(), bb.getId());
+				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?", "a2_348.jpg",
+				a2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionA2_348);
 
 		Question questionA2_366 = new Question(21, "Vạch dưới đây có ý nghĩa gì?", "a2_366.jpg", a2.getId(),
@@ -2621,8 +2621,8 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_402.jpg", a2.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA2_402);
 
-		Question questionA2_420 = new Question(24, "Bạn có được phép vượt xe mô tô phía trước không?",
-				"a2_420.jpg", a2.getId(), set6.getId(), sh.getId());
+		Question questionA2_420 = new Question(24, "Bạn có được phép vượt xe mô tô phía trước không?", "a2_420.jpg",
+				a2.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionA2_420);
 
 		Question questionA2_438 = new Question(25, "Bạn xử lý như thế nào trong trường hợp này?", "a2_438.jpg",
@@ -2645,8 +2645,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_43);
 
 		Question questionA2_61 = new Question(4,
-				"Biển báo hiệu hình tròn có nền xanh lam có hình vẽ màu trắng là loại biển gì dưới đây?",
-				"a2_61.jpg", a2.getId(), set7.getId(), kn.getId());
+				"Biển báo hiệu hình tròn có nền xanh lam có hình vẽ màu trắng là loại biển gì dưới đây?", "a2_61.jpg",
+				a2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionA2_61);
 
 		Question questionA2_79 = new Question(5,
@@ -2679,12 +2679,12 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", a2.getId(), set7.getId(), kt.getId());
 		questionRepo.save(questionA2_169);
 
-		Question questionA2_187 = new Question(11, "Biển nào cấm ô tô tải?", "a2_187.jpg", a2.getId(),
-				set7.getId(), bb.getId());
+		Question questionA2_187 = new Question(11, "Biển nào cấm ô tô tải?", "a2_187.jpg", a2.getId(), set7.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_187);
 
-		Question questionA2_205 = new Question(12, "Biển nào dưới đây cấm ô tô quay đầu và rẽ phải?",
-				"a2_205.jpg", a2.getId(), set7.getId(), bb.getId());
+		Question questionA2_205 = new Question(12, "Biển nào dưới đây cấm ô tô quay đầu và rẽ phải?", "a2_205.jpg",
+				a2.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA2_205);
 
 		Question questionA2_223 = new Question(13, "Biển số 2 có ý nghĩa như thế nào?", "a2_223.jpg", a2.getId(),
@@ -2714,8 +2714,8 @@ public class DataSeeding implements CommandLineRunner {
 				a2.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionA2_313);
 
-		Question questionA2_331 = new Question(19, "Biển số 3 có ý nghĩa gì?", "a2_331.jpg", a2.getId(),
-				set7.getId(), bb.getId());
+		Question questionA2_331 = new Question(19, "Biển số 3 có ý nghĩa gì?", "a2_331.jpg", a2.getId(), set7.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_331);
 
 		Question questionA2_349 = new Question(20, "Biển nào báo hiệu kết thúc đường cao tốc?", "a2_349.jpg",
@@ -2726,8 +2726,8 @@ public class DataSeeding implements CommandLineRunner {
 				set7.getId(), bb.getId());
 		questionRepo.save(questionA2_367);
 
-		Question questionA2_385 = new Question(22, "Xe nào đỗ vi phạm quy tắc giao thông?", "a2_385.jpg",
-				a2.getId(), set7.getId(), sh.getId());
+		Question questionA2_385 = new Question(22, "Xe nào đỗ vi phạm quy tắc giao thông?", "a2_385.jpg", a2.getId(),
+				set7.getId(), sh.getId());
 		questionRepo.save(questionA2_385);
 
 		Question questionA2_403 = new Question(23, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
@@ -2744,8 +2744,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_439);
 
 		Question questionA2_8 = new Question(1,
-				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", "nan",
-				a2.getId(), set8.getId(), kn.getId());
+				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", "nan", a2.getId(),
+				set8.getId(), kn.getId());
 		questionRepo.save(questionA2_8);
 
 		Question questionA2_26 = new Question(2,
@@ -2792,8 +2792,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", a2.getId(), set8.getId(), kt.getId());
 		questionRepo.save(questionA2_170);
 
-		Question questionA2_188 = new Question(11, "Biển nào cấm máy kéo?", "a2_188.jpg", a2.getId(),
-				set8.getId(), bb.getId());
+		Question questionA2_188 = new Question(11, "Biển nào cấm máy kéo?", "a2_188.jpg", a2.getId(), set8.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_188);
 
 		Question questionA2_206 = new Question(12, "Biển nào cấm xe taxi mà không cấm các phương tiện khác?",
@@ -2828,24 +2828,24 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_314);
 
 		Question questionA2_332 = new Question(19,
-				"Biển nào báo hiệu \"Đường phía trước có làn đường dành cho ô tô khách\"?", "a2_332.jpg",
-				a2.getId(), set8.getId(), bb.getId());
+				"Biển nào báo hiệu \"Đường phía trước có làn đường dành cho ô tô khách\"?", "a2_332.jpg", a2.getId(),
+				set8.getId(), bb.getId());
 		questionRepo.save(questionA2_332);
 
-		Question questionA2_350 = new Question(20, "Biển này có ý nghĩa gì?", "a2_350.jpg", a2.getId(),
-				set8.getId(), bb.getId());
+		Question questionA2_350 = new Question(20, "Biển này có ý nghĩa gì?", "a2_350.jpg", a2.getId(), set8.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_350);
 
-		Question questionA2_368 = new Question(21, "Thứ tự đi như thế nào là đúng quy tắc giao thông?",
-				"a2_368.jpg", a2.getId(), set8.getId(), sh.getId());
+		Question questionA2_368 = new Question(21, "Thứ tự đi như thế nào là đúng quy tắc giao thông?", "a2_368.jpg",
+				a2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionA2_368);
 
-		Question questionA2_386 = new Question(22, "Xe nào đỗ vi phạm quy tắc giao thông?", "a2_386.jpg",
-				a2.getId(), set8.getId(), sh.getId());
+		Question questionA2_386 = new Question(22, "Xe nào đỗ vi phạm quy tắc giao thông?", "a2_386.jpg", a2.getId(),
+				set8.getId(), sh.getId());
 		questionRepo.save(questionA2_386);
 
-		Question questionA2_404 = new Question(23, "Những hướng nào ô tô tải được phép đi?", "a2_404.jpg",
-				a2.getId(), set8.getId(), sh.getId());
+		Question questionA2_404 = new Question(23, "Những hướng nào ô tô tải được phép đi?", "a2_404.jpg", a2.getId(),
+				set8.getId(), sh.getId());
 		questionRepo.save(questionA2_404);
 
 		Question questionA2_422 = new Question(24, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
@@ -2914,12 +2914,12 @@ public class DataSeeding implements CommandLineRunner {
 				set9.getId(), bb.getId());
 		questionRepo.save(questionA2_207);
 
-		Question questionA2_225 = new Question(13, "Biển nào cấm máy kéo kéo theo rơ moóc?", "a2_225.jpg",
-				a2.getId(), set9.getId(), bb.getId());
+		Question questionA2_225 = new Question(13, "Biển nào cấm máy kéo kéo theo rơ moóc?", "a2_225.jpg", a2.getId(),
+				set9.getId(), bb.getId());
 		questionRepo.save(questionA2_225);
 
-		Question questionA2_243 = new Question(14, "Biển này có ý nghĩa gì?", "a2_243.jpg", a2.getId(),
-				set9.getId(), bb.getId());
+		Question questionA2_243 = new Question(14, "Biển này có ý nghĩa gì?", "a2_243.jpg", a2.getId(), set9.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_243);
 
 		Question questionA2_261 = new Question(15, "Biển nào báo hiệu \"Của chui\"?", "a2_261.jpg", a2.getId(),
@@ -2935,8 +2935,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_297);
 
 		Question questionA2_315 = new Question(18,
-				"Khi gặp biển nào thì các phương tiện không được đi vào, trừ ô tô và mô tô?", "a2_315.jpg",
-				a2.getId(), set9.getId(), bb.getId());
+				"Khi gặp biển nào thì các phương tiện không được đi vào, trừ ô tô và mô tô?", "a2_315.jpg", a2.getId(),
+				set9.getId(), bb.getId());
 		questionRepo.save(questionA2_315);
 
 		Question questionA2_333 = new Question(19,
@@ -2944,8 +2944,8 @@ public class DataSeeding implements CommandLineRunner {
 				set9.getId(), bb.getId());
 		questionRepo.save(questionA2_333);
 
-		Question questionA2_351 = new Question(20, "Biển này có ý nghĩa gì?", "a2_351.jpg", a2.getId(),
-				set9.getId(), bb.getId());
+		Question questionA2_351 = new Question(20, "Biển này có ý nghĩa gì?", "a2_351.jpg", a2.getId(), set9.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_351);
 
 		Question questionA2_369 = new Question(21, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
@@ -2953,8 +2953,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_369);
 
 		Question questionA2_387 = new Question(22,
-				"Xe tải kéo mô tô ba bánh như hình này có đúng quy tắc giao thông không?", "a2_387.jpg",
-				a2.getId(), set9.getId(), sh.getId());
+				"Xe tải kéo mô tô ba bánh như hình này có đúng quy tắc giao thông không?", "a2_387.jpg", a2.getId(),
+				set9.getId(), sh.getId());
 		questionRepo.save(questionA2_387);
 
 		Question questionA2_405 = new Question(23, "Theo hướng mũi tên, thứ tự các xe đi như thế nào là đúng?",
@@ -2974,8 +2974,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_10);
 
 		Question questionA2_28 = new Question(2,
-				"Phương tiện giao thông đường bộ di chuyển với tốc độ thấp hơn phải đi như thế nào?", "nan",
-				a2.getId(), set10.getId(), kn.getId());
+				"Phương tiện giao thông đường bộ di chuyển với tốc độ thấp hơn phải đi như thế nào?", "nan", a2.getId(),
+				set10.getId(), kn.getId());
 		questionRepo.save(questionA2_28);
 
 		Question questionA2_46 = new Question(3,
@@ -3026,20 +3026,20 @@ public class DataSeeding implements CommandLineRunner {
 				set10.getId(), bb.getId());
 		questionRepo.save(questionA2_208);
 
-		Question questionA2_226 = new Question(13, "Khi gặp biển số 1, xe ô tô tải có được đi vào không?",
-				"a2_226.jpg", a2.getId(), set10.getId(), bb.getId());
+		Question questionA2_226 = new Question(13, "Khi gặp biển số 1, xe ô tô tải có được đi vào không?", "a2_226.jpg",
+				a2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionA2_226);
 
-		Question questionA2_244 = new Question(14, "Biển này có ý nghĩa gì?", "a2_244.jpg", a2.getId(),
-				set10.getId(), bb.getId());
+		Question questionA2_244 = new Question(14, "Biển này có ý nghĩa gì?", "a2_244.jpg", a2.getId(), set10.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_244);
 
 		Question questionA2_262 = new Question(15, "Hai biển này có ý nghĩa gì?", "a2_262.jpg", a2.getId(),
 				set10.getId(), bb.getId());
 		questionRepo.save(questionA2_262);
 
-		Question questionA2_280 = new Question(16, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?",
-				"a2_280.jpg", a2.getId(), set10.getId(), bb.getId());
+		Question questionA2_280 = new Question(16, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", "a2_280.jpg",
+				a2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionA2_280);
 
 		Question questionA2_298 = new Question(17,
@@ -3047,25 +3047,25 @@ public class DataSeeding implements CommandLineRunner {
 				a2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionA2_298);
 
-		Question questionA2_316 = new Question(18, "Biển này có ý nghĩa gì?", "a2_316.jpg", a2.getId(),
-				set10.getId(), bb.getId());
+		Question questionA2_316 = new Question(18, "Biển này có ý nghĩa gì?", "a2_316.jpg", a2.getId(), set10.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_316);
 
 		Question questionA2_334 = new Question(19,
-				"Biển nào đặt trên đường chính trước khi đến nơi đường giao nhau để rẽ vào đường cụt?",
-				"a2_334.jpg", a2.getId(), set10.getId(), bb.getId());
+				"Biển nào đặt trên đường chính trước khi đến nơi đường giao nhau để rẽ vào đường cụt?", "a2_334.jpg",
+				a2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionA2_334);
 
-		Question questionA2_352 = new Question(20, "Ý nghĩa các biểu tượng ghi trên biển chỉ dẫn là gì?",
-				"a2_352.jpg", a2.getId(), set10.getId(), bb.getId());
+		Question questionA2_352 = new Question(20, "Ý nghĩa các biểu tượng ghi trên biển chỉ dẫn là gì?", "a2_352.jpg",
+				a2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionA2_352);
 
 		Question questionA2_370 = new Question(21, "Trường hợp này xe nào được quyền đi trước?", "a2_370.jpg",
 				a2.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionA2_370);
 
-		Question questionA2_388 = new Question(22, "Theo hướng mũi tên, hướng nào xe không được phép đi?",
-				"a2_388.jpg", a2.getId(), set10.getId(), sh.getId());
+		Question questionA2_388 = new Question(22, "Theo hướng mũi tên, hướng nào xe không được phép đi?", "a2_388.jpg",
+				a2.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionA2_388);
 
 		Question questionA2_406 = new Question(23, "Trong hình dưới đây, xe nào chấp hành đúng quy tắc giao thông?",
@@ -3129,8 +3129,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", a2.getId(), set11.getId(), kt.getId());
 		questionRepo.save(questionA2_173);
 
-		Question questionA2_191 = new Question(11, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?",
-				"a2_191.jpg", a2.getId(), set11.getId(), bb.getId());
+		Question questionA2_191 = new Question(11, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?", "a2_191.jpg",
+				a2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionA2_191);
 
 		Question questionA2_209 = new Question(12, "Biển nào xe được phép quay đầu nhưng không được rẽ trái?",
@@ -3149,8 +3149,8 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_263.jpg", a2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionA2_263);
 
-		Question questionA2_281 = new Question(16, "Biển nào báo hiệu \"Đường hai chiều\"?", "a2_281.jpg",
-				a2.getId(), set11.getId(), bb.getId());
+		Question questionA2_281 = new Question(16, "Biển nào báo hiệu \"Đường hai chiều\"?", "a2_281.jpg", a2.getId(),
+				set11.getId(), bb.getId());
 		questionRepo.save(questionA2_281);
 
 		Question questionA2_299 = new Question(17,
@@ -3159,16 +3159,16 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_299);
 
 		Question questionA2_317 = new Question(18,
-				"Biển nào (đặt trước ngã ba, ngã tư) cho phép xe được rẽ sang hướng khác?", "a2_317.jpg",
-				a2.getId(), set11.getId(), bb.getId());
+				"Biển nào (đặt trước ngã ba, ngã tư) cho phép xe được rẽ sang hướng khác?", "a2_317.jpg", a2.getId(),
+				set11.getId(), bb.getId());
 		questionRepo.save(questionA2_317);
 
 		Question questionA2_335 = new Question(19, "Biển nào chỉ dẫn cho người đi bộ sử dụng cầu vượt qua đường?",
 				"a2_335.jpg", a2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionA2_335);
 
-		Question questionA2_353 = new Question(20, "Biển này có ý nghĩa gì?", "a2_353.jpg", a2.getId(),
-				set11.getId(), bb.getId());
+		Question questionA2_353 = new Question(20, "Biển này có ý nghĩa gì?", "a2_353.jpg", a2.getId(), set11.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_353);
 
 		Question questionA2_371 = new Question(21, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
@@ -3192,8 +3192,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_443);
 
 		Question questionA2_12 = new Question(1,
-				"\"Người điều khiển phương tiện tham gia giao thông đường bộ\" gồm những đối tượng nào dưới đây?",
-				"", a2.getId(), set12.getId(), kn.getId());
+				"\"Người điều khiển phương tiện tham gia giao thông đường bộ\" gồm những đối tượng nào dưới đây?", "",
+				a2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionA2_12);
 
 		Question questionA2_30 = new Question(2,
@@ -3241,16 +3241,16 @@ public class DataSeeding implements CommandLineRunner {
 				a2.getId(), set12.getId(), kt.getId());
 		questionRepo.save(questionA2_174);
 
-		Question questionA2_192 = new Question(11, "Khi gặp biển nào thì xe mô tô hai bánh được đi vào?",
-				"a2_192.jpg", a2.getId(), set12.getId(), bb.getId());
+		Question questionA2_192 = new Question(11, "Khi gặp biển nào thì xe mô tô hai bánh được đi vào?", "a2_192.jpg",
+				a2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionA2_192);
 
-		Question questionA2_210 = new Question(12, "Biển nào là biển \"Cấm đi ngược chiều\"?", "a2_210.jpg",
-				a2.getId(), set12.getId(), bb.getId());
+		Question questionA2_210 = new Question(12, "Biển nào là biển \"Cấm đi ngược chiều\"?", "a2_210.jpg", a2.getId(),
+				set12.getId(), bb.getId());
 		questionRepo.save(questionA2_210);
 
-		Question questionA2_228 = new Question(13, "Biển nào cấm máy kéo?", "a2_228.jpg", a2.getId(),
-				set12.getId(), bb.getId());
+		Question questionA2_228 = new Question(13, "Biển nào cấm máy kéo?", "a2_228.jpg", a2.getId(), set12.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_228);
 
 		Question questionA2_246 = new Question(14,
@@ -3262,16 +3262,16 @@ public class DataSeeding implements CommandLineRunner {
 				set12.getId(), bb.getId());
 		questionRepo.save(questionA2_264);
 
-		Question questionA2_282 = new Question(16, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?",
-				"a2_282.jpg", a2.getId(), set12.getId(), bb.getId());
+		Question questionA2_282 = new Question(16, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", "a2_282.jpg",
+				a2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionA2_282);
 
-		Question questionA2_300 = new Question(17, "Biển nào sau đây là biển \"Dốc xuống nguy hiểm\"?",
-				"a2_300.jpg", a2.getId(), set12.getId(), bb.getId());
+		Question questionA2_300 = new Question(17, "Biển nào sau đây là biển \"Dốc xuống nguy hiểm\"?", "a2_300.jpg",
+				a2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionA2_300);
 
-		Question questionA2_318 = new Question(18, "Biển nào báo hiệu \"Hướng đi thẳng phải theo\" ?",
-				"a2_318.jpg", a2.getId(), set12.getId(), bb.getId());
+		Question questionA2_318 = new Question(18, "Biển nào báo hiệu \"Hướng đi thẳng phải theo\" ?", "a2_318.jpg",
+				a2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionA2_318);
 
 		Question questionA2_336 = new Question(19, "Biển nào chỉ dẫn cho người đi bộ sử dụng hầm chui qua đường?",
@@ -3283,22 +3283,22 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_354.jpg", a2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionA2_354);
 
-		Question questionA2_372 = new Question(21, "Xe nào được quyền đi trước trong trường hợp này?",
-				"a2_372.jpg", a2.getId(), set12.getId(), sh.getId());
+		Question questionA2_372 = new Question(21, "Xe nào được quyền đi trước trong trường hợp này?", "a2_372.jpg",
+				a2.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionA2_372);
 
-		Question questionA2_390 = new Question(22, "Xe nào vượt đúng quy tắc giao thông?", "a2_390.jpg",
-				a2.getId(), set12.getId(), sh.getId());
+		Question questionA2_390 = new Question(22, "Xe nào vượt đúng quy tắc giao thông?", "a2_390.jpg", a2.getId(),
+				set12.getId(), sh.getId());
 		questionRepo.save(questionA2_390);
 
 		Question questionA2_408 = new Question(23,
-				"Trong trường hợp này, thứ tự xe đi như thế nào là đúng quy tắc giao thông?", "a2_408.jpg",
-				a2.getId(), set12.getId(), sh.getId());
+				"Trong trường hợp này, thứ tự xe đi như thế nào là đúng quy tắc giao thông?", "a2_408.jpg", a2.getId(),
+				set12.getId(), sh.getId());
 		questionRepo.save(questionA2_408);
 
 		Question questionA2_426 = new Question(24,
-				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", "a2_426.jpg",
-				a2.getId(), set12.getId(), sh.getId());
+				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", "a2_426.jpg", a2.getId(),
+				set12.getId(), sh.getId());
 		questionRepo.save(questionA2_426);
 
 		Question questionA2_444 = new Question(25, "Các xe đi theo thứ tự nào là đúng quy tắc giao thông đường bộ?",
@@ -3355,8 +3355,8 @@ public class DataSeeding implements CommandLineRunner {
 				set13.getId(), kt.getId());
 		questionRepo.save(questionA2_175);
 
-		Question questionA2_193 = new Question(11, "Biển nào cho phép ô tô con được vượt?", "a2_193.jpg",
-				a2.getId(), set13.getId(), bb.getId());
+		Question questionA2_193 = new Question(11, "Biển nào cho phép ô tô con được vượt?", "a2_193.jpg", a2.getId(),
+				set13.getId(), bb.getId());
 		questionRepo.save(questionA2_193);
 
 		Question questionA2_211 = new Question(12, "Biển nào dưới đây các phương tiện không được phép đi vào?",
@@ -3369,8 +3369,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_229);
 
 		Question questionA2_247 = new Question(14,
-				"Biển nào báo hiệu hạn chế tốc độ của phương tiện không vượt quá trị số ghi trên biển?",
-				"a2_247.jpg", a2.getId(), set13.getId(), bb.getId());
+				"Biển nào báo hiệu hạn chế tốc độ của phương tiện không vượt quá trị số ghi trên biển?", "a2_247.jpg",
+				a2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionA2_247);
 
 		Question questionA2_265 = new Question(15, "Biển nào báo hiệu \"Hết đoạn đường ưu tiên\"?", "a2_265.jpg",
@@ -3381,12 +3381,12 @@ public class DataSeeding implements CommandLineRunner {
 				a2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionA2_283);
 
-		Question questionA2_301 = new Question(17, "Biển nào sau đây là biển \"Dốc lên nguy hiểm\"?",
-				"a2_301.jpg", a2.getId(), set13.getId(), bb.getId());
+		Question questionA2_301 = new Question(17, "Biển nào sau đây là biển \"Dốc lên nguy hiểm\"?", "a2_301.jpg",
+				a2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionA2_301);
 
-		Question questionA2_319 = new Question(18, "Biển nào báo hiệu \"Đường một chiều\"?", "a2_319.jpg",
-				a2.getId(), set13.getId(), bb.getId());
+		Question questionA2_319 = new Question(18, "Biển nào báo hiệu \"Đường một chiều\"?", "a2_319.jpg", a2.getId(),
+				set13.getId(), bb.getId());
 		questionRepo.save(questionA2_319);
 
 		Question questionA2_337 = new Question(19, "Biển nào báo hiệu \"Nơi đỗ xe dành cho người khuyết tật\"?",
@@ -3408,8 +3408,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_391);
 
 		Question questionA2_409 = new Question(23,
-				"Xe con quay đầu đi ngược lại như hình vẽ dưới có vị phạm quy tắc giao thông không?",
-				"a2_409.jpg", a2.getId(), set13.getId(), sh.getId());
+				"Xe con quay đầu đi ngược lại như hình vẽ dưới có vị phạm quy tắc giao thông không?", "a2_409.jpg",
+				a2.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionA2_409);
 
 		Question questionA2_427 = new Question(24, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?",
@@ -3421,13 +3421,13 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_445);
 
 		Question questionA2_14 = new Question(1,
-				"Trong các khái niệm dưới đây khái niệm \"dùng xe\" được hiều như thế nào là đúng?", "nan",
-				a2.getId(), set14.getId(), kn.getId());
+				"Trong các khái niệm dưới đây khái niệm \"dùng xe\" được hiều như thế nào là đúng?", "nan", a2.getId(),
+				set14.getId(), kn.getId());
 		questionRepo.save(questionA2_14);
 
 		Question questionA2_32 = new Question(2,
-				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?",
-				"", a2.getId(), set14.getId(), kn.getId());
+				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?", "",
+				a2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionA2_32);
 
 		Question questionA2_50 = new Question(3,
@@ -3470,8 +3470,8 @@ public class DataSeeding implements CommandLineRunner {
 				a2.getId(), set14.getId(), kt.getId());
 		questionRepo.save(questionA2_176);
 
-		Question questionA2_194 = new Question(11, "Biển nào không cho phép ô tô con vượt?", "a2_194.jpg",
-				a2.getId(), set14.getId(), bb.getId());
+		Question questionA2_194 = new Question(11, "Biển nào không cho phép ô tô con vượt?", "a2_194.jpg", a2.getId(),
+				set14.getId(), bb.getId());
 		questionRepo.save(questionA2_194);
 
 		Question questionA2_212 = new Question(12, "Gặp biển nào người lái xe không được đỗ xe vào ngày chắn?",
@@ -3487,8 +3487,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_248);
 
 		Question questionA2_266 = new Question(15,
-				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?",
-				"a2_266.jpg", a2.getId(), set14.getId(), bb.getId());
+				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?", "a2_266.jpg",
+				a2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionA2_266);
 
 		Question questionA2_284 = new Question(16,
@@ -3501,8 +3501,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_302);
 
 		Question questionA2_320 = new Question(18,
-				"Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối đa cho phép\"?", "a2_320.jpg",
-				a2.getId(), set14.getId(), bb.getId());
+				"Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối đa cho phép\"?", "a2_320.jpg", a2.getId(),
+				set14.getId(), bb.getId());
 		questionRepo.save(questionA2_320);
 
 		Question questionA2_338 = new Question(19, "Gặp biển báo này, người lái xe phải đỗ xe như thế nào?",
@@ -3514,12 +3514,12 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_356.jpg", a2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionA2_356);
 
-		Question questionA2_374 = new Question(21, "Xe nào phải nhường đường là đúng quy tắc giao thông?",
-				"a2_374.jpg", a2.getId(), set14.getId(), sh.getId());
+		Question questionA2_374 = new Question(21, "Xe nào phải nhường đường là đúng quy tắc giao thông?", "a2_374.jpg",
+				a2.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionA2_374);
 
-		Question questionA2_392 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?",
-				"a2_392.jpg", a2.getId(), set14.getId(), sh.getId());
+		Question questionA2_392 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?", "a2_392.jpg",
+				a2.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionA2_392);
 
 		Question questionA2_410 = new Question(23, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?",
@@ -3591,12 +3591,12 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_213.jpg", a2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionA2_213);
 
-		Question questionA2_231 = new Question(13, "Biển này có ý nghĩa gì?", "a2_231.jpg", a2.getId(),
-				set15.getId(), bb.getId());
+		Question questionA2_231 = new Question(13, "Biển này có ý nghĩa gì?", "a2_231.jpg", a2.getId(), set15.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_231);
 
-		Question questionA2_249 = new Question(14, "Số 50 ghi trên biển báo dưới đây có ý nghĩa gì?",
-				"a2_249.jpg", a2.getId(), set15.getId(), bb.getId());
+		Question questionA2_249 = new Question(14, "Số 50 ghi trên biển báo dưới đây có ý nghĩa gì?", "a2_249.jpg",
+				a2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionA2_249);
 
 		Question questionA2_267 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?",
@@ -3613,8 +3613,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_303);
 
 		Question questionA2_321 = new Question(18,
-				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?",
-				"a2_321.jpg", a2.getId(), set15.getId(), bb.getId());
+				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?", "a2_321.jpg",
+				a2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionA2_321);
 
 		Question questionA2_339 = new Question(19,
@@ -3627,8 +3627,8 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_357.jpg", a2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionA2_357);
 
-		Question questionA2_375 = new Question(21, "Xe nào được quyền đi trước trong trường hợp này?",
-				"a2_375.jpg", a2.getId(), set15.getId(), sh.getId());
+		Question questionA2_375 = new Question(21, "Xe nào được quyền đi trước trong trường hợp này?", "a2_375.jpg",
+				a2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionA2_375);
 
 		Question questionA2_393 = new Question(22, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
@@ -3636,8 +3636,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_393);
 
 		Question questionA2_411 = new Question(23,
-				"Để điều khiển cho xe đi thẳng, người lái xe phải làm gì là đúng quy tắc giao thông?",
-				"a2_411.jpg", a2.getId(), set15.getId(), sh.getId());
+				"Để điều khiển cho xe đi thẳng, người lái xe phải làm gì là đúng quy tắc giao thông?", "a2_411.jpg",
+				a2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionA2_411);
 
 		Question questionA2_429 = new Question(24, "Các xe đi theo thứ tự nào là đúng quy tắc giao thông đường bộ?",
@@ -3697,28 +3697,28 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", a2.getId(), set16.getId(), kt.getId());
 		questionRepo.save(questionA2_178);
 
-		Question questionA2_196 = new Question(11, "Biển nào cấm xe tải vượt?", "a2_196.jpg", a2.getId(),
-				set16.getId(), bb.getId());
+		Question questionA2_196 = new Question(11, "Biển nào cấm xe tải vượt?", "a2_196.jpg", a2.getId(), set16.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_196);
 
 		Question questionA2_214 = new Question(12, "Khi gặp biển nào xe ưu tiên theo luật định vẫn phải dùng lại?",
 				"a2_214.jpg", a2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionA2_214);
 
-		Question questionA2_232 = new Question(13, "Biển phụ đặt dưới biển cấm bóp còi có ý nghĩa gì?",
-				"a2_232.jpg", a2.getId(), set16.getId(), bb.getId());
+		Question questionA2_232 = new Question(13, "Biển phụ đặt dưới biển cấm bóp còi có ý nghĩa gì?", "a2_232.jpg",
+				a2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionA2_232);
 
 		Question questionA2_250 = new Question(14, "Trong các biển dưới đây biển nào chỉ dẫn bắt đầu đường cao tốc?",
 				"a2_250.jpg", a2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionA2_250);
 
-		Question questionA2_268 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?",
-				"a2_268.jpg", a2.getId(), set16.getId(), bb.getId());
+		Question questionA2_268 = new Question(15, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?", "a2_268.jpg",
+				a2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionA2_268);
 
-		Question questionA2_286 = new Question(16, "Biển nào dưới đây là biển \"Cầu hẹp\"?", "a2_286.jpg",
-				a2.getId(), set16.getId(), bb.getId());
+		Question questionA2_286 = new Question(16, "Biển nào dưới đây là biển \"Cầu hẹp\"?", "a2_286.jpg", a2.getId(),
+				set16.getId(), bb.getId());
 		questionRepo.save(questionA2_286);
 
 		Question questionA2_304 = new Question(17, "Biển báo này có ý nghĩa gì?", "a2_304.jpg", a2.getId(),
@@ -3740,17 +3740,17 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_358.jpg", a2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionA2_358);
 
-		Question questionA2_376 = new Question(21, "Theo tín hiệu đèn, xe nào được phép đi?", "a2_376.jpg",
-				a2.getId(), set16.getId(), sh.getId());
+		Question questionA2_376 = new Question(21, "Theo tín hiệu đèn, xe nào được phép đi?", "a2_376.jpg", a2.getId(),
+				set16.getId(), sh.getId());
 		questionRepo.save(questionA2_376);
 
-		Question questionA2_394 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?",
-				"a2_394.jpg", a2.getId(), set16.getId(), sh.getId());
+		Question questionA2_394 = new Question(22, "Xe nào được quyền đi trước trong trường hợp này?", "a2_394.jpg",
+				a2.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionA2_394);
 
 		Question questionA2_412 = new Question(23,
-				"Người lái xe điều khiển xe chạy theo hướng nào là đúng quy tắc giao thông?", "a2_412.jpg",
-				a2.getId(), set16.getId(), sh.getId());
+				"Người lái xe điều khiển xe chạy theo hướng nào là đúng quy tắc giao thông?", "a2_412.jpg", a2.getId(),
+				set16.getId(), sh.getId());
 		questionRepo.save(questionA2_412);
 
 		Question questionA2_430 = new Question(24, "Xe nào phải dừng lại trong trường hợp này?", "a2_430.jpg",
@@ -3810,8 +3810,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", a2.getId(), set17.getId(), kt.getId());
 		questionRepo.save(questionA2_179);
 
-		Question questionA2_197 = new Question(11, "Biển nào xe ô tô con được phép vượt?", "a2_197.jpg",
-				a2.getId(), set17.getId(), bb.getId());
+		Question questionA2_197 = new Question(11, "Biển nào xe ô tô con được phép vượt?", "a2_197.jpg", a2.getId(),
+				set17.getId(), bb.getId());
 		questionRepo.save(questionA2_197);
 
 		Question questionA2_215 = new Question(12,
@@ -3828,20 +3828,20 @@ public class DataSeeding implements CommandLineRunner {
 				set17.getId(), bb.getId());
 		questionRepo.save(questionA2_251);
 
-		Question questionA2_269 = new Question(15, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", "a2_269.jpg",
-				a2.getId(), set17.getId(), bb.getId());
+		Question questionA2_269 = new Question(15, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", "a2_269.jpg", a2.getId(),
+				set17.getId(), bb.getId());
 		questionRepo.save(questionA2_269);
 
-		Question questionA2_287 = new Question(16, "Biển nào dưới đây là biển \"Cầu quay – cầu cất\"?",
-				"a2_287.jpg", a2.getId(), set17.getId(), bb.getId());
+		Question questionA2_287 = new Question(16, "Biển nào dưới đây là biển \"Cầu quay – cầu cất\"?", "a2_287.jpg",
+				a2.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionA2_287);
 
 		Question questionA2_305 = new Question(17, "Biển báo này có ý nghĩa gì?", "a2_305.jpg", a2.getId(),
 				set17.getId(), bb.getId());
 		questionRepo.save(questionA2_305);
 
-		Question questionA2_323 = new Question(18, "Biển nào dưới đây báo hiệu hết cấm vượt?", "a2_323.jpg",
-				a2.getId(), set17.getId(), bb.getId());
+		Question questionA2_323 = new Question(18, "Biển nào dưới đây báo hiệu hết cấm vượt?", "a2_323.jpg", a2.getId(),
+				set17.getId(), bb.getId());
 		questionRepo.save(questionA2_323);
 
 		Question questionA2_341 = new Question(19,
@@ -3865,8 +3865,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_395);
 
 		Question questionA2_413 = new Question(23,
-				"Người lái xe điều khiển xe rẽ trái như thế nào là đúng quy tắc giao thông?", "a2_413.jpg",
-				a2.getId(), set17.getId(), sh.getId());
+				"Người lái xe điều khiển xe rẽ trái như thế nào là đúng quy tắc giao thông?", "a2_413.jpg", a2.getId(),
+				set17.getId(), sh.getId());
 		questionRepo.save(questionA2_413);
 
 		Question questionA2_431 = new Question(24, "Xe của bạn được đi theo hướng nào trong trường hợp này?",
@@ -3898,8 +3898,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionA2_72);
 
 		Question questionA2_90 = new Question(5,
-				"Người điều khiển xe mô tô hai bánh, xe gắn máy không được thực hiện những hành vi nào dưới đây?",
-				"", a2.getId(), set18.getId(), kn.getId());
+				"Người điều khiển xe mô tô hai bánh, xe gắn máy không được thực hiện những hành vi nào dưới đây?", "",
+				a2.getId(), set18.getId(), kn.getId());
 		questionRepo.save(questionA2_90);
 
 		Question questionA2_108 = new Question(6,
@@ -3926,16 +3926,16 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", a2.getId(), set18.getId(), kt.getId());
 		questionRepo.save(questionA2_180);
 
-		Question questionA2_198 = new Question(11, "Biển nào cấm quay đầu xe?", "a2_198.jpg", a2.getId(),
-				set18.getId(), bb.getId());
+		Question questionA2_198 = new Question(11, "Biển nào cấm quay đầu xe?", "a2_198.jpg", a2.getId(), set18.getId(),
+				bb.getId());
 		questionRepo.save(questionA2_198);
 
-		Question questionA2_216 = new Question(12, "Biển nào là biển \"Cấm xe chở hàng nguy hiểm\"?",
-				"a2_216.jpg", a2.getId(), set18.getId(), bb.getId());
+		Question questionA2_216 = new Question(12, "Biển nào là biển \"Cấm xe chở hàng nguy hiểm\"?", "a2_216.jpg",
+				a2.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionA2_216);
 
-		Question questionA2_234 = new Question(13, "Biển nào xe mô tô hai bánh được đi vào?", "a2_234.jpg",
-				a2.getId(), set18.getId(), bb.getId());
+		Question questionA2_234 = new Question(13, "Biển nào xe mô tô hai bánh được đi vào?", "a2_234.jpg", a2.getId(),
+				set18.getId(), bb.getId());
 		questionRepo.save(questionA2_234);
 
 		Question questionA2_252 = new Question(14, "Gặp biển nào người lái xe phải nhường đường cho người đi bộ?",
@@ -3947,8 +3947,8 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_270.jpg", a2.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionA2_270);
 
-		Question questionA2_288 = new Question(16, "Biển nào dưới đây là biển \"Kè, vực sâu phía trước?",
-				"a2_288.jpg", a2.getId(), set18.getId(), bb.getId());
+		Question questionA2_288 = new Question(16, "Biển nào dưới đây là biển \"Kè, vực sâu phía trước?", "a2_288.jpg",
+				a2.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionA2_288);
 
 		Question questionA2_306 = new Question(17, "Biển báo dưới đây có ý nghĩa gì?", "a2_306.jpg", a2.getId(),
@@ -3968,8 +3968,8 @@ public class DataSeeding implements CommandLineRunner {
 				"a2_360.jpg", a2.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionA2_360);
 
-		Question questionA2_378 = new Question(21, "Trong trường hợp này xe nào được quyền đi trước?",
-				"a2_378.jpg", a2.getId(), set18.getId(), sh.getId());
+		Question questionA2_378 = new Question(21, "Trong trường hợp này xe nào được quyền đi trước?", "a2_378.jpg",
+				a2.getId(), set18.getId(), sh.getId());
 		questionRepo.save(questionA2_378);
 
 		Question questionA2_396 = new Question(22, "Xe nào vi phạm quy tắc giao thông?", "a2_396.jpg", a2.getId(),
@@ -4028,8 +4028,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_1);
 
 		Question questionb1_21 = new Question(2,
-				"Việc lái xe mô tô, ô tô, máy kéo ngay sai khi uống rượu, bia có được phép không?", "nan",
-				b1.getId(), set1.getId(), kn.getId());
+				"Việc lái xe mô tô, ô tô, máy kéo ngay sai khi uống rượu, bia có được phép không?", "nan", b1.getId(),
+				set1.getId(), kn.getId());
 		questionRepo.save(questionb1_21);
 
 		Question questionb1_41 = new Question(3,
@@ -4047,8 +4047,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", b1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb1_81);
 
-		Question questionb1_101 = new Question(6, "Người lái xe phải làm gì khi điều khiển xe vào đường cao tốc?",
-				"", b1.getId(), set1.getId(), kn.getId());
+		Question questionb1_101 = new Question(6, "Người lái xe phải làm gì khi điều khiển xe vào đường cao tốc?", "",
+				b1.getId(), set1.getId(), kn.getId());
 		questionRepo.save(questionb1_101);
 
 		Question questionb1_121 = new Question(7,
@@ -4080,8 +4080,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", b1.getId(), set1.getId(), kt.getId());
 		questionRepo.save(questionb1_221);
 
-		Question questionb1_241 = new Question(13, "Các biện pháp tiết kiệm nhiên liệu khi chạy xe?", "nan",
-				b1.getId(), set1.getId(), kt.getId());
+		Question questionb1_241 = new Question(13, "Các biện pháp tiết kiệm nhiên liệu khi chạy xe?", "nan", b1.getId(),
+				set1.getId(), kt.getId());
 		questionRepo.save(questionb1_241);
 
 		Question questionb1_261 = new Question(14,
@@ -4115,12 +4115,12 @@ public class DataSeeding implements CommandLineRunner {
 				set1.getId(), bb.getId());
 		questionRepo.save(questionb1_381);
 
-		Question questionb1_401 = new Question(21, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?",
-				"b1_401.jpg", b1.getId(), set1.getId(), bb.getId());
+		Question questionb1_401 = new Question(21, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", "b1_401.jpg",
+				b1.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb1_401);
 
-		Question questionb1_421 = new Question(22, "Biển Báo Này Có Ý Ngĩa Gì?", "b1_421.jpg", b1.getId(),
-				set1.getId(), bb.getId());
+		Question questionb1_421 = new Question(22, "Biển Báo Này Có Ý Ngĩa Gì?", "b1_421.jpg", b1.getId(), set1.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_421);
 
 		Question questionb1_441 = new Question(23, "Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối thiểu\"?",
@@ -4135,16 +4135,16 @@ public class DataSeeding implements CommandLineRunner {
 				set1.getId(), bb.getId());
 		questionRepo.save(questionb1_481);
 
-		Question questionb1_501 = new Question(26, "Trong trường hợp này xe nào được quyền đi trước?",
-				"b1_501.jpg", b1.getId(), set1.getId(), sh.getId());
+		Question questionb1_501 = new Question(26, "Trong trường hợp này xe nào được quyền đi trước?", "b1_501.jpg",
+				b1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb1_501);
 
 		Question questionb1_521 = new Question(27, "Theo hướng mũi tên, những hướng nào xe tải được phép đi?",
 				"b1_521.jpg", b1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb1_521);
 
-		Question questionb1_541 = new Question(28, "Xe nào phải nhường đường là đúng quy tắc giao thông?",
-				"b1_541.jpg", b1.getId(), set1.getId(), sh.getId());
+		Question questionb1_541 = new Question(28, "Xe nào phải nhường đường là đúng quy tắc giao thông?", "b1_541.jpg",
+				b1.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb1_541);
 
 		Question questionb1_561 = new Question(29, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
@@ -4164,13 +4164,13 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", b1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb1_22);
 
-		Question questionb1_42 = new Question(3, "Người lái xe không được lùi xe ở những khu vực nào dưới đây?",
-				"", b1.getId(), set2.getId(), kn.getId());
+		Question questionb1_42 = new Question(3, "Người lái xe không được lùi xe ở những khu vực nào dưới đây?", "",
+				b1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb1_42);
 
 		Question questionb1_62 = new Question(4,
-				"Người có giấy phép lái xe mô tô hạng A2 được phép điều khiển loại xe nào dưới đây?", "nan",
-				b1.getId(), set2.getId(), kn.getId());
+				"Người có giấy phép lái xe mô tô hạng A2 được phép điều khiển loại xe nào dưới đây?", "nan", b1.getId(),
+				set2.getId(), kn.getId());
 		questionRepo.save(questionb1_62);
 
 		Question questionb1_82 = new Question(5,
@@ -4179,8 +4179,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_82);
 
 		Question questionb1_102 = new Question(6,
-				"Trên đường cao tốc, người lái xe phải dừng xe, đỗ xe như thế nào để đảm bảo an toàn giao thông?",
-				"", b1.getId(), set2.getId(), kn.getId());
+				"Trên đường cao tốc, người lái xe phải dừng xe, đỗ xe như thế nào để đảm bảo an toàn giao thông?", "",
+				b1.getId(), set2.getId(), kn.getId());
 		questionRepo.save(questionb1_102);
 
 		Question questionb1_122 = new Question(7,
@@ -4203,13 +4203,13 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_182);
 
 		Question questionb1_202 = new Question(11,
-				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?",
-				"", b1.getId(), set2.getId(), vh.getId());
+				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?", "",
+				b1.getId(), set2.getId(), vh.getId());
 		questionRepo.save(questionb1_202);
 
 		Question questionb1_222 = new Question(12,
-				"Khi xuống dốc, muốn dừng xe, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?",
-				"", b1.getId(), set2.getId(), kt.getId());
+				"Khi xuống dốc, muốn dừng xe, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?", "",
+				b1.getId(), set2.getId(), kt.getId());
 		questionRepo.save(questionb1_222);
 
 		Question questionb1_242 = new Question(13,
@@ -4238,8 +4238,8 @@ public class DataSeeding implements CommandLineRunner {
 				set2.getId(), bb.getId());
 		questionRepo.save(questionb1_342);
 
-		Question questionb1_362 = new Question(19, "Biển này có ý nghĩa gì?", "b1_362.jpg", b1.getId(),
-				set2.getId(), bb.getId());
+		Question questionb1_362 = new Question(19, "Biển này có ý nghĩa gì?", "b1_362.jpg", b1.getId(), set2.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_362);
 
 		Question questionb1_382 = new Question(20, "Biển nào báo hiệu \"Nơi đường sắt giao vuông góc với đường bộ\"?",
@@ -4258,8 +4258,8 @@ public class DataSeeding implements CommandLineRunner {
 				b1.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionb1_442);
 
-		Question questionb1_462 = new Question(24, "Biển số 1 có ý nghĩa gì?", "b1_462.jpg", b1.getId(),
-				set2.getId(), bb.getId());
+		Question questionb1_462 = new Question(24, "Biển số 1 có ý nghĩa gì?", "b1_462.jpg", b1.getId(), set2.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_462);
 
 		Question questionb1_482 = new Question(25, "Các vạch dưới đây có tác dụng gì?", "b1_482.jpg", b1.getId(),
@@ -4267,17 +4267,17 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_482);
 
 		Question questionb1_502 = new Question(26,
-				"Theo tín hiệu đèn, xe tải đi theo hướng nào là đúng quy tắc giao thông?", "b1_502.jpg",
-				b1.getId(), set2.getId(), sh.getId());
+				"Theo tín hiệu đèn, xe tải đi theo hướng nào là đúng quy tắc giao thông?", "b1_502.jpg", b1.getId(),
+				set2.getId(), sh.getId());
 		questionRepo.save(questionb1_502);
 
-		Question questionb1_522 = new Question(27, "Những hướng nào xe tải được phép đi?", "b1_522.jpg",
-				b1.getId(), set2.getId(), sh.getId());
+		Question questionb1_522 = new Question(27, "Những hướng nào xe tải được phép đi?", "b1_522.jpg", b1.getId(),
+				set2.getId(), sh.getId());
 		questionRepo.save(questionb1_522);
 
 		Question questionb1_542 = new Question(28,
-				"Xe con quay đầu đi ngược lại như hình vẽ dưới có vi phạm quy tắc giao thông không?",
-				"b1_542.jpg", b1.getId(), set2.getId(), sh.getId());
+				"Xe con quay đầu đi ngược lại như hình vẽ dưới có vi phạm quy tắc giao thông không?", "b1_542.jpg",
+				b1.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionb1_542);
 
 		Question questionb1_562 = new Question(29, "Các xe đi theo hướng mũi tên xe nào vi phạm quy tắc giao thông?",
@@ -4303,8 +4303,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_43);
 
 		Question questionb1_63 = new Question(4,
-				"Người có giấy phép lái xe mô tô hạng A3 được phép điều khiển loại xe nào dưới đây?", "nan",
-				b1.getId(), set3.getId(), kn.getId());
+				"Người có giấy phép lái xe mô tô hạng A3 được phép điều khiển loại xe nào dưới đây?", "nan", b1.getId(),
+				set3.getId(), kn.getId());
 		questionRepo.save(questionb1_63);
 
 		Question questionb1_83 = new Question(5,
@@ -4332,18 +4332,18 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", b1.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb1_163);
 
-		Question questionb1_183 = new Question(10, "Hàng siêu trường, siêu trọng được hiểu như thế nào là đúng?",
-				"", b1.getId(), set3.getId(), nvvt.getId());
+		Question questionb1_183 = new Question(10, "Hàng siêu trường, siêu trọng được hiểu như thế nào là đúng?", "",
+				b1.getId(), set3.getId(), nvvt.getId());
 		questionRepo.save(questionb1_183);
 
 		Question questionb1_203 = new Question(11,
-				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?",
-				"", b1.getId(), set3.getId(), vh.getId());
+				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?", "",
+				b1.getId(), set3.getId(), vh.getId());
 		questionRepo.save(questionb1_203);
 
 		Question questionb1_223 = new Question(12,
-				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", "nan",
-				b1.getId(), set3.getId(), kt.getId());
+				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", "nan", b1.getId(),
+				set3.getId(), kt.getId());
 		questionRepo.save(questionb1_223);
 
 		Question questionb1_243 = new Question(13,
@@ -4373,8 +4373,8 @@ public class DataSeeding implements CommandLineRunner {
 				set3.getId(), bb.getId());
 		questionRepo.save(questionb1_343);
 
-		Question questionb1_363 = new Question(19, "Biển này có ý nghĩa gì?", "b1_363.jpg", b1.getId(),
-				set3.getId(), bb.getId());
+		Question questionb1_363 = new Question(19, "Biển này có ý nghĩa gì?", "b1_363.jpg", b1.getId(), set3.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_363);
 
 		Question questionb1_383 = new Question(20, "Các biển này có ý nghĩa gì?", "b1_383.jpg", b1.getId(),
@@ -4398,16 +4398,16 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_463.jpg", b1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionb1_463);
 
-		Question questionb1_483 = new Question(25, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?",
-				"b1_483.jpg", b1.getId(), set3.getId(), bb.getId());
+		Question questionb1_483 = new Question(25, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?", "b1_483.jpg",
+				b1.getId(), set3.getId(), bb.getId());
 		questionRepo.save(questionb1_483);
 
 		Question questionb1_503 = new Question(26, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
 				"b1_503.jpg", b1.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionb1_503);
 
-		Question questionb1_523 = new Question(27, "Những hướng nào ô tô tải được phép đi?", "b1_523.jpg",
-				b1.getId(), set3.getId(), sh.getId());
+		Question questionb1_523 = new Question(27, "Những hướng nào ô tô tải được phép đi?", "b1_523.jpg", b1.getId(),
+				set3.getId(), sh.getId());
 		questionRepo.save(questionb1_523);
 
 		Question questionb1_543 = new Question(28, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?",
@@ -4418,8 +4418,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_563.jpg", b1.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionb1_563);
 
-		Question questionb1_583 = new Question(30, "Các xe đi như thế nào là đúng quy tắc giao thông?",
-				"b1_583.jpg", b1.getId(), set3.getId(), sh.getId());
+		Question questionb1_583 = new Question(30, "Các xe đi như thế nào là đúng quy tắc giao thông?", "b1_583.jpg",
+				b1.getId(), set3.getId(), sh.getId());
 		questionRepo.save(questionb1_583);
 
 		Question questionb1_4 = new Question(1,
@@ -4473,8 +4473,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_184);
 
 		Question questionb1_204 = new Question(11,
-				"Trong các hành vi dưới đây, người lái xe ô tô có văn hóa giao thông phải ứng xử như thế nào?",
-				"", b1.getId(), set4.getId(), vh.getId());
+				"Trong các hành vi dưới đây, người lái xe ô tô có văn hóa giao thông phải ứng xử như thế nào?", "",
+				b1.getId(), set4.getId(), vh.getId());
 		questionRepo.save(questionb1_204);
 
 		Question questionb1_224 = new Question(12,
@@ -4505,8 +4505,8 @@ public class DataSeeding implements CommandLineRunner {
 				b1.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionb1_324);
 
-		Question questionb1_344 = new Question(18, "Biển nào cấm máy kéo kéo theo rơ mooc?", "b1_344.jpg",
-				b1.getId(), set4.getId(), bb.getId());
+		Question questionb1_344 = new Question(18, "Biển nào cấm máy kéo kéo theo rơ mooc?", "b1_344.jpg", b1.getId(),
+				set4.getId(), bb.getId());
 		questionRepo.save(questionb1_344);
 
 		Question questionb1_364 = new Question(19, "Biển nào là biển \"Tốc độ tối đa cho phép về ban đêm\"?",
@@ -4542,8 +4542,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_504.jpg", b1.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionb1_504);
 
-		Question questionb1_524 = new Question(27, "Những hướng nào ô tô tải được phép đi?", "b1_524.jpg",
-				b1.getId(), set4.getId(), sh.getId());
+		Question questionb1_524 = new Question(27, "Những hướng nào ô tô tải được phép đi?", "b1_524.jpg", b1.getId(),
+				set4.getId(), sh.getId());
 		questionRepo.save(questionb1_524);
 
 		Question questionb1_544 = new Question(28,
@@ -4574,8 +4574,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", b1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb1_45);
 
-		Question questionb1_65 = new Question(4, "Người có giấy phép lái xe hạng B1 được điều khiển loại xe nào?",
-				"", b1.getId(), set5.getId(), kn.getId());
+		Question questionb1_65 = new Question(4, "Người có giấy phép lái xe hạng B1 được điều khiển loại xe nào?", "",
+				b1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb1_65);
 
 		Question questionb1_85 = new Question(5,
@@ -4584,8 +4584,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_85);
 
 		Question questionb1_105 = new Question(6,
-				"Xe quá tải trọng, quá khổ giới hạn tham gia giao thông cần tuân thủ quy định nào ghi dưới đây?",
-				"", b1.getId(), set5.getId(), kn.getId());
+				"Xe quá tải trọng, quá khổ giới hạn tham gia giao thông cần tuân thủ quy định nào ghi dưới đây?", "",
+				b1.getId(), set5.getId(), kn.getId());
 		questionRepo.save(questionb1_105);
 
 		Question questionb1_125 = new Question(7,
@@ -4651,12 +4651,12 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_365);
 
 		Question questionb1_385 = new Question(20,
-				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?",
-				"b1_385.jpg", b1.getId(), set5.getId(), bb.getId());
+				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?", "b1_385.jpg",
+				b1.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb1_385);
 
-		Question questionb1_405 = new Question(21, "Biển nào dưới đây là biển \"Cầu hẹp\"?", "b1_405.jpg",
-				b1.getId(), set5.getId(), bb.getId());
+		Question questionb1_405 = new Question(21, "Biển nào dưới đây là biển \"Cầu hẹp\"?", "b1_405.jpg", b1.getId(),
+				set5.getId(), bb.getId());
 		questionRepo.save(questionb1_405);
 
 		Question questionb1_425 = new Question(22, "Biển báo này có ý nghĩa gì?", "b1_425.jpg", b1.getId(),
@@ -4680,26 +4680,26 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_505.jpg", b1.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionb1_505);
 
-		Question questionb1_525 = new Question(27, "Xe nào được quyền đi trước trong trường hợp này?",
-				"b1_525.jpg", b1.getId(), set5.getId(), sh.getId());
+		Question questionb1_525 = new Question(27, "Xe nào được quyền đi trước trong trường hợp này?", "b1_525.jpg",
+				b1.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionb1_525);
 
 		Question questionb1_545 = new Question(28,
-				"Người lái điều khiển xe chạy theo hướng nào là đúng quy tắc giao thông?", "b1_545.jpg",
-				b1.getId(), set5.getId(), sh.getId());
+				"Người lái điều khiển xe chạy theo hướng nào là đúng quy tắc giao thông?", "b1_545.jpg", b1.getId(),
+				set5.getId(), sh.getId());
 		questionRepo.save(questionb1_545);
 
 		Question questionb1_565 = new Question(29,
-				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", "b1_565.jpg",
-				b1.getId(), set5.getId(), sh.getId());
+				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", "b1_565.jpg", b1.getId(),
+				set5.getId(), sh.getId());
 		questionRepo.save(questionb1_565);
 
 		Question questionb1_585 = new Question(30, "Xe nào phải nhường đường trong trường hợp này?", "b1_585.jpg",
 				b1.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionb1_585);
 
-		Question questionb1_6 = new Question(1, "Người lái xe được hiểu như thế nào trong các khái niệm dưới đây?",
-				"", b1.getId(), set6.getId(), kn.getId());
+		Question questionb1_6 = new Question(1, "Người lái xe được hiểu như thế nào trong các khái niệm dưới đây?", "",
+				b1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb1_6);
 
 		Question questionb1_26 = new Question(2,
@@ -4712,8 +4712,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", b1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb1_46);
 
-		Question questionb1_66 = new Question(4, "Người có giấy phép lái xe hạng B2 được điều khiển loại xe nào?",
-				"", b1.getId(), set6.getId(), kn.getId());
+		Question questionb1_66 = new Question(4, "Người có giấy phép lái xe hạng B2 được điều khiển loại xe nào?", "",
+				b1.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb1_66);
 
 		Question questionb1_86 = new Question(5,
@@ -4770,8 +4770,8 @@ public class DataSeeding implements CommandLineRunner {
 				b1.getId(), set6.getId(), ctsc.getId());
 		questionRepo.save(questionb1_286);
 
-		Question questionb1_306 = new Question(16, "Biển nào cấm ô tô tải?", "b1_306.jpg", b1.getId(),
-				set6.getId(), bb.getId());
+		Question questionb1_306 = new Question(16, "Biển nào cấm ô tô tải?", "b1_306.jpg", b1.getId(), set6.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_306);
 
 		Question questionb1_326 = new Question(17, "Biển nào cho phép xe rẻ trái?", "b1_326.jpg", b1.getId(),
@@ -4783,16 +4783,16 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_346);
 
 		Question questionb1_366 = new Question(19,
-				"Biển nào báo hiệu hạn chế tốc độ của phương tiện không vượt quá trị số ghi trên biển?",
-				"b1_366.jpg", b1.getId(), set6.getId(), bb.getId());
+				"Biển nào báo hiệu hạn chế tốc độ của phương tiện không vượt quá trị số ghi trên biển?", "b1_366.jpg",
+				b1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb1_366);
 
 		Question questionb1_386 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường không ưu tiên\"?",
 				"b1_386.jpg", b1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb1_386);
 
-		Question questionb1_406 = new Question(21, "Biển nào dưới đây là biển \"Cầu xoay – cầu cất\"?",
-				"b1_406.jpg", b1.getId(), set6.getId(), bb.getId());
+		Question questionb1_406 = new Question(21, "Biển nào dưới đây là biển \"Cầu xoay – cầu cất\"?", "b1_406.jpg",
+				b1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb1_406);
 
 		Question questionb1_426 = new Question(22, "Biển báo này có ý nghĩa gì?", "b1_426.jpg", b1.getId(),
@@ -4805,8 +4805,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_446);
 
 		Question questionb1_466 = new Question(24,
-				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?",
-				"b1_466.jpg", b1.getId(), set6.getId(), bb.getId());
+				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?", "b1_466.jpg",
+				b1.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb1_466);
 
 		Question questionb1_486 = new Question(25, "Vạch dưới đây có ý nghĩa gì?", "b1_486.jpg", b1.getId(),
@@ -4822,8 +4822,8 @@ public class DataSeeding implements CommandLineRunner {
 				set6.getId(), sh.getId());
 		questionRepo.save(questionb1_526);
 
-		Question questionb1_546 = new Question(28, "Xe nào phải nhường đường là đúng quy tắc giao thông?",
-				"b1_546.jpg", b1.getId(), set6.getId(), sh.getId());
+		Question questionb1_546 = new Question(28, "Xe nào phải nhường đường là đúng quy tắc giao thông?", "b1_546.jpg",
+				b1.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionb1_546);
 
 		Question questionb1_566 = new Question(29, "Trong hình dưới, những xe nào vi phạm quy tắc giao thông?",
@@ -4849,8 +4849,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", b1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb1_47);
 
-		Question questionb1_67 = new Question(4, "Người có giấy phép lái xe hạng C được điều khiển loại xe nào?",
-				"", b1.getId(), set7.getId(), kn.getId());
+		Question questionb1_67 = new Question(4, "Người có giấy phép lái xe hạng C được điều khiển loại xe nào?", "",
+				b1.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb1_67);
 
 		Question questionb1_87 = new Question(5,
@@ -4859,8 +4859,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_87);
 
 		Question questionb1_107 = new Question(6,
-				"Xe kéo rơ moóc khi thao gia giao thông phải tuân thủ điều kiện nào ghi ở dưới đây?", "nan",
-				b1.getId(), set7.getId(), kn.getId());
+				"Xe kéo rơ moóc khi thao gia giao thông phải tuân thủ điều kiện nào ghi ở dưới đây?", "nan", b1.getId(),
+				set7.getId(), kn.getId());
 		questionRepo.save(questionb1_107);
 
 		Question questionb1_127 = new Question(7,
@@ -4907,16 +4907,16 @@ public class DataSeeding implements CommandLineRunner {
 				set7.getId(), ctsc.getId());
 		questionRepo.save(questionb1_287);
 
-		Question questionb1_307 = new Question(16, "Biển nào cấm xe máy kéo?", "b1_307.jpg", b1.getId(),
-				set7.getId(), bb.getId());
+		Question questionb1_307 = new Question(16, "Biển nào cấm xe máy kéo?", "b1_307.jpg", b1.getId(), set7.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_307);
 
 		Question questionb1_327 = new Question(17, "Biển nào xe quay đầu không bị cấm?", "b1_327.jpg", b1.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionb1_327);
 
-		Question questionb1_347 = new Question(18, "Biển nào cấm máy kéo?", "b1_347.jpg", b1.getId(),
-				set7.getId(), bb.getId());
+		Question questionb1_347 = new Question(18, "Biển nào cấm máy kéo?", "b1_347.jpg", b1.getId(), set7.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_347);
 
 		Question questionb1_367 = new Question(19,
@@ -4924,8 +4924,8 @@ public class DataSeeding implements CommandLineRunner {
 				set7.getId(), bb.getId());
 		questionRepo.save(questionb1_367);
 
-		Question questionb1_387 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?",
-				"b1_387.jpg", b1.getId(), set7.getId(), bb.getId());
+		Question questionb1_387 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?", "b1_387.jpg",
+				b1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionb1_387);
 
 		Question questionb1_407 = new Question(21, "Biển nào dưới đây là biển \"Kè, vực sâu phía trước\"?",
@@ -4941,12 +4941,12 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_447);
 
 		Question questionb1_467 = new Question(24,
-				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?",
-				"b1_467.jpg", b1.getId(), set7.getId(), bb.getId());
+				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?", "b1_467.jpg",
+				b1.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionb1_467);
 
-		Question questionb1_487 = new Question(25, "Thứ tự đi như thế nào là đúng quy tắc giao thông?",
-				"b1_487.jpg", b1.getId(), set7.getId(), sh.getId());
+		Question questionb1_487 = new Question(25, "Thứ tự đi như thế nào là đúng quy tắc giao thông?", "b1_487.jpg",
+				b1.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionb1_487);
 
 		Question questionb1_507 = new Question(26, "Theo hướng mũi tên, những hướng nào xe gắn máy đi được?",
@@ -4958,26 +4958,26 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_527);
 
 		Question questionb1_547 = new Question(28,
-				"Người lái xe điều khiển xe rẽ trái như thế nào là đúng quy tắc giao thông?", "b1_547.jpg",
-				b1.getId(), set7.getId(), sh.getId());
+				"Người lái xe điều khiển xe rẽ trái như thế nào là đúng quy tắc giao thông?", "b1_547.jpg", b1.getId(),
+				set7.getId(), sh.getId());
 		questionRepo.save(questionb1_547);
 
 		Question questionb1_567 = new Question(29, "Các xe đi theo thứ tự nào là đúng quy tắc giao thông đường bộ?",
 				"b1_567.jpg", b1.getId(), set7.getId(), sh.getId());
 		questionRepo.save(questionb1_567);
 
-		Question questionb1_587 = new Question(30, "Bạn xử lý thế nào trong trường hợp này?", "b1_587.jpg",
-				b1.getId(), set7.getId(), sh.getId());
+		Question questionb1_587 = new Question(30, "Bạn xử lý thế nào trong trường hợp này?", "b1_587.jpg", b1.getId(),
+				set7.getId(), sh.getId());
 		questionRepo.save(questionb1_587);
 
 		Question questionb1_8 = new Question(1,
-				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", "nan",
-				b1.getId(), set8.getId(), kn.getId());
+				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", "nan", b1.getId(),
+				set8.getId(), kn.getId());
 		questionRepo.save(questionb1_8);
 
 		Question questionb1_28 = new Question(2,
-				"Phương tiện giao thông đường bộ di chuyển với tốc độ thấp hơn phải đi như thế nào?", "nan",
-				b1.getId(), set8.getId(), kn.getId());
+				"Phương tiện giao thông đường bộ di chuyển với tốc độ thấp hơn phải đi như thế nào?", "nan", b1.getId(),
+				set8.getId(), kn.getId());
 		questionRepo.save(questionb1_28);
 
 		Question questionb1_48 = new Question(3,
@@ -5029,8 +5029,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_228);
 
 		Question questionb1_248 = new Question(13,
-				"Khi tầm nhìn bị hạn chế bởi sương mù hoặc mưa to, người lái xe phải thực hiện các thao tác nào?",
-				"", b1.getId(), set8.getId(), kt.getId());
+				"Khi tầm nhìn bị hạn chế bởi sương mù hoặc mưa to, người lái xe phải thực hiện các thao tác nào?", "",
+				b1.getId(), set8.getId(), kt.getId());
 		questionRepo.save(questionb1_248);
 
 		Question questionb1_268 = new Question(14,
@@ -5059,16 +5059,16 @@ public class DataSeeding implements CommandLineRunner {
 				b1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb1_368);
 
-		Question questionb1_388 = new Question(20, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", "b1_388.jpg",
-				b1.getId(), set8.getId(), bb.getId());
+		Question questionb1_388 = new Question(20, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", "b1_388.jpg", b1.getId(),
+				set8.getId(), bb.getId());
 		questionRepo.save(questionb1_388);
 
 		Question questionb1_408 = new Question(21, "Biển nào sau đây là biển \"Kè, vực sâu bên đường phía bên trái\"?",
 				"b1_408.jpg", b1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb1_408);
 
-		Question questionb1_428 = new Question(22, "Gặp biển báo này người lái xe phải xử lý thế nào?",
-				"b1_428.jpg", b1.getId(), set8.getId(), bb.getId());
+		Question questionb1_428 = new Question(22, "Gặp biển báo này người lái xe phải xử lý thế nào?", "b1_428.jpg",
+				b1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb1_428);
 
 		Question questionb1_448 = new Question(23, "Biển nào chỉ dẫn tên đường trên các tuyến đường đối ngoại?",
@@ -5079,16 +5079,16 @@ public class DataSeeding implements CommandLineRunner {
 				b1.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb1_468);
 
-		Question questionb1_488 = new Question(25, "Thứ tự đi như thế nào là đúng quy tắc giao thông?",
-				"b1_488.jpg", b1.getId(), set8.getId(), sh.getId());
+		Question questionb1_488 = new Question(25, "Thứ tự đi như thế nào là đúng quy tắc giao thông?", "b1_488.jpg",
+				b1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb1_488);
 
-		Question questionb1_508 = new Question(26, "Xe nào đỗ vi phạm quy tắc giao thông?", "b1_508.jpg",
-				b1.getId(), set8.getId(), sh.getId());
+		Question questionb1_508 = new Question(26, "Xe nào đỗ vi phạm quy tắc giao thông?", "b1_508.jpg", b1.getId(),
+				set8.getId(), sh.getId());
 		questionRepo.save(questionb1_508);
 
-		Question questionb1_528 = new Question(27, "Các xe đi như thế nào là đúng quy tắc giao thông?",
-				"b1_528.jpg", b1.getId(), set8.getId(), sh.getId());
+		Question questionb1_528 = new Question(27, "Các xe đi như thế nào là đúng quy tắc giao thông?", "b1_528.jpg",
+				b1.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb1_528);
 
 		Question questionb1_548 = new Question(28, "Trong hình dưới những xe nào vi phạm quy tắc giao thông?",
@@ -5129,8 +5129,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_89);
 
 		Question questionb1_109 = new Question(6,
-				"Người ngồi trên e mô tô 2 bánh, xe gắn máy phải đội mũ bảo hiểm có quai đúng quy cách khi nào?",
-				"", b1.getId(), set9.getId(), kn.getId());
+				"Người ngồi trên e mô tô 2 bánh, xe gắn máy phải đội mũ bảo hiểm có quai đúng quy cách khi nào?", "",
+				b1.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb1_109);
 
 		Question questionb1_129 = new Question(7,
@@ -5181,8 +5181,8 @@ public class DataSeeding implements CommandLineRunner {
 				b1.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb1_309);
 
-		Question questionb1_329 = new Question(17, "Biển nào là biển \"Cấm đi ngược chiều\"?", "b1_329.jpg",
-				b1.getId(), set9.getId(), bb.getId());
+		Question questionb1_329 = new Question(17, "Biển nào là biển \"Cấm đi ngược chiều\"?", "b1_329.jpg", b1.getId(),
+				set9.getId(), bb.getId());
 		questionRepo.save(questionb1_329);
 
 		Question questionb1_349 = new Question(18, "Biển này có hiệu lực đối với xe mô tô hai, ba bánh không?",
@@ -5207,12 +5207,12 @@ public class DataSeeding implements CommandLineRunner {
 				set9.getId(), bb.getId());
 		questionRepo.save(questionb1_429);
 
-		Question questionb1_449 = new Question(23, "Biển 1 có ý nghĩa gì?", "b1_449.jpg", b1.getId(),
-				set9.getId(), bb.getId());
+		Question questionb1_449 = new Question(23, "Biển 1 có ý nghĩa gì?", "b1_449.jpg", b1.getId(), set9.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_449);
 
-		Question questionb1_469 = new Question(24, "Biển này có ý nghĩa gì?", "b1_469.jpg", b1.getId(),
-				set9.getId(), bb.getId());
+		Question questionb1_469 = new Question(24, "Biển này có ý nghĩa gì?", "b1_469.jpg", b1.getId(), set9.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_469);
 
 		Question questionb1_489 = new Question(25,
@@ -5220,12 +5220,12 @@ public class DataSeeding implements CommandLineRunner {
 				b1.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionb1_489);
 
-		Question questionb1_509 = new Question(26, "Xe nào đỗ vi phạm quy tắc giao thông?", "b1_509.jpg",
-				b1.getId(), set9.getId(), sh.getId());
+		Question questionb1_509 = new Question(26, "Xe nào đỗ vi phạm quy tắc giao thông?", "b1_509.jpg", b1.getId(),
+				set9.getId(), sh.getId());
 		questionRepo.save(questionb1_509);
 
-		Question questionb1_529 = new Question(27, "Theo hướng mũi tên, xe nào được phép đi?", "b1_529.jpg",
-				b1.getId(), set9.getId(), sh.getId());
+		Question questionb1_529 = new Question(27, "Theo hướng mũi tên, xe nào được phép đi?", "b1_529.jpg", b1.getId(),
+				set9.getId(), sh.getId());
 		questionRepo.save(questionb1_529);
 
 		Question questionb1_549 = new Question(28, "Xe nào đi trước là đúng quy tắc giao thông?", "b1_549.jpg",
@@ -5237,8 +5237,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_569);
 
 		Question questionb1_589 = new Question(30,
-				"Các xe đi theo thứ tự như thế nào là đúng quy tắc giao thông đường bộ?", "b1_589.jpg",
-				b1.getId(), set9.getId(), sh.getId());
+				"Các xe đi theo thứ tự như thế nào là đúng quy tắc giao thông đường bộ?", "b1_589.jpg", b1.getId(),
+				set9.getId(), sh.getId());
 		questionRepo.save(questionb1_589);
 
 		Question questionb1_10 = new Question(1, "\" Phương tiện tham gia giao thông đường bộ\" gồm những loại nào?",
@@ -5313,28 +5313,28 @@ public class DataSeeding implements CommandLineRunner {
 				set10.getId(), ctsc.getId());
 		questionRepo.save(questionb1_290);
 
-		Question questionb1_310 = new Question(16, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?",
-				"b1_310.jpg", b1.getId(), set10.getId(), bb.getId());
+		Question questionb1_310 = new Question(16, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?", "b1_310.jpg",
+				b1.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb1_310);
 
 		Question questionb1_330 = new Question(17, "Biển nào dưới đây các phương tiện không được phép đi vào?",
 				"b1_330.jpg", b1.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb1_330);
 
-		Question questionb1_350 = new Question(18, "Biển này có ý nghĩa gì?", "b1_350.jpg", b1.getId(),
-				set10.getId(), bb.getId());
+		Question questionb1_350 = new Question(18, "Biển này có ý nghĩa gì?", "b1_350.jpg", b1.getId(), set10.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_350);
 
 		Question questionb1_370 = new Question(19, "Biển báo náy có ý nghĩa là gì?", "b1_370.jpg", b1.getId(),
 				set10.getId(), bb.getId());
 		questionRepo.save(questionb1_370);
 
-		Question questionb1_390 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?",
-				"b1_390.jpg", b1.getId(), set10.getId(), bb.getId());
+		Question questionb1_390 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?", "b1_390.jpg",
+				b1.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb1_390);
 
-		Question questionb1_410 = new Question(21, "Biển nào sau đây là biển \"Đường trơn\"?", "b1_410.jpg",
-				b1.getId(), set10.getId(), bb.getId());
+		Question questionb1_410 = new Question(21, "Biển nào sau đây là biển \"Đường trơn\"?", "b1_410.jpg", b1.getId(),
+				set10.getId(), bb.getId());
 		questionRepo.save(questionb1_410);
 
 		Question questionb1_430 = new Question(22,
@@ -5342,12 +5342,12 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_430.jpg", b1.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb1_430);
 
-		Question questionb1_450 = new Question(23, "Biển 3 có ý nghĩa gì?", "b1_450.jpg", b1.getId(),
-				set10.getId(), bb.getId());
+		Question questionb1_450 = new Question(23, "Biển 3 có ý nghĩa gì?", "b1_450.jpg", b1.getId(), set10.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_450);
 
-		Question questionb1_470 = new Question(24, "Biển này có ý nghĩa gì?", "b1_470.jpg", b1.getId(),
-				set10.getId(), bb.getId());
+		Question questionb1_470 = new Question(24, "Biển này có ý nghĩa gì?", "b1_470.jpg", b1.getId(), set10.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_470);
 
 		Question questionb1_490 = new Question(25, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
@@ -5358,13 +5358,13 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_510.jpg", b1.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionb1_510);
 
-		Question questionb1_530 = new Question(27, "Xe con vượt xe tải như trường hợp này có đúng không?",
-				"b1_530.jpg", b1.getId(), set10.getId(), sh.getId());
+		Question questionb1_530 = new Question(27, "Xe con vượt xe tải như trường hợp này có đúng không?", "b1_530.jpg",
+				b1.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionb1_530);
 
 		Question questionb1_550 = new Question(28,
-				"Người lái xe có thể quay đầu xe như thế nào là đúng quy tắc giao thông?", "b1_550.jpg",
-				b1.getId(), set10.getId(), sh.getId());
+				"Người lái xe có thể quay đầu xe như thế nào là đúng quy tắc giao thông?", "b1_550.jpg", b1.getId(),
+				set10.getId(), sh.getId());
 		questionRepo.save(questionb1_550);
 
 		Question questionb1_570 = new Question(29, "Xe của bạn được đi theo hướng nào trong trường hợp này?",
@@ -5400,8 +5400,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_91);
 
 		Question questionb1_111 = new Question(6,
-				"Người điều khiển xe mô tô hai bánh, xe gắn máy không được thực hiện những hành vi nào dưới dây?",
-				"", b1.getId(), set11.getId(), kn.getId());
+				"Người điều khiển xe mô tô hai bánh, xe gắn máy không được thực hiện những hành vi nào dưới dây?", "",
+				b1.getId(), set11.getId(), kn.getId());
 		questionRepo.save(questionb1_111);
 
 		Question questionb1_131 = new Question(7,
@@ -5447,16 +5447,16 @@ public class DataSeeding implements CommandLineRunner {
 				set11.getId(), ctsc.getId());
 		questionRepo.save(questionb1_291);
 
-		Question questionb1_311 = new Question(16, "khi gặp biển nào thì xe mô tô hai bánh được đi vào?",
-				"b1_311.jpg", b1.getId(), set11.getId(), bb.getId());
+		Question questionb1_311 = new Question(16, "khi gặp biển nào thì xe mô tô hai bánh được đi vào?", "b1_311.jpg",
+				b1.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb1_311);
 
 		Question questionb1_331 = new Question(17, "Gặp biển nào người lái xe không được đổ xe vào ngày chẵn?",
 				"b1_331.jpg", b1.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb1_331);
 
-		Question questionb1_351 = new Question(18, "Biển phụ đặt dưới biển cấm bóp còi có ý nghĩa gì?",
-				"b1_351.jpg", b1.getId(), set11.getId(), bb.getId());
+		Question questionb1_351 = new Question(18, "Biển phụ đặt dưới biển cấm bóp còi có ý nghĩa gì?", "b1_351.jpg",
+				b1.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb1_351);
 
 		Question questionb1_371 = new Question(19, "Gặp biển nào người lái xe phải nhường đường cho người đi bộ?",
@@ -5468,8 +5468,8 @@ public class DataSeeding implements CommandLineRunner {
 				set11.getId(), bb.getId());
 		questionRepo.save(questionb1_391);
 
-		Question questionb1_411 = new Question(21, "Biển nào sau đây là biển \"Lề đường nguy hiểm\"?",
-				"b1_411.jpg", b1.getId(), set11.getId(), bb.getId());
+		Question questionb1_411 = new Question(21, "Biển nào sau đây là biển \"Lề đường nguy hiểm\"?", "b1_411.jpg",
+				b1.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb1_411);
 
 		Question questionb1_431 = new Question(22,
@@ -5478,24 +5478,24 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_431);
 
 		Question questionb1_451 = new Question(23,
-				"Biển nào báo hiệu \"Đường phía trước có làn đường dành cho ô tô khách\"?", "b1_451.jpg",
-				b1.getId(), set11.getId(), bb.getId());
+				"Biển nào báo hiệu \"Đường phía trước có làn đường dành cho ô tô khách\"?", "b1_451.jpg", b1.getId(),
+				set11.getId(), bb.getId());
 		questionRepo.save(questionb1_451);
 
-		Question questionb1_471 = new Question(24, "Ý nghĩa các biểu tượng trên biển chỉ dẫn là gì?",
-				"b1_471.jpg", b1.getId(), set11.getId(), bb.getId());
+		Question questionb1_471 = new Question(24, "Ý nghĩa các biểu tượng trên biển chỉ dẫn là gì?", "b1_471.jpg",
+				b1.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb1_471);
 
 		Question questionb1_491 = new Question(25, "Xe nào phải nhường đường trong trường hợp này?", "b1_491.jpg",
 				b1.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb1_491);
 
-		Question questionb1_511 = new Question(26, "Theo hướng mũi tên, hướng nào xe không được phép đi?",
-				"b1_511.jpg", b1.getId(), set11.getId(), sh.getId());
+		Question questionb1_511 = new Question(26, "Theo hướng mũi tên, hướng nào xe không được phép đi?", "b1_511.jpg",
+				b1.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb1_511);
 
-		Question questionb1_531 = new Question(27, "Xe nào vượt đúng quy tăc giao thông?", "b1_531.jpg",
-				b1.getId(), set11.getId(), sh.getId());
+		Question questionb1_531 = new Question(27, "Xe nào vượt đúng quy tăc giao thông?", "b1_531.jpg", b1.getId(),
+				set11.getId(), sh.getId());
 		questionRepo.save(questionb1_531);
 
 		Question questionb1_551 = new Question(28, "Thứ tự các xe đi như thế nào là đúng quy tắc giao thông?",
@@ -5511,13 +5511,13 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_591);
 
 		Question questionb1_12 = new Question(1,
-				"\"Người điều khiển phương tiện tham gia giao thông đường bộ\" gồm những đối tượng nào dưới đây?",
-				"", b1.getId(), set12.getId(), kn.getId());
+				"\"Người điều khiển phương tiện tham gia giao thông đường bộ\" gồm những đối tượng nào dưới đây?", "",
+				b1.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb1_12);
 
 		Question questionb1_32 = new Question(2,
-				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?",
-				"", b1.getId(), set12.getId(), kn.getId());
+				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?", "",
+				b1.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb1_32);
 
 		Question questionb1_52 = new Question(3,
@@ -5531,8 +5531,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_72);
 
 		Question questionb1_92 = new Question(5,
-				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?",
-				"", b1.getId(), set12.getId(), kn.getId());
+				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?", "",
+				b1.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb1_92);
 
 		Question questionb1_112 = new Question(6,
@@ -5583,12 +5583,12 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_292.jpg", b1.getId(), set12.getId(), ctsc.getId());
 		questionRepo.save(questionb1_292);
 
-		Question questionb1_312 = new Question(16, "Biển nào cho phép ô tô con được vượt", "b1_312.jpg",
-				b1.getId(), set12.getId(), bb.getId());
+		Question questionb1_312 = new Question(16, "Biển nào cho phép ô tô con được vượt", "b1_312.jpg", b1.getId(),
+				set12.getId(), bb.getId());
 		questionRepo.save(questionb1_312);
 
-		Question questionb1_332 = new Question(17, "Gặp biển nào người lái xe được đổ xe vào ngày lẻ?",
-				"b1_332.jpg", b1.getId(), set12.getId(), bb.getId());
+		Question questionb1_332 = new Question(17, "Gặp biển nào người lái xe được đổ xe vào ngày lẻ?", "b1_332.jpg",
+				b1.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb1_332);
 
 		Question questionb1_352 = new Question(18,
@@ -5606,8 +5606,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_392);
 
 		Question questionb1_412 = new Question(21,
-				"Biển nào sau đây báo trước gần tới đoạn đường đang tiến hành thi công?", "b1_412.jpg",
-				b1.getId(), set12.getId(), bb.getId());
+				"Biển nào sau đây báo trước gần tới đoạn đường đang tiến hành thi công?", "b1_412.jpg", b1.getId(),
+				set12.getId(), bb.getId());
 		questionRepo.save(questionb1_412);
 
 		Question questionb1_432 = new Question(22, "Biển nào báo hiệu \"Đường dành cho xe ô tô\"?", "b1_432.jpg",
@@ -5619,8 +5619,8 @@ public class DataSeeding implements CommandLineRunner {
 				set12.getId(), bb.getId());
 		questionRepo.save(questionb1_452);
 
-		Question questionb1_472 = new Question(24, "Biển này có ý nghĩa gì?", "b1_472.jpg", b1.getId(),
-				set12.getId(), bb.getId());
+		Question questionb1_472 = new Question(24, "Biển này có ý nghĩa gì?", "b1_472.jpg", b1.getId(), set12.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_472);
 
 		Question questionb1_492 = new Question(25, "Trường hợp này xe nào được quyền đi trước?", "b1_492.jpg",
@@ -5721,24 +5721,24 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_293.jpg", b1.getId(), set13.getId(), ctsc.getId());
 		questionRepo.save(questionb1_293);
 
-		Question questionb1_313 = new Question(16, "Biển nào không cho phép ô tô con vượt?", "b1_313.jpg",
-				b1.getId(), set13.getId(), bb.getId());
+		Question questionb1_313 = new Question(16, "Biển nào không cho phép ô tô con vượt?", "b1_313.jpg", b1.getId(),
+				set13.getId(), bb.getId());
 		questionRepo.save(questionb1_313);
 
 		Question questionb1_333 = new Question(17, "Khi gặp biển nào xe ưu tiên theo luật định vẫn phải dừng lại?",
 				"b1_333.jpg", b1.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb1_333);
 
-		Question questionb1_353 = new Question(18, "Biển nào xe mô tô hai bánh được đi vào?", "b1_353.jpg",
-				b1.getId(), set13.getId(), bb.getId());
+		Question questionb1_353 = new Question(18, "Biển nào xe mô tô hai bánh được đi vào?", "b1_353.jpg", b1.getId(),
+				set13.getId(), bb.getId());
 		questionRepo.save(questionb1_353);
 
-		Question questionb1_373 = new Question(19, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?",
-				"b1_373.jpg", b1.getId(), set13.getId(), bb.getId());
+		Question questionb1_373 = new Question(19, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?", "b1_373.jpg",
+				b1.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb1_373);
 
-		Question questionb1_393 = new Question(20, "Biển nào báo hiệu \"Đường hai chiều\"?", "b1_393.jpg",
-				b1.getId(), set13.getId(), bb.getId());
+		Question questionb1_393 = new Question(20, "Biển nào báo hiệu \"Đường hai chiều\"?", "b1_393.jpg", b1.getId(),
+				set13.getId(), bb.getId());
 		questionRepo.save(questionb1_393);
 
 		Question questionb1_413 = new Question(21,
@@ -5746,13 +5746,13 @@ public class DataSeeding implements CommandLineRunner {
 				set13.getId(), bb.getId());
 		questionRepo.save(questionb1_413);
 
-		Question questionb1_433 = new Question(22, "Biển nào báo hiệu \"Hết đường dành cho xe ô tô\"?",
-				"b1_433.jpg", b1.getId(), set13.getId(), bb.getId());
+		Question questionb1_433 = new Question(22, "Biển nào báo hiệu \"Hết đường dành cho xe ô tô\"?", "b1_433.jpg",
+				b1.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb1_433);
 
 		Question questionb1_453 = new Question(23,
-				"Biển nào đặt trên đường chính trước khi đến nơi đường giao nhau để rẽ vào đường cụt?",
-				"b1_453.jpg", b1.getId(), set13.getId(), bb.getId());
+				"Biển nào đặt trên đường chính trước khi đến nơi đường giao nhau để rẽ vào đường cụt?", "b1_453.jpg",
+				b1.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb1_453);
 
 		Question questionb1_473 = new Question(24,
@@ -5764,8 +5764,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_493.jpg", b1.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionb1_493);
 
-		Question questionb1_513 = new Question(26, "Xe nào vượt đúng quy tắc giao thông?", "b1_513.jpg",
-				b1.getId(), set13.getId(), sh.getId());
+		Question questionb1_513 = new Question(26, "Xe nào vượt đúng quy tắc giao thông?", "b1_513.jpg", b1.getId(),
+				set13.getId(), sh.getId());
 		questionRepo.save(questionb1_513);
 
 		Question questionb1_533 = new Question(27, "Thứ tự các xe đi như thế nào là đúng quy tắc gaio thông?",
@@ -5782,13 +5782,13 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_573);
 
 		Question questionb1_593 = new Question(30,
-				"Các xe đi theo thứ tự như thế nào là đúng quy tắc giao thông đường bộ?", "b1_593.jpg",
-				b1.getId(), set13.getId(), sh.getId());
+				"Các xe đi theo thứ tự như thế nào là đúng quy tắc giao thông đường bộ?", "b1_593.jpg", b1.getId(),
+				set13.getId(), sh.getId());
 		questionRepo.save(questionb1_593);
 
 		Question questionb1_14 = new Question(1,
-				"Trong các khái niệm dưới đây khái niệm \"dừng xe\" được hiểu như thế nào là đúng?", "nan",
-				b1.getId(), set14.getId(), kn.getId());
+				"Trong các khái niệm dưới đây khái niệm \"dừng xe\" được hiểu như thế nào là đúng?", "nan", b1.getId(),
+				set14.getId(), kn.getId());
 		questionRepo.save(questionb1_14);
 
 		Question questionb1_34 = new Question(2,
@@ -5842,8 +5842,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_214);
 
 		Question questionb1_234 = new Question(12,
-				"Khi điều khiển xe ô tô trên đường trơn cần chú ý những điểm gì để đảm bảo an toàn?", "nan",
-				b1.getId(), set14.getId(), kt.getId());
+				"Khi điều khiển xe ô tô trên đường trơn cần chú ý những điểm gì để đảm bảo an toàn?", "nan", b1.getId(),
+				set14.getId(), kt.getId());
 		questionRepo.save(questionb1_234);
 
 		Question questionb1_254 = new Question(13,
@@ -5851,8 +5851,8 @@ public class DataSeeding implements CommandLineRunner {
 				set14.getId(), kt.getId());
 		questionRepo.save(questionb1_254);
 
-		Question questionb1_274 = new Question(14, "Kính chắn gió của ô tô phải đảm bảo yêu cầu nào dưới đây?",
-				"", b1.getId(), set14.getId(), ctsc.getId());
+		Question questionb1_274 = new Question(14, "Kính chắn gió của ô tô phải đảm bảo yêu cầu nào dưới đây?", "",
+				b1.getId(), set14.getId(), ctsc.getId());
 		questionRepo.save(questionb1_274);
 
 		Question questionb1_294 = new Question(15,
@@ -5873,8 +5873,8 @@ public class DataSeeding implements CommandLineRunner {
 				b1.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb1_354);
 
-		Question questionb1_374 = new Question(19, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?",
-				"b1_374.jpg", b1.getId(), set14.getId(), bb.getId());
+		Question questionb1_374 = new Question(19, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?", "b1_374.jpg",
+				b1.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb1_374);
 
 		Question questionb1_394 = new Question(20,
@@ -5913,8 +5913,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_534.jpg", b1.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb1_534);
 
-		Question questionb1_554 = new Question(28, "Xe nào phải nhường đường là đúng quy tắc giao thông?",
-				"b1_554.jpg", b1.getId(), set14.getId(), sh.getId());
+		Question questionb1_554 = new Question(28, "Xe nào phải nhường đường là đúng quy tắc giao thông?", "b1_554.jpg",
+				b1.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb1_554);
 
 		Question questionb1_574 = new Question(29, "Bạn xử lý như thế nào trong trường hợp này?", "b1_574.jpg",
@@ -5946,8 +5946,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_75);
 
 		Question questionb1_95 = new Question(5,
-				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?",
-				"", b1.getId(), set15.getId(), kn.getId());
+				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?", "",
+				b1.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb1_95);
 
 		Question questionb1_115 = new Question(6,
@@ -5966,8 +5966,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_155);
 
 		Question questionb1_175 = new Question(9,
-				"Hành khách có các quyền gì khi đi trên xe ô tô vận tải khách theo tuyến cố định?", "nan",
-				b1.getId(), set15.getId(), nvvt.getId());
+				"Hành khách có các quyền gì khi đi trên xe ô tô vận tải khách theo tuyến cố định?", "nan", b1.getId(),
+				set15.getId(), nvvt.getId());
 		questionRepo.save(questionb1_175);
 
 		Question questionb1_195 = new Question(10,
@@ -6000,24 +6000,24 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_295.jpg", b1.getId(), set15.getId(), ctsc.getId());
 		questionRepo.save(questionb1_295);
 
-		Question questionb1_315 = new Question(16, "Biển nào cấm xe tải vượt?", "b1_315.jpg", b1.getId(),
-				set15.getId(), bb.getId());
+		Question questionb1_315 = new Question(16, "Biển nào cấm xe tải vượt?", "b1_315.jpg", b1.getId(), set15.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_315);
 
-		Question questionb1_335 = new Question(17, "Biển nào là biển \"Cấm xe chở hàng nguy hiểm\"?",
-				"b1_335.jpg", b1.getId(), set15.getId(), bb.getId());
+		Question questionb1_335 = new Question(17, "Biển nào là biển \"Cấm xe chở hàng nguy hiểm\"?", "b1_335.jpg",
+				b1.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb1_335);
 
-		Question questionb1_355 = new Question(18, "Ba biển này có hiệu lực như thế nào?", "b1_355.jpg",
-				b1.getId(), set15.getId(), bb.getId());
+		Question questionb1_355 = new Question(18, "Ba biển này có hiệu lực như thế nào?", "b1_355.jpg", b1.getId(),
+				set15.getId(), bb.getId());
 		questionRepo.save(questionb1_355);
 
 		Question questionb1_375 = new Question(19, "Biển nào báo hiệu \"Giao nhau với đường sắt có rào chắn\"?",
 				"b1_375.jpg", b1.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb1_375);
 
-		Question questionb1_395 = new Question(20, "Biển nào chỉ dẫn \"Được ưu tiên qua đường hẹp\"?",
-				"b1_395.jpg", b1.getId(), set15.getId(), bb.getId());
+		Question questionb1_395 = new Question(20, "Biển nào chỉ dẫn \"Được ưu tiên qua đường hẹp\"?", "b1_395.jpg",
+				b1.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb1_395);
 
 		Question questionb1_415 = new Question(21,
@@ -6025,8 +6025,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_415.jpg", b1.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb1_415);
 
-		Question questionb1_435 = new Question(22, "Biển này có ý nghĩa gì?", "b1_435.jpg", b1.getId(),
-				set15.getId(), bb.getId());
+		Question questionb1_435 = new Question(22, "Biển này có ý nghĩa gì?", "b1_435.jpg", b1.getId(), set15.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_435);
 
 		Question questionb1_455 = new Question(23, "Biển nào chỉ dẫn cho người đi bộ sử dụng hầm chui qua đường?",
@@ -6046,13 +6046,13 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_515.jpg", b1.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb1_515);
 
-		Question questionb1_535 = new Question(27, "Những hướng nào ô tô tải được phép đi?", "b1_535.jpg",
-				b1.getId(), set15.getId(), sh.getId());
+		Question questionb1_535 = new Question(27, "Những hướng nào ô tô tải được phép đi?", "b1_535.jpg", b1.getId(),
+				set15.getId(), sh.getId());
 		questionRepo.save(questionb1_535);
 
 		Question questionb1_555 = new Question(28,
-				"Người lái xe được phép vượt xe tải để đi thẳng trong trường hợp này không?", "b1_555.jpg",
-				b1.getId(), set15.getId(), sh.getId());
+				"Người lái xe được phép vượt xe tải để đi thẳng trong trường hợp này không?", "b1_555.jpg", b1.getId(),
+				set15.getId(), sh.getId());
 		questionRepo.save(questionb1_555);
 
 		Question questionb1_575 = new Question(29, "Xe nào phải nhường đường trong trường hợp này?", "b1_575.jpg",
@@ -6060,8 +6060,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_575);
 
 		Question questionb1_595 = new Question(30,
-				"Khi gặp xe ngược chiều bật đèn pha trong tình huống dưới dây, bạn xử lý như thế nào?",
-				"b1_595.jpg", b1.getId(), set15.getId(), sh.getId());
+				"Khi gặp xe ngược chiều bật đèn pha trong tình huống dưới dây, bạn xử lý như thế nào?", "b1_595.jpg",
+				b1.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb1_595);
 
 		Question questionb1_16 = new Question(1, "Khái niệm \"đường cao tốc\" được hiểu như thế nào là đúng?", "nan",
@@ -6138,8 +6138,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_296.jpg", b1.getId(), set16.getId(), ctsc.getId());
 		questionRepo.save(questionb1_296);
 
-		Question questionb1_316 = new Question(16, "Biển nào xe ô tô con được phép vượt?", "b1_316.jpg",
-				b1.getId(), set16.getId(), bb.getId());
+		Question questionb1_316 = new Question(16, "Biển nào xe ô tô con được phép vượt?", "b1_316.jpg", b1.getId(),
+				set16.getId(), bb.getId());
 		questionRepo.save(questionb1_316);
 
 		Question questionb1_336 = new Question(17, "Gặp biển nào xe xích lô được phép đi vào?", "b1_336.jpg",
@@ -6151,8 +6151,8 @@ public class DataSeeding implements CommandLineRunner {
 				b1.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb1_356);
 
-		Question questionb1_376 = new Question(19, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?",
-				"b1_376.jpg", b1.getId(), set16.getId(), bb.getId());
+		Question questionb1_376 = new Question(19, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?", "b1_376.jpg",
+				b1.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb1_376);
 
 		Question questionb1_396 = new Question(20, "Biển nào báo hiệu \"Đường đôi\"?", "b1_396.jpg", b1.getId(),
@@ -6164,8 +6164,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_416);
 
 		Question questionb1_436 = new Question(22,
-				"Biển nào ( đặt trước ngã ba, ngã tư) co phép xe được rẽ sang dướng khác?", "b1_436.jpg",
-				b1.getId(), set16.getId(), bb.getId());
+				"Biển nào ( đặt trước ngã ba, ngã tư) co phép xe được rẽ sang dướng khác?", "b1_436.jpg", b1.getId(),
+				set16.getId(), bb.getId());
 		questionRepo.save(questionb1_436);
 
 		Question questionb1_456 = new Question(23, "Biển nào báo hiệu nơi đỗ xe cho người tàn tật?", "b1_456.jpg",
@@ -6189,8 +6189,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_536.jpg", b1.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb1_536);
 
-		Question questionb1_556 = new Question(28, "Bạn có được phép vượt xe mô tô phía trước không?",
-				"b1_556.jpg", b1.getId(), set16.getId(), sh.getId());
+		Question questionb1_556 = new Question(28, "Bạn có được phép vượt xe mô tô phía trước không?", "b1_556.jpg",
+				b1.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb1_556);
 
 		Question questionb1_576 = new Question(29, "Xe nào phải nhường đường trong trường hợp này?", "b1_576.jpg",
@@ -6217,8 +6217,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_57);
 
 		Question questionb1_77 = new Question(4,
-				"Khi dạy thực hành lái xe, giáo viên phải mang theo các loại giấy tờ gì dưới đây?", "nan",
-				b1.getId(), set17.getId(), kn.getId());
+				"Khi dạy thực hành lái xe, giáo viên phải mang theo các loại giấy tờ gì dưới đây?", "nan", b1.getId(),
+				set17.getId(), kn.getId());
 		questionRepo.save(questionb1_77);
 
 		Question questionb1_97 = new Question(5,
@@ -6241,8 +6241,8 @@ public class DataSeeding implements CommandLineRunner {
 				set17.getId(), kn.getId());
 		questionRepo.save(questionb1_157);
 
-		Question questionb1_177 = new Question(9, "Người kinh doanh vận tải hàng hóa có các quyền gì ở dưới đây?",
-				"", b1.getId(), set17.getId(), nvvt.getId());
+		Question questionb1_177 = new Question(9, "Người kinh doanh vận tải hàng hóa có các quyền gì ở dưới đây?", "",
+				b1.getId(), set17.getId(), nvvt.getId());
 		questionRepo.save(questionb1_177);
 
 		Question questionb1_197 = new Question(10, "Khái niệm về văn hóa giao thông được hiểu như thế nào là đúng?",
@@ -6265,16 +6265,16 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_257);
 
 		Question questionb1_277 = new Question(14,
-				"Mục đích của bảo dưỡng thường xuyên đối với xe ô tô có tác dụng gì?", "nan", b1.getId(),
-				set17.getId(), ctsc.getId());
+				"Mục đích của bảo dưỡng thường xuyên đối với xe ô tô có tác dụng gì?", "nan", b1.getId(), set17.getId(),
+				ctsc.getId());
 		questionRepo.save(questionb1_277);
 
 		Question questionb1_297 = new Question(15, "Ắc quy được trang bị trên xe ô tô có tác dụng gì?", "nan",
 				b1.getId(), set17.getId(), ctsc.getId());
 		questionRepo.save(questionb1_297);
 
-		Question questionb1_317 = new Question(16, "Biển nào cấm quay xe?", "b1_317.jpg", b1.getId(),
-				set17.getId(), bb.getId());
+		Question questionb1_317 = new Question(16, "Biển nào cấm quay xe?", "b1_317.jpg", b1.getId(), set17.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_317);
 
 		Question questionb1_337 = new Question(17, "Gặp biển nào xe lam, xe xích lô máy được phép đi vào?",
@@ -6286,8 +6286,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_357.jpg", b1.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionb1_357);
 
-		Question questionb1_377 = new Question(19, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?",
-				"b1_377.jpg", b1.getId(), set17.getId(), bb.getId());
+		Question questionb1_377 = new Question(19, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?", "b1_377.jpg",
+				b1.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionb1_377);
 
 		Question questionb1_397 = new Question(20, "Biển nào báo hiệu \"Đường đôi\"?", "b1_397.jpg", b1.getId(),
@@ -6312,16 +6312,16 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_477.jpg", b1.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionb1_477);
 
-		Question questionb1_497 = new Question(25, "Xe nào phải nhường đường là đúng quy tắc gaio thông?",
-				"b1_497.jpg", b1.getId(), set17.getId(), sh.getId());
+		Question questionb1_497 = new Question(25, "Xe nào phải nhường đường là đúng quy tắc gaio thông?", "b1_497.jpg",
+				b1.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionb1_497);
 
-		Question questionb1_517 = new Question(26, "Xe nào được quyền đi trước trong trường hợp này?",
-				"b1_517.jpg", b1.getId(), set17.getId(), sh.getId());
+		Question questionb1_517 = new Question(26, "Xe nào được quyền đi trước trong trường hợp này?", "b1_517.jpg",
+				b1.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionb1_517);
 
-		Question questionb1_537 = new Question(27, "Những hướng nào ô tô tải được phép đi?", "b1_537.jpg",
-				b1.getId(), set17.getId(), sh.getId());
+		Question questionb1_537 = new Question(27, "Những hướng nào ô tô tải được phép đi?", "b1_537.jpg", b1.getId(),
+				set17.getId(), sh.getId());
 		questionRepo.save(questionb1_537);
 
 		Question questionb1_557 = new Question(28, "Người láu xe dừng tại vị trí nào là đúng quy tắc giao thông?",
@@ -6402,24 +6402,24 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_258);
 
 		Question questionb1_278 = new Question(14,
-				"Trong các nguyên nhân nếu dưới đây, nguyên nhân nào làm động cơ diesel không nổ?", "nan",
-				b1.getId(), set18.getId(), ctsc.getId());
+				"Trong các nguyên nhân nếu dưới đây, nguyên nhân nào làm động cơ diesel không nổ?", "nan", b1.getId(),
+				set18.getId(), ctsc.getId());
 		questionRepo.save(questionb1_278);
 
 		Question questionb1_298 = new Question(15, "Máy phát điện được trang bị trên xe ô tô có tác dụng gì?", "nan",
 				b1.getId(), set18.getId(), ctsc.getId());
 		questionRepo.save(questionb1_298);
 
-		Question questionb1_318 = new Question(16, "Biển nào cấm xe rẽ trái?", "b1_318.jpg", b1.getId(),
-				set18.getId(), bb.getId());
+		Question questionb1_318 = new Question(16, "Biển nào cấm xe rẽ trái?", "b1_318.jpg", b1.getId(), set18.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_318);
 
 		Question questionb1_338 = new Question(17, "Biển báo này có ý nghĩa gì?", "b1_338.jpg", b1.getId(),
 				set18.getId(), bb.getId());
 		questionRepo.save(questionb1_338);
 
-		Question questionb1_358 = new Question(18, "Biển này có ý nghĩa gì?", "b1_358.jpg", b1.getId(),
-				set18.getId(), bb.getId());
+		Question questionb1_358 = new Question(18, "Biển này có ý nghĩa gì?", "b1_358.jpg", b1.getId(), set18.getId(),
+				bb.getId());
 		questionRepo.save(questionb1_358);
 
 		Question questionb1_378 = new Question(19,
@@ -6436,8 +6436,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_418.jpg", b1.getId(), set18.getId(), bb.getId());
 		questionRepo.save(questionb1_418);
 
-		Question questionb1_438 = new Question(22, "Biển nào báo hiệu \"Đường một chiều\"?", "b1_438.jpg",
-				b1.getId(), set18.getId(), bb.getId());
+		Question questionb1_438 = new Question(22, "Biển nào báo hiệu \"Đường một chiều\"?", "b1_438.jpg", b1.getId(),
+				set18.getId(), bb.getId());
 		questionRepo.save(questionb1_438);
 
 		Question questionb1_458 = new Question(23, "Gặp biển báo này, người tham gia thông phải xử lý như thế nào?",
@@ -6449,8 +6449,8 @@ public class DataSeeding implements CommandLineRunner {
 				set18.getId(), bb.getId());
 		questionRepo.save(questionb1_478);
 
-		Question questionb1_498 = new Question(25, "Xe nào được quyền đi trước trong trường hợp này?",
-				"b1_498.jpg", b1.getId(), set18.getId(), sh.getId());
+		Question questionb1_498 = new Question(25, "Xe nào được quyền đi trước trong trường hợp này?", "b1_498.jpg",
+				b1.getId(), set18.getId(), sh.getId());
 		questionRepo.save(questionb1_498);
 
 		Question questionb1_518 = new Question(26, "Xe kéo nhau trong trường hợp này đúng quy định không?",
@@ -6461,8 +6461,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_538.jpg", b1.getId(), set18.getId(), sh.getId());
 		questionRepo.save(questionb1_538);
 
-		Question questionb1_558 = new Question(28, "Bạn được dừng ở vị trí nào trong tình huống này?",
-				"b1_558.jpg", b1.getId(), set18.getId(), sh.getId());
+		Question questionb1_558 = new Question(28, "Bạn được dừng ở vị trí nào trong tình huống này?", "b1_558.jpg",
+				b1.getId(), set18.getId(), sh.getId());
 		questionRepo.save(questionb1_558);
 
 		Question questionb1_578 = new Question(29,
@@ -6499,8 +6499,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_99);
 
 		Question questionb1_119 = new Question(6,
-				"Trên đường cao tốc, người lái xe xử lý như thế nào khi đã vượt quá lối ra của đường định rẽ?",
-				"", b1.getId(), set19.getId(), kn.getId());
+				"Trên đường cao tốc, người lái xe xử lý như thế nào khi đã vượt quá lối ra của đường định rẽ?", "",
+				b1.getId(), set19.getId(), kn.getId());
 		questionRepo.save(questionb1_119);
 
 		Question questionb1_139 = new Question(7,
@@ -6542,16 +6542,16 @@ public class DataSeeding implements CommandLineRunner {
 				set19.getId(), ctsc.getId());
 		questionRepo.save(questionb1_279);
 
-		Question questionb1_299 = new Question(15, "Dây đai an toàn được trang bị trên xe ô tô có tác dụng gì?",
-				"", b1.getId(), set19.getId(), ctsc.getId());
+		Question questionb1_299 = new Question(15, "Dây đai an toàn được trang bị trên xe ô tô có tác dụng gì?", "",
+				b1.getId(), set19.getId(), ctsc.getId());
 		questionRepo.save(questionb1_299);
 
 		Question questionb1_319 = new Question(16, "Khi gặp biển nào xe được rẽ trái?", "b1_319.jpg", b1.getId(),
 				set19.getId(), bb.getId());
 		questionRepo.save(questionb1_319);
 
-		Question questionb1_339 = new Question(17, "Biển báo này có ý nghĩa như thế nào?", "b1_339.jpg",
-				b1.getId(), set19.getId(), bb.getId());
+		Question questionb1_339 = new Question(17, "Biển báo này có ý nghĩa như thế nào?", "b1_339.jpg", b1.getId(),
+				set19.getId(), bb.getId());
 		questionRepo.save(questionb1_339);
 
 		Question questionb1_359 = new Question(18, "Theo hướng bên phải có được phép đỗ xe, dừng xe không?",
@@ -6563,17 +6563,17 @@ public class DataSeeding implements CommandLineRunner {
 				set19.getId(), bb.getId());
 		questionRepo.save(questionb1_379);
 
-		Question questionb1_399 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?",
-				"b1_399.jpg", b1.getId(), set19.getId(), bb.getId());
+		Question questionb1_399 = new Question(20, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", "b1_399.jpg",
+				b1.getId(), set19.getId(), bb.getId());
 		questionRepo.save(questionb1_399);
 
-		Question questionb1_419 = new Question(21, "Biển nào sau đây là biển \"Dốc xuống nguy hiểm\"?",
-				"b1_419.jpg", b1.getId(), set19.getId(), bb.getId());
+		Question questionb1_419 = new Question(21, "Biển nào sau đây là biển \"Dốc xuống nguy hiểm\"?", "b1_419.jpg",
+				b1.getId(), set19.getId(), bb.getId());
 		questionRepo.save(questionb1_419);
 
 		Question questionb1_439 = new Question(22,
-				"Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối đa cho phép\"?", "b1_439.jpg",
-				b1.getId(), set19.getId(), bb.getId());
+				"Trong các biển dưới đây biển nào là biển \"Hết tốc độ tối đa cho phép\"?", "b1_439.jpg", b1.getId(),
+				set19.getId(), bb.getId());
 		questionRepo.save(questionb1_439);
 
 		Question questionb1_459 = new Question(23,
@@ -6586,8 +6586,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b1_479.jpg", b1.getId(), set19.getId(), bb.getId());
 		questionRepo.save(questionb1_479);
 
-		Question questionb1_499 = new Question(25, "Theo tín hiệu đèn, xe nào được phép đi?", "b1_499.jpg",
-				b1.getId(), set19.getId(), sh.getId());
+		Question questionb1_499 = new Question(25, "Theo tín hiệu đèn, xe nào được phép đi?", "b1_499.jpg", b1.getId(),
+				set19.getId(), sh.getId());
 		questionRepo.save(questionb1_499);
 
 		Question questionb1_519 = new Question(26, "Theo hướng mũi tên, những hướng đi nào ô tô con được phép đi?",
@@ -6677,8 +6677,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb1_260);
 
 		Question questionb1_280 = new Question(14,
-				"Dây đai an toàn lắp trên ô tô phải đảm bảo yêu cầu an toàn kỹ thuật nào dưới đây?", "nan",
-				b1.getId(), set20.getId(), ctsc.getId());
+				"Dây đai an toàn lắp trên ô tô phải đảm bảo yêu cầu an toàn kỹ thuật nào dưới đây?", "nan", b1.getId(),
+				set20.getId(), ctsc.getId());
 		questionRepo.save(questionb1_280);
 
 		Question questionb1_300 = new Question(15, "Túi khí được trang bị trên xe ô tô có tác dụng gì?", "nan",
@@ -6703,17 +6703,17 @@ public class DataSeeding implements CommandLineRunner {
 				set20.getId(), bb.getId());
 		questionRepo.save(questionb1_380);
 
-		Question questionb1_400 = new Question(20, "Biển nào báo hiệu \"Đường hai chiều\"?", "b1_400.jpg",
-				b1.getId(), set20.getId(), bb.getId());
+		Question questionb1_400 = new Question(20, "Biển nào báo hiệu \"Đường hai chiều\"?", "b1_400.jpg", b1.getId(),
+				set20.getId(), bb.getId());
 		questionRepo.save(questionb1_400);
 
-		Question questionb1_420 = new Question(21, "Biển nào sau đây là biển \"Dốc lên nguy hiểm\"?",
-				"b1_420.jpg", b1.getId(), set20.getId(), bb.getId());
+		Question questionb1_420 = new Question(21, "Biển nào sau đây là biển \"Dốc lên nguy hiểm\"?", "b1_420.jpg",
+				b1.getId(), set20.getId(), bb.getId());
 		questionRepo.save(questionb1_420);
 
 		Question questionb1_440 = new Question(22,
-				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?",
-				"b1_440.jpg", b1.getId(), set20.getId(), bb.getId());
+				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?", "b1_440.jpg",
+				b1.getId(), set20.getId(), bb.getId());
 		questionRepo.save(questionb1_440);
 
 		Question questionb1_460 = new Question(23,
@@ -6820,8 +6820,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_103);
 
 		Question questionb2_120 = new Question(8,
-				"Người lái xe mô tô xử lý như thế nòa khi cho xe mô tô phía sau vượt?", "nan", b2.getId(),
-				set1.getId(), kn.getId());
+				"Người lái xe mô tô xử lý như thế nòa khi cho xe mô tô phía sau vượt?", "nan", b2.getId(), set1.getId(),
+				kn.getId());
 		questionRepo.save(questionb2_120);
 
 		Question questionb2_137 = new Question(9,
@@ -6849,8 +6849,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_205);
 
 		Question questionb2_222 = new Question(14,
-				"Khi xuống dốc, muốn dừng xe, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?",
-				"", b2.getId(), set1.getId(), kt.getId());
+				"Khi xuống dốc, muốn dừng xe, người lái xe cần thực hiện các thao tác nào để đảm bảo an toàn?", "",
+				b2.getId(), set1.getId(), kt.getId());
 		questionRepo.save(questionb2_222);
 
 		Question questionb2_239 = new Question(15,
@@ -6872,8 +6872,8 @@ public class DataSeeding implements CommandLineRunner {
 				set1.getId(), ctsc.getId());
 		questionRepo.save(questionb2_290);
 
-		Question questionb2_307 = new Question(19, "Biển nào cấm xe máy kéo?", "b2_307.jpg", b2.getId(),
-				set1.getId(), bb.getId());
+		Question questionb2_307 = new Question(19, "Biển nào cấm xe máy kéo?", "b2_307.jpg", b2.getId(), set1.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_307);
 
 		Question questionb2_324 = new Question(20, "Biển nào cấm ô tô rẽ phải và quay đầu xe?", "b2_324.jpg",
@@ -6888,8 +6888,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_358.jpg", b2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb2_358);
 
-		Question questionb2_375 = new Question(23, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?",
-				"b2_375.jpg", b2.getId(), set1.getId(), bb.getId());
+		Question questionb2_375 = new Question(23, "Biển nào báo hiệu nguy hiểm giao nhau với đường sắt?", "b2_375.jpg",
+				b2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb2_375);
 
 		Question questionb2_392 = new Question(24,
@@ -6897,12 +6897,12 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_392.jpg", b2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb2_392);
 
-		Question questionb2_409 = new Question(25, "Biển nào sau đây là biển \"Lề đường nguy hiểm\"?",
-				"b2_409.jpg", b2.getId(), set1.getId(), bb.getId());
+		Question questionb2_409 = new Question(25, "Biển nào sau đây là biển \"Lề đường nguy hiểm\"?", "b2_409.jpg",
+				b2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb2_409);
 
-		Question questionb2_426 = new Question(26, "Gặp biển báo này người lái xe phải xử lý thế nào?",
-				"b2_426.jpg", b2.getId(), set1.getId(), bb.getId());
+		Question questionb2_426 = new Question(26, "Gặp biển báo này người lái xe phải xử lý thế nào?", "b2_426.jpg",
+				b2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb2_426);
 
 		Question questionb2_443 = new Question(27,
@@ -6919,8 +6919,8 @@ public class DataSeeding implements CommandLineRunner {
 				b2.getId(), set1.getId(), bb.getId());
 		questionRepo.save(questionb2_477);
 
-		Question questionb2_494 = new Question(30, "Xe nào phải nhường đường là đúng quy tắc gaio thông?",
-				"b2_494.jpg", b2.getId(), set1.getId(), sh.getId());
+		Question questionb2_494 = new Question(30, "Xe nào phải nhường đường là đúng quy tắc gaio thông?", "b2_494.jpg",
+				b2.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb2_494);
 
 		Question questionb2_511 = new Question(31,
@@ -6940,8 +6940,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_562.jpg", b2.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb2_562);
 
-		Question questionb2_579 = new Question(35, "Các xe đi như thế nào là đúng quy tắc giao thông?",
-				"b2_579.jpg", b2.getId(), set1.getId(), sh.getId());
+		Question questionb2_579 = new Question(35, "Các xe đi như thế nào là đúng quy tắc giao thông?", "b2_579.jpg",
+				b2.getId(), set1.getId(), sh.getId());
 		questionRepo.save(questionb2_579);
 
 		Question questionb2_2 = new Question(1, "\"Làn đường\" là gì?", "nan", b2.getId(), set2.getId(), kn.getId());
@@ -7006,8 +7006,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_206);
 
 		Question questionb2_223 = new Question(14,
-				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", "nan",
-				b2.getId(), set2.getId(), kt.getId());
+				"Khi điều khiển xe trên đường vòng người lái xe cần phải làm gì để đảm bảo an toàn?", "nan", b2.getId(),
+				set2.getId(), kt.getId());
 		questionRepo.save(questionb2_223);
 
 		Question questionb2_240 = new Question(15,
@@ -7020,8 +7020,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", b2.getId(), set2.getId(), kt.getId());
 		questionRepo.save(questionb2_257);
 
-		Question questionb2_274 = new Question(17, "Kính chắn gió của ô tô phải đảm bảo yêu cầu nào dưới đây?",
-				"", b2.getId(), set2.getId(), ctsc.getId());
+		Question questionb2_274 = new Question(17, "Kính chắn gió của ô tô phải đảm bảo yêu cầu nào dưới đây?", "",
+				b2.getId(), set2.getId(), ctsc.getId());
 		questionRepo.save(questionb2_274);
 
 		Question questionb2_291 = new Question(18, "Đèn phanh trên xe ô tô có tác dụng gì?", "nan", b2.getId(),
@@ -7050,13 +7050,13 @@ public class DataSeeding implements CommandLineRunner {
 				set2.getId(), bb.getId());
 		questionRepo.save(questionb2_376);
 
-		Question questionb2_393 = new Question(24, "Biển nào chỉ dẫn \"Được ưu tiên qua đường hẹp\"?",
-				"b2_393.jpg", b2.getId(), set2.getId(), bb.getId());
+		Question questionb2_393 = new Question(24, "Biển nào chỉ dẫn \"Được ưu tiên qua đường hẹp\"?", "b2_393.jpg",
+				b2.getId(), set2.getId(), bb.getId());
 		questionRepo.save(questionb2_393);
 
 		Question questionb2_410 = new Question(25,
-				"Biển nào sau đây báo trước gần tới đoạn đường đang tiến hành thi công?", "b2_410.jpg",
-				b2.getId(), set2.getId(), bb.getId());
+				"Biển nào sau đây báo trước gần tới đoạn đường đang tiến hành thi công?", "b2_410.jpg", b2.getId(),
+				set2.getId(), bb.getId());
 		questionRepo.save(questionb2_410);
 
 		Question questionb2_427 = new Question(26, "Biển báo này có ý nghĩa gì?", "b2_427.jpg", b2.getId(),
@@ -7075,8 +7075,8 @@ public class DataSeeding implements CommandLineRunner {
 				set2.getId(), bb.getId());
 		questionRepo.save(questionb2_478);
 
-		Question questionb2_495 = new Question(30, "Xe nào được quyền đi trước trong trường hợp này?",
-				"b2_495.jpg", b2.getId(), set2.getId(), sh.getId());
+		Question questionb2_495 = new Question(30, "Xe nào được quyền đi trước trong trường hợp này?", "b2_495.jpg",
+				b2.getId(), set2.getId(), sh.getId());
 		questionRepo.save(questionb2_495);
 
 		Question questionb2_512 = new Question(31, "Xe kéo nhau như hình này có vi phạm quy tắc giao thông không?",
@@ -7088,8 +7088,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_529);
 
 		Question questionb2_546 = new Question(33,
-				"Người lái xe có thể quay đầu xe như thế nào là đúng quy tắc giao thông?", "b2_546.jpg",
-				b2.getId(), set2.getId(), sh.getId());
+				"Người lái xe có thể quay đầu xe như thế nào là đúng quy tắc giao thông?", "b2_546.jpg", b2.getId(),
+				set2.getId(), sh.getId());
 		questionRepo.save(questionb2_546);
 
 		Question questionb2_563 = new Question(34, "Các xe đi theo thứ tự nào là đúng quy tắc giao thông đường bộ?",
@@ -7130,8 +7130,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_88);
 
 		Question questionb2_105 = new Question(7,
-				"Xe quá tải trọng, quá khổ giới hạn tham gia giao thông cần tuân thủ quy định nào ghi dưới đây?",
-				"", b2.getId(), set3.getId(), kn.getId());
+				"Xe quá tải trọng, quá khổ giới hạn tham gia giao thông cần tuân thủ quy định nào ghi dưới đây?", "",
+				b2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb2_105);
 
 		Question questionb2_122 = new Question(8,
@@ -7149,8 +7149,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", b2.getId(), set3.getId(), kn.getId());
 		questionRepo.save(questionb2_156);
 
-		Question questionb2_173 = new Question(11, "Lái xe kinh doanh vận tải phải có trách nhiệm gì sau đây?",
-				"", b2.getId(), set3.getId(), nvvt.getId());
+		Question questionb2_173 = new Question(11, "Lái xe kinh doanh vận tải phải có trách nhiệm gì sau đây?", "",
+				b2.getId(), set3.getId(), nvvt.getId());
 		questionRepo.save(questionb2_173);
 
 		Question questionb2_190 = new Question(12, "Hình nào dưới đây biểu hiện hàng chuyên chử đễ vỡ phải cẩn thận?",
@@ -7167,8 +7167,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", b2.getId(), set3.getId(), kt.getId());
 		questionRepo.save(questionb2_224);
 
-		Question questionb2_241 = new Question(15, "Các biện pháp tiết kiệm nhiên liệu khi chạy xe?", "nan",
-				b2.getId(), set3.getId(), kt.getId());
+		Question questionb2_241 = new Question(15, "Các biện pháp tiết kiệm nhiên liệu khi chạy xe?", "nan", b2.getId(),
+				set3.getId(), kt.getId());
 		questionRepo.save(questionb2_241);
 
 		Question questionb2_258 = new Question(16,
@@ -7235,8 +7235,8 @@ public class DataSeeding implements CommandLineRunner {
 				set3.getId(), bb.getId());
 		questionRepo.save(questionb2_479);
 
-		Question questionb2_496 = new Question(30, "Theo tín hiệu đèn, xe nào được phép đi?", "b2_496.jpg",
-				b2.getId(), set3.getId(), sh.getId());
+		Question questionb2_496 = new Question(30, "Theo tín hiệu đèn, xe nào được phép đi?", "b2_496.jpg", b2.getId(),
+				set3.getId(), sh.getId());
 		questionRepo.save(questionb2_496);
 
 		Question questionb2_513 = new Question(31, "Xe nào phải nhường đường trong trường hợp này?", "b2_513.jpg",
@@ -7265,8 +7265,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_4);
 
 		Question questionb2_21 = new Question(2,
-				"Việc lái xe mô tô, ô tô, máy kéo ngay sai khi uống rượu, bia có được phép không?", "nan",
-				b2.getId(), set4.getId(), kn.getId());
+				"Việc lái xe mô tô, ô tô, máy kéo ngay sai khi uống rượu, bia có được phép không?", "nan", b2.getId(),
+				set4.getId(), kn.getId());
 		questionRepo.save(questionb2_21);
 
 		Question questionb2_38 = new Question(3,
@@ -7310,8 +7310,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_157);
 
 		Question questionb2_174 = new Question(11,
-				"Người kinh doanh vận tải hành khách có những quyền hạn nào dưới đây?", "nan", b2.getId(),
-				set4.getId(), nvvt.getId());
+				"Người kinh doanh vận tải hành khách có những quyền hạn nào dưới đây?", "nan", b2.getId(), set4.getId(),
+				nvvt.getId());
 		questionRepo.save(questionb2_174);
 
 		Question questionb2_191 = new Question(12, "Hình nào dưới đây đòi hỏi hàng phải xếp theo hướng thẳng đứng?",
@@ -7348,20 +7348,20 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_293.jpg", b2.getId(), set4.getId(), ctsc.getId());
 		questionRepo.save(questionb2_293);
 
-		Question questionb2_310 = new Question(19, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?",
-				"b2_310.jpg", b2.getId(), set4.getId(), bb.getId());
+		Question questionb2_310 = new Question(19, "Biển nào báo hiệu cấm xe mô tô hai bánh đi vào?", "b2_310.jpg",
+				b2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionb2_310);
 
 		Question questionb2_327 = new Question(20, "Biển nào xe quay đầu không bị cấm?", "b2_327.jpg", b2.getId(),
 				set4.getId(), bb.getId());
 		questionRepo.save(questionb2_327);
 
-		Question questionb2_344 = new Question(21, "Biển nào cấm máy kéo kéo theo rơ mooc?", "b2_344.jpg",
-				b2.getId(), set4.getId(), bb.getId());
+		Question questionb2_344 = new Question(21, "Biển nào cấm máy kéo kéo theo rơ mooc?", "b2_344.jpg", b2.getId(),
+				set4.getId(), bb.getId());
 		questionRepo.save(questionb2_344);
 
-		Question questionb2_361 = new Question(22, "Biển này có ý nghĩa gì?", "b2_361.jpg", b2.getId(),
-				set4.getId(), bb.getId());
+		Question questionb2_361 = new Question(22, "Biển này có ý nghĩa gì?", "b2_361.jpg", b2.getId(), set4.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_361);
 
 		Question questionb2_378 = new Question(23, "Biến nào báo hiệu \"Cửa chui\"?", "b2_378.jpg", b2.getId(),
@@ -7381,17 +7381,17 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_429.jpg", b2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionb2_429);
 
-		Question questionb2_446 = new Question(27, "Biển 1 có ý nghĩa gì?", "b2_446.jpg", b2.getId(),
-				set4.getId(), bb.getId());
+		Question questionb2_446 = new Question(27, "Biển 1 có ý nghĩa gì?", "b2_446.jpg", b2.getId(), set4.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_446);
 
 		Question questionb2_463 = new Question(28,
-				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?",
-				"b2_463.jpg", b2.getId(), set4.getId(), bb.getId());
+				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?", "b2_463.jpg",
+				b2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionb2_463);
 
-		Question questionb2_480 = new Question(29, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?",
-				"b2_480.jpg", b2.getId(), set4.getId(), bb.getId());
+		Question questionb2_480 = new Question(29, "Khi gặp vạch kẻ đường nào các xe được phép đè vạch?", "b2_480.jpg",
+				b2.getId(), set4.getId(), bb.getId());
 		questionRepo.save(questionb2_480);
 
 		Question questionb2_497 = new Question(30,
@@ -7399,12 +7399,12 @@ public class DataSeeding implements CommandLineRunner {
 				set4.getId(), sh.getId());
 		questionRepo.save(questionb2_497);
 
-		Question questionb2_514 = new Question(31, "Xe nào được quyền đi trước trong trường hợp này?",
-				"b2_514.jpg", b2.getId(), set4.getId(), sh.getId());
+		Question questionb2_514 = new Question(31, "Xe nào được quyền đi trước trong trường hợp này?", "b2_514.jpg",
+				b2.getId(), set4.getId(), sh.getId());
 		questionRepo.save(questionb2_514);
 
-		Question questionb2_531 = new Question(32, "Những hướng nào ô tô tải được phép đi?", "b2_531.jpg",
-				b2.getId(), set4.getId(), sh.getId());
+		Question questionb2_531 = new Question(32, "Những hướng nào ô tô tải được phép đi?", "b2_531.jpg", b2.getId(),
+				set4.getId(), sh.getId());
 		questionRepo.save(questionb2_531);
 
 		Question questionb2_548 = new Question(33,
@@ -7450,8 +7450,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_90);
 
 		Question questionb2_107 = new Question(7,
-				"Xe kéo rơ moóc khi thao gia giao thông phải tuân thủ điều kiện nào ghi ở dưới đây?", "nan",
-				b2.getId(), set5.getId(), kn.getId());
+				"Xe kéo rơ moóc khi thao gia giao thông phải tuân thủ điều kiện nào ghi ở dưới đây?", "nan", b2.getId(),
+				set5.getId(), kn.getId());
 		questionRepo.save(questionb2_107);
 
 		Question questionb2_124 = new Question(8,
@@ -7470,8 +7470,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_158);
 
 		Question questionb2_175 = new Question(11,
-				"Hành khách có các quyền gì khi đi trên xe ô tô vận tải khách theo tuyến cố định?", "nan",
-				b2.getId(), set5.getId(), nvvt.getId());
+				"Hành khách có các quyền gì khi đi trên xe ô tô vận tải khách theo tuyến cố định?", "nan", b2.getId(),
+				set5.getId(), nvvt.getId());
 		questionRepo.save(questionb2_175);
 
 		Question questionb2_192 = new Question(12, "Hình nào dưới đây biểu hiện hàng chuyên chở là chất lỏng?",
@@ -7499,8 +7499,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_260);
 
 		Question questionb2_277 = new Question(17,
-				"Mục đích của bảo dưỡng thường xuyên đối với xe ô tô có tác dụng gì?", "nan", b2.getId(),
-				set5.getId(), ctsc.getId());
+				"Mục đích của bảo dưỡng thường xuyên đối với xe ô tô có tác dụng gì?", "nan", b2.getId(), set5.getId(),
+				ctsc.getId());
 		questionRepo.save(questionb2_277);
 
 		Question questionb2_294 = new Question(18,
@@ -7508,8 +7508,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_294.jpg", b2.getId(), set5.getId(), ctsc.getId());
 		questionRepo.save(questionb2_294);
 
-		Question questionb2_311 = new Question(19, "khi gặp biển nào thì xe mô tô hai bánh được đi vào?",
-				"b2_311.jpg", b2.getId(), set5.getId(), bb.getId());
+		Question questionb2_311 = new Question(19, "khi gặp biển nào thì xe mô tô hai bánh được đi vào?", "b2_311.jpg",
+				b2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb2_311);
 
 		Question questionb2_328 = new Question(20, "Biển nào được phép quay đầu nhưng không được rẻ trái?",
@@ -7520,8 +7520,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_345.jpg", b2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb2_345);
 
-		Question questionb2_362 = new Question(22, "Biển này có ý nghĩa gì?", "b2_362.jpg", b2.getId(),
-				set5.getId(), bb.getId());
+		Question questionb2_362 = new Question(22, "Biển này có ý nghĩa gì?", "b2_362.jpg", b2.getId(), set5.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_362);
 
 		Question questionb2_379 = new Question(23, "Hai biển này có ý nghĩa gì?", "b2_379.jpg", b2.getId(),
@@ -7541,21 +7541,21 @@ public class DataSeeding implements CommandLineRunner {
 				b2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb2_430);
 
-		Question questionb2_447 = new Question(27, "Biển 3 có ý nghĩa gì?", "b2_447.jpg", b2.getId(),
-				set5.getId(), bb.getId());
+		Question questionb2_447 = new Question(27, "Biển 3 có ý nghĩa gì?", "b2_447.jpg", b2.getId(), set5.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_447);
 
 		Question questionb2_464 = new Question(28,
-				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?",
-				"b2_464.jpg", b2.getId(), set5.getId(), bb.getId());
+				"Tại đoạn đường có cắm biển dưới đây, xe tải và xe khách có được phép đi vào không?", "b2_464.jpg",
+				b2.getId(), set5.getId(), bb.getId());
 		questionRepo.save(questionb2_464);
 
 		Question questionb2_481 = new Question(29, "Vạch dưới đây có tác dụng gì?", "b2_481.jpg", b2.getId(),
 				set5.getId(), bb.getId());
 		questionRepo.save(questionb2_481);
 
-		Question questionb2_498 = new Question(30, "Trong trường hợp này xe nào được quyền đi trước?",
-				"b2_498.jpg", b2.getId(), set5.getId(), sh.getId());
+		Question questionb2_498 = new Question(30, "Trong trường hợp này xe nào được quyền đi trước?", "b2_498.jpg",
+				b2.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionb2_498);
 
 		Question questionb2_515 = new Question(31, "Xe kéo nhau trong trường hợp này đúng quy định không?",
@@ -7575,12 +7575,12 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_566.jpg", b2.getId(), set5.getId(), sh.getId());
 		questionRepo.save(questionb2_566);
 
-		Question questionb2_583 = new Question(35, "Bạn xử lý thế nào trong trường hợp này?", "b2_583.jpg",
-				b2.getId(), set5.getId(), sh.getId());
+		Question questionb2_583 = new Question(35, "Bạn xử lý thế nào trong trường hợp này?", "b2_583.jpg", b2.getId(),
+				set5.getId(), sh.getId());
 		questionRepo.save(questionb2_583);
 
-		Question questionb2_6 = new Question(1, "Người lái xe được hiểu như thế nào trong các khái niệm dưới đây?",
-				"", b2.getId(), set6.getId(), kn.getId());
+		Question questionb2_6 = new Question(1, "Người lái xe được hiểu như thế nào trong các khái niệm dưới đây?", "",
+				b2.getId(), set6.getId(), kn.getId());
 		questionRepo.save(questionb2_6);
 
 		Question questionb2_23 = new Question(2,
@@ -7658,8 +7658,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_261);
 
 		Question questionb2_278 = new Question(17,
-				"Trong các nguyên nhân nếu dưới đây, nguyên nhân nào làm động cơ diesel không nổ?", "nan",
-				b2.getId(), set6.getId(), ctsc.getId());
+				"Trong các nguyên nhân nếu dưới đây, nguyên nhân nào làm động cơ diesel không nổ?", "nan", b2.getId(),
+				set6.getId(), ctsc.getId());
 		questionRepo.save(questionb2_278);
 
 		Question questionb2_295 = new Question(18,
@@ -7667,12 +7667,12 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_295.jpg", b2.getId(), set6.getId(), ctsc.getId());
 		questionRepo.save(questionb2_295);
 
-		Question questionb2_312 = new Question(19, "Biển nào cho phép ô tô con được vượt", "b2_312.jpg",
-				b2.getId(), set6.getId(), bb.getId());
+		Question questionb2_312 = new Question(19, "Biển nào cho phép ô tô con được vượt", "b2_312.jpg", b2.getId(),
+				set6.getId(), bb.getId());
 		questionRepo.save(questionb2_312);
 
-		Question questionb2_329 = new Question(20, "Biển nào là biển \"Cấm đi ngược chiều\"?", "b2_329.jpg",
-				b2.getId(), set6.getId(), bb.getId());
+		Question questionb2_329 = new Question(20, "Biển nào là biển \"Cấm đi ngược chiều\"?", "b2_329.jpg", b2.getId(),
+				set6.getId(), bb.getId());
 		questionRepo.save(questionb2_329);
 
 		Question questionb2_346 = new Question(21, "Biển nào không có hiệu lực đối với ô tô tải không kéo mooc?",
@@ -7687,21 +7687,21 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_380.jpg", b2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb2_380);
 
-		Question questionb2_397 = new Question(24, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?",
-				"b2_397.jpg", b2.getId(), set6.getId(), bb.getId());
+		Question questionb2_397 = new Question(24, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", "b2_397.jpg",
+				b2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb2_397);
 
 		Question questionb2_414 = new Question(25, "Biển nào chỉ dẫn nới bắt đầu đoạn đường dành cho người đi bộ?",
 				"b2_414.jpg", b2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb2_414);
 
-		Question questionb2_431 = new Question(26, "Biển nào báo hiệu \"Hết đường dành cho xe ô tô\"?",
-				"b2_431.jpg", b2.getId(), set6.getId(), bb.getId());
+		Question questionb2_431 = new Question(26, "Biển nào báo hiệu \"Hết đường dành cho xe ô tô\"?", "b2_431.jpg",
+				b2.getId(), set6.getId(), bb.getId());
 		questionRepo.save(questionb2_431);
 
 		Question questionb2_448 = new Question(27,
-				"Biển nào báo hiệu \"Đường phía trước có làn đường dành cho ô tô khách\"?", "b2_448.jpg",
-				b2.getId(), set6.getId(), bb.getId());
+				"Biển nào báo hiệu \"Đường phía trước có làn đường dành cho ô tô khách\"?", "b2_448.jpg", b2.getId(),
+				set6.getId(), bb.getId());
 		questionRepo.save(questionb2_448);
 
 		Question questionb2_465 = new Question(28, "Biển nào báo hiệu kết thúc đường cao tốc?", "b2_465.jpg",
@@ -7713,20 +7713,20 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_482);
 
 		Question questionb2_499 = new Question(30,
-				"Theo tín hiệu đèn, xe tải đi theo hướng nào là đúng quy tắc giao thông?", "b2_499.jpg",
-				b2.getId(), set6.getId(), sh.getId());
+				"Theo tín hiệu đèn, xe tải đi theo hướng nào là đúng quy tắc giao thông?", "b2_499.jpg", b2.getId(),
+				set6.getId(), sh.getId());
 		questionRepo.save(questionb2_499);
 
 		Question questionb2_516 = new Question(31, "Theo hướng mũi tên, những hướng đi nào ô tô con được phép đi?",
 				"b2_516.jpg", b2.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionb2_516);
 
-		Question questionb2_533 = new Question(32, "Những hướng nào ô tô tải được phép đi?", "b2_533.jpg",
-				b2.getId(), set6.getId(), sh.getId());
+		Question questionb2_533 = new Question(32, "Những hướng nào ô tô tải được phép đi?", "b2_533.jpg", b2.getId(),
+				set6.getId(), sh.getId());
 		questionRepo.save(questionb2_533);
 
-		Question questionb2_550 = new Question(33, "Xe nào phải nhường đường là đúng quy tắc giao thông?",
-				"b2_550.jpg", b2.getId(), set6.getId(), sh.getId());
+		Question questionb2_550 = new Question(33, "Xe nào phải nhường đường là đúng quy tắc giao thông?", "b2_550.jpg",
+				b2.getId(), set6.getId(), sh.getId());
 		questionRepo.save(questionb2_550);
 
 		Question questionb2_567 = new Question(34, "Xe của bạn được đi theo hướng nào trong trường hợp này?",
@@ -7763,13 +7763,13 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_75);
 
 		Question questionb2_92 = new Question(6,
-				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?",
-				"", b2.getId(), set7.getId(), kn.getId());
+				"Khi muốn chuyển hướng, người lái xe phải thực hiện như thế nào để đảm bảo an toàn giao thông?", "",
+				b2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb2_92);
 
 		Question questionb2_109 = new Question(7,
-				"Người ngồi trên e mô tô 2 bánh, xe gắn máy phải đội mũ bảo hiểm có quai đúng quy cách khi nào?",
-				"", b2.getId(), set7.getId(), kn.getId());
+				"Người ngồi trên e mô tô 2 bánh, xe gắn máy phải đội mũ bảo hiểm có quai đúng quy cách khi nào?", "",
+				b2.getId(), set7.getId(), kn.getId());
 		questionRepo.save(questionb2_109);
 
 		Question questionb2_126 = new Question(8,
@@ -7826,29 +7826,29 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_296.jpg", b2.getId(), set7.getId(), ctsc.getId());
 		questionRepo.save(questionb2_296);
 
-		Question questionb2_313 = new Question(19, "Biển nào không cho phép ô tô con vượt?", "b2_313.jpg",
-				b2.getId(), set7.getId(), bb.getId());
+		Question questionb2_313 = new Question(19, "Biển nào không cho phép ô tô con vượt?", "b2_313.jpg", b2.getId(),
+				set7.getId(), bb.getId());
 		questionRepo.save(questionb2_313);
 
 		Question questionb2_330 = new Question(20, "Biển nào dưới đây các phương tiện không được phép đi vào?",
 				"b2_330.jpg", b2.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionb2_330);
 
-		Question questionb2_347 = new Question(21, "Biển nào cấm máy kéo?", "b2_347.jpg", b2.getId(),
-				set7.getId(), bb.getId());
+		Question questionb2_347 = new Question(21, "Biển nào cấm máy kéo?", "b2_347.jpg", b2.getId(), set7.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_347);
 
 		Question questionb2_364 = new Question(22,
-				"Biển nào báo hiệu hạn chế tốc độ của phương tiện không vượt quá trị số ghi trên biển?",
-				"b2_364.jpg", b2.getId(), set7.getId(), bb.getId());
+				"Biển nào báo hiệu hạn chế tốc độ của phương tiện không vượt quá trị số ghi trên biển?", "b2_364.jpg",
+				b2.getId(), set7.getId(), bb.getId());
 		questionRepo.save(questionb2_364);
 
 		Question questionb2_381 = new Question(23, "Các biển này có ý nghĩa gì?", "b2_381.jpg", b2.getId(),
 				set7.getId(), bb.getId());
 		questionRepo.save(questionb2_381);
 
-		Question questionb2_398 = new Question(24, "Biển nào báo hiệu \"Đường hai chiều\"?", "b2_398.jpg",
-				b2.getId(), set7.getId(), bb.getId());
+		Question questionb2_398 = new Question(24, "Biển nào báo hiệu \"Đường hai chiều\"?", "b2_398.jpg", b2.getId(),
+				set7.getId(), bb.getId());
 		questionRepo.save(questionb2_398);
 
 		Question questionb2_415 = new Question(25,
@@ -7866,8 +7866,8 @@ public class DataSeeding implements CommandLineRunner {
 				set7.getId(), bb.getId());
 		questionRepo.save(questionb2_449);
 
-		Question questionb2_466 = new Question(28, "Biển này có ý nghĩa gì?", "b2_466.jpg", b2.getId(),
-				set7.getId(), bb.getId());
+		Question questionb2_466 = new Question(28, "Biển này có ý nghĩa gì?", "b2_466.jpg", b2.getId(), set7.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_466);
 
 		Question questionb2_483 = new Question(29, "Vạch dưới đây có ý nghĩa gì?", "b2_483.jpg", b2.getId(),
@@ -7887,8 +7887,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_534);
 
 		Question questionb2_551 = new Question(33,
-				"Người lái xe được phép vượt xe tải để đi thẳng trong trường hợp này không?", "b2_551.jpg",
-				b2.getId(), set7.getId(), sh.getId());
+				"Người lái xe được phép vượt xe tải để đi thẳng trong trường hợp này không?", "b2_551.jpg", b2.getId(),
+				set7.getId(), sh.getId());
 		questionRepo.save(questionb2_551);
 
 		Question questionb2_568 = new Question(34, "Bạn xử lý như thế nào trong trường hợp này?", "b2_568.jpg",
@@ -7896,13 +7896,13 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_568);
 
 		Question questionb2_585 = new Question(35,
-				"Các xe đi theo thứ tự như thế nào là đúng quy tắc giao thông đường bộ?", "b2_585.jpg",
-				b2.getId(), set7.getId(), sh.getId());
+				"Các xe đi theo thứ tự như thế nào là đúng quy tắc giao thông đường bộ?", "b2_585.jpg", b2.getId(),
+				set7.getId(), sh.getId());
 		questionRepo.save(questionb2_585);
 
 		Question questionb2_8 = new Question(1,
-				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", "nan",
-				b2.getId(), set8.getId(), kn.getId());
+				"Khái niệm \"phương tiện giao thông cơ giới đường bộ\" được hiểu thế nào là đúng?", "nan", b2.getId(),
+				set8.getId(), kn.getId());
 		questionRepo.save(questionb2_8);
 
 		Question questionb2_25 = new Question(2,
@@ -7910,8 +7910,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", b2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb2_25);
 
-		Question questionb2_42 = new Question(3, "Người lái xe không được lùi xe ở những khu vực nào dưới đây?",
-				"", b2.getId(), set8.getId(), kn.getId());
+		Question questionb2_42 = new Question(3, "Người lái xe không được lùi xe ở những khu vực nào dưới đây?", "",
+				b2.getId(), set8.getId(), kn.getId());
 		questionRepo.save(questionb2_42);
 
 		Question questionb2_59 = new Question(4, "Người đủ 16 tuổi được điều khiển các loại xe nào dưới Đây?", "nan",
@@ -7977,8 +7977,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_263);
 
 		Question questionb2_280 = new Question(17,
-				"Dây đai an toàn lắp trên ô tô phải đảm bảo yêu cầu an toàn kỹ thuật nào dưới đây?", "nan",
-				b2.getId(), set8.getId(), ctsc.getId());
+				"Dây đai an toàn lắp trên ô tô phải đảm bảo yêu cầu an toàn kỹ thuật nào dưới đây?", "nan", b2.getId(),
+				set8.getId(), ctsc.getId());
 		questionRepo.save(questionb2_280);
 
 		Question questionb2_297 = new Question(18, "Ắc quy được trang bị trên xe ô tô có tác dụng gì?", "nan",
@@ -8007,8 +8007,8 @@ public class DataSeeding implements CommandLineRunner {
 				b2.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb2_382);
 
-		Question questionb2_399 = new Question(24, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?",
-				"b2_399.jpg", b2.getId(), set8.getId(), bb.getId());
+		Question questionb2_399 = new Question(24, "Biển nào báo hiệu \"Giao nhau với đường hai chiều\"?", "b2_399.jpg",
+				b2.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb2_399);
 
 		Question questionb2_416 = new Question(25,
@@ -8016,37 +8016,37 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_416.jpg", b2.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb2_416);
 
-		Question questionb2_433 = new Question(26, "Biển này có ý nghĩa gì?", "b2_433.jpg", b2.getId(),
-				set8.getId(), bb.getId());
+		Question questionb2_433 = new Question(26, "Biển này có ý nghĩa gì?", "b2_433.jpg", b2.getId(), set8.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_433);
 
 		Question questionb2_450 = new Question(27,
-				"Biển nào đặt trên đường chính trước khi đến nơi đường giao nhau để rẽ vào đường cụt?",
-				"b2_450.jpg", b2.getId(), set8.getId(), bb.getId());
+				"Biển nào đặt trên đường chính trước khi đến nơi đường giao nhau để rẽ vào đường cụt?", "b2_450.jpg",
+				b2.getId(), set8.getId(), bb.getId());
 		questionRepo.save(questionb2_450);
 
-		Question questionb2_467 = new Question(28, "Biển này có ý nghĩa gì?", "b2_467.jpg", b2.getId(),
-				set8.getId(), bb.getId());
+		Question questionb2_467 = new Question(28, "Biển này có ý nghĩa gì?", "b2_467.jpg", b2.getId(), set8.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_467);
 
-		Question questionb2_484 = new Question(29, "Thứ tự đi như thế nào là đúng quy tắc giao thông?",
-				"b2_484.jpg", b2.getId(), set8.getId(), sh.getId());
+		Question questionb2_484 = new Question(29, "Thứ tự đi như thế nào là đúng quy tắc giao thông?", "b2_484.jpg",
+				b2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb2_484);
 
 		Question questionb2_501 = new Question(30, "Thứ tự các xe đi nhưu thế nào là đúng quy tắc giao thông?",
 				"b2_501.jpg", b2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb2_501);
 
-		Question questionb2_518 = new Question(31, "Những hướng nào xe tải được phép đi?", "b2_518.jpg",
-				b2.getId(), set8.getId(), sh.getId());
+		Question questionb2_518 = new Question(31, "Những hướng nào xe tải được phép đi?", "b2_518.jpg", b2.getId(),
+				set8.getId(), sh.getId());
 		questionRepo.save(questionb2_518);
 
 		Question questionb2_535 = new Question(32, "Theo hướng mũi tên, những hướng nào xe mô tô được phép đi?",
 				"b2_535.jpg", b2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb2_535);
 
-		Question questionb2_552 = new Question(33, "Bạn có được phép vượt xe mô tô phía trước không?",
-				"b2_552.jpg", b2.getId(), set8.getId(), sh.getId());
+		Question questionb2_552 = new Question(33, "Bạn có được phép vượt xe mô tô phía trước không?", "b2_552.jpg",
+				b2.getId(), set8.getId(), sh.getId());
 		questionRepo.save(questionb2_552);
 
 		Question questionb2_569 = new Question(34, "Bạn xử lý như thế nào trong trường hợp này?", "b2_569.jpg",
@@ -8078,8 +8078,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_60);
 
 		Question questionb2_77 = new Question(5,
-				"Khi dạy thực hành lái xe, giáo viên phải mang theo các loại giấy tờ gì dưới đây?", "nan",
-				b2.getId(), set9.getId(), kn.getId());
+				"Khi dạy thực hành lái xe, giáo viên phải mang theo các loại giấy tờ gì dưới đây?", "nan", b2.getId(),
+				set9.getId(), kn.getId());
 		questionRepo.save(questionb2_77);
 
 		Question questionb2_94 = new Question(6,
@@ -8088,8 +8088,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_94);
 
 		Question questionb2_111 = new Question(7,
-				"Người điều khiển xe mô tô hai bánh, xe gắn máy không được thực hiện những hành vi nào dưới dây?",
-				"", b2.getId(), set9.getId(), kn.getId());
+				"Người điều khiển xe mô tô hai bánh, xe gắn máy không được thực hiện những hành vi nào dưới dây?", "",
+				b2.getId(), set9.getId(), kn.getId());
 		questionRepo.save(questionb2_111);
 
 		Question questionb2_128 = new Question(8,
@@ -8144,12 +8144,12 @@ public class DataSeeding implements CommandLineRunner {
 				b2.getId(), set9.getId(), ctsc.getId());
 		questionRepo.save(questionb2_298);
 
-		Question questionb2_315 = new Question(19, "Biển nào cấm xe tải vượt?", "b2_315.jpg", b2.getId(),
-				set9.getId(), bb.getId());
+		Question questionb2_315 = new Question(19, "Biển nào cấm xe tải vượt?", "b2_315.jpg", b2.getId(), set9.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_315);
 
-		Question questionb2_332 = new Question(20, "Gặp biển nào người lái xe được đổ xe vào ngày lẻ?",
-				"b2_332.jpg", b2.getId(), set9.getId(), bb.getId());
+		Question questionb2_332 = new Question(20, "Gặp biển nào người lái xe được đổ xe vào ngày lẻ?", "b2_332.jpg",
+				b2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb2_332);
 
 		Question questionb2_349 = new Question(21, "Biển này có hiệu lực đối với xe mô tô hai, ba bánh không?",
@@ -8161,41 +8161,41 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_366);
 
 		Question questionb2_383 = new Question(23,
-				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?",
-				"b2_383.jpg", b2.getId(), set9.getId(), bb.getId());
+				"Biển nào báo hiệu, chỉ dẫn xe đi trên đường này được quyền ưu tiên qua nơi giao nhau?", "b2_383.jpg",
+				b2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb2_383);
 
 		Question questionb2_400 = new Question(24, "Biển nào báo hiệu \"Chú ý chướng ngại vật\"?", "b2_400.jpg",
 				b2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb2_400);
 
-		Question questionb2_417 = new Question(25, "Biển nào sau đây là biển \"Dốc xuống nguy hiểm\"?",
-				"b2_417.jpg", b2.getId(), set9.getId(), bb.getId());
+		Question questionb2_417 = new Question(25, "Biển nào sau đây là biển \"Dốc xuống nguy hiểm\"?", "b2_417.jpg",
+				b2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb2_417);
 
 		Question questionb2_434 = new Question(26,
-				"Biển nào ( đặt trước ngã ba, ngã tư) co phép xe được rẽ sang dướng khác?", "b2_434.jpg",
-				b2.getId(), set9.getId(), bb.getId());
+				"Biển nào ( đặt trước ngã ba, ngã tư) co phép xe được rẽ sang dướng khác?", "b2_434.jpg", b2.getId(),
+				set9.getId(), bb.getId());
 		questionRepo.save(questionb2_434);
 
 		Question questionb2_451 = new Question(27, "Biển nào chỉ dẫn cho người đi bộ sử dụng cầu vượt qua đường?",
 				"b2_451.jpg", b2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb2_451);
 
-		Question questionb2_468 = new Question(28, "Ý nghĩa các biểu tượng trên biển chỉ dẫn là gì?",
-				"b2_468.jpg", b2.getId(), set9.getId(), bb.getId());
+		Question questionb2_468 = new Question(28, "Ý nghĩa các biểu tượng trên biển chỉ dẫn là gì?", "b2_468.jpg",
+				b2.getId(), set9.getId(), bb.getId());
 		questionRepo.save(questionb2_468);
 
-		Question questionb2_485 = new Question(29, "Thứ tự đi như thế nào là đúng quy tắc giao thông?",
-				"b2_485.jpg", b2.getId(), set9.getId(), sh.getId());
+		Question questionb2_485 = new Question(29, "Thứ tự đi như thế nào là đúng quy tắc giao thông?", "b2_485.jpg",
+				b2.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionb2_485);
 
 		Question questionb2_502 = new Question(30, "Trong trường hợp này xe nào đỗ vi phạm quy tắc giao thông?",
 				"b2_502.jpg", b2.getId(), set9.getId(), sh.getId());
 		questionRepo.save(questionb2_502);
 
-		Question questionb2_519 = new Question(31, "Những hướng nào ô tô tải được phép đi?", "b2_519.jpg",
-				b2.getId(), set9.getId(), sh.getId());
+		Question questionb2_519 = new Question(31, "Những hướng nào ô tô tải được phép đi?", "b2_519.jpg", b2.getId(),
+				set9.getId(), sh.getId());
 		questionRepo.save(questionb2_519);
 
 		Question questionb2_536 = new Question(32,
@@ -8239,8 +8239,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_78);
 
 		Question questionb2_95 = new Question(6,
-				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?",
-				"", b2.getId(), set10.getId(), kn.getId());
+				"Khi tránh xe đi ngược chiều, các xe phải nhường đường như thế nào là đúng quy tắc giao thông?", "",
+				b2.getId(), set10.getId(), kn.getId());
 		questionRepo.save(questionb2_95);
 
 		Question questionb2_112 = new Question(7,
@@ -8282,8 +8282,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_231);
 
 		Question questionb2_248 = new Question(15,
-				"Khi tầm nhìn bị hạn chế bởi sương mù hoặc mưa to, người lái xe phải thực hiện các thao tác nào?",
-				"", b2.getId(), set10.getId(), kt.getId());
+				"Khi tầm nhìn bị hạn chế bởi sương mù hoặc mưa to, người lái xe phải thực hiện các thao tác nào?", "",
+				b2.getId(), set10.getId(), kt.getId());
 		questionRepo.save(questionb2_248);
 
 		Question questionb2_265 = new Question(16,
@@ -8295,20 +8295,20 @@ public class DataSeeding implements CommandLineRunner {
 				b2.getId(), set10.getId(), ctsc.getId());
 		questionRepo.save(questionb2_282);
 
-		Question questionb2_299 = new Question(18, "Dây đai an toàn được trang bị trên xe ô tô có tác dụng gì?",
-				"", b2.getId(), set10.getId(), ctsc.getId());
+		Question questionb2_299 = new Question(18, "Dây đai an toàn được trang bị trên xe ô tô có tác dụng gì?", "",
+				b2.getId(), set10.getId(), ctsc.getId());
 		questionRepo.save(questionb2_299);
 
-		Question questionb2_316 = new Question(19, "Biển nào xe ô tô con được phép vượt?", "b2_316.jpg",
-				b2.getId(), set10.getId(), bb.getId());
+		Question questionb2_316 = new Question(19, "Biển nào xe ô tô con được phép vượt?", "b2_316.jpg", b2.getId(),
+				set10.getId(), bb.getId());
 		questionRepo.save(questionb2_316);
 
 		Question questionb2_333 = new Question(20, "Khi gặp biển nào xe ưu tiên theo luật định vẫn phải dừng lại?",
 				"b2_333.jpg", b2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb2_333);
 
-		Question questionb2_350 = new Question(21, "Biển này có ý nghĩa gì?", "b2_350.jpg", b2.getId(),
-				set10.getId(), bb.getId());
+		Question questionb2_350 = new Question(21, "Biển này có ý nghĩa gì?", "b2_350.jpg", b2.getId(), set10.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_350);
 
 		Question questionb2_367 = new Question(22,
@@ -8325,8 +8325,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_401.jpg", b2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb2_401);
 
-		Question questionb2_418 = new Question(25, "Biển nào sau đây là biển \"Dốc lên nguy hiểm\"?",
-				"b2_418.jpg", b2.getId(), set10.getId(), bb.getId());
+		Question questionb2_418 = new Question(25, "Biển nào sau đây là biển \"Dốc lên nguy hiểm\"?", "b2_418.jpg",
+				b2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb2_418);
 
 		Question questionb2_435 = new Question(26, "Biển nào báo hiệu đường đi thẳng phải theo?", "b2_435.jpg",
@@ -8337,8 +8337,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_452.jpg", b2.getId(), set10.getId(), bb.getId());
 		questionRepo.save(questionb2_452);
 
-		Question questionb2_469 = new Question(28, "Biển này có ý nghĩa gì?", "b2_469.jpg", b2.getId(),
-				set10.getId(), bb.getId());
+		Question questionb2_469 = new Question(28, "Biển này có ý nghĩa gì?", "b2_469.jpg", b2.getId(), set10.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_469);
 
 		Question questionb2_486 = new Question(29,
@@ -8350,16 +8350,16 @@ public class DataSeeding implements CommandLineRunner {
 				set10.getId(), sh.getId());
 		questionRepo.save(questionb2_503);
 
-		Question questionb2_520 = new Question(31, "Những hướng nào ô tô tải được phép đi?", "b2_520.jpg",
-				b2.getId(), set10.getId(), sh.getId());
+		Question questionb2_520 = new Question(31, "Những hướng nào ô tô tải được phép đi?", "b2_520.jpg", b2.getId(),
+				set10.getId(), sh.getId());
 		questionRepo.save(questionb2_520);
 
-		Question questionb2_537 = new Question(32, "Xe nào phải nhường đường là đúng quy tắc giao thông?",
-				"b2_537.jpg", b2.getId(), set10.getId(), sh.getId());
+		Question questionb2_537 = new Question(32, "Xe nào phải nhường đường là đúng quy tắc giao thông?", "b2_537.jpg",
+				b2.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionb2_537);
 
-		Question questionb2_554 = new Question(33, "Bạn được dừng ở vị trí nào trong tình huống này?",
-				"b2_554.jpg", b2.getId(), set10.getId(), sh.getId());
+		Question questionb2_554 = new Question(33, "Bạn được dừng ở vị trí nào trong tình huống này?", "b2_554.jpg",
+				b2.getId(), set10.getId(), sh.getId());
 		questionRepo.save(questionb2_554);
 
 		Question questionb2_571 = new Question(34, "Xe nào phải nhường đường trong trường hợp này?", "b2_571.jpg",
@@ -8375,8 +8375,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_11);
 
 		Question questionb2_28 = new Question(2,
-				"Phương tiện giao thông đường bộ di chuyển với tốc độ thấp hơn phải đi như thế nào?", "nan",
-				b2.getId(), set11.getId(), kn.getId());
+				"Phương tiện giao thông đường bộ di chuyển với tốc độ thấp hơn phải đi như thế nào?", "nan", b2.getId(),
+				set11.getId(), kn.getId());
 		questionRepo.save(questionb2_28);
 
 		Question questionb2_45 = new Question(3,
@@ -8385,8 +8385,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_45);
 
 		Question questionb2_62 = new Question(4,
-				"Người có giấy phép lái xe mô tô hạng A2 được phép điều khiển loại xe nào dưới đây?", "nan",
-				b2.getId(), set11.getId(), kn.getId());
+				"Người có giấy phép lái xe mô tô hạng A2 được phép điều khiển loại xe nào dưới đây?", "nan", b2.getId(),
+				set11.getId(), kn.getId());
 		questionRepo.save(questionb2_62);
 
 		Question questionb2_79 = new Question(5,
@@ -8457,8 +8457,8 @@ public class DataSeeding implements CommandLineRunner {
 				b2.getId(), set11.getId(), ctsc.getId());
 		questionRepo.save(questionb2_300);
 
-		Question questionb2_317 = new Question(19, "Biển nào cấm quay xe?", "b2_317.jpg", b2.getId(),
-				set11.getId(), bb.getId());
+		Question questionb2_317 = new Question(19, "Biển nào cấm quay xe?", "b2_317.jpg", b2.getId(), set11.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_317);
 
 		Question questionb2_334 = new Question(20,
@@ -8475,8 +8475,8 @@ public class DataSeeding implements CommandLineRunner {
 				set11.getId(), bb.getId());
 		questionRepo.save(questionb2_368);
 
-		Question questionb2_385 = new Question(23, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?",
-				"b2_385.jpg", b2.getId(), set11.getId(), bb.getId());
+		Question questionb2_385 = new Question(23, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?", "b2_385.jpg",
+				b2.getId(), set11.getId(), bb.getId());
 		questionRepo.save(questionb2_385);
 
 		Question questionb2_402 = new Question(24, "Biển nào báo hiệu \"Đường hầm\"?", "b2_402.jpg", b2.getId(),
@@ -8487,8 +8487,8 @@ public class DataSeeding implements CommandLineRunner {
 				set11.getId(), bb.getId());
 		questionRepo.save(questionb2_419);
 
-		Question questionb2_436 = new Question(26, "Biển nào báo hiệu \"Đường một chiều\"?", "b2_436.jpg",
-				b2.getId(), set11.getId(), bb.getId());
+		Question questionb2_436 = new Question(26, "Biển nào báo hiệu \"Đường một chiều\"?", "b2_436.jpg", b2.getId(),
+				set11.getId(), bb.getId());
 		questionRepo.save(questionb2_436);
 
 		Question questionb2_453 = new Question(27, "Biển nào báo hiệu nơi đỗ xe cho người tàn tật?", "b2_453.jpg",
@@ -8508,13 +8508,13 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_504.jpg", b2.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb2_504);
 
-		Question questionb2_521 = new Question(31, "Xe nào được quyền đi trước trong trường hợp này?",
-				"b2_521.jpg", b2.getId(), set11.getId(), sh.getId());
+		Question questionb2_521 = new Question(31, "Xe nào được quyền đi trước trong trường hợp này?", "b2_521.jpg",
+				b2.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb2_521);
 
 		Question questionb2_538 = new Question(32,
-				"Xe con quay đầu đi ngược lại như hình vẽ dưới có vi phạm quy tắc giao thông không?",
-				"b2_538.jpg", b2.getId(), set11.getId(), sh.getId());
+				"Xe con quay đầu đi ngược lại như hình vẽ dưới có vi phạm quy tắc giao thông không?", "b2_538.jpg",
+				b2.getId(), set11.getId(), sh.getId());
 		questionRepo.save(questionb2_538);
 
 		Question questionb2_555 = new Question(33,
@@ -8531,8 +8531,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_589);
 
 		Question questionb2_12 = new Question(1,
-				"\"Người điều khiển phương tiện tham gia giao thông đường bộ\" gồm những đối tượng nào dưới đây?",
-				"", b2.getId(), set12.getId(), kn.getId());
+				"\"Người điều khiển phương tiện tham gia giao thông đường bộ\" gồm những đối tượng nào dưới đây?", "",
+				b2.getId(), set12.getId(), kn.getId());
 		questionRepo.save(questionb2_12);
 
 		Question questionb2_29 = new Question(2,
@@ -8546,8 +8546,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_46);
 
 		Question questionb2_63 = new Question(4,
-				"Người có giấy phép lái xe mô tô hạng A3 được phép điều khiển loại xe nào dưới đây?", "nan",
-				b2.getId(), set12.getId(), kn.getId());
+				"Người có giấy phép lái xe mô tô hạng A3 được phép điều khiển loại xe nào dưới đây?", "nan", b2.getId(),
+				set12.getId(), kn.getId());
 		questionRepo.save(questionb2_63);
 
 		Question questionb2_80 = new Question(5,
@@ -8619,28 +8619,28 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_301.jpg", b2.getId(), set12.getId(), ctsc.getId());
 		questionRepo.save(questionb2_301);
 
-		Question questionb2_318 = new Question(19, "Biển nào cấm xe rẽ trái?", "b2_318.jpg", b2.getId(),
-				set12.getId(), bb.getId());
+		Question questionb2_318 = new Question(19, "Biển nào cấm xe rẽ trái?", "b2_318.jpg", b2.getId(), set12.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_318);
 
-		Question questionb2_335 = new Question(20, "Biển nào là biển \"Cấm xe chở hàng nguy hiểm\"?",
-				"b2_335.jpg", b2.getId(), set12.getId(), bb.getId());
+		Question questionb2_335 = new Question(20, "Biển nào là biển \"Cấm xe chở hàng nguy hiểm\"?", "b2_335.jpg",
+				b2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb2_335);
 
-		Question questionb2_352 = new Question(21, "Biển nào xe mô tô hai bánh được đi vào?", "b2_352.jpg",
-				b2.getId(), set12.getId(), bb.getId());
+		Question questionb2_352 = new Question(21, "Biển nào xe mô tô hai bánh được đi vào?", "b2_352.jpg", b2.getId(),
+				set12.getId(), bb.getId());
 		questionRepo.save(questionb2_352);
 
 		Question questionb2_369 = new Question(22, "Gặp biển nào người lái xe phải nhường đường cho người đi bộ?",
 				"b2_369.jpg", b2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb2_369);
 
-		Question questionb2_386 = new Question(23, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", "b2_386.jpg",
-				b2.getId(), set12.getId(), bb.getId());
+		Question questionb2_386 = new Question(23, "Biển nào báo hiệu \"Đường bị thu hẹp\"?", "b2_386.jpg", b2.getId(),
+				set12.getId(), bb.getId());
 		questionRepo.save(questionb2_386);
 
-		Question questionb2_403 = new Question(24, "Biển nào dưới đây là biển \"Cầu hẹp\"?", "b2_403.jpg",
-				b2.getId(), set12.getId(), bb.getId());
+		Question questionb2_403 = new Question(24, "Biển nào dưới đây là biển \"Cầu hẹp\"?", "b2_403.jpg", b2.getId(),
+				set12.getId(), bb.getId());
 		questionRepo.save(questionb2_403);
 
 		Question questionb2_420 = new Question(25, "Biển báo này có ý nghĩa gì?", "b2_420.jpg", b2.getId(),
@@ -8648,8 +8648,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_420);
 
 		Question questionb2_437 = new Question(26,
-				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?",
-				"b2_437.jpg", b2.getId(), set12.getId(), bb.getId());
+				"Hiệu lực của biển \"Tốc độ tối đa cho phép\" hết tác dụng khi gặp biển nào dưới đây?", "b2_437.jpg",
+				b2.getId(), set12.getId(), bb.getId());
 		questionRepo.save(questionb2_437);
 
 		Question questionb2_454 = new Question(27, "Gặp biển báo này người lái xe phải đỗ xe như thế nào?",
@@ -8665,8 +8665,8 @@ public class DataSeeding implements CommandLineRunner {
 				b2.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionb2_488);
 
-		Question questionb2_505 = new Question(30, "Xe nào đỗ vi phạm quy tắc giao thông?", "b2_505.jpg",
-				b2.getId(), set12.getId(), sh.getId());
+		Question questionb2_505 = new Question(30, "Xe nào đỗ vi phạm quy tắc giao thông?", "b2_505.jpg", b2.getId(),
+				set12.getId(), sh.getId());
 		questionRepo.save(questionb2_505);
 
 		Question questionb2_522 = new Question(31,
@@ -8688,12 +8688,12 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_573);
 
 		Question questionb2_590 = new Question(35,
-				"Khi gặp xe ngược chiều bật đèn pha trong tình huống dưới dây, bạn xử lý như thế nào?",
-				"b2_590.jpg", b2.getId(), set12.getId(), sh.getId());
+				"Khi gặp xe ngược chiều bật đèn pha trong tình huống dưới dây, bạn xử lý như thế nào?", "b2_590.jpg",
+				b2.getId(), set12.getId(), sh.getId());
 		questionRepo.save(questionb2_590);
 
-		Question questionb2_13 = new Question(1, "Khái niệm \"người điều khiển giao thông\" được hiểu như thế nào?",
-				"", b2.getId(), set13.getId(), kn.getId());
+		Question questionb2_13 = new Question(1, "Khái niệm \"người điều khiển giao thông\" được hiểu như thế nào?", "",
+				b2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb2_13);
 
 		Question questionb2_30 = new Question(2,
@@ -8741,8 +8741,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", b2.getId(), set13.getId(), kn.getId());
 		questionRepo.save(questionb2_166);
 
-		Question questionb2_183 = new Question(11, "Hàng siêu trường, siêu trọng được hiểu như thế nào là đúng?",
-				"", b2.getId(), set13.getId(), nvvt.getId());
+		Question questionb2_183 = new Question(11, "Hàng siêu trường, siêu trọng được hiểu như thế nào là đúng?", "",
+				b2.getId(), set13.getId(), nvvt.getId());
 		questionRepo.save(questionb2_183);
 
 		Question questionb2_200 = new Question(12,
@@ -8756,8 +8756,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_217);
 
 		Question questionb2_234 = new Question(14,
-				"Khi điều khiển xe ô tô trên đường trơn cần chú ý những điểm gì để đảm bảo an toàn?", "nan",
-				b2.getId(), set13.getId(), kt.getId());
+				"Khi điều khiển xe ô tô trên đường trơn cần chú ý những điểm gì để đảm bảo an toàn?", "nan", b2.getId(),
+				set13.getId(), kt.getId());
 		questionRepo.save(questionb2_234);
 
 		Question questionb2_251 = new Question(15,
@@ -8800,8 +8800,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_387.jpg", b2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb2_387);
 
-		Question questionb2_404 = new Question(24, "Biển nào dưới đây là biển \"Cầu xoay – cầu cất\"?",
-				"b2_404.jpg", b2.getId(), set13.getId(), bb.getId());
+		Question questionb2_404 = new Question(24, "Biển nào dưới đây là biển \"Cầu xoay – cầu cất\"?", "b2_404.jpg",
+				b2.getId(), set13.getId(), bb.getId());
 		questionRepo.save(questionb2_404);
 
 		Question questionb2_421 = new Question(25, "Biển báo này có ý nghĩa gì?", "b2_421.jpg", b2.getId(),
@@ -8825,8 +8825,8 @@ public class DataSeeding implements CommandLineRunner {
 				b2.getId(), set13.getId(), sh.getId());
 		questionRepo.save(questionb2_489);
 
-		Question questionb2_506 = new Question(30, "Xe nào đỗ vi phạm quy tắc giao thông?", "b2_506.jpg",
-				b2.getId(), set13.getId(), sh.getId());
+		Question questionb2_506 = new Question(30, "Xe nào đỗ vi phạm quy tắc giao thông?", "b2_506.jpg", b2.getId(),
+				set13.getId(), sh.getId());
 		questionRepo.save(questionb2_506);
 
 		Question questionb2_523 = new Question(31, "Xe nào vi phạm quy tắc giao thông?", "b2_523.jpg", b2.getId(),
@@ -8853,8 +8853,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_591);
 
 		Question questionb2_14 = new Question(1,
-				"Trong các khái niệm dưới đây khái niệm \"dừng xe\" được hiểu như thế nào là đúng?", "nan",
-				b2.getId(), set14.getId(), kn.getId());
+				"Trong các khái niệm dưới đây khái niệm \"dừng xe\" được hiểu như thế nào là đúng?", "nan", b2.getId(),
+				set14.getId(), kn.getId());
 		questionRepo.save(questionb2_14);
 
 		Question questionb2_31 = new Question(2,
@@ -8867,8 +8867,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", b2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb2_48);
 
-		Question questionb2_65 = new Question(4, "Người có giấy phép lái xe hạng B1 được điều khiển loại xe nào?",
-				"", b2.getId(), set14.getId(), kn.getId());
+		Question questionb2_65 = new Question(4, "Người có giấy phép lái xe hạng B1 được điều khiển loại xe nào?", "",
+				b2.getId(), set14.getId(), kn.getId());
 		questionRepo.save(questionb2_65);
 
 		Question questionb2_82 = new Question(5,
@@ -8947,16 +8947,16 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_337.jpg", b2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb2_337);
 
-		Question questionb2_354 = new Question(21, "Ba biển này có hiệu lực như thế nào?", "b2_354.jpg",
-				b2.getId(), set14.getId(), bb.getId());
+		Question questionb2_354 = new Question(21, "Ba biển này có hiệu lực như thế nào?", "b2_354.jpg", b2.getId(),
+				set14.getId(), bb.getId());
 		questionRepo.save(questionb2_354);
 
-		Question questionb2_371 = new Question(22, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?",
-				"b2_371.jpg", b2.getId(), set14.getId(), bb.getId());
+		Question questionb2_371 = new Question(22, "Biển nào báo hiệu \"Đường dành cho xe thô sơ\"?", "b2_371.jpg",
+				b2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb2_371);
 
-		Question questionb2_388 = new Question(23, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?",
-				"b2_388.jpg", b2.getId(), set14.getId(), bb.getId());
+		Question questionb2_388 = new Question(23, "Biển nào báo hiệu \"Giao nhau với đường ưu tiên\"?", "b2_388.jpg",
+				b2.getId(), set14.getId(), bb.getId());
 		questionRepo.save(questionb2_388);
 
 		Question questionb2_405 = new Question(24, "Biển nào dưới đây là biển \"Kè, vực sâu phía trước\"?",
@@ -8989,13 +8989,13 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_507.jpg", b2.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb2_507);
 
-		Question questionb2_524 = new Question(31, "Các xe đi như thế nào là đúng quy tắc giao thông?",
-				"b2_524.jpg", b2.getId(), set14.getId(), sh.getId());
+		Question questionb2_524 = new Question(31, "Các xe đi như thế nào là đúng quy tắc giao thông?", "b2_524.jpg",
+				b2.getId(), set14.getId(), sh.getId());
 		questionRepo.save(questionb2_524);
 
 		Question questionb2_541 = new Question(32,
-				"Người lái điều khiển xe chạy theo hướng nào là đúng quy tắc giao thông?", "b2_541.jpg",
-				b2.getId(), set14.getId(), sh.getId());
+				"Người lái điều khiển xe chạy theo hướng nào là đúng quy tắc giao thông?", "b2_541.jpg", b2.getId(),
+				set14.getId(), sh.getId());
 		questionRepo.save(questionb2_541);
 
 		Question questionb2_558 = new Question(33, "Các xe đi theo hướng mũi tên xe nào vi phạm quy tắc giao thông?",
@@ -9017,8 +9017,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_15);
 
 		Question questionb2_32 = new Question(2,
-				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?",
-				"", b2.getId(), set15.getId(), kn.getId());
+				"Người lái xe sử dụng đèn như thế nào khi lái xe trong khu đô thị và đông dân cư vào ban đêm?", "",
+				b2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb2_32);
 
 		Question questionb2_49 = new Question(3,
@@ -9026,8 +9026,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", b2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb2_49);
 
-		Question questionb2_66 = new Question(4, "Người có giấy phép lái xe hạng B2 được điều khiển loại xe nào?",
-				"", b2.getId(), set15.getId(), kn.getId());
+		Question questionb2_66 = new Question(4, "Người có giấy phép lái xe hạng B2 được điều khiển loại xe nào?", "",
+				b2.getId(), set15.getId(), kn.getId());
 		questionRepo.save(questionb2_66);
 
 		Question questionb2_83 = new Question(5,
@@ -9066,8 +9066,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_185);
 
 		Question questionb2_202 = new Question(12,
-				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?",
-				"", b2.getId(), set15.getId(), vh.getId());
+				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?", "",
+				b2.getId(), set15.getId(), vh.getId());
 		questionRepo.save(questionb2_202);
 
 		Question questionb2_219 = new Question(13,
@@ -9111,8 +9111,8 @@ public class DataSeeding implements CommandLineRunner {
 				b2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb2_355);
 
-		Question questionb2_372 = new Question(22, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?",
-				"b2_372.jpg", b2.getId(), set15.getId(), bb.getId());
+		Question questionb2_372 = new Question(22, "Biển nào báo hiệu sắp đến chỗ giao nhau nguy hiểm?", "b2_372.jpg",
+				b2.getId(), set15.getId(), bb.getId());
 		questionRepo.save(questionb2_372);
 
 		Question questionb2_389 = new Question(23,
@@ -9146,16 +9146,16 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_491.jpg", b2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb2_491);
 
-		Question questionb2_508 = new Question(30, "Theo hướng mũi tên, hướng nào xe không được phép đi?",
-				"b2_508.jpg", b2.getId(), set15.getId(), sh.getId());
+		Question questionb2_508 = new Question(30, "Theo hướng mũi tên, hướng nào xe không được phép đi?", "b2_508.jpg",
+				b2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb2_508);
 
-		Question questionb2_525 = new Question(31, "Theo hướng mũi tên, xe nào được phép đi?", "b2_525.jpg",
-				b2.getId(), set15.getId(), sh.getId());
+		Question questionb2_525 = new Question(31, "Theo hướng mũi tên, xe nào được phép đi?", "b2_525.jpg", b2.getId(),
+				set15.getId(), sh.getId());
 		questionRepo.save(questionb2_525);
 
-		Question questionb2_542 = new Question(32, "Xe nào phải nhường đường là đúng quy tắc giao thông?",
-				"b2_542.jpg", b2.getId(), set15.getId(), sh.getId());
+		Question questionb2_542 = new Question(32, "Xe nào phải nhường đường là đúng quy tắc giao thông?", "b2_542.jpg",
+				b2.getId(), set15.getId(), sh.getId());
 		questionRepo.save(questionb2_542);
 
 		Question questionb2_559 = new Question(33, "Các xe đi theo hướng mũi tên, xe nào vi phạm quy tắc giao thông?",
@@ -9186,8 +9186,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", b2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb2_50);
 
-		Question questionb2_67 = new Question(4, "Người có giấy phép lái xe hạng C được điều khiển loại xe nào?",
-				"", b2.getId(), set16.getId(), kn.getId());
+		Question questionb2_67 = new Question(4, "Người có giấy phép lái xe hạng C được điều khiển loại xe nào?", "",
+				b2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb2_67);
 
 		Question questionb2_84 = new Question(5,
@@ -9195,8 +9195,8 @@ public class DataSeeding implements CommandLineRunner {
 				"nan", b2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb2_84);
 
-		Question questionb2_101 = new Question(6, "Người lái xe phải làm gì khi điều khiển xe vào đường cao tốc?",
-				"", b2.getId(), set16.getId(), kn.getId());
+		Question questionb2_101 = new Question(6, "Người lái xe phải làm gì khi điều khiển xe vào đường cao tốc?", "",
+				b2.getId(), set16.getId(), kn.getId());
 		questionRepo.save(questionb2_101);
 
 		Question questionb2_118 = new Question(7,
@@ -9225,8 +9225,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_186);
 
 		Question questionb2_203 = new Question(12,
-				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?",
-				"", b2.getId(), set16.getId(), vh.getId());
+				"Trong các hành vi dưới đây, người lái xe mô tô có văn hóa giao thông phải ứng xử như thế nào?", "",
+				b2.getId(), set16.getId(), vh.getId());
 		questionRepo.save(questionb2_203);
 
 		Question questionb2_220 = new Question(13,
@@ -9262,8 +9262,8 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_322.jpg", b2.getId(), set16.getId(), bb.getId());
 		questionRepo.save(questionb2_322);
 
-		Question questionb2_339 = new Question(20, "Biển báo này có ý nghĩa như thế nào?", "b2_339.jpg",
-				b2.getId(), set16.getId(), bb.getId());
+		Question questionb2_339 = new Question(20, "Biển báo này có ý nghĩa như thế nào?", "b2_339.jpg", b2.getId(),
+				set16.getId(), bb.getId());
 		questionRepo.save(questionb2_339);
 
 		Question questionb2_356 = new Question(21,
@@ -9309,13 +9309,13 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_509.jpg", b2.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb2_509);
 
-		Question questionb2_526 = new Question(31, "Xe con vượt xe tải như trường hợp này có đúng không?",
-				"b2_526.jpg", b2.getId(), set16.getId(), sh.getId());
+		Question questionb2_526 = new Question(31, "Xe con vượt xe tải như trường hợp này có đúng không?", "b2_526.jpg",
+				b2.getId(), set16.getId(), sh.getId());
 		questionRepo.save(questionb2_526);
 
 		Question questionb2_543 = new Question(32,
-				"Người lái xe điều khiển xe rẽ trái như thế nào là đúng quy tắc giao thông?", "b2_543.jpg",
-				b2.getId(), set16.getId(), sh.getId());
+				"Người lái xe điều khiển xe rẽ trái như thế nào là đúng quy tắc giao thông?", "b2_543.jpg", b2.getId(),
+				set16.getId(), sh.getId());
 		questionRepo.save(questionb2_543);
 
 		Question questionb2_560 = new Question(33,
@@ -9358,13 +9358,13 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_85);
 
 		Question questionb2_102 = new Question(6,
-				"Trên đường cao tốc, người lái xe phải dừng xe, đỗ xe như thế nào để đảm bảo an toàn giao thông?",
-				"", b2.getId(), set17.getId(), kn.getId());
+				"Trên đường cao tốc, người lái xe phải dừng xe, đỗ xe như thế nào để đảm bảo an toàn giao thông?", "",
+				b2.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionb2_102);
 
 		Question questionb2_119 = new Question(7,
-				"Trên đường cao tốc, người lái xe xử lý như thế nào khi đã vượt quá lối ra của đường định rẽ?",
-				"", b2.getId(), set17.getId(), kn.getId());
+				"Trên đường cao tốc, người lái xe xử lý như thế nào khi đã vượt quá lối ra của đường định rẽ?", "",
+				b2.getId(), set17.getId(), kn.getId());
 		questionRepo.save(questionb2_119);
 
 		Question questionb2_136 = new Question(8,
@@ -9388,8 +9388,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_187);
 
 		Question questionb2_204 = new Question(12,
-				"Trong các hành vi dưới đây, người lái xe ô tô có văn hóa giao thông phải ứng xử như thế nào?",
-				"", b2.getId(), set17.getId(), vh.getId());
+				"Trong các hành vi dưới đây, người lái xe ô tô có văn hóa giao thông phải ứng xử như thế nào?", "",
+				b2.getId(), set17.getId(), vh.getId());
 		questionRepo.save(questionb2_204);
 
 		Question questionb2_221 = new Question(13,
@@ -9416,8 +9416,8 @@ public class DataSeeding implements CommandLineRunner {
 				set17.getId(), ctsc.getId());
 		questionRepo.save(questionb2_289);
 
-		Question questionb2_306 = new Question(18, "Biển nào cấm ô tô tải?", "b2_306.jpg", b2.getId(),
-				set17.getId(), bb.getId());
+		Question questionb2_306 = new Question(18, "Biển nào cấm ô tô tải?", "b2_306.jpg", b2.getId(), set17.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_306);
 
 		Question questionb2_323 = new Question(19, "Biển nào cấm ô tô quay đầu?", "b2_323.jpg", b2.getId(),
@@ -9429,20 +9429,20 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_340.jpg", b2.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionb2_340);
 
-		Question questionb2_357 = new Question(21, "Biển này có ý nghĩa gì?", "b2_357.jpg", b2.getId(),
-				set17.getId(), bb.getId());
+		Question questionb2_357 = new Question(21, "Biển này có ý nghĩa gì?", "b2_357.jpg", b2.getId(), set17.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_357);
 
-		Question questionb2_374 = new Question(22, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?",
-				"b2_374.jpg", b2.getId(), set17.getId(), bb.getId());
+		Question questionb2_374 = new Question(22, "Biển nào báo hiệu \"Giao nhau có tín hiệu đèn\"?", "b2_374.jpg",
+				b2.getId(), set17.getId(), bb.getId());
 		questionRepo.save(questionb2_374);
 
-		Question questionb2_391 = new Question(23, "Biển nào báo hiệu \"Đường hai chiều\"?", "b2_391.jpg",
-				b2.getId(), set17.getId(), bb.getId());
+		Question questionb2_391 = new Question(23, "Biển nào báo hiệu \"Đường hai chiều\"?", "b2_391.jpg", b2.getId(),
+				set17.getId(), bb.getId());
 		questionRepo.save(questionb2_391);
 
-		Question questionb2_408 = new Question(24, "Biển nào sau đây là biển \"Đường trơn\"?", "b2_408.jpg",
-				b2.getId(), set17.getId(), bb.getId());
+		Question questionb2_408 = new Question(24, "Biển nào sau đây là biển \"Đường trơn\"?", "b2_408.jpg", b2.getId(),
+				set17.getId(), bb.getId());
 		questionRepo.save(questionb2_408);
 
 		Question questionb2_425 = new Question(25, "Biển báo này có ý nghĩa gì?", "b2_425.jpg", b2.getId(),
@@ -9453,8 +9453,8 @@ public class DataSeeding implements CommandLineRunner {
 				set17.getId(), bb.getId());
 		questionRepo.save(questionb2_442);
 
-		Question questionb2_459 = new Question(27, "Biển số 1 có ý nghĩa gì?", "b2_459.jpg", b2.getId(),
-				set17.getId(), bb.getId());
+		Question questionb2_459 = new Question(27, "Biển số 1 có ý nghĩa gì?", "b2_459.jpg", b2.getId(), set17.getId(),
+				bb.getId());
 		questionRepo.save(questionb2_459);
 
 		Question questionb2_476 = new Question(28,
@@ -9466,12 +9466,12 @@ public class DataSeeding implements CommandLineRunner {
 				"b2_493.jpg", b2.getId(), set17.getId(), sh.getId());
 		questionRepo.save(questionb2_493);
 
-		Question questionb2_510 = new Question(30, "Xe nào vượt đúng quy tắc giao thông?", "b2_510.jpg",
-				b2.getId(), set17.getId(), sh.getId());
+		Question questionb2_510 = new Question(30, "Xe nào vượt đúng quy tắc giao thông?", "b2_510.jpg", b2.getId(),
+				set17.getId(), sh.getId());
 		questionRepo.save(questionb2_510);
 
-		Question questionb2_527 = new Question(31, "Xe nào vượt đúng quy tăc giao thông?", "b2_527.jpg",
-				b2.getId(), set17.getId(), sh.getId());
+		Question questionb2_527 = new Question(31, "Xe nào vượt đúng quy tăc giao thông?", "b2_527.jpg", b2.getId(),
+				set17.getId(), sh.getId());
 		questionRepo.save(questionb2_527);
 
 		Question questionb2_544 = new Question(32, "Trong hình dưới những xe nào vi phạm quy tắc giao thông?",
@@ -9479,8 +9479,8 @@ public class DataSeeding implements CommandLineRunner {
 		questionRepo.save(questionb2_544);
 
 		Question questionb2_561 = new Question(33,
-				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", "b2_561.jpg",
-				b2.getId(), set17.getId(), sh.getId());
+				"Các xe đi theo hướng mũi tên, xe nào chấp hành đúng quy tắc giao thông?", "b2_561.jpg", b2.getId(),
+				set17.getId(), sh.getId());
 		questionRepo.save(questionb2_561);
 
 		Question questionb2_578 = new Question(34, "Bạn xử lý như thế nào trong trường hợp này?", "b2_578.jpg",

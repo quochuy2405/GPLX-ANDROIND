@@ -63,6 +63,14 @@ public class AccountController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		return new ResponseEntity<>(updatedAccount, HttpStatus.OK);
 	}
+	@PatchMapping("api/account/changepass/{email}")
+	public ResponseEntity<Object> ChangePass(@PathVariable("email") String email, @RequestBody ChangePassword pass) {
+		System.out.println(pass.toString()+email);
+		Account acc = service.changePass(email, pass);
+		if(acc == null) return new ResponseEntity<>(acc, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(acc, HttpStatus.OK);
+	}
+	
 
 	@DeleteMapping("api/account/delete/{id}")
 	public ResponseEntity<Object> DeleteAccount(@PathVariable("id") String id) {
@@ -142,13 +150,6 @@ public class AccountController {
 	
 	}
 	
-	@PatchMapping("api/account/changepass/{email}")
-	public ResponseEntity<Object> ChangePass(@PathVariable("email") String email, @RequestBody ChangePassword pass) {
-		System.out.println(pass.toString()+email);
-		Account acc = service.changePass(email, pass);
-		if(acc == null) return new ResponseEntity<>(acc, HttpStatus.BAD_REQUEST);
-		return new ResponseEntity<>(acc, HttpStatus.OK);
-	}
-	
+
 
 }

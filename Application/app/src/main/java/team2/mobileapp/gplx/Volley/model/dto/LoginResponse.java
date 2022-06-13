@@ -5,6 +5,8 @@ public class LoginResponse {
 
     private String username;
 
+    private String email;
+
     private String roleId;
 
     public String getId() {
@@ -23,6 +25,14 @@ public class LoginResponse {
         this.username = username;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getRoleId() {
         return roleId;
     }
@@ -33,6 +43,11 @@ public class LoginResponse {
 
     @Override
     public String toString() {
-        return "Id=" + id + " " + "RoleId=" + roleId + " " +"Username=" + username;
+        return "LoginResponse{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", roleId='" + roleId + '\'' +
+                '}';
     }
 }

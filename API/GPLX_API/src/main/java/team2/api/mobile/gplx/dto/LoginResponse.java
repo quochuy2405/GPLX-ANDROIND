@@ -10,6 +10,9 @@ public class LoginResponse {
 	@JsonProperty("Username")
 	private String username;
 	
+	@JsonProperty("Email")
+	private String email;
+
 	@JsonProperty("RoleId")
 	private String roleId;
 
@@ -28,7 +31,15 @@ public class LoginResponse {
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
+	public String getEmail() {
+		return email;
+	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 	public String getRoleId() {
 		return roleId;
 	}

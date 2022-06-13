@@ -26,10 +26,10 @@ public class AccountServiceImpl extends GenericServiceImpl<Account, String> impl
 
 	@Autowired
 	private AccountRepository repo;
-	
+
 	@Autowired
 	private RoleRepository roleRepo;
-	
+
 	@Override
 	public Account update(String id, Account account) {
 		try {
@@ -39,7 +39,7 @@ public class AccountServiceImpl extends GenericServiceImpl<Account, String> impl
 			updatedAccount.setAvatar(account.getAvatar());
 			updatedAccount.setStatus(account.getStatus());
 			return repo.save(updatedAccount);
-		} catch(Exception ex) {
+		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 			return null;
 		}
@@ -48,13 +48,20 @@ public class AccountServiceImpl extends GenericServiceImpl<Account, String> impl
 	@Override
 	public LoginResponse Login(DtoLogin dto) {
 		try {
-			Optional<Account> account = Optional.ofNullable(repo.findByUsernameAndPassword(dto.getUsername(),dto.getPassword()).orElse(null));
+			String usernameOrEmail = dto.getLoginType();
+			Optional<Account> account = Optional.empty(); 
+			if (usernameOrEmail.contains("@")) 
+				account = Optional.ofNullable(repo.findByEmailAndPassword(dto.getLoginType(), dto.getPassword()).get());
+			else 
+				account = Optional.ofNullable(repo.findByUsernameAndPassword(dto.getLoginType(), dto.getPassword()).orElse(null));
+			
 			LoginResponse acc = new LoginResponse();
 			acc.setId(account.get().getId());
 			acc.setUsername(account.get().getUsername());
+			acc.setEmail(account.get().getEmail());
 			acc.setRoleId(account.get().getRoleId());
 			return acc;
-		} catch(Exception ex){
+		} catch (Exception ex) {
 			System.out.println(ex.getMessage());
 			return null;
 		}

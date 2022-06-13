@@ -14,6 +14,8 @@ import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.navigation.NavigationBarView;
+
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.AccountCallbackListener;
 import team2.mobileapp.gplx.Retrofit.controllers.AccountController;
@@ -37,6 +39,8 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
+
+        VariableGlobal.IdNavigation = R.id.page_profile;
 
         setContentView(R.layout.activity_edit_profile);
         VariableGlobal.SetNavigationBar(this);
@@ -126,6 +130,8 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
         checkOutFocus = findViewById(R.id.check_out_focus);
         Logout = findViewById(R.id.logout);
         checkOutFocusScroll = findViewById( R.id.profile_scroll);
+
+
     }
 
     @Override
@@ -138,10 +144,14 @@ public class EditProfileActivity extends AppCompatActivity implements AccountCal
             etEmail.setText(account.getEmail());
         }
     }
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        VariableGlobal.IdNavigation=R.id.page_profile;
+        VariableGlobal.SetNavigationBar(this);
+    }
     @Override
     public void onFetchComplete(String message) {
         Log.d("message", message);
     }
-
 }

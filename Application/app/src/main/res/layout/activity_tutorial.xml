@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="team2.mobileapp.gplx.view.TutorialActivity">
+    tools:context="team2.mobileapp.gplx.view.TutorialActivity"
+    android:background="@color/white">
 
     <ImageButton
         android:id="@+id/btn_close"
@@ -20,7 +21,6 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/white"
         android:clickable="true"
-        android:paddingLeft="15dp"
         android:scaleType="fitXY"
         android:src="@drawable/ic_close"
         app:tint="@color/black"

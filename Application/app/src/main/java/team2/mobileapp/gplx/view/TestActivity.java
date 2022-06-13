@@ -412,9 +412,9 @@ public class TestActivity extends AppCompatActivity implements Serializable, His
                 rdAnswer2.setText(ansList[1]);
                 rdAnswer1.setVisibility(View.VISIBLE);
                 rdAnswer2.setVisibility(View.VISIBLE);
-                rdAnswer3.setVisibility(View.INVISIBLE);
-                rdAnswer4.setVisibility(View.INVISIBLE);
-                rdAnswer5.setVisibility(View.INVISIBLE);
+                rdAnswer3.setVisibility(View.GONE);
+                rdAnswer4.setVisibility(View.GONE);
+                rdAnswer5.setVisibility(View.GONE);
                 break;
             case 3:
                 rdAnswer1.setText(ansList[0]);
@@ -423,8 +423,8 @@ public class TestActivity extends AppCompatActivity implements Serializable, His
                 rdAnswer1.setVisibility(View.VISIBLE);
                 rdAnswer2.setVisibility(View.VISIBLE);
                 rdAnswer3.setVisibility(View.VISIBLE);
-                rdAnswer4.setVisibility(View.INVISIBLE);
-                rdAnswer5.setVisibility(View.INVISIBLE);
+                rdAnswer4.setVisibility(View.GONE);
+                rdAnswer5.setVisibility(View.GONE);
                 break;
             case 4:
                 rdAnswer1.setText(ansList[0]);
@@ -435,7 +435,7 @@ public class TestActivity extends AppCompatActivity implements Serializable, His
                 rdAnswer2.setVisibility(View.VISIBLE);
                 rdAnswer3.setVisibility(View.VISIBLE);
                 rdAnswer4.setVisibility(View.VISIBLE);
-                rdAnswer5.setVisibility(View.INVISIBLE);
+                rdAnswer5.setVisibility(View.GONE);
                 break;
             case 5:
                 rdAnswer1.setText(ansList[0]);

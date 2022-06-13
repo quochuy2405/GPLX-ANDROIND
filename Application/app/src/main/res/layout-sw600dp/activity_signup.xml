@@ -2,15 +2,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/check_out_focus_signup"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/check_out_focus_signup"
     tools:context="team2.mobileapp.gplx.view.SignupActivity">
+
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/layout_br"
-        >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="match_parent"
@@ -35,9 +35,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/layout_br"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="-50px"
         android:backgroundTint="@color/gray_milk"
-        android:layout_centerHorizontal="true"
         android:paddingLeft="80dp"
         android:paddingRight="80dp"
         android:paddingBottom="20dp">
@@ -48,28 +48,28 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:padding="10dp"
-            android:textSize="35dp"
-            android:text="@string/text_signup">
+            android:text="@string/text_signup"
+            android:textSize="35dp">
 
         </TextView>
 
-
-            <EditText
-                android:id="@+id/et_fullname"
-                style="@style/EditTextRouder"
-                android:layout_below="@id/title_form"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_weight="1"
-                android:background="@drawable/button_radius"
-                android:backgroundTint="@color/white"
-                android:gravity="center_vertical"
-                android:hint="Tên"
-                android:inputType="text"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp"
-                android:singleLine="true"
-                android:textSize="24dp" />
+        <EditText
+            android:id="@+id/et_fullname"
+            style="@style/EditTextRouder"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@id/title_form"
+            android:layout_weight="1"
+            android:background="@drawable/button_radius"
+            android:backgroundTint="@color/white"
+            android:gravity="center_vertical"
+            android:hint="Tên"
+            android:inputType="text"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:singleLine="true"
+            android:textFontWeight="@integer/material_motion_duration_medium_1"
+            android:textSize="24dp" />
 
         <EditText
             android:id="@+id/et_email_signup"
@@ -79,11 +79,12 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/button_radius"
             android:backgroundTint="@color/white"
-            android:hint="Email"
             android:gravity="center_vertical"
+            android:hint="Email"
             android:inputType="textEmailAddress"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
+            android:textFontWeight="@integer/material_motion_duration_medium_1"
             android:textSize="24dp" />
 
         <EditText
@@ -94,11 +95,12 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/button_radius"
             android:backgroundTint="@color/white"
-            android:hint="Tên đăng nhập"
             android:gravity="center_vertical"
+            android:hint="Tên đăng nhập"
             android:inputType="text"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
+            android:textFontWeight="@integer/material_motion_duration_medium_1"
             android:textSize="24dp" />
 
 
@@ -110,11 +112,12 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/button_radius"
             android:backgroundTint="@color/white"
+            android:gravity="center_vertical"
             android:hint="Mật khẩu"
             android:inputType="textPassword"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
-            android:gravity="center_vertical"
+            android:textFontWeight="@integer/material_motion_duration_medium_1"
             android:textSize="24dp" />
 
         <EditText
@@ -125,11 +128,12 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/button_radius"
             android:backgroundTint="@color/white"
+            android:gravity="center_vertical"
             android:hint="Xác nhận mật khẩu"
             android:inputType="textPassword"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
-            android:gravity="center_vertical"
+            android:textFontWeight="@integer/material_motion_duration_medium_1"
             android:textSize="24dp" />
 
         <Button
@@ -140,8 +144,8 @@
             android:layout_below="@+id/et_password_confirm_signup"
             android:layout_marginTop="20dp"
             android:background="@drawable/br_button2"
-            android:text="@string/text_signup"
             android:gravity="center"
+            android:text="@string/text_signup"
             android:textAlignment="center"
             android:textSize="28dp" />
 
@@ -156,21 +160,21 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/gray"
                 android:text="Bạn đã có tài khoản?"
-                android:textSize="20dp"/>
+                android:textColor="@color/gray"
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/tv_login"
                 android:layout_width="wrap_content"
-                android:clickable="true"
-                android:textStyle="bold"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
+                android:clickable="true"
                 android:text="@string/text_login"
-
                 android:textColor="@color/green_main"
-                android:textSize="20dp"/>
+
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

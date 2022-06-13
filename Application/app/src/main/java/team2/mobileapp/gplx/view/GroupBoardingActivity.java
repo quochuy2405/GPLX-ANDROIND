@@ -116,7 +116,7 @@ public class GroupBoardingActivity extends AppCompatActivity implements TrafficS
 
     @Override
     public void onFetchTrafficSignTypeProgress(List<TrafficSignTypes> trafficSignTypes) {
-        if (!trafficSignTypes.isEmpty()) {
+        if (trafficSignTypes!=null) {
             List<GroupBoardingItem> listGroupBoardings = new ArrayList<>();
             int quantityAll = 0;
             for (TrafficSignTypes trafficType : trafficSignTypes) {

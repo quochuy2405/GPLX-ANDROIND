@@ -24,7 +24,7 @@ import team2.mobileapp.gplx.Volley.model.Account;
 import team2.mobileapp.gplx.Volley.model.dto.LoginResponse;
 import team2.mobileapp.gplx.Volley.model.dto.RegisterResponse;
 
-public class AuthenService  {
+public class AuthenService {
     public static final String BASE_IP = "http://10.0.2.2:8080/api";
 
     Context context;
@@ -39,18 +39,18 @@ public class AuthenService  {
         void onResponse(LoginResponse loginResponse);
     }
 
-    public void Login(String username, String password, LoginCallBack loginCallBack) {
+    public void Login(String loginType, String password, LoginCallBack loginCallBack) {
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(context);
             String requestMapping = "/account/login";
             String url = BASE_IP + requestMapping;
             JSONObject jsonBody = new JSONObject();
-            System.out.println(username + " " + password);
-            jsonBody.put("Username", username);
+            System.out.println(loginType + " " + password);
+            jsonBody.put("LoginType", loginType);
             jsonBody.put("Password", password);
             final String mRequestBody = jsonBody.toString();
 
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url,null, new Response.Listener<JSONObject>() {
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
                     Log.i("LOG_VOLLEY", response.toString());
@@ -58,6 +58,7 @@ public class AuthenService  {
                     try {
                         loginResponse.setRoleId(response.getString("RoleId"));
                         loginResponse.setUsername(response.getString("Username"));
+                        loginResponse.setEmail(response.getString("Email"));
                         loginResponse.setId(response.getString("Id"));
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -68,7 +69,7 @@ public class AuthenService  {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     Activity activity = (Activity) context;
-                    VariableGlobal.showToast(activity, "Không xác thực được tài khoản");
+                    VariableGlobal.showToast(activity, "Đăng nhập thất bại!");
                 }
             }) {
                 @Override
@@ -92,13 +93,13 @@ public class AuthenService  {
         }
     }
 
-    public interface SignupCallBack{
+    public interface SignupCallBack {
         void onError(String message);
 
         void onResponse(RegisterResponse registerResponse);
     }
 
-    public void Register(Account account, SignupCallBack signupCallBack){
+    public void Register(Account account, SignupCallBack signupCallBack) {
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(context);
             String requestMapping = "/account/signup";
@@ -113,7 +114,7 @@ public class AuthenService  {
 
             final String mRequestBody = jsonBody.toString();
 
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url,null, new Response.Listener<JSONObject>() {
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
                     RegisterResponse registerResponse = new RegisterResponse();
@@ -155,13 +156,13 @@ public class AuthenService  {
 
 
     // ChangePassword
-    public interface ChangePasswordCallBack{
+    public interface ChangePasswordCallBack {
         void onError(String message);
 
         void onResponse(Account account);
     }
 
-    public void ChangePassword(String email, ChangePassword changePassword, ChangePasswordCallBack changePasswordCallBack){
+    public void ChangePassword(String email, ChangePassword changePassword, ChangePasswordCallBack changePasswordCallBack) {
         try {
             RequestQueue requestQueue = Volley.newRequestQueue(context);
             String requestMapping = "/account/changepass/" + email;
@@ -172,7 +173,7 @@ public class AuthenService  {
 
             final String mRequestBody = jsonBody.toString();
 
-            JsonObjectRequest request = new JsonObjectRequest(Request.Method.PUT, url,null, new Response.Listener<JSONObject>() {
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.PUT, url, null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
 

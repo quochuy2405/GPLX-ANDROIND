@@ -3,16 +3,16 @@ package team2.api.mobile.gplx.dto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class DtoLogin {
-	@JsonProperty("Username")
-	private String username;
+	@JsonProperty("LoginType")
+	private String loginType;
 	@JsonProperty("Password")
 	private String password;
 	
-	public String getUsername() {
-		return username;
+	public String getLoginType() {
+		return loginType;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setLoginType(String loginType) {
+		this.loginType = loginType;
 	}
 	public String getPassword() {
 		return password;

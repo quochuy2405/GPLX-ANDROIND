@@ -1,12 +1,16 @@
 package team2.mobileapp.gplx.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.navigation.NavigationBarView;
+
+import java.util.ArrayList;
 
 import team2.mobileapp.gplx.R;
 import team2.mobileapp.gplx.Retrofit.callbacks.LicenseCallBackListener;
@@ -14,24 +18,24 @@ import team2.mobileapp.gplx.Retrofit.controllers.LicenseController;
 import team2.mobileapp.gplx.Retrofit.models.License;
 import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
 
-import java.util.ArrayList;
-
 public class SelectCategoryActivity extends AppCompatActivity implements LicenseCallBackListener {
+
 
     LicenseController licenseController;
     RelativeLayout btnA1, btnA2, btnB1, btnB2;
     ArrayList<License> licenses;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         setContentView(R.layout.activity_select_category);
+        VariableGlobal.IdNavigation=R.id.page_home;
         VariableGlobal.SetNavigationBar(this);
         InitialVariable();
 
         licenseController = new LicenseController(this);
         licenseController.startFetching();
-
 
 
     }
@@ -41,11 +45,13 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
         btnA2 = findViewById(R.id.btn_a2);
         btnB1 = findViewById(R.id.btn_b1);
         btnB2 = findViewById(R.id.btn_b2);
+
+
     }
 
     @Override
     public void onFetchProgress(ArrayList<License> licenses) {
-        if(!licenses.isEmpty()){
+        if (!licenses.isEmpty()) {
             this.licenses = licenses;
             btnA1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -53,7 +59,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
                     Intent intent = new Intent(SelectCategoryActivity.this, A1_TestActivity.class);
                     intent.putExtra("License", licenses.get(0));
 
-                    VariableGlobal.typeCode="A1";
+                    VariableGlobal.typeCode = "A1";
                     VariableGlobal.license = licenses.get(0);
                     startActivity(intent);
                 }
@@ -64,7 +70,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
                 public void onClick(View view) {
                     Intent intent = new Intent(SelectCategoryActivity.this, A1_TestActivity.class);
                     intent.putExtra("License", licenses.get(1));
-                    VariableGlobal.typeCode="A2";
+                    VariableGlobal.typeCode = "A2";
                     VariableGlobal.license = licenses.get(1);
                     startActivity(intent);
                 }
@@ -76,7 +82,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
                     Intent intent = new Intent(SelectCategoryActivity.this, A1_TestActivity.class);
                     intent.putExtra("License", licenses.get(2));
                     VariableGlobal.license = licenses.get(2);
-                    VariableGlobal.typeCode="B1";
+                    VariableGlobal.typeCode = "B1";
                     startActivity(intent);
                 }
             });
@@ -87,7 +93,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
                     Intent intent = new Intent(SelectCategoryActivity.this, A1_TestActivity.class);
                     intent.putExtra("License", licenses.get(3));
                     VariableGlobal.license = licenses.get(3);
-                    VariableGlobal.typeCode="B2";
+                    VariableGlobal.typeCode = "B2";
                     startActivity(intent);
                 }
             });
@@ -98,6 +104,7 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
     public void onFetchComplete(String message) {
         Log.d("onFetchComplete", message);
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -109,16 +116,25 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_bottom);
         return super.moveTaskToBack(nonRoot);
 
-    }  @Override
+
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
+
     }
 
     @Override
     protected void onStop() {
         super.onStop();
     }
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        VariableGlobal.IdNavigation=R.id.page_home;
+        VariableGlobal.SetNavigationBar(this);
+    }
     @Override
     protected void onPause() {
         super.onPause();
@@ -130,7 +146,8 @@ public class SelectCategoryActivity extends AppCompatActivity implements License
     }
 
     @Override
-    protected void onRestart() {
-        super.onRestart();
+    protected void onStart() {
+        super.onStart();
+
     }
 }

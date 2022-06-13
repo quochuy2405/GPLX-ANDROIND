@@ -1,7 +1,5 @@
 package team2.mobileapp.gplx.Retrofit.api;
 
-import androidx.annotation.Nullable;
-
 import retrofit2.Call;
 import retrofit2.http.*;
 import team2.mobileapp.gplx.Retrofit.dto.ChangePassword;

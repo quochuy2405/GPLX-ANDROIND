@@ -70,6 +70,7 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
     }
 
     private void ShowLayout() {
+        int fitLayout = 2;
         int total = rightAns + wrongAns;
         final float scale = getResources().getDisplayMetrics().density;
         tv_true_percent.setText((rightAns*100/total) + "%");
@@ -77,8 +78,8 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
         if(license != null){
             if(license.getName().equals("A1")){
                 int minPx = 24;
-                int rightPx = (int) (minPx * rightAns)/(2)+9*rightAns;
-                int wrongPx = (int) (minPx * wrongAns)/(2)+9*wrongAns;
+                int rightPx = (int) (minPx * rightAns)/(2)+fitLayout*rightAns;
+                int wrongPx = (int) (minPx * wrongAns)/(2)+fitLayout*wrongAns;
                 correct.getLayoutParams().height = rightPx;
                 incorrect.getLayoutParams().height = wrongPx;
                 if(rightAns < 21){
@@ -94,8 +95,8 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
             }
             if(license.getName().equals("A2")){
                 int minPx = 24;
-                int rightPx = (int) (minPx * rightAns)/(2)+9*rightAns;
-                int wrongPx = (int) (minPx * wrongAns)/(2)+9*wrongAns;
+                int rightPx = (int) (minPx * rightAns)/(2)+fitLayout*rightAns;
+                int wrongPx = (int) (minPx * wrongAns)/(2)+fitLayout*wrongAns;
                 correct.getLayoutParams().height = rightPx;
                 incorrect.getLayoutParams().height = wrongPx;
                 if(rightAns < 23){
@@ -110,8 +111,8 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
             }
             if(license.getName().equals("B1")){
                 int minPx = 20;
-                int rightPx = (int) (minPx * rightAns)/(2)+9*rightAns;
-                int wrongPx = (int) (minPx * wrongAns)/(2)+9*wrongAns;
+                int rightPx = (int) (minPx * rightAns)/(2)+fitLayout*rightAns;
+                int wrongPx = (int) (minPx * wrongAns)/(2)+fitLayout*wrongAns;
                 correct.getLayoutParams().height = rightPx;
                 incorrect.getLayoutParams().height = wrongPx;
                 if(rightAns < 27){
@@ -127,8 +128,8 @@ public class ResultActivity extends AppCompatActivity implements LicenseByIdCall
             }
             if(license.getName().equals("B2")){
                 int minPx = 17;
-                int rightPx = (int) (minPx * rightAns)/(2)+9*rightAns;
-                int wrongPx = (int) (minPx * wrongAns)/(2)+9*wrongAns;
+                int rightPx = (int) (minPx * rightAns)/(2)+fitLayout*rightAns;
+                int wrongPx = (int) (minPx * wrongAns)/(2)+fitLayout*wrongAns;
                 correct.getLayoutParams().height = rightPx;
                 incorrect.getLayoutParams().height = wrongPx;
                 if(rightAns < 32){

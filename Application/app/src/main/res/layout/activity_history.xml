@@ -18,7 +18,8 @@
         android:layout_below="@+id/header_activity"
         android:divider="@null"
         android:scrollbars="none"
-        tools:listitem="@layout/listview_history_item">
+        tools:listitem="@layout/listview_history_item"
+        android:paddingBottom="50dp">
     </ListView>
     <TextView
         android:id="@+id/no_history"
@@ -29,6 +30,7 @@
         android:visibility="gone"
         android:textSize="0.1in"
         android:textColor="@color/black"></TextView>
+
     <include
         android:id="@+id/bottom_bar"
         layout="@layout/activity_navigation" />

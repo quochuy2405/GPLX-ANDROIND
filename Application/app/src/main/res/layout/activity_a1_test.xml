@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:paddingBottom="10dp"
-                    android:text="Hướng dẫn trả lời "
+                    android:text="Hướng dẫn"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold">
@@ -100,7 +100,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:paddingBottom="10dp"
-                    android:text="Thi theo bộ đề"
+                    android:text="Bộ đề thi"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold">
@@ -130,7 +130,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:paddingBottom="10dp"
-                    android:text="Các loại biển báo"
+                    android:text="Biển báo"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
@@ -162,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:paddingBottom="10dp"
-                    android:text="Ôn tập câu hỏi"
+                    android:text="Ôn tập"
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textStyle="bold">

@@ -8,13 +8,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Vibrator;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import pl.droidsonroids.gif.GifImageView;
 import team2.mobileapp.gplx.R;
@@ -23,7 +21,6 @@ import team2.mobileapp.gplx.Retrofit.controllers.AccountController;
 import team2.mobileapp.gplx.Retrofit.dto.ChangePassword;
 import team2.mobileapp.gplx.Retrofit.models.Account;
 import team2.mobileapp.gplx.VariableGlobal.VariableGlobal;
-import team2.mobileapp.gplx.Volley.service.AuthenService;
 
 public class SetNewPasswordActivity extends AppCompatActivity implements ChangePassCallBackListener {
 
